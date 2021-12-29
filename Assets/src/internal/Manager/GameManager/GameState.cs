@@ -1,3 +1,3 @@
 ﻿public enum GameState {
-    
+    MainMenu
 }
