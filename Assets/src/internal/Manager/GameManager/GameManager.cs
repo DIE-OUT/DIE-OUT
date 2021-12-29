@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour {
         }
         _instance = this;
         _gameState = _startingGameState;
-        DontDestroyOnLoad(gameObject);
     }
     
 }
