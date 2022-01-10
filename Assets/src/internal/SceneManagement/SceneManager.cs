@@ -15,7 +15,7 @@ namespace DieOut.SceneManagement {
         public static event StartAsyncLevelLoading StartAsyncLevelLoading;
         public static event EndAsyncLevelLoading EndAsyncLevelLoading;
         public static float LoadingProgress { get; private set; }
-        [SerializeField] private SceneAsset _loadingScreenScene;
+        [SerializeField] private SceneField _loadingScreenScene;
         private List<AsyncOperation> _scenesLoading = new List<AsyncOperation>();
         private static SceneManager v_instance;
         private static SceneManager _instance {
@@ -35,12 +35,12 @@ namespace DieOut.SceneManagement {
             v_instance = this;
         }
         
-        public static void LoadScenesAsync(params SceneAsset[] scenes) {
+        public static void LoadScenesAsync(params string[] scenes) {
             StartAsyncLevelLoading?.Invoke();
 
-            _instance._scenesLoading.Add(UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(_instance._loadingScreenScene.name, LoadSceneMode.Single));
+            _instance._scenesLoading.Add(UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(_instance._loadingScreenScene.SceneName, LoadSceneMode.Single));
             for(int i = 0; i < scenes.Length; i++) {
-                _instance._scenesLoading.Add(UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(scenes[i].name, LoadSceneMode.Additive));
+                _instance._scenesLoading.Add(UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(scenes[i], LoadSceneMode.Additive));
             }
 
             _instance.StartCoroutine(_instance.GetSceneLoadProgress());
@@ -54,7 +54,7 @@ namespace DieOut.SceneManagement {
                 }
             }
             EndAsyncLevelLoading?.Invoke();
-            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(_loadingScreenScene.name, UnloadSceneOptions.None);
+            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(_loadingScreenScene.SceneName, UnloadSceneOptions.None);
         }
         
         public static int sceneCount => UnityEngine.SceneManagement.SceneManager.sceneCount;
