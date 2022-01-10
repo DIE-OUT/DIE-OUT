@@ -1,3 +1,4 @@
+using DieOut.GameMode;
 using UnityEngine;
 
 public delegate void OnGameStateChange(GameState newGameState, GameState prevGameState);
@@ -5,10 +6,8 @@ public delegate void OnGameStateChange(GameState newGameState, GameState prevGam
 public class GameManager : MonoBehaviour {
     
     public static event OnGameStateChange OnGameStateChange;
-    [SerializeField] private GameState _startingGameState;
     private static GameManager _instance;
-    private GameState _gameState;
-    
+    private GameState _gameState = GameState.StartUp;
     
     public static GameState GameState {
         get {
@@ -29,13 +28,20 @@ public class GameManager : MonoBehaviour {
         }
     }
     
+    /// <summary>
+    /// the current game mode, returns null if not in a game
+    /// </summary>
+    public static GameMode? CurrentGameMode {
+        get;
+        private set;
+    } = null;
+    
     private void Awake() {
         if(_instance != null) {
             Debug.LogWarning("only one GameManager can be active at once");
             return;
         }
         _instance = this;
-        _gameState = _startingGameState;
     }
     
 }
