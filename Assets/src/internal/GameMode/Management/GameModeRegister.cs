@@ -6,6 +6,11 @@ using UnityEngine;
 
 namespace DieOut.GameMode.Management {
     
+    /// <summary>
+    /// a register for all game mode properties
+    /// contains useful methods to retrieve properties of game modes
+    /// this singleton should be instantiated in the startup sequence of the game
+    /// </summary>
     public class GameModeRegister : SerializedMonoBehaviour {
         
         private static GameModeRegister v_instance;
@@ -44,6 +49,12 @@ namespace DieOut.GameMode.Management {
             v_instance = this;
         }
         
+        /// <summary>
+        /// returns all properties of a game mode
+        /// </summary>
+        /// <param name="gameMode">the game mode of which properties to be returned</param>
+        /// <returns>returns all properties of the specified game mode</returns>
+        /// <exception cref="InvalidEnumArgumentException">thrown when the specified game mode is not registered</exception>
         public static GameModeProperties GetGameModeProperties(GameMode gameMode) {
             _instance._gameModeInfos.TryGetValue(gameMode, out GameModeProperties gameModeInfo);
             return gameModeInfo ?? throw new InvalidEnumArgumentException($"the provided game mode '{gameMode.ToString()}' has not been defined in {nameof(GameModeRegister)}");

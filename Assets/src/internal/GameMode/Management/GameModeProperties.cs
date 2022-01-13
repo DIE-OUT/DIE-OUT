@@ -20,10 +20,23 @@ namespace DieOut.GameMode.Management {
         #endregion
         [SerializeField] private SceneField[] _additionalScenes = { new SceneField() };
         
+        /// <summary>
+        /// returns the display name for this game mode
+        /// </summary>
+        /// <returns>the display name for this game mode</returns>>
         public string Name => _displayName;
+        /// <summary>
+        /// returns all maps for this game mode
+        /// </summary>
+        /// <returns>all maps for this game mode</returns>>
         public Map[] Maps => _maps;
+        /// <summary>
+        /// returns all additional scenes for this game mode
+        /// these scenes should be loaded along side the map
+        /// </summary>
+        /// <returns>all additional scenes for this game mode</returns>>
         public SceneField[] AdditionalScenes => _additionalScenes;
-
+        
     }
     
 }
