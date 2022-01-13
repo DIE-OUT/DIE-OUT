@@ -17,12 +17,6 @@ namespace DieOut.GameMode.Management {
             }
         }
         #region Odin
-        [DictionaryDrawerSettings(KeyLabel = "Game Mode", ValueLabel = "Properties", DisplayMode = DictionaryDisplayOptions.OneLine)]
-        [ListDrawerSettings(HideAddButton = true, Expanded = true, AlwaysAddDefaultValue = true, HideRemoveButton = true)]
-        [DisableContextMenu(DisableForCollectionElements = true, DisableForMember = true)]
-        [OnInspectorInit("InitDictionary")]
-        [HideLabel]
-        [HideReferenceObjectPicker()]
         private void InitDictionary() {
             _gameModeInfos ??= new Dictionary<GameMode, GameModeProperties>();
             
@@ -33,6 +27,12 @@ namespace DieOut.GameMode.Management {
                     _gameModeInfos.Add(gameMode, new GameModeProperties());
             }
         }
+        [DictionaryDrawerSettings(KeyLabel = "Game Mode", ValueLabel = "Properties", DisplayMode = DictionaryDisplayOptions.OneLine)]
+        [ListDrawerSettings(HideAddButton = true, Expanded = true, AlwaysAddDefaultValue = true, HideRemoveButton = true)]
+        [DisableContextMenu(DisableForCollectionElements = true, DisableForMember = true)]
+        [OnInspectorInit("InitDictionary")]
+        [HideLabel]
+        [HideReferenceObjectPicker()]
         #endregion
         [OdinSerialize] private Dictionary<GameMode, GameModeProperties> _gameModeInfos = new Dictionary<GameMode, GameModeProperties>();
         
