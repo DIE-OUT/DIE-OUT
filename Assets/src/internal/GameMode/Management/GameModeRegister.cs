@@ -16,8 +16,7 @@ namespace DieOut.GameMode.Management {
                 return v_instance;
             }
         }
-
-        #region Serialization
+        #region Odin
         [DictionaryDrawerSettings(KeyLabel = "Game Mode", ValueLabel = "Properties", DisplayMode = DictionaryDisplayOptions.OneLine)]
         [ListDrawerSettings(HideAddButton = true, Expanded = true, AlwaysAddDefaultValue = true, HideRemoveButton = true)]
         [DisableContextMenu(DisableForCollectionElements = true, DisableForMember = true)]

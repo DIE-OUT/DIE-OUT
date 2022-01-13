@@ -5,14 +5,17 @@ using UnityEngine;
 namespace DieOut.GameMode.Management {
     
     [Serializable]
-    [InlineProperty]
     public class Map {
-        
+
+        #region Odin
         [HideLabel]
         [HideReferenceObjectPicker]
+        #endregion
         [SerializeField] private SceneField _scene = new SceneField();
-        
+
+        #region Odin
         [HideLabel]
+        #endregion
         [SerializeField] private string _displayName;
         
         public SceneField Scene => _scene;
