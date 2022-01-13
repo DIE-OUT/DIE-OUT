@@ -419,9 +419,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 102900000, guid: 39524dfe01dfac9478264536df4c3ef8, type: 3}
-    - {fileID: 102900000, guid: 57779fc25205dc14c813daa6a2dd274e, type: 3}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -429,12 +427,12 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _gameModeInfos
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[DieOut.GameMode.Management.GameMode,
-        Assembly-CSharp],[DieOut.GameMode.Management.GameModeInfo, Assembly-CSharp]],
+      Data: 0|System.Collections.Generic.Dictionary`2[[DieOut.GameMode.GameMode,
+        Assembly-CSharp],[DieOut.GameMode.Management.GameModeProperties, Assembly-CSharp]],
         mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[DieOut.GameMode.Management.GameMode,
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[DieOut.GameMode.GameMode,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -447,7 +445,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
       Data: 
@@ -456,25 +454,37 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 2|DieOut.GameMode.Management.GameModeInfo, Assembly-CSharp
+      Data: 2|DieOut.GameMode.Management.GameModeProperties, Assembly-CSharp
     - Name: _displayName
       Entry: 1
-      Data: dfg
-    - Name: _scenesToBeLoadedWith
+      Data: 
+    - Name: _splashScreen
+      Entry: 6
+      Data: 
+    - Name: _maps
       Entry: 7
-      Data: 3|SceneField[], Assembly-CSharp
+      Data: 3|DieOut.GameMode.Management.Map[], Assembly-CSharp
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 4|SceneField, Assembly-CSharp
+      Data: 4|DieOut.GameMode.Management.Map, Assembly-CSharp
+    - Name: _scene
+      Entry: 7
+      Data: 5|SceneField, Assembly-CSharp
     - Name: m_SceneAsset
-      Entry: 10
-      Data: 0
+      Entry: 6
+      Data: 
     - Name: m_SceneName
       Entry: 1
-      Data: Level01
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _mapName
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -484,75 +494,24 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: _levels
+    - Name: _additionalScenes
       Entry: 7
-      Data: 5|DieOut.GameMode.Management.Level[], Assembly-CSharp
+      Data: 6|SceneField[], Assembly-CSharp
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
-      Entry: 7
-      Data: 6|DieOut.GameMode.Management.Level, Assembly-CSharp
-    - Name: _scene
       Entry: 7
       Data: 7|SceneField, Assembly-CSharp
     - Name: m_SceneAsset
-      Entry: 10
-      Data: 1
-    - Name: m_SceneName
-      Entry: 1
-      Data: MainMenu
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: _levelName
-      Entry: 1
-      Data: fgh
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
-    - Name: $v
-      Entry: 7
-      Data: 8|DieOut.GameMode.Management.GameModeInfo, Assembly-CSharp
-    - Name: _displayName
       Entry: 6
       Data: 
-    - Name: _scenesToBeLoadedWith
-      Entry: 7
-      Data: 9|SceneField[], Assembly-CSharp
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
+    - Name: m_SceneName
+      Entry: 1
       Data: 
     - Name: 
       Entry: 8
       Data: 
-    - Name: _levels
-      Entry: 7
-      Data: 10|DieOut.GameMode.Management.Level[], Assembly-CSharp
-    - Name: 
-      Entry: 12
-      Data: 0
     - Name: 
       Entry: 13
       Data: 

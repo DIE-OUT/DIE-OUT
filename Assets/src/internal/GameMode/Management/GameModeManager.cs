@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
@@ -17,12 +18,29 @@ namespace DieOut.GameMode.Management {
                 return v_instance;
             }
         }
-
-        [DictionaryDrawerSettings(KeyLabel = "Game Mode", ValueLabel = "Info", DisplayMode = DictionaryDisplayOptions.OneLine)]
-        [ListDrawerSettings(HideAddButton = true, Expanded = true, AlwaysAddDefaultValue = true)]
-        [DisableContextMenu()]
-        [OdinSerialize] private Dictionary<GameMode, GameModeInfo> _gameModeInfos = new Dictionary<GameMode, GameModeInfo>();
         
+        [DictionaryDrawerSettings(KeyLabel = "Game Mode", ValueLabel = "Info", DisplayMode = DictionaryDisplayOptions.OneLine)]
+        [ListDrawerSettings(HideAddButton = true, Expanded = true, AlwaysAddDefaultValue = true, HideRemoveButton = true)]
+        [DisableContextMenu(DisableForCollectionElements = true, DisableForMember = true)]
+        [OnInspectorInit("InitDictionary")]
+        [HideLabel]
+        [HideReferenceObjectPicker()]
+        [OdinSerialize] private Dictionary<GameMode, GameModeProperties> _gameModeInfos = new Dictionary<GameMode, GameModeProperties>();
+        
+        private void InitDictionary() {
+            _gameModeInfos ??= new Dictionary<GameMode, GameModeProperties>();
+            
+            IEnumerable<GameMode> gameModes = GetAllEnumValuesOfType<GameMode>();
+
+            foreach(GameMode gameMode in gameModes) {
+                if(!_gameModeInfos.ContainsKey(gameMode))
+                    _gameModeInfos.Add(gameMode, new GameModeProperties());
+            }
+        }
+
+        private IEnumerable<T> GetAllEnumValuesOfType<T>() where T : Enum {
+            return Enum.GetValues(typeof(T)).Cast<T>();
+        }
         
         private void Awake() {
             if(v_instance != null) {
@@ -32,8 +50,8 @@ namespace DieOut.GameMode.Management {
             v_instance = this;
         }
         
-        public static GameModeInfo GetGameModeInfo(GameMode gameMode) {
-            _instance._gameModeInfos.TryGetValue(gameMode, out GameModeInfo gameModeInfo);
+        public static GameModeProperties GetGameModeProperties(GameMode gameMode) {
+            _instance._gameModeInfos.TryGetValue(gameMode, out GameModeProperties gameModeInfo);
             return gameModeInfo ?? throw new InvalidEnumArgumentException($"the provided game mode '{gameMode.ToString()}' has not been defined in game mode manager");
         }
         
