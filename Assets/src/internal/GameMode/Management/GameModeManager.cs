@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
@@ -19,7 +17,7 @@ namespace DieOut.GameMode.Management {
             }
         }
         
-        [DictionaryDrawerSettings(KeyLabel = "Game Mode", ValueLabel = "Info", DisplayMode = DictionaryDisplayOptions.OneLine)]
+        [DictionaryDrawerSettings(KeyLabel = "Game Mode", ValueLabel = "Properties", DisplayMode = DictionaryDisplayOptions.OneLine)]
         [ListDrawerSettings(HideAddButton = true, Expanded = true, AlwaysAddDefaultValue = true, HideRemoveButton = true)]
         [DisableContextMenu(DisableForCollectionElements = true, DisableForMember = true)]
         [OnInspectorInit("InitDictionary")]
@@ -30,16 +28,12 @@ namespace DieOut.GameMode.Management {
         private void InitDictionary() {
             _gameModeInfos ??= new Dictionary<GameMode, GameModeProperties>();
             
-            IEnumerable<GameMode> gameModes = GetAllEnumValuesOfType<GameMode>();
-
+            IEnumerable<GameMode> gameModes = EnumHelper.GetAllEnumValuesOfType<GameMode>();
+            
             foreach(GameMode gameMode in gameModes) {
                 if(!_gameModeInfos.ContainsKey(gameMode))
                     _gameModeInfos.Add(gameMode, new GameModeProperties());
             }
-        }
-
-        private IEnumerable<T> GetAllEnumValuesOfType<T>() where T : Enum {
-            return Enum.GetValues(typeof(T)).Cast<T>();
         }
         
         private void Awake() {
