@@ -6,25 +6,24 @@ using UnityEngine;
 
 namespace DieOut.GameMode.Management {
     
-    public class GameModeManager : SerializedMonoBehaviour {
+    public class GameModeRegister : SerializedMonoBehaviour {
         
-        private static GameModeManager v_instance;
-        private static GameModeManager _instance {
+        private static GameModeRegister v_instance;
+        private static GameModeRegister _instance {
             get {
                 if(v_instance == null)
-                    Debug.LogWarning("there is no GameModeManager instance initialized");
+                    Debug.LogWarning($"there is no {nameof(GameModeRegister)} instance initialized");
                 return v_instance;
             }
         }
-        
+
+        #region Serialization
         [DictionaryDrawerSettings(KeyLabel = "Game Mode", ValueLabel = "Properties", DisplayMode = DictionaryDisplayOptions.OneLine)]
         [ListDrawerSettings(HideAddButton = true, Expanded = true, AlwaysAddDefaultValue = true, HideRemoveButton = true)]
         [DisableContextMenu(DisableForCollectionElements = true, DisableForMember = true)]
         [OnInspectorInit("InitDictionary")]
         [HideLabel]
         [HideReferenceObjectPicker()]
-        [OdinSerialize] private Dictionary<GameMode, GameModeProperties> _gameModeInfos = new Dictionary<GameMode, GameModeProperties>();
-        
         private void InitDictionary() {
             _gameModeInfos ??= new Dictionary<GameMode, GameModeProperties>();
             
@@ -35,10 +34,12 @@ namespace DieOut.GameMode.Management {
                     _gameModeInfos.Add(gameMode, new GameModeProperties());
             }
         }
+        #endregion
+        [OdinSerialize] private Dictionary<GameMode, GameModeProperties> _gameModeInfos = new Dictionary<GameMode, GameModeProperties>();
         
         private void Awake() {
             if(v_instance != null) {
-                Debug.LogWarning("only one GameModeManager can be active at once");
+                Debug.LogWarning($"only one {nameof(GameModeRegister)} can be active at once");
                 return;
             }
             v_instance = this;
@@ -46,7 +47,7 @@ namespace DieOut.GameMode.Management {
         
         public static GameModeProperties GetGameModeProperties(GameMode gameMode) {
             _instance._gameModeInfos.TryGetValue(gameMode, out GameModeProperties gameModeInfo);
-            return gameModeInfo ?? throw new InvalidEnumArgumentException($"the provided game mode '{gameMode.ToString()}' has not been defined in game mode manager");
+            return gameModeInfo ?? throw new InvalidEnumArgumentException($"the provided game mode '{gameMode.ToString()}' has not been defined in {nameof(GameModeRegister)}");
         }
         
     }
