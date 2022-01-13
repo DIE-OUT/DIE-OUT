@@ -13,10 +13,10 @@ namespace DieOut.GameMode.Management {
         [SerializeField] private SceneField _scene = new SceneField();
         
         [HideLabel]
-        [SerializeField] private string _mapName;
+        [SerializeField] private string _displayName;
         
         public SceneField Scene => _scene;
-        public string MapName => _mapName;
+        public string DisplayName => _displayName;
 
     }
     

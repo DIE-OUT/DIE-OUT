@@ -1,5 +1,6 @@
 ﻿using System;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 
 namespace DieOut.GameMode.Management {
@@ -9,7 +10,6 @@ namespace DieOut.GameMode.Management {
         
         [SerializeField] private string _displayName;
         
-        [PreviewField]
         [SerializeField] private Texture2D _splashScreen;
 
         [TableList(AlwaysExpanded = true, DrawScrollView = false)]
