@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using DieOut.Helper;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
@@ -13,14 +14,6 @@ namespace DieOut.GameMode.Management {
     /// </summary>
     public class GameModeRegister : SerializedMonoBehaviour {
         
-        private static GameModeRegister v_instance;
-        private static GameModeRegister _instance {
-            get {
-                if(v_instance == null)
-                    Debug.LogWarning($"there is no {nameof(GameModeRegister)} instance initialized");
-                return v_instance;
-            }
-        }
         #region Odin
         private void InitDictionary() {
             _gameModeInfos ??= new Dictionary<GameMode, GameModeProperties>();
@@ -40,13 +33,10 @@ namespace DieOut.GameMode.Management {
         [HideReferenceObjectPicker()]
         #endregion
         [OdinSerialize] private Dictionary<GameMode, GameModeProperties> _gameModeInfos = new Dictionary<GameMode, GameModeProperties>();
+        private static SingletonInstance<GameModeRegister> _instance;
         
         private void Awake() {
-            if(v_instance != null) {
-                Debug.LogWarning($"only one {nameof(GameModeRegister)} can be active at once");
-                return;
-            }
-            v_instance = this;
+            _instance.Init(this);
         }
         
         /// <summary>
@@ -56,7 +46,7 @@ namespace DieOut.GameMode.Management {
         /// <returns>returns all properties of the specified game mode</returns>
         /// <exception cref="InvalidEnumArgumentException">thrown when the specified game mode is not registered</exception>
         public static GameModeProperties GetGameModeProperties(GameMode gameMode) {
-            _instance._gameModeInfos.TryGetValue(gameMode, out GameModeProperties gameModeInfo);
+            _instance.Get()._gameModeInfos.TryGetValue(gameMode, out GameModeProperties gameModeInfo);
             return gameModeInfo ?? throw new InvalidEnumArgumentException($"the provided game mode '{gameMode.ToString()}' has not been defined in {nameof(GameModeRegister)}");
         }
         
