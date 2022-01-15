@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 1533796090}
   - component: {fileID: 1533796094}
   m_Layer: 5
-  m_Name: MainMenu
+  m_Name: Screen - Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1804,7 +1804,7 @@ GameObject:
   - component: {fileID: 2591880879859676296}
   - component: {fileID: 2591880879859676298}
   m_Layer: 5
-  m_Name: OptionsMenu
+  m_Name: Screen - Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
