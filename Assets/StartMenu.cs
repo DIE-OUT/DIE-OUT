@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using DieOut.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
+    [SerializeField] private SceneField _sampleScene;
+
     void Start()
     {
         
@@ -17,16 +19,12 @@ public class StartMenu : MonoBehaviour
     
     public void PlayGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
-    }
-
-    public void Options()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        SceneManager.LoadScenesAsync(_sampleScene.SceneName);
     }
 
     public void QuitGame()
     {
+        //Debug.Log("Quit");
         Application.Quit();
     }
 }
