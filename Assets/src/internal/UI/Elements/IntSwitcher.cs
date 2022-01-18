@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace DieOut.UI {
+namespace DieOut.UI.Elements {
     
-    public class Switcher : MonoBehaviour {
-
+    public class IntSwitcher : MonoBehaviour {
+        
         [SerializeField] private TMP_Text _label;
-        [SerializeField] private List<string> _options = new List<string>();
-        private List<string> Options {
+        [SerializeField] private List<int> _options = new List<int>();
+        private List<int> Options {
             get => _options;
             set {
                 _options = value;
@@ -35,9 +34,9 @@ namespace DieOut.UI {
             Refresh();
         }
 
-        public string GetSelected() {
+        public int GetSelected() {
             if(_index < 0 || (_index + 1) > _options.Count)
-                return null;
+                return default;
             return Options[_index];
         }
         
@@ -50,7 +49,7 @@ namespace DieOut.UI {
         }
         
         private void Refresh() {
-            _label.text = GetSelected();
+            _label.text = GetSelected().ToString();
         }
         
     }
