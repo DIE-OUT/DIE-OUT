@@ -33,6 +33,14 @@ public class @InputTable : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Tackle"",
+                    ""type"": ""Button"",
+                    ""id"": ""4949a35a-c232-4f86-a3a7-e3a037715393"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -123,6 +131,17 @@ public class @InputTable : IInputActionCollection, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd19726d-e1b6-4f35-a994-1a01c08a6168"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Tackle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -156,6 +175,7 @@ public class @InputTable : IInputActionCollection, IDisposable
         m_CharacterControls = asset.FindActionMap("CharacterControls", throwIfNotFound: true);
         m_CharacterControls_Move = m_CharacterControls.FindAction("Move", throwIfNotFound: true);
         m_CharacterControls_Jump = m_CharacterControls.FindAction("Jump", throwIfNotFound: true);
+        m_CharacterControls_Tackle = m_CharacterControls.FindAction("Tackle", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,12 +227,14 @@ public class @InputTable : IInputActionCollection, IDisposable
     private ICharacterControlsActions m_CharacterControlsActionsCallbackInterface;
     private readonly InputAction m_CharacterControls_Move;
     private readonly InputAction m_CharacterControls_Jump;
+    private readonly InputAction m_CharacterControls_Tackle;
     public struct CharacterControlsActions
     {
         private @InputTable m_Wrapper;
         public CharacterControlsActions(@InputTable wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_CharacterControls_Move;
         public InputAction @Jump => m_Wrapper.m_CharacterControls_Jump;
+        public InputAction @Tackle => m_Wrapper.m_CharacterControls_Tackle;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -228,6 +250,9 @@ public class @InputTable : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJump;
+                @Tackle.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnTackle;
+                @Tackle.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnTackle;
+                @Tackle.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnTackle;
             }
             m_Wrapper.m_CharacterControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -238,6 +263,9 @@ public class @InputTable : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Tackle.started += instance.OnTackle;
+                @Tackle.performed += instance.OnTackle;
+                @Tackle.canceled += instance.OnTackle;
             }
         }
     }
@@ -264,5 +292,6 @@ public class @InputTable : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnTackle(InputAction.CallbackContext context);
     }
 }
