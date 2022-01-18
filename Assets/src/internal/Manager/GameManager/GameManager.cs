@@ -1,4 +1,5 @@
 using DieOut.GameMode;
+using DieOut.Helper;
 using UnityEngine;
 
 public delegate void OnGameStateChange(GameState newGameState, GameState prevGameState);
@@ -6,25 +7,14 @@ public delegate void OnGameStateChange(GameState newGameState, GameState prevGam
 public class GameManager : MonoBehaviour {
     
     public static event OnGameStateChange OnGameStateChange;
-    private static GameManager _instance;
+    private static SingletonInstance<GameManager> _instance;
     private GameState _gameState = GameState.StartUp;
-    
     public static GameState GameState {
-        get {
-            if(_instance == null) {
-                Debug.LogWarning("there is no GameManager instance initialized");
-                return default;
-            }
-            return _instance._gameState;
-        }
+        get => _instance.Get()._gameState;
         set {
-            if(_instance == null) {
-                Debug.LogWarning("there is no GameManager instance initialized");
-                return;
-            }
             if(value != GameState)
                 OnGameStateChange?.Invoke(value, GameState);
-            _instance._gameState = value;
+            _instance.Get()._gameState = value;
         }
     }
     
@@ -37,11 +27,7 @@ public class GameManager : MonoBehaviour {
     } = null;
     
     private void Awake() {
-        if(_instance != null) {
-            Debug.LogWarning("only one GameManager can be active at once");
-            return;
-        }
-        _instance = this;
+        _instance.Init(this);
     }
     
 }
