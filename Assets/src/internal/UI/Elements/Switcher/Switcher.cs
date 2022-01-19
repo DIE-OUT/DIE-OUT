@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using TMPro;
@@ -10,21 +11,26 @@ namespace DieOut.UI.Elements {
     
     public class Switcher : SerializedMonoBehaviour {
         
-        private SwitcherType _type;
-        [OdinSerialize] [PropertyOrder(-100)] [HideInPlayMode]
-        public SwitcherType Type {
-            get => _type;
+        private ISwitcherControl _switchControl;
+        [OdinSerialize] [InlineProperty] [HideReferenceObjectPicker] [HideLabel] [TypeFilter("GetFilteredTypes")] [PropertyOrder(-100)]
+        private ISwitcherControl SwitchControl {
+            get => _switchControl;
             set {
-                _type = value;
-                _switchControl = ConvertSwitcherTypeToISwitcherControl(value);
+                _switchControl = value ?? new StringSwitcherControl(null);
+                _switchControl.SetDefaultOptions();
             }
         }
-        [OdinSerialize] [InlineProperty] [HideReferenceObjectPicker] [HideLabel]
-        private ISwitcherControl _switchControl;
+        [Title("References")]
         [SerializeField] private TMP_Text _label;
         [SerializeField] private Button _prevButton;
         [SerializeField] private Button _nextButton;
-        
+
+        private IEnumerable<Type> GetFilteredTypes() {
+            return typeof(ISwitcherControl).Assembly.GetTypes().
+                Where(x => !x.IsAbstract).
+                Where(x => !x.IsGenericTypeDefinition).
+                Where(x => typeof(ISwitcherControl).IsAssignableFrom(x));
+        }
         
         private void Awake() {
             _prevButton.onClick.AddListener(Prev);
@@ -47,19 +53,6 @@ namespace DieOut.UI.Elements {
         
         public void Refresh() {
             _label.text = _switchControl.GetValueAsText();
-        }
-        
-        private ISwitcherControl ConvertSwitcherTypeToISwitcherControl(SwitcherType switcherType) {
-            switch(switcherType) {
-                case SwitcherType.Int:
-                    return new IntSwitcherControl(new List<int>() { 0, 1, 2 });
-                case SwitcherType.String:
-                    return new StringSwitcherControl(new List<string>() { "Option 1", "Option 2", "Option 3" });
-                case SwitcherType.Enum:
-                    return new EnumSwitcherControl(new List<Enum>() { EnumSwitcherControl.ExampleEnum.FirstExampleEnum, EnumSwitcherControl.ExampleEnum.SecondExampleEnum, EnumSwitcherControl.ExampleEnum.ThirdExampleEnum } );
-                default:
-                    return null;
-            }
         }
         
     }

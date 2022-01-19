@@ -7,6 +7,10 @@ namespace DieOut.UI.Elements {
     public class IntSwitcherControl : GenericSwitcherControl<int> {
         
         public IntSwitcherControl(List<int> options) : base(options) { }
+
+        protected override List<int> GetDefaultOption() {
+            return new List<int>() { 0, 1, 2 };
+        }
         
     }
     

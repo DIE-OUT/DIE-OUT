@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace DieOut.UI.Elements {
@@ -10,16 +9,9 @@ namespace DieOut.UI.Elements {
     public class GenericSwitcherControl<T> : ISwitcherControl {
         
         public event OnValueChanged OnValueChanged;
-        private List<T> _options;
+
         [OdinSerialize] [ListDrawerSettings(Expanded = true)] [DisableContextMenu]
-        public List<T> Options {
-            get => _options;
-            set {
-                _options = value;
-                ClampIndex();
-                OnValueChanged?.Invoke();
-            }
-        }
+        private List<T> _options;
         private int _currentIndex;
         private int CurrentIndex {
             get => _currentIndex;
@@ -31,10 +23,18 @@ namespace DieOut.UI.Elements {
         }
         private Func<T, string> _getString;
         
+        public void SetDefaultOptions() {
+            _options = GetDefaultOption() ?? new List<T>() { default, default, default };
+        }
+        
+        protected virtual List<T> GetDefaultOption() {
+            return new List<T>() { default, default, default };
+        }
+        
         public GenericSwitcherControl(List<T> options, Func<T, string> getString = null) {
             _getString = getString ?? (o => o.ToString());
             
-            Options = options;
+            _options = options ?? new List<T>() { default, default, default };
         }
         
         public void Prev() {
@@ -54,15 +54,15 @@ namespace DieOut.UI.Elements {
         }
         
         public object GetValue() {
-            return Options[_currentIndex];
+            return _options[_currentIndex];
         }
         
         public string GetValueAsText() {
-            return Options[_currentIndex].ToString();
+            return _options[_currentIndex].ToString();
         }
 
         private void ClampIndex() {
-            _currentIndex = Mathf.Clamp(_currentIndex, 0, Options.Count - 1);
+            _currentIndex = Mathf.Clamp(_currentIndex, 0, _options.Count - 1);
             Debug.Log("Clamped Index");
         }
         
