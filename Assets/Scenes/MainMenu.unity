@@ -631,7 +631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 516255183093772048, guid: d710ca9fe164f804c9f0540a36e4e481, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1237.275
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 516255183093772048, guid: d710ca9fe164f804c9f0540a36e4e481, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2262,6 +2262,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6513889103421117572, guid: ace51cfd1a35a944c8786bf742b5056c, type: 3}
+      propertyPath: m_text
+      value: Graphics Quality
+      objectReference: {fileID: 0}
     - target: {fileID: 6513889104872575543, guid: ace51cfd1a35a944c8786bf742b5056c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2288,6 +2292,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ace51cfd1a35a944c8786bf742b5056c, type: 3}
+--- !u!114 &985820424 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4740845814823220923, guid: ace51cfd1a35a944c8786bf742b5056c, type: 3}
+  m_PrefabInstance: {fileID: 985820423}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced81804304141cda97ab8e59e5566b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &993093056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2718,7 +2733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _masterAudioSwitcher: {fileID: 1939889990}
   _windowModeSwitcher: {fileID: 993093057}
-  _audioMixer: {fileID: 24100000, guid: fd92bfebaa29b4f4cb296c3610d741b8, type: 2}
+  _graphicsQualityLevelSwitcher: {fileID: 985820424}
 --- !u!114 &1069615459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4037,7 +4052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 437.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1598897067

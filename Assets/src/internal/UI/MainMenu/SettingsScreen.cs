@@ -1,4 +1,5 @@
 ﻿using DieOut.AudioManagement;
+using DieOut.GraphicsQualityManagement;
 using DieOut.UI.Elements;
 using DieOut.WindowManagement;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace DieOut.UI.MainMenu {
         [Header("UI References")]
         [SerializeField] private Switcher _masterAudioSwitcher;
         [SerializeField] private Switcher _windowModeSwitcher;
+        [SerializeField] private Switcher _graphicsQualityLevelSwitcher;
         
         
         private void Awake() {
@@ -20,6 +22,10 @@ namespace DieOut.UI.MainMenu {
             ISwitchControl windowModeSwitchControl = new EnumSwitchControl<WindowMode>(WindowManager.CurrentWindowMode);
             windowModeSwitchControl.OnValueChanged += (value, _) => WindowManager.SetWindowMode((WindowMode) value);
             _windowModeSwitcher.AssignControl(windowModeSwitchControl);
+            
+            ISwitchControl graphicsQualityLevelSwitchControl = new EnumSwitchControl<GraphicsQualityLevel>(GraphicsQualityManger.CurrenGraphicsQualityLevel);
+            graphicsQualityLevelSwitchControl.OnValueChanged += (value, _) => WindowManager.SetWindowMode((WindowMode) value);
+            _graphicsQualityLevelSwitcher.AssignControl(graphicsQualityLevelSwitchControl);
         }
         
     }
