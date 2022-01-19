@@ -49,10 +49,6 @@ namespace DieOut.UI.Elements {
         public string GetValueAsText() {
             return CurrentValue.ToString();
         }
-
-        public void SetDefaultOptions() {
-            _range = new Range<int>(-10, 10);
-        }
         
         public struct Range<T> where T : IComparable {
             public T Min;

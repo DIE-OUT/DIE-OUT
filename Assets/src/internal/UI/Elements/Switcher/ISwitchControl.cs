@@ -9,7 +9,6 @@
         public void SelectLast();
         public object GetValue();
         public string GetValueAsText();
-        public void SetDefaultOptions();
         public event OnValueChanged OnValueChanged;
     }
     

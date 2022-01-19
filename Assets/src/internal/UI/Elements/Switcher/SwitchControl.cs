@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace DieOut.UI.Elements {
@@ -19,20 +20,11 @@ namespace DieOut.UI.Elements {
         }
         private Func<T, string> _getString;
         
-        public void SetDefaultOptions() {
-            _options = GetDefaultOption() ?? new List<T>() { default, default, default };
-        }
-        
-        protected virtual List<T> GetDefaultOption() {
-            return new List<T>() { default, default, default };
-        }
-        
-        public SwitchControl(List<T> options, Func<T, string> getString = null) {
+        public SwitchControl([NotNull] IEnumerable<T> options, Func<T, string> getString = null) {
             _getString = getString ?? (o => o.ToString());
-            
-            _options = options ?? new List<T>() { default, default, default };
+            _options = new List<T>(options);
         }
-
+        
         public void SelectFirst() {
             CurrentIndex = 0;
         }
@@ -44,7 +36,7 @@ namespace DieOut.UI.Elements {
         public void SelectNext() {
             CurrentIndex++;
         }
-
+        
         public void SelectLast() {
             CurrentIndex = _options.Count - 1;
         }
