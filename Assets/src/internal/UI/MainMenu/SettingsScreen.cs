@@ -1,9 +1,7 @@
-﻿using System;
-using DieOut.AudioManagement;
+﻿using DieOut.AudioManagement;
 using DieOut.UI.Elements;
 using DieOut.WindowManagement;
 using UnityEngine;
-using UnityEngine.Audio;
 
 namespace DieOut.UI.MainMenu {
     

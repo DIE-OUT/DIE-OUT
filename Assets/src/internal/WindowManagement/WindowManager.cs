@@ -1,11 +1,22 @@
 ﻿using System.ComponentModel;
+using DieOut.Helper;
 using UnityEngine;
 
 namespace DieOut.WindowManagement {
     
-    public static class WindowManager {
+    public class WindowManager : MonoBehaviour {
+        
+        public static WindowMode CurrentWindowMode { get; private set; }
+        private static SingletonInstance<WindowManager> _instance;
+        
+        
+        private void Awake() {
+            _instance.Init(this);
+            SetWindowMode(WindowMode.Window);
+        }
         
         public static void SetWindowMode(WindowMode windowMode) {
+            CurrentWindowMode = windowMode;
             switch(windowMode) {
                 case WindowMode.WindowedFullScreen:
                     Screen.SetResolution(Display.main.systemWidth, Display.main.systemHeight, FullScreenMode.FullScreenWindow);
