@@ -29,8 +29,11 @@ namespace DieOut.UI.Elements {
                 OnValueChanged?.Invoke();
             }
         }
+        private Func<T, string> _getString;
         
-        public GenericSwitcherControl(List<T> options) {
+        public GenericSwitcherControl(List<T> options, Func<T, string> getString = null) {
+            _getString = getString ?? (o => o.ToString());
+            
             Options = options;
         }
         
