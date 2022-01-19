@@ -3,7 +3,7 @@ using DieOut.UI.Elements;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace DieOut.UI.SessionScreen {
+namespace DieOut.UI.MainMenu {
     
     public class SessionScreen : MonoBehaviour {
         
