@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 
 namespace DieOut.UI.Elements {
     
-    public class GenericSwitchControl<T> : ISwitchControl {
+    public class SwitchControl<T> : ISwitchControl {
         
         public event OnValueChanged OnValueChanged;
-        
-        [OdinSerialize] [ListDrawerSettings(Expanded = true)] [DisableContextMenu]
         private List<T> _options;
         private int _currentIndex;
         private int CurrentIndex {
@@ -31,39 +27,46 @@ namespace DieOut.UI.Elements {
             return new List<T>() { default, default, default };
         }
         
-        public GenericSwitchControl(List<T> options, Func<T, string> getString = null) {
+        public SwitchControl(List<T> options, Func<T, string> getString = null) {
             _getString = getString ?? (o => o.ToString());
             
             _options = options ?? new List<T>() { default, default, default };
         }
+
+        public void SelectFirst() {
+            CurrentIndex = 0;
+        }
         
-        public void Prev() {
+        public void SelectPrev() {
             CurrentIndex--;
         }
         
-        public void Next() {
+        public void SelectNext() {
             CurrentIndex++;
         }
+
+        public void SelectLast() {
+            CurrentIndex = _options.Count - 1;
+        }
         
-        public void Select(object objectToSelect) {
+        public void Select(T option) {
             throw new NotImplementedException();
         }
         
-        public void SelectIndex(int index) {
+        public void SelectAt(int index) {
             CurrentIndex = index;
         }
         
         public object GetValue() {
-            return _options[_currentIndex];
+            return _options[CurrentIndex];
         }
         
         public string GetValueAsText() {
-            return _options[_currentIndex].ToString();
+            return _options[CurrentIndex].ToString();
         }
 
         private void ClampIndex() {
             _currentIndex = Mathf.Clamp(_currentIndex, 0, _options.Count - 1);
-            Debug.Log("Clamped Index");
         }
         
     }

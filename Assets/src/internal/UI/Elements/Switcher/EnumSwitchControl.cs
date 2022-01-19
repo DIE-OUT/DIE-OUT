@@ -3,20 +3,12 @@ using System.Collections.Generic;
 
 namespace DieOut.UI.Elements {
     
-    public class EnumSwitchControl : GenericSwitchControl<Enum> {
+    public class EnumSwitchControl<T> : SwitchControl<T> where T: Enum {
+
+        public EnumSwitchControl() : base(new List<T>(EnumHelper.GetAllEnumValuesOfType<T>())) { }
         
-        public EnumSwitchControl(List<Enum> options) : base(options) { }
-
-        protected override List<Enum> GetDefaultOption() {
-            return new List<Enum>() { ExampleEnum.FirstExampleEnum, ExampleEnum.SecondExampleEnum, ExampleEnum.ThirdExampleEnum };
-        }
-
-        public enum ExampleEnum {
-            FirstExampleEnum,
-            SecondExampleEnum,
-            ThirdExampleEnum
-        }
+        public EnumSwitchControl(List<T> options) : base(options) { }
         
     }
-    
+
 }
