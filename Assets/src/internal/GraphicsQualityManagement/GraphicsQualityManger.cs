@@ -6,7 +6,9 @@ namespace DieOut.GraphicsQualityManagement {
     
     public class GraphicsQualityManger : MonoBehaviour {
 
-        public static GraphicsQualityLevel CurrenGraphicsQualityLevel => (GraphicsQualityLevel) QualitySettings.GetQualityLevel();
+        public static int CurrentGraphicsQualityLevelIndex => QualitySettings.GetQualityLevel();
+        public static string GetGraphicsQualityLevelNameByIndex(int index) => QualitySettings.names[index];
+        public static int GraphicsLevelCount => QualitySettings.names.Length;
         private static SingletonInstance<GraphicsQualityManger> _instance;
         
         
@@ -14,8 +16,8 @@ namespace DieOut.GraphicsQualityManagement {
             _instance.Init(this);
         }
         
-        public static void SetGraphicsQualityLevel(GraphicsQualityLevel graphicsQualityLevel) {
-            QualitySettings.SetQualityLevel((int) graphicsQualityLevel);
+        public static void SetGraphicsQualityLevel(int index) {
+            QualitySettings.SetQualityLevel(index);
         }
         
     }

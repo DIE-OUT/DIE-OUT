@@ -15,9 +15,11 @@ namespace DieOut.UI.Elements {
             }
         }
         private Range<int> _range;
+        private Func<int, string> _getString;
         
         
-        public RangedIntSwitchControl(Range<int> range, int startingValue) {
+        public RangedIntSwitchControl(Range<int> range, int startingValue, Func<int, string> getString = null) {
+            _getString = getString ?? (o => o.ToString());
             _range = range;
             CurrentValue = startingValue;
         }
@@ -47,7 +49,7 @@ namespace DieOut.UI.Elements {
         }
 
         public string GetValueAsText() {
-            return CurrentValue.ToString();
+            return _getString(CurrentValue);
         }
         
         public struct Range<T> where T : IComparable {

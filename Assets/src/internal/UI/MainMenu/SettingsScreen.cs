@@ -1,4 +1,5 @@
-﻿using DieOut.AudioManagement;
+﻿using System.Linq.Expressions;
+using DieOut.AudioManagement;
 using DieOut.GraphicsQualityManagement;
 using DieOut.UI.Elements;
 using DieOut.WindowManagement;
@@ -23,8 +24,8 @@ namespace DieOut.UI.MainMenu {
             windowModeSwitchControl.OnValueChanged += (value, _) => WindowManager.SetWindowMode((WindowMode) value);
             _windowModeSwitcher.AssignControl(windowModeSwitchControl);
             
-            ISwitchControl graphicsQualityLevelSwitchControl = new EnumSwitchControl<GraphicsQualityLevel>(GraphicsQualityManger.CurrenGraphicsQualityLevel);
-            graphicsQualityLevelSwitchControl.OnValueChanged += (value, _) => WindowManager.SetWindowMode((WindowMode) value);
+            ISwitchControl graphicsQualityLevelSwitchControl = new RangedIntSwitchControl(new RangedIntSwitchControl.Range<int>(0, GraphicsQualityManger.GraphicsLevelCount - 1), GraphicsQualityManger.CurrentGraphicsQualityLevelIndex, GraphicsQualityManger.GetGraphicsQualityLevelNameByIndex);
+            graphicsQualityLevelSwitchControl.OnValueChanged += (value, _) => GraphicsQualityManger.SetGraphicsQualityLevel((int) value);
             _graphicsQualityLevelSwitcher.AssignControl(graphicsQualityLevelSwitchControl);
         }
         
