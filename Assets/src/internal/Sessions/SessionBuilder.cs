@@ -2,12 +2,13 @@
 
 namespace DieOut.Sessions {
     
+    [Serializable]
     public class SessionBuilder {
-        
-        public int PlayerCount { get; set; }
-        public GameMode.GameMode ActivatedGameModes { get; set; } = GameMode.GameMode.Dornenkrone;
-        public int MaxRounds { get; set; } = 5;
-        public int WinningScore { get; set; } = 3;
+
+        public int PlayerCount;
+        public GameMode.GameMode ActivatedGameModes = GameMode.GameMode.Dornenkrone;
+        public int MaxRounds = 5;
+        public int WinningScore = 3;
 
         public bool IsValid() {
             if(MaxRounds < 1) return false;

@@ -9,7 +9,7 @@ namespace DieOut.UI.Elements {
     public class GenericSwitchControl<T> : ISwitchControl {
         
         public event OnValueChanged OnValueChanged;
-
+        
         [OdinSerialize] [ListDrawerSettings(Expanded = true)] [DisableContextMenu]
         private List<T> _options;
         private int _currentIndex;
@@ -18,7 +18,7 @@ namespace DieOut.UI.Elements {
             set {
                 _currentIndex = value;
                 ClampIndex();
-                OnValueChanged?.Invoke();
+                OnValueChanged?.Invoke(GetValue(), GetValueAsText());
             }
         }
         private Func<T, string> _getString;

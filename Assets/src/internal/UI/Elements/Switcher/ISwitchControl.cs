@@ -1,6 +1,6 @@
 ﻿namespace DieOut.UI.Elements {
     
-    public delegate void OnValueChanged();
+    public delegate void OnValueChanged(object value, string valueAsText);
     
     public interface ISwitchControl {
         public void Prev();

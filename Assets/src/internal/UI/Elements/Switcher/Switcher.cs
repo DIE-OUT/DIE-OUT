@@ -36,7 +36,6 @@ namespace DieOut.UI.Elements {
             _prevButton.onClick.AddListener(Prev);
             _nextButton.onClick.AddListener(Next);
             _switchControl.OnValueChanged += Refresh;
-            Refresh();
         }
 
         public void SetSwitchControl<T>(GenericSwitchControl<T> switchControl) {
@@ -44,6 +43,7 @@ namespace DieOut.UI.Elements {
                 _switchControl.OnValueChanged -= Refresh;
             _switchControl = switchControl;
             _switchControl.OnValueChanged += Refresh;
+            RefreshManually();
         }
         
         public object GetValue() {
@@ -58,7 +58,11 @@ namespace DieOut.UI.Elements {
             _switchControl.Next();
         }
         
-        public void Refresh() {
+        private void Refresh(object value, string valueAsText) {
+            _label.text = valueAsText;
+        }
+
+        public void RefreshManually() {
             _label.text = _switchControl.GetValueAsText();
         }
         
