@@ -2,7 +2,7 @@
     
     public delegate void OnValueChanged();
     
-    public interface ISwitcherControl {
+    public interface ISwitchControl {
         public void Prev();
         public void Next();
         public void Select(object objectToSelect);

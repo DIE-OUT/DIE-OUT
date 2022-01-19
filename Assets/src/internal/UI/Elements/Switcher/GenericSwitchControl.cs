@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace DieOut.UI.Elements {
     
-    public class GenericSwitcherControl<T> : ISwitcherControl {
+    public class GenericSwitchControl<T> : ISwitchControl {
         
         public event OnValueChanged OnValueChanged;
 
@@ -31,7 +31,7 @@ namespace DieOut.UI.Elements {
             return new List<T>() { default, default, default };
         }
         
-        public GenericSwitcherControl(List<T> options, Func<T, string> getString = null) {
+        public GenericSwitchControl(List<T> options, Func<T, string> getString = null) {
             _getString = getString ?? (o => o.ToString());
             
             _options = options ?? new List<T>() { default, default, default };

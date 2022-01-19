@@ -11,12 +11,12 @@ namespace DieOut.UI.Elements {
     
     public class Switcher : SerializedMonoBehaviour {
         
-        private ISwitcherControl _switchControl;
+        private ISwitchControl _switchControl;
         [OdinSerialize] [InlineProperty] [HideReferenceObjectPicker] [HideLabel] [TypeFilter("GetFilteredTypes")] [PropertyOrder(-100)]
-        private ISwitcherControl SwitchControl {
+        private ISwitchControl SwitchControl {
             get => _switchControl;
             set {
-                _switchControl = value ?? new StringSwitcherControl(null);
+                _switchControl = value ?? new StringSwitchControl(null);
                 _switchControl.SetDefaultOptions();
             }
         }
@@ -26,10 +26,10 @@ namespace DieOut.UI.Elements {
         [SerializeField] private Button _nextButton;
 
         private IEnumerable<Type> GetFilteredTypes() {
-            return typeof(ISwitcherControl).Assembly.GetTypes().
+            return typeof(ISwitchControl).Assembly.GetTypes().
                 Where(x => !x.IsAbstract).
                 Where(x => !x.IsGenericTypeDefinition).
-                Where(x => typeof(ISwitcherControl).IsAssignableFrom(x));
+                Where(x => typeof(ISwitchControl).IsAssignableFrom(x));
         }
         
         private void Awake() {
