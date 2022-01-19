@@ -10,9 +10,9 @@ using UnityEngine.UI;
 namespace DieOut.UI.Elements {
     
     public class Switcher : SerializedMonoBehaviour {
-        
+         
         private ISwitchControl _switchControl;
-        [OdinSerialize] [InlineProperty] [HideReferenceObjectPicker] [HideLabel] [TypeFilter("GetFilteredTypes")] [PropertyOrder(-100)]
+        [OdinSerialize] [InlineProperty] [HideReferenceObjectPicker] [HideLabel] [TypeFilter("GetFilteredTypes")] [PropertyOrder(-100)] [HideInPlayMode]
         private ISwitchControl SwitchControl {
             get => _switchControl;
             set {
@@ -37,6 +37,13 @@ namespace DieOut.UI.Elements {
             _nextButton.onClick.AddListener(Next);
             _switchControl.OnValueChanged += Refresh;
             Refresh();
+        }
+
+        public void SetSwitchControl<T>(GenericSwitchControl<T> switchControl) {
+            if(_switchControl != null)
+                _switchControl.OnValueChanged -= Refresh;
+            _switchControl = switchControl;
+            _switchControl.OnValueChanged += Refresh;
         }
         
         public object GetValue() {
