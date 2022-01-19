@@ -7,12 +7,13 @@ namespace DieOut.WindowManagement {
     public class WindowManager : MonoBehaviour {
         
         public static WindowMode CurrentWindowMode { get; private set; }
+        [SerializeField] private WindowMode _startingWindowMode = WindowMode.WindowedFullScreen;
         private static SingletonInstance<WindowManager> _instance;
         
         
         private void Awake() {
             _instance.Init(this);
-            SetWindowMode(WindowMode.Window);
+            SetWindowMode(_startingWindowMode);
         }
         
         public static void SetWindowMode(WindowMode windowMode) {

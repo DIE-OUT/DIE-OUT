@@ -15,11 +15,11 @@ namespace DieOut.UI.MainMenu {
         private void Awake() {
             _sessionBuilder = new SessionBuilder();
 
-            ISwitchControl winningScoreSwitchControl = new RangedIntSwitchControl(new RangedIntSwitchControl.Range<int>(1, 10));
+            ISwitchControl winningScoreSwitchControl = new RangedIntSwitchControl(new RangedIntSwitchControl.Range<int>(1, 10), _sessionBuilder.WinningScore);
             winningScoreSwitchControl.OnValueChanged += (value, valueAsText) => _sessionBuilder.WinningScore = (int) value;
             _winningScoreSwitcher.AssignControl(winningScoreSwitchControl);
             
-            _winningScoreSwitcher.AssignControl( new EnumSwitchControl<KeyCode>());
+            _winningScoreSwitcher.AssignControl( new EnumSwitchControl<KeyCode>(KeyCode.None));
         }
         
     }

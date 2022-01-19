@@ -13,11 +13,11 @@ namespace DieOut.UI.MainMenu {
         
         
         private void Awake() {
-            ISwitchControl masterAudioSwitchControl = new RangedIntSwitchControl(new RangedIntSwitchControl.Range<int>(0, 10));
+            ISwitchControl masterAudioSwitchControl = new RangedIntSwitchControl(new RangedIntSwitchControl.Range<int>(0, 10), 10);
             masterAudioSwitchControl.OnValueChanged += (value, _) => AudioManager.SetVolume(AudioChannel.Master, (int) value * 0.1f);
             _masterAudioSwitcher.AssignControl(masterAudioSwitchControl);
             
-            ISwitchControl windowModeSwitchControl = new EnumSwitchControl<WindowMode>();
+            ISwitchControl windowModeSwitchControl = new EnumSwitchControl<WindowMode>(WindowManager.CurrentWindowMode);
             windowModeSwitchControl.OnValueChanged += (value, _) => WindowManager.SetWindowMode((WindowMode) value);
             _windowModeSwitcher.AssignControl(windowModeSwitchControl);
         }

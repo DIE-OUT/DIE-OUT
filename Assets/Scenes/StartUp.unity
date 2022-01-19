@@ -1107,6 +1107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293a2e7e34524e6685671e78f2b6deea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startingWindowMode: 1
 --- !u!1 &1174463034
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,9 +17,9 @@ namespace DieOut.UI.Elements {
         private Range<int> _range;
         
         
-        public RangedIntSwitchControl(Range<int> range) {
+        public RangedIntSwitchControl(Range<int> range, int startingValue) {
             _range = range;
-            _currentValue = range.Min;
+            CurrentValue = startingValue;
         }
 
         public void SelectFirst() {
