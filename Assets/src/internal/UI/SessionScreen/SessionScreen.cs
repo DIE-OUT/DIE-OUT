@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using DieOut.Sessions;
+﻿using DieOut.Sessions;
 using DieOut.UI.Elements;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 
 namespace DieOut.UI.SessionScreen {
@@ -18,9 +15,11 @@ namespace DieOut.UI.SessionScreen {
         private void Awake() {
             _sessionBuilder = new SessionBuilder();
 
-            GenericSwitchControl<int> winningScoreSwitchControl = new GenericSwitchControl<int>(new List<int>() { 1, 2, 3, 4, 5 });
+            ISwitchControl winningScoreSwitchControl = new RangedIntSwitchControl(new RangedIntSwitchControl.Range<int>(1, 10));
             winningScoreSwitchControl.OnValueChanged += (value, valueAsText) => _sessionBuilder.WinningScore = (int) value;
-            _winningScoreSwitcher.SetSwitchControl(winningScoreSwitchControl);
+            _winningScoreSwitcher.AssignControl(winningScoreSwitchControl);
+            
+            _winningScoreSwitcher.AssignControl( new EnumSwitchControl<KeyCode>());
         }
         
     }
