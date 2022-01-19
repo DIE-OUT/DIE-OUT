@@ -53,7 +53,7 @@ namespace DieOut.UI.Elements {
         public struct Range<T> where T : IComparable {
             public T Min;
             public T Max;
-
+            
             public Range(T min, T max) {
                 Min = min;
                 Max = max;

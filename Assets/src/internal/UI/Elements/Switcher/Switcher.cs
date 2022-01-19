@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -10,44 +8,42 @@ namespace DieOut.UI.Elements {
     
     public class Switcher : MonoBehaviour {
         
-        private ISwitchControl _switchControl;
-        private ISwitchControl SwitchControl {
-            get => _switchControl ?? throw new Exception("There is no switch control assigned");
-            set => _switchControl = value;
+        private ISwitchControl _control;
+        private ISwitchControl Control {
+            get => _control ?? throw new Exception("There is no switch control assigned");
+            set => _control = value;
         }
         [Title("References")]
         [SerializeField] private TMP_Text _label;
         [SerializeField] private Button _prevButton;
         [SerializeField] private Button _nextButton;
         
-        private IEnumerable<Type> GetFilteredTypes() {
-            return typeof(ISwitchControl).Assembly.GetTypes().
-                Where(x => !x.IsAbstract).
-                Where(x => !x.IsGenericTypeDefinition).
-                Where(x => typeof(ISwitchControl).IsAssignableFrom(x));
-        }
         
         private void Awake() {
-            _prevButton.onClick.AddListener(Prev);
-            _nextButton.onClick.AddListener(Next);
+            _prevButton.onClick.AddListener(SelectPrev);
+            _nextButton.onClick.AddListener(SelectNext);
         }
-
-        public void AssignSwitchControl(ISwitchControl switchControl) {
-            if(!(_switchControl is null))
-                SwitchControl.OnValueChanged -= UpdateLabel;
-            SwitchControl = switchControl;
+        
+        public bool HasControl() {
+            return !(_control is null);
+        }
+        
+        public void AssignControl(ISwitchControl switchControl) {
+            if(!(_control is null))
+                Control.OnValueChanged -= UpdateLabel;
+            Control = switchControl;
             if(!(switchControl is null)) {
-                SwitchControl.OnValueChanged += UpdateLabel;
+                Control.OnValueChanged += UpdateLabel;
                 UpdateLabel();
             }
         }
         
-        public void Prev() {
-            SwitchControl.SelectPrev();
+        public void SelectPrev() {
+            Control.SelectPrev();
         }
         
-        public void Next() {
-            SwitchControl.SelectNext();
+        public void SelectNext() {
+            Control.SelectNext();
         }
         
         private void UpdateLabel(object value, string valueAsText) {
@@ -55,7 +51,7 @@ namespace DieOut.UI.Elements {
         }
         
         public void UpdateLabel() {
-            _label.text = SwitchControl.GetValueAsText();
+            _label.text = Control.GetValueAsText();
         }
         
     }
