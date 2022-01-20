@@ -1,37 +1,33 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
+using UnityEngine;
 
 namespace DieOut.GameMode.Interactions {
+    
     [RequireComponent(typeof(Collider))]
     public class Tackle : MonoBehaviour {
-        private Tackleable _tackleable;
-        private PlayerController _playerController;
-
+        
+        [SerializeField] private DeviceTypes _deviceTypes;
+        [SerializeField] private List<Tackleable> _tackleablesToIgnore;
+        [SerializeField] private float _cooldown = 2f;
+        [SerializeField] private float _stunDuration = 1f;
+        [SerializeField] private float _immunity = 2f;
+        private bool _onCooldown;
+        private List<Tackleable> _otherPlayers = new List<Tackleable>();
         private InputTable _inputTable;
-
-        [SerializeField] private float cooldown;
-        [SerializeField] private float stunDuration;
-        [SerializeField] private float immunity;
-
-        private bool _inTackleRange;
-        private bool _inCooldown = false;
-        [SerializeField] private int damage;
-
-        private List<GameObject> _otherPlayers = new List<GameObject>();
-
+        
+        
         private void Awake() {
             _inputTable = new InputTable();
-
-            _inputTable.CharacterControls.Tackle.performed += Tackling;
-        }
-        
-        void Start() {
-            _tackleable = FindObjectOfType<Tackleable>();
-            _playerController = FindObjectOfType<PlayerController>();
+            
+            if(_deviceTypes == DeviceTypes.Gamepad)
+                _inputTable.devices = new[] { Gamepad.all[0] };
+            else if(_deviceTypes == DeviceTypes.Keyboard)
+                _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
+            
+            _inputTable.CharacterControls.Tackle.performed += OnTackle;
         }
 
         private void OnEnable() {
@@ -43,79 +39,73 @@ namespace DieOut.GameMode.Interactions {
         }
 
         private void OnTriggerEnter(Collider other) {
-            if (other.CompareTag("Player")) {
-                Debug.Log("in tackle range");
-                _inTackleRange = true;
-                _otherPlayers.Add(other.gameObject);
+            Tackleable tackleableComponent = other.gameObject.GetComponent<Tackleable>();
+            
+            if(tackleableComponent != null && !_tackleablesToIgnore.Contains(tackleableComponent)) {
+                _otherPlayers.Add(tackleableComponent);
             }
         }
 
         private void OnTriggerExit(Collider other) {
-            if (other.CompareTag("Player")) {
-                _otherPlayers.Remove(other.gameObject);
-                if (_otherPlayers.Count == 0) {
-                    Debug.Log("not in tackle range");
-                    _inTackleRange = false;
-                }
-            }
-        }
-
-        IEnumerator TackleCooldown() {
-            yield return new WaitForSeconds(cooldown);
-            Debug.Log("cooldown finished");
-            _inCooldown = false;
-        }
-
-        IEnumerator TackleStunDuration() {
-            yield return new WaitForSeconds(stunDuration);
-            Debug.Log("tackle stopped");
-            _otherPlayers[0].GetComponent<PlayerController>()._movementSpeed = 5;
-            _otherPlayers[0].GetComponent<PlayerController>()._jumpForce = 15;
-        }
-
-        IEnumerator TackleImmunity() {
-            yield return new WaitForSeconds(stunDuration + immunity);
-            Debug.Log("tackle immunity OFF");
-            _otherPlayers[0].GetComponent<Tackleable>().tackleImmunity = false;
-        }
-
-        private void TackleDamage(int dmg) {
-            damage = dmg;
-            _otherPlayers[0].GetComponent<Tackleable>().health -= damage;
-        }
-
-        private void Tackling(InputAction.CallbackContext _) {
-            // sort List according to distance from Player, then take only first element in List
-            _otherPlayers = _otherPlayers.OrderBy(
-                x => Vector2.Distance(this.transform.parent.position,x.transform.position)
-            ).ToList();
+            Tackleable tackleableComponent = other.gameObject.GetComponent<Tackleable>();
             
-            if (_inTackleRange == true && _inCooldown == false && _otherPlayers[0].GetComponent<Tackleable>().tackleImmunity == false) {
-                Debug.Log("tackling");
-
-                // displacement fuktioniert nicht for some reason :(
-                
-                    /*Vector3 a = transform.parent.position;
-                    Vector3 b = x.transform.position;
-                    Debug.Log(transform.parent.position.x);
-                    //transform.parent.position= Vector3.MoveTowards(a, b, 1);
-                    a = Vector3.back;
-                    b.x -= 1;*/
-
-                transform.parent.position = _otherPlayers[0].transform.position;
-
-                _otherPlayers[0].GetComponent<PlayerController>()._movementSpeed = 0;
-                _otherPlayers[0].GetComponent<PlayerController>()._jumpForce = 0;
-                
-                TackleDamage(damage);
-                _inCooldown = true;
-                Debug.Log("in cooldown");
-                StartCoroutine(TackleCooldown());
-                _otherPlayers[0].GetComponent<Tackleable>().tackleImmunity = true;
-                Debug.Log("tackle immunity ON");
-                StartCoroutine(TackleImmunity());
-                StartCoroutine(TackleStunDuration());
+            if(tackleableComponent != null && !_tackleablesToIgnore.Contains(tackleableComponent)) {
+                _otherPlayers.Remove(tackleableComponent);
             }
         }
+
+        private IEnumerator TackleCooldown() {
+            yield return new WaitForSeconds(_cooldown);
+            Debug.Log("cooldown finished");
+            _onCooldown = false;
+        }
+
+        private IEnumerator TackleStunDuration(Tackleable target) {
+            yield return new WaitForSeconds(_stunDuration);
+            Debug.Log("tackle stopped");
+            target.GetComponent<PlayerController>()._movementSpeed = 5;
+            target.GetComponent<PlayerController>()._jumpForce = 15;
+        }
+
+        private IEnumerator TackleImmunity(Tackleable target) {
+            yield return new WaitForSeconds(_stunDuration + _immunity);
+            Debug.Log("tackle immunity OFF");
+            target.GetComponent<Tackleable>().tackleImmunity = false;
+        }
+        
+        private void OnTackle(InputAction.CallbackContext _) {
+            
+            // dont do anything if tackle is on cooldown
+            if(_onCooldown) {
+                Debug.Log("tackle has cooldown");
+                return;
+            }
+            
+            // sort list according to distance from Player, exclude the once that have tackle immunity and then take first element in List
+            Tackleable target = _otherPlayers
+                .OrderBy(x => Vector2.Distance(this.transform.parent.position, x.transform.position)).
+                FirstOrDefault(tackleable => !tackleable.tackleImmunity);
+            
+            // dont do anything if there is no target to tackle
+            if(target == null) {
+                Debug.Log("no target is in tackle range");
+                return;
+            }
+            
+            Debug.Log("tackling");
+            transform.parent.position = target.transform.position;
+            
+            target.GetComponent<PlayerController>()._movementSpeed = 0;
+            target.GetComponent<PlayerController>()._jumpForce = 0;
+            
+            _onCooldown = true;
+            StartCoroutine(TackleCooldown());
+            target.GetComponent<Tackleable>().tackleImmunity = true;
+            Debug.Log("tackle immunity ON");
+            StartCoroutine(TackleImmunity(target));
+            StartCoroutine(TackleStunDuration(target));
+        }
+        
     }
+    
 }
