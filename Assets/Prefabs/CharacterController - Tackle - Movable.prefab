@@ -89,10 +89,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deviceTypes: 0
   _cameraAngle: 45
-  _movementSpeed: 0.01
-  _gravityForceUp: 50
-  _gravityForceDown: 70
-  _jumpForce: 15
+  _movementSpeed: 0.02
+  _jumpForce: 0.1
   _jumpInputBufferTime: 0.1
 --- !u!114 &363457007621162336
 MonoBehaviour:
@@ -106,3 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a960aa3be6349a9aac735f03d3ac302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inAirGravityForceDown: 0.5
+  _groundGravityForce: 0.01
+  _hasGravity: 1

@@ -11,10 +11,8 @@ namespace DieOut.GameMode.Interactions {
         [SerializeField] private DieOut.GameMode.DeviceTypes _deviceTypes;
         [Header("Settings")]
         [SerializeField] private float _cameraAngle = 45f;
-        [SerializeField] [Range(0f, 0.1f)] public float _movementSpeed = 0.1f;
-        [SerializeField] private float _gravityForceUp = 50f;
-        [SerializeField] private float _gravityForceDown = 70f;
-        [SerializeField] public float _jumpForce = 15f;
+        [SerializeField] [Range(0f, 0.05f)] public float _movementSpeed = 0.02f;
+        [SerializeField] [Range(0f, 1f)] public float _jumpForce = 0.1f;
         [SerializeField] private float _jumpInputBufferTime = 0.1f;
 
         private Vector3 _velocity;
@@ -54,7 +52,7 @@ namespace DieOut.GameMode.Interactions {
         
         private void OnJumpInput(InputAction.CallbackContext ctx) {
             
-            _movable.AddVelocity(new Vector3(0, 1, 0));
+            _movable.AddVelocity(new Vector3(0, _jumpForce, 0));
             
 //            _jumpInputBuffer = true;
 //    
