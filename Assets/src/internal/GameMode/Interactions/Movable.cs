@@ -44,10 +44,10 @@ namespace DieOut.GameMode.Interactions {
         private void ApplyGravity() {
             _currentVelocity += new Vector3(0, -_inAirGravityForceDown * Time.deltaTime, 0);
         }
-
+        
+        //TODO: better drag implementation
         private void ApplyHorizontalDrag() {
-            //_currentVelocity = _currentVelocity / 2;
-            //TODO
+            _currentVelocity = new Vector3(_currentVelocity.x / 1.1f, _currentVelocity.y, _currentVelocity.z / 1.1f);
         }
 
         public void Move(Vector3 direction) {
@@ -61,7 +61,9 @@ namespace DieOut.GameMode.Interactions {
         public void SetVelocity(Vector3 velocity) {
             _currentVelocity = velocity;
         }
-        
+
+        public bool IsGrounded => _characterController.isGrounded;
+
     }
     
 }

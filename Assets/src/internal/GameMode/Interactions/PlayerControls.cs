@@ -14,22 +14,20 @@ namespace DieOut.GameMode.Interactions {
         [SerializeField] [Range(0f, 0.05f)] public float _movementSpeed = 0.02f;
         [SerializeField] [Range(0f, 1f)] public float _jumpForce = 0.1f;
         [SerializeField] private float _jumpInputBufferTime = 0.1f;
-
-        private Vector3 _velocity;
+        
         private Vector2 _moveInput;
         private bool _jumpInputBuffer;
         private IEnumerator _clearJumpInputBuffer;
         private Movable _movable;
 
         //references
-        private CharacterController _characterController;
         private Camera _mainCamera;
         private InputTable _inputTable;
 
 
         private void Awake() {
-            _characterController = GetComponent<CharacterController>();
             _mainCamera = Camera.main;
+            _movable = GetComponent<Movable>();
 
             _inputTable = new InputTable();
 
@@ -39,9 +37,8 @@ namespace DieOut.GameMode.Interactions {
                 _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
             
             _inputTable.CharacterControls.Jump.performed += OnJumpInput;
-            _movable = GetComponent<Movable>();
         }
-
+        
         private void OnEnable() {
             _inputTable.Enable();
         }

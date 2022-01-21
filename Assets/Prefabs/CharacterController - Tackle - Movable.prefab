@@ -7,9 +7,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6968579162057684907, guid: 648c92b5351755242a0bf3b4adf7463a, type: 3}
+      propertyPath: _movable
+      value: 
+      objectReference: {fileID: 363457007621162336}
+    - target: {fileID: 6968579163009095041, guid: 648c92b5351755242a0bf3b4adf7463a, type: 3}
+      propertyPath: _movable
+      value: 
+      objectReference: {fileID: 363457007621162336}
     - target: {fileID: 6968579163009095041, guid: 648c92b5351755242a0bf3b4adf7463a, type: 3}
       propertyPath: _cooldown
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6968579163009095041, guid: 648c92b5351755242a0bf3b4adf7463a, type: 3}
       propertyPath: _immunity
