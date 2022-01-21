@@ -4902,6 +4902,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 883827937}
     m_Modifications:
+    - target: {fileID: 6968579163009095041, guid: 648c92b5351755242a0bf3b4adf7463a, type: 3}
+      propertyPath: _cooldown
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968579163009095041, guid: 648c92b5351755242a0bf3b4adf7463a, type: 3}
+      propertyPath: _immunity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968579163009095041, guid: 648c92b5351755242a0bf3b4adf7463a, type: 3}
+      propertyPath: _stunDuration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8831180361935856286, guid: 648c92b5351755242a0bf3b4adf7463a, type: 3}
       propertyPath: m_Name
       value: CharacterController - Tackle

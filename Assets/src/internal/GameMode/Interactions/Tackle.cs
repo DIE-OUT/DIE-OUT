@@ -10,10 +10,9 @@ namespace DieOut.GameMode.Interactions {
     public class Tackle : MonoBehaviour {
         
         [SerializeField] private DeviceTypes _deviceTypes;
+        [SerializeField] private CharacterController _characterController;
         [SerializeField] private List<Tackleable> _tackleablesToIgnore;
-        [SerializeField] private float _cooldown = 2f;
-        [SerializeField] private float _stunDuration = 1f;
-        [SerializeField] private float _immunity = 2f;
+        [SerializeField] private float _cooldown = 8f;
         private bool _onCooldown;
         private List<Tackleable> _otherPlayers = new List<Tackleable>();
         private InputTable _inputTable;
@@ -60,19 +59,6 @@ namespace DieOut.GameMode.Interactions {
             _onCooldown = false;
         }
 
-        private IEnumerator TackleStunDuration(Tackleable target) {
-            yield return new WaitForSeconds(_stunDuration);
-            Debug.Log("tackle stopped");
-            target.GetComponent<PlayerController>()._movementSpeed = 5;
-            target.GetComponent<PlayerController>()._jumpForce = 15;
-        }
-
-        private IEnumerator TackleImmunity(Tackleable target) {
-            yield return new WaitForSeconds(_stunDuration + _immunity);
-            Debug.Log("tackle immunity OFF");
-            target.GetComponent<Tackleable>().tackleImmunity = false;
-        }
-        
         private void OnTackle(InputAction.CallbackContext _) {
             
             // dont do anything if tackle is on cooldown
@@ -88,22 +74,16 @@ namespace DieOut.GameMode.Interactions {
             
             // dont do anything if there is no target to tackle
             if(target == null) {
-                Debug.Log("no target is in tackle range");
+                Debug.Log("no tackelable target is in range");
                 return;
             }
             
-            Debug.Log("tackling");
-            transform.parent.position = target.transform.position;
-            
-            target.GetComponent<PlayerController>()._movementSpeed = 0;
-            target.GetComponent<PlayerController>()._jumpForce = 0;
-            
+            target.GetComponent<Tackleable>().TriggerTackle();
+
+            _characterController.Move(Vector3.MoveTowards(transform.position, target.transform.position, 1));
+
             _onCooldown = true;
             StartCoroutine(TackleCooldown());
-            target.GetComponent<Tackleable>().tackleImmunity = true;
-            Debug.Log("tackle immunity ON");
-            StartCoroutine(TackleImmunity(target));
-            StartCoroutine(TackleStunDuration(target));
         }
         
     }

@@ -58,11 +58,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deviceTypes: 0
+  _characterController: {fileID: 8831180361935856284}
   _tackleablesToIgnore:
   - {fileID: 6968579162057684907}
   _cooldown: 2
-  _stunDuration: 1
-  _immunity: 2
 --- !u!1001 &917564566087277074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +133,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8517854609917196429, guid: 6e3caaf1f25ef6641a65d54dfc4bcc33, type: 3}
   m_PrefabInstance: {fileID: 917564566087277074}
   m_PrefabAsset: {fileID: 0}
+--- !u!143 &8831180361935856284 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 8517854609917196430, guid: 6e3caaf1f25ef6641a65d54dfc4bcc33, type: 3}
+  m_PrefabInstance: {fileID: 917564566087277074}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6968579162057684907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,4 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d324b6ce613aa249a16fb8313c320e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stunDuration: 2
+  _immunity: 3
   tackleImmunity: 0
