@@ -80,7 +80,7 @@ namespace DieOut.GameMode.Interactions {
             
             target.GetComponent<Tackleable>().TriggerTackle();
 
-            _characterController.Move(Vector3.MoveTowards(transform.position, target.transform.position, 1));
+            _characterController.Move(target.transform.position - transform.position);
 
             _onCooldown = true;
             StartCoroutine(TackleCooldown());
