@@ -1,14 +1,14 @@
-﻿using System;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace DieOut.GameMode.Management {
     
-    [Serializable]
-    public class GameModeProperties {
+    [CreateAssetMenu]
+    public class GameMode : ScriptableObject {
         
         [SerializeField] private string _displayName;
-        [SerializeField] private Texture2D _splashScreen;
+        [PreviewField(100, ObjectFieldAlignment.Left)]
+        [SerializeField] private Sprite _splashScreen;
         #region Odin
         [TableList(AlwaysExpanded = true, DrawScrollView = false)]
         [HideReferenceObjectPicker()]
