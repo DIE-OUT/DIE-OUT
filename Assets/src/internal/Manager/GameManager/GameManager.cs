@@ -1,4 +1,5 @@
 using DieOut.GameMode;
+using DieOut.GameMode.Management;
 using DieOut.Helper;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour {
     /// <summary>
     /// the current game mode, returns null if not in a game
     /// </summary>
-    public static GameMode? CurrentGameMode {
+    public static GameMode CurrentGameMode {
         get;
         private set;
     } = null;

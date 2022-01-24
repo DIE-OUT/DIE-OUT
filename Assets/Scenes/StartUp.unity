@@ -328,9 +328,6 @@ MonoBehaviour:
     - Name: _current
       Entry: 7
       Data: 0|DieOut.Sessions.Session, Assembly-CSharp
-    - Name: something
-      Entry: 3
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -555,113 +552,22 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 2800000, guid: 11afa8fcf3a44f144a529983889a0fa5, type: 3}
-    - {fileID: 102900000, guid: 39524dfe01dfac9478264536df4c3ef8, type: 3}
-    - {fileID: 102900000, guid: 910af1b8dd82610468b2bd3bebcdeec4, type: 3}
+    - {fileID: 11400000, guid: 654c318d9cf7ec54198fcce85e53721f, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _gameModeInfos
+    - Name: GameModes
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[DieOut.GameMode.GameMode,
-        Assembly-CSharp],[DieOut.GameMode.Management.GameModeProperties, Assembly-CSharp]],
-        mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[DieOut.GameMode.GameMode,
+      Data: 0|System.Collections.Generic.List`1[[DieOut.GameMode.Management.GameMode,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
       Data: 1
     - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 0
-    - Name: $v
-      Entry: 7
-      Data: 2|DieOut.GameMode.Management.GameModeProperties, Assembly-CSharp
-    - Name: _displayName
-      Entry: 1
-      Data: Dornenkrone Display Name
-    - Name: _splashScreen
       Entry: 10
       Data: 0
-    - Name: _maps
-      Entry: 7
-      Data: 3|DieOut.GameMode.Management.Map[], Assembly-CSharp
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 4|DieOut.GameMode.Management.Map, Assembly-CSharp
-    - Name: _scene
-      Entry: 7
-      Data: 5|SceneField, Assembly-CSharp
-    - Name: m_SceneAsset
-      Entry: 10
-      Data: 1
-    - Name: m_SceneName
-      Entry: 1
-      Data: Dornenkrone_Map01
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: _displayName
-      Entry: 1
-      Data: Dornenkrone Map01 Display Name
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: _additionalScenes
-      Entry: 7
-      Data: 6|SceneField[], Assembly-CSharp
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 7|SceneField, Assembly-CSharp
-    - Name: m_SceneAsset
-      Entry: 10
-      Data: 2
-    - Name: m_SceneName
-      Entry: 1
-      Data: Dornenkrone_UI
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -717,6 +623,8 @@ Transform:
   - {fileID: 489421552}
   - {fileID: 315335811}
   - {fileID: 357725816}
+  - {fileID: 1174463035}
+  - {fileID: 1136429837}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1065,3 +973,91 @@ MonoBehaviour:
   _loadingScreenScene:
     m_SceneAsset: {fileID: 102900000, guid: 01f2584c0325a37438055444bb057d98, type: 3}
     m_SceneName: LoadingScreen
+--- !u!1 &1136429836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1136429837}
+  - component: {fileID: 1136429838}
+  m_Layer: 0
+  m_Name: WindowManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1136429837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136429836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 543880123}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1136429838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136429836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293a2e7e34524e6685671e78f2b6deea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startingWindowMode: 1
+--- !u!1 &1174463034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1174463035}
+  - component: {fileID: 1174463036}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1174463035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174463034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 543880123}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1174463036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174463034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb46dc3fca99439ca2b71ca16f31e3c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: fd92bfebaa29b4f4cb296c3610d741b8, type: 2}

@@ -13,7 +13,12 @@ namespace DieOut.Editor {
 	    
 	    private const string MASTER_SCENE_FILE_PATH = "Assets/Scenes/StartUp.unity";
 	    private const string EDITOR_PREF_PREVIOUS_SCENE = "SceneAutoLoader.PreviousScene";
-	    private static bool _loadMasterOnPlay = true;
+	    private const string EDITOR_PREF_LOAD_MASTER_ON_PLAY = "SceneAutoLoader.LoadMasterOnPlay";
+
+	    public static bool LoadMasterOnPlay {
+		    get => EditorPrefs.GetBool(EDITOR_PREF_LOAD_MASTER_ON_PLAY, true);
+		    set => EditorPrefs.SetBool(EDITOR_PREF_LOAD_MASTER_ON_PLAY, value);
+	    }
 	    private static string PreviousScene {
 		    get => EditorPrefs.GetString(EDITOR_PREF_PREVIOUS_SCENE, EditorSceneManager.GetActiveScene().path);
 		    set => EditorPrefs.SetString(EDITOR_PREF_PREVIOUS_SCENE, value);
@@ -27,25 +32,25 @@ namespace DieOut.Editor {
 		
 		[MenuItem("File/Scene Autoload/Load Master On Play", true)]
 		private static bool ShowLoadMasterOnPlay() {
-		  return !_loadMasterOnPlay;
+		  return !LoadMasterOnPlay;
 		}
 		[MenuItem("File/Scene Autoload/Load Master On Play")]
 		private static void EnableLoadMasterOnPlay() {
-		  _loadMasterOnPlay = true;
+		  LoadMasterOnPlay = true;
 		}
 		
 		[MenuItem("File/Scene Autoload/Don't Load Master On Play", true)]
 		private static bool ShowDontLoadMasterOnPlay() {
-		  return _loadMasterOnPlay;
+		  return LoadMasterOnPlay;
 		}
 		[MenuItem("File/Scene Autoload/Don't Load Master On Play")]
 		private static void DisableLoadMasterOnPlay() {
-		  _loadMasterOnPlay = false;
+		  LoadMasterOnPlay = false;
 		}
 		
 		// Play mode change callback handles the scene load/reload.
 		private static void OnPlayModeChanged(PlayModeStateChange state) {
-			if(!_loadMasterOnPlay)
+			if(!LoadMasterOnPlay)
 				return;
 			
 			if(!EditorApplication.isPlaying && EditorApplication.isPlayingOrWillChangePlaymode) {
