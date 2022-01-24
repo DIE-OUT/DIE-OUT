@@ -70,7 +70,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 1
+    value: 0.597
   smoothness:
     overrideState: 1
     value: 0.2
@@ -79,7 +79,7 @@ MonoBehaviour:
     value: 1
   rounded:
     overrideState: 1
-    value: 0
+    value: 1
   mask:
     overrideState: 1
     value: {fileID: 0}

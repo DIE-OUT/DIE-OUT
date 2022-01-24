@@ -8,13 +8,13 @@ namespace DieOut.GameMode {
     [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour {
 
-        [SerializeField] private DeviceType _deviceType;
+        [SerializeField] private DeviceTypes _deviceTypes;
         [Header("Settings")]
         [SerializeField] private float _cameraAngle = 45f;
-        [SerializeField] private float _movementSpeed = 5f;
+        [SerializeField] public float _movementSpeed = 5f;
         [SerializeField] private float _gravityForceUp = 50f;
         [SerializeField] private float _gravityForceDown = 70f;
-        [SerializeField] private float _jumpForce = 15f;
+        [SerializeField] public float _jumpForce = 15f;
         [SerializeField] private float _jumpInputBufferTime = 0.1f;
 
         private Vector3 _velocity;
@@ -34,9 +34,9 @@ namespace DieOut.GameMode {
 
             _inputTable = new InputTable();
 
-            if(_deviceType == DeviceType.Gamepad)
+            if(_deviceTypes == DeviceTypes.Gamepad)
                 _inputTable.devices = new[] { Gamepad.all[0] };
-            else if(_deviceType == DeviceType.Keyboard)
+            else if(_deviceTypes == DeviceTypes.Keyboard)
                 _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
             
             _inputTable.CharacterControls.Jump.performed += OnJumpInput;
@@ -96,13 +96,13 @@ namespace DieOut.GameMode {
         private void UpdateController() {
             _characterController.Move(Quaternion.Euler(0, _cameraAngle, 0) * _velocity * Time.deltaTime);
         }
-
-        [Serializable]
-        private enum DeviceType {
-            Keyboard,
-            Gamepad
-        }
-
+        
+    }
+    
+    [Serializable]
+    public enum DeviceTypes {
+        Keyboard,
+        Gamepad
     }
 
 }
