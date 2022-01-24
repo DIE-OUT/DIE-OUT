@@ -548,7 +548,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ab023376ef4d9a97e3c0e6a5d6f770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameModeRegisterSo: {fileID: 11400000, guid: 1c107669e83809e4a9d9bce983bcf914, type: 2}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 654c318d9cf7ec54198fcce85e53721f, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: GameModes
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[DieOut.GameMode.Management.GameMode,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &543880121
 GameObject:
   m_ObjectHideFlags: 0

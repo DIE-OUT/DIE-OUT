@@ -7,7 +7,8 @@ namespace DieOut.GameMode.Management {
     public class GameMode : ScriptableObject {
         
         [SerializeField] private string _displayName;
-        [SerializeField] private Texture2D _splashScreen;
+        [PreviewField(100, ObjectFieldAlignment.Left)]
+        [SerializeField] private Sprite _splashScreen;
         #region Odin
         [TableList(AlwaysExpanded = true, DrawScrollView = false)]
         [HideReferenceObjectPicker()]
