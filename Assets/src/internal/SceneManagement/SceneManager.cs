@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
+using DieOut.Helper;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,33 +17,21 @@ namespace DieOut.SceneManagement {
         public static float LoadingProgress { get; private set; }
         [SerializeField] private SceneField _loadingScreenScene;
         private List<AsyncOperation> _scenesLoading = new List<AsyncOperation>();
-        private static SceneManager v_instance;
-        private static SceneManager _instance {
-            get {
-                if(v_instance == null)
-                    Debug.LogWarning("there is no SceneManager instance initialized");
-                return v_instance;
-            }
-        }
-
+        private static SingletonInstance<SceneManager> _instance;
 
         private void Awake() {
-            if(v_instance != null) {
-                Debug.LogWarning("only one SceneManager can be active at once");
-                return;
-            }
-            v_instance = this;
+            _instance.Init(this);
         }
         
         public static void LoadScenesAsync(params string[] scenes) {
             StartAsyncLevelLoading?.Invoke();
 
-            _instance._scenesLoading.Add(UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(_instance._loadingScreenScene.SceneName, LoadSceneMode.Single));
+            _instance.Get()._scenesLoading.Add(UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(_instance.Get()._loadingScreenScene.SceneName, LoadSceneMode.Single));
             for(int i = 0; i < scenes.Length; i++) {
-                _instance._scenesLoading.Add(UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(scenes[i], LoadSceneMode.Additive));
+                _instance.Get()._scenesLoading.Add(UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(scenes[i], LoadSceneMode.Additive));
             }
 
-            _instance.StartCoroutine(_instance.GetSceneLoadProgress());
+            _instance.Get().StartCoroutine(_instance.Get().GetSceneLoadProgress());
         }
         
         private IEnumerator GetSceneLoadProgress() {
