@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DieOut.Editor.GameManager {
     
-    public class DrawSelected<T> where T : ScriptableObject {
+    public class DrawScriptableObject<T> where T : ScriptableObject {
         
         [InlineEditor(InlineEditorObjectFieldModes.CompletelyHidden)]
         public T Selected;
