@@ -16,8 +16,7 @@ namespace DieOut.GameMode.Interactions {
         private bool _onCooldown;
         private List<Tackleable> _otherPlayers = new List<Tackleable>();
         private InputTable _inputTable;
-        
-        
+
         private void Awake() {
             _inputTable = new InputTable();
             
@@ -78,9 +77,10 @@ namespace DieOut.GameMode.Interactions {
                 return;
             }
             
-            target.TriggerTackle();
-            
-            if(_movable != null)
+            target.TriggerTackle(_movable);
+
+            if (_movable != null)
+                // ! Sollte so weit mit dem Tackle kommen, dass er mit seinem Ziel collided
                 _movable.AddVelocity((target.transform.position - transform.position).normalized / 10);
 
             _onCooldown = true;

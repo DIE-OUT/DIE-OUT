@@ -9,9 +9,9 @@ namespace DieOut.GameMode.Interactions {
         [SerializeField] private float _stunDuration = 2f;
         [SerializeField] private float _immunity = 3f;
         [SerializeField] private Movable _movable;
+        private Movable _tacklingPlayer;
         public bool tackleImmunity = false;
-        
-        
+
         private IEnumerator TackleImmunity() {
             yield return new WaitForSeconds(_stunDuration + _immunity);
             Debug.Log("tackle immunity OFF");
@@ -22,12 +22,14 @@ namespace DieOut.GameMode.Interactions {
             yield return new WaitForSeconds(_stunDuration);
             //TODO: reenable character controls
         }
-        
-        public void TriggerTackle() {
-            if(_movable != null)
-                _movable.AddVelocity(new Vector3(0, 0.1f, 0));
-            //TODO: disable character controls
-            
+
+        public void TriggerTackle(Movable tacklingPlayer) {
+            if (_movable != null) {
+                //TODO: disable character controls
+                // ! Sollte erst passieren, wenn der Angreifer mit seinem Ziel collided
+                _movable.AddVelocity((_movable.transform.position - tacklingPlayer.transform.position).normalized / 5);
+            }
+
             tackleImmunity = true;
             Debug.Log("tackle immunity ON");
             StartCoroutine(TackleImmunity());
