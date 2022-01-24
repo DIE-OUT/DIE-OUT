@@ -17,7 +17,7 @@ namespace DieOut.Editor.GameManager {
         private ManagerTab _currentManagerTab = ManagerTab.GameModes;
         private int _enumIndex;
         
-        private DrawScriptableObject<GameMode.Management.GameMode> _drawGameModes = new DrawScriptableObject<GameMode.Management.GameMode>();
+        private DrawScriptableObjectTree<GameMode.Management.GameMode> _drawGameModes = new DrawScriptableObjectTree<GameMode.Management.GameMode>();
         private const string GAME_MODE_PATH = "Assets/ScriptableObjects/GameModes";
 
         private bool _menuTreeIsDirty = false;
