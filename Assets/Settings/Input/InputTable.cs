@@ -41,6 +41,22 @@ public class @InputTable : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PickUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""1c12a57a-1f8d-4e6e-b08c-1774c2052d33"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Throw"",
+                    ""type"": ""Button"",
+                    ""id"": ""58e44b21-9533-4645-bc7b-74853bca332b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -135,7 +151,7 @@ public class @InputTable : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""cd19726d-e1b6-4f35-a994-1a01c08a6168"",
-                    ""path"": ""<Keyboard>/t"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -146,11 +162,55 @@ public class @InputTable : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5e29f69b-91e7-48d0-aa4e-48fe36512f3b"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Tackle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd050705-09bb-43cf-bbf1-4974c97cb2e1"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""PickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e756a7b-e179-495f-9d7c-d2508e033b9d"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""90af8e80-4c1e-4654-9d5b-c18179e2ffbb"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Throw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1cc0c213-d9b1-41ee-91b1-7b19f376133a"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Throw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -187,6 +247,8 @@ public class @InputTable : IInputActionCollection, IDisposable
         m_CharacterControls_Move = m_CharacterControls.FindAction("Move", throwIfNotFound: true);
         m_CharacterControls_Jump = m_CharacterControls.FindAction("Jump", throwIfNotFound: true);
         m_CharacterControls_Tackle = m_CharacterControls.FindAction("Tackle", throwIfNotFound: true);
+        m_CharacterControls_PickUp = m_CharacterControls.FindAction("PickUp", throwIfNotFound: true);
+        m_CharacterControls_Throw = m_CharacterControls.FindAction("Throw", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -239,6 +301,8 @@ public class @InputTable : IInputActionCollection, IDisposable
     private readonly InputAction m_CharacterControls_Move;
     private readonly InputAction m_CharacterControls_Jump;
     private readonly InputAction m_CharacterControls_Tackle;
+    private readonly InputAction m_CharacterControls_PickUp;
+    private readonly InputAction m_CharacterControls_Throw;
     public struct CharacterControlsActions
     {
         private @InputTable m_Wrapper;
@@ -246,6 +310,8 @@ public class @InputTable : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_CharacterControls_Move;
         public InputAction @Jump => m_Wrapper.m_CharacterControls_Jump;
         public InputAction @Tackle => m_Wrapper.m_CharacterControls_Tackle;
+        public InputAction @PickUp => m_Wrapper.m_CharacterControls_PickUp;
+        public InputAction @Throw => m_Wrapper.m_CharacterControls_Throw;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -264,6 +330,12 @@ public class @InputTable : IInputActionCollection, IDisposable
                 @Tackle.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnTackle;
                 @Tackle.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnTackle;
                 @Tackle.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnTackle;
+                @PickUp.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnPickUp;
+                @PickUp.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnPickUp;
+                @PickUp.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnPickUp;
+                @Throw.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnThrow;
+                @Throw.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnThrow;
+                @Throw.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnThrow;
             }
             m_Wrapper.m_CharacterControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -277,6 +349,12 @@ public class @InputTable : IInputActionCollection, IDisposable
                 @Tackle.started += instance.OnTackle;
                 @Tackle.performed += instance.OnTackle;
                 @Tackle.canceled += instance.OnTackle;
+                @PickUp.started += instance.OnPickUp;
+                @PickUp.performed += instance.OnPickUp;
+                @PickUp.canceled += instance.OnPickUp;
+                @Throw.started += instance.OnThrow;
+                @Throw.performed += instance.OnThrow;
+                @Throw.canceled += instance.OnThrow;
             }
         }
     }
@@ -304,5 +382,7 @@ public class @InputTable : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnTackle(InputAction.CallbackContext context);
+        void OnPickUp(InputAction.CallbackContext context);
+        void OnThrow(InputAction.CallbackContext context);
     }
 }

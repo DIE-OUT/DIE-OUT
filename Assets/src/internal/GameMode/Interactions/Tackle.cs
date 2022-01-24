@@ -10,14 +10,13 @@ namespace DieOut.GameMode.Interactions {
     public class Tackle : MonoBehaviour {
         
         [SerializeField] private DeviceTypes _deviceTypes;
-        [SerializeField] private CharacterController _characterController;
+        [SerializeField] private Movable _movable;
         [SerializeField] private List<Tackleable> _tackleablesToIgnore;
-        [SerializeField] private float _cooldown = 8f;
+        [SerializeField] private float _cooldown = 3f;
         private bool _onCooldown;
         private List<Tackleable> _otherPlayers = new List<Tackleable>();
         private InputTable _inputTable;
-        
-        
+
         private void Awake() {
             _inputTable = new InputTable();
             
@@ -78,9 +77,12 @@ namespace DieOut.GameMode.Interactions {
                 return;
             }
             
-            target.GetComponent<Tackleable>().TriggerTackle();
+            target.TriggerTackle(_movable);
 
-            _characterController.Move(Vector3.MoveTowards(transform.position, target.transform.position, 1));
+            if (_movable != null)
+                // ! Sollte so weit mit dem Tackle kommen, dass er mit seinem Ziel collided
+                _movable.AddVelocity((target.transform.position - transform.position).normalized / 10);
+            Debug.Log((target.transform.position - transform.position).normalized / 10);
 
             _onCooldown = true;
             StartCoroutine(TackleCooldown());
