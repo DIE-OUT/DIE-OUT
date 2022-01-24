@@ -69,6 +69,7 @@ namespace DieOut.GameMode.Interactions {
         private void Update() {
             UpdateInputs();
             UpdateMovable();
+            UpdateRotation();
         }
 
         private void UpdateInputs() {
@@ -78,6 +79,10 @@ namespace DieOut.GameMode.Interactions {
 
         private void UpdateMovable() {
             _movable.Move(Quaternion.Euler(0, _cameraAngle, 0) * new Vector3(_moveInput.x, 0, _moveInput.y) * _movementSpeed);
+        }
+
+        private void UpdateRotation() {
+            transform.SetPositionAndRotation(transform.position, Quaternion.LookRotation(Vector3(_moveInput.x, 0, _moveInput.y)));
         }
         
     }
