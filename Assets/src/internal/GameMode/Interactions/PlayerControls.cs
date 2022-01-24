@@ -83,7 +83,7 @@ namespace DieOut.GameMode.Interactions {
 
         private void UpdateRotation() {
             if(_moveInput.magnitude != 0)
-                transform.SetPositionAndRotation(transform.position, Quaternion.LookRotation(new Vector3(_moveInput.x, 0, _moveInput.y)));
+                transform.SetPositionAndRotation(transform.position, Quaternion.LookRotation(Quaternion.Euler(0, _cameraAngle, 0) * new Vector3(_moveInput.x, 0, _moveInput.y)));
         }
         
     }

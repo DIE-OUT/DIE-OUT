@@ -8,9 +8,13 @@ namespace DieOut.GameMode.Interactions {
         
         [SerializeField] private float _stunDuration = 2f;
         [SerializeField] private float _immunity = 3f;
-        [SerializeField] private Movable _movable;
-        private Movable _tacklingPlayer;
+        private Movable _movable;
         public bool tackleImmunity = false;
+
+
+        private void Awake() {
+            _movable = GetComponent<Movable>();
+        }
 
         private IEnumerator TackleImmunity() {
             yield return new WaitForSeconds(_stunDuration + _immunity);

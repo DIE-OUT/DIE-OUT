@@ -82,6 +82,7 @@ namespace DieOut.GameMode.Interactions {
             if (_movable != null)
                 // ! Sollte so weit mit dem Tackle kommen, dass er mit seinem Ziel collided
                 _movable.AddVelocity((target.transform.position - transform.position).normalized / 10);
+            Debug.Log((target.transform.position - transform.position).normalized / 10);
 
             _onCooldown = true;
             StartCoroutine(TackleCooldown());
