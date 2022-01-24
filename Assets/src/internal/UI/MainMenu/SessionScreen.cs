@@ -3,7 +3,7 @@ using DieOut.UI.Elements;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace DieOut.UI.SessionScreen {
+namespace DieOut.UI.MainMenu {
     
     public class SessionScreen : MonoBehaviour {
         
@@ -15,11 +15,9 @@ namespace DieOut.UI.SessionScreen {
         private void Awake() {
             _sessionBuilder = new SessionBuilder();
 
-            ISwitchControl winningScoreSwitchControl = new RangedIntSwitchControl(new RangedIntSwitchControl.Range<int>(1, 10));
+            ISwitchControl winningScoreSwitchControl = new RangedIntSwitchControl(new RangedIntSwitchControl.Range<int>(1, 10), _sessionBuilder.WinningScore);
             winningScoreSwitchControl.OnValueChanged += (value, valueAsText) => _sessionBuilder.WinningScore = (int) value;
             _winningScoreSwitcher.AssignControl(winningScoreSwitchControl);
-            
-            _winningScoreSwitcher.AssignControl( new EnumSwitchControl<KeyCode>());
         }
         
     }

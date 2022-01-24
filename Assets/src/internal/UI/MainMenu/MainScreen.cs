@@ -1,9 +1,9 @@
 using UnityEngine;
 using DieOut.SceneManagement;
 
-namespace DieOut.UI {
+namespace DieOut.UI.MainMenu {
     
-    public class MainMenu : MonoBehaviour {
+    public class MainScreen : MonoBehaviour {
         
         [SerializeField] private SceneField _sampleScene;
         

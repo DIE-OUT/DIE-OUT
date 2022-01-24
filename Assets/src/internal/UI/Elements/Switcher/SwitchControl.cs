@@ -20,9 +20,10 @@ namespace DieOut.UI.Elements {
         }
         private Func<T, string> _getString;
         
-        public SwitchControl([NotNull] IEnumerable<T> options, Func<T, string> getString = null) {
+        public SwitchControl([NotNull] IEnumerable<T> options, T startingValue, Func<T, string> getString = null) {
             _getString = getString ?? (o => o.ToString());
             _options = new List<T>(options);
+            Select(startingValue);
         }
         
         public void SelectFirst() {
@@ -42,7 +43,7 @@ namespace DieOut.UI.Elements {
         }
         
         public void Select(T option) {
-            throw new NotImplementedException();
+            CurrentIndex = _options.FindIndex(0, _options.Count, t => t.Equals(option));
         }
         
         public void SelectAt(int index) {
