@@ -72,8 +72,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 178552363370364293}
+  - component: {fileID: 4082274730594215993}
   m_Layer: 15
-  m_Name: ThrowPosition
+  m_Name: ItemPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,6 +94,18 @@ Transform:
   m_Father: {fileID: 6028884854241720945}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4082274730594215993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952426200836093220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ccdff5329a2494480eab2545fd8333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5669323591625717635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,3 +212,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _magmaklumpen: {fileID: 0}
+--- !u!114 &6881634941943608829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028884854241720944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2c69cd09d36244888ccd65c8d750c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

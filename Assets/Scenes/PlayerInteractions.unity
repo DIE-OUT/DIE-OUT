@@ -1462,6 +1462,7 @@ GameObject:
   - component: {fileID: 749254282}
   - component: {fileID: 749254281}
   - component: {fileID: 749254283}
+  - component: {fileID: 749254284}
   m_Layer: 0
   m_Name: Stone
   m_TagString: Untagged
@@ -1512,10 +1513,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df609778b2742c441bd9e703fb2916d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deviceTypes: 0
-  item: {fileID: 749254280}
-  tempParent: {fileID: 4814589621116900602}
-  _isHolding: 0
+--- !u!65 &749254284
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749254280}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &785343950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2478,6 +2488,10 @@ PrefabInstance:
       propertyPath: _deviceTypes
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4082274730594215993, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
+      propertyPath: _magmaklumpen
+      value: 
+      objectReference: {fileID: 1928859406}
     - target: {fileID: 6028884854241720944, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: m_Name
       value: PlayerController - Dornenkrone_1
@@ -2527,6 +2541,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6028884854241720947, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
+      propertyPath: _deviceTypes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881634941943608829, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
+      propertyPath: _throwable
+      value: 
+      objectReference: {fileID: 749254283}
+    - target: {fileID: 6881634941943608829, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
+      propertyPath: _deviceTypes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401715106698432103, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: _deviceTypes
       value: 1
       objectReference: {fileID: 0}
@@ -5021,6 +5047,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4082274730594215993, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
+      propertyPath: _magmaklumpen
+      value: 
+      objectReference: {fileID: 1928859406}
     - target: {fileID: 6028884854241720944, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: m_Name
       value: PlayerController - Dornenkrone
@@ -5069,14 +5099,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6881634941943608829, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
+      propertyPath: _throwable
+      value: 
+      objectReference: {fileID: 749254283}
     - target: {fileID: 8401715106698432103, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: _magmaklumpen
       value: 
       objectReference: {fileID: 1928859406}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
---- !u!1 &4814589621116900602 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6952426200836093220, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
-  m_PrefabInstance: {fileID: 4814589621116900601}
-  m_PrefabAsset: {fileID: 0}

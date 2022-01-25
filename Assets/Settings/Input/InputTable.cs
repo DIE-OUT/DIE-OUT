@@ -206,7 +206,7 @@ public class @InputTable : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1cc0c213-d9b1-41ee-91b1-7b19f376133a"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
