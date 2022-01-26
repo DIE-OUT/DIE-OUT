@@ -1,12 +1,19 @@
 ﻿using System.Collections.Generic;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
+using DieOut.Helper;
+using UnityEngine;
 
 namespace DieOut.GameMode.Management {
     
-    public class GameModeRegister : SerializedMonoBehaviour {
+    public class GameModeRegister : MonoBehaviour {
         
-        [OdinSerialize] public List<GameMode> GameModes { get; private set; } = new List<GameMode>();
+        private static SingletonInstance<GameModeRegister> _instance;
+        public static GameMode[] GameModes => _instance.Get()._gameModes;
+        [SerializeField] private GameMode[] _gameModes;
+        
+        
+        private void Awake() {
+            _instance.Init(this);
+        }
         
     }
     

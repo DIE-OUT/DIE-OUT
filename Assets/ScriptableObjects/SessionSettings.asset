@@ -12,3 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848da065a8404b9097821ce1652f48ec, type: 3}
   m_Name: SessionSettings
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: MaxRounds
+      Entry: 7
+      Data: DieOut.Sessions.MinMaxDefault`1[[System.Int32, mscorlib]], Assembly-CSharp
+    - Name: Min
+      Entry: 3
+      Data: 1
+    - Name: Default
+      Entry: 3
+      Data: 3
+    - Name: Max
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: WinningScore
+      Entry: 7
+      Data: DieOut.Sessions.MinMaxDefault`1[[System.Int32, mscorlib]], Assembly-CSharp
+    - Name: Min
+      Entry: 3
+      Data: 2
+    - Name: Default
+      Entry: 3
+      Data: 2
+    - Name: Max
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 

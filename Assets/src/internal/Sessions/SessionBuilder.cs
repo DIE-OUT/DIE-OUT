@@ -1,33 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 namespace DieOut.Sessions {
     
     [Serializable]
     public class SessionBuilder {
 
-        public int PlayerCount;
         public HashSet<GameMode.Management.GameMode> ActivatedGameModes = new HashSet<GameMode.Management.GameMode>();
-        public int MaxRounds = 5;
-        public int WinningScore = 3;
-
-        public bool IsValid() {
-            if(MaxRounds < 1) return false;
-            if(PlayerCount < 2) return false;
-            if(ActivatedGameModes.Count == 0) return false;
-            return true;
-        }
+        public int MaxRounds;
+        public int WinningScore;
+        
         
         public Session Create() {
-            if(!IsValid())
-                throw new Exception("Session Builder is invalid or incomplete - check before creating");
+
+            Player[] players = CreatePlayers();
             
-            Player[] players = new Player[PlayerCount];
-            for(int i = 0; i < PlayerCount; i++) {
-                players[i] = new Player();
+            // validate
+            if(players.Length < 2) throw new Exception("Session Builder is invalid or incomplete: too less players");
+            if(ActivatedGameModes.Count == 0) throw new Exception("Session Builder is invalid or incomplete: required to have one or more game modes activated");
+            
+            return new Session(players, ActivatedGameModes, MaxRounds, WinningScore);
+        }
+
+        private Player[] CreatePlayers() {
+            
+            List<Player> players = new List<Player>();
+            
+            if(Keyboard.current != null && Mouse.current != null)
+                players.Add(new Player(new InputDevice[] { Keyboard.current, Mouse.current }));
+            
+            for(int i = 0; i < Gamepad.all.Count; i++) {
+                players.Add(new Player(new InputDevice[] { Gamepad.all[0] }));
             }
             
-            return new Session(players, MaxRounds, WinningScore);
+            return players.ToArray();
         }
         
     }
