@@ -17,8 +17,9 @@ namespace DieOut.Editor.GameManager {
         private ManagerTab _currentManagerTab = ManagerTab.GameModes;
         private int _enumIndex;
         
-        private DrawScriptableObjectTree<GameMode.Management.GameMode> _drawGameModes = new DrawScriptableObjectTree<GameMode.Management.GameMode>();
+        private DrawScriptableObjectTree<GameMode.Management.GameMode> _drawGameModes = new DrawScriptableObjectTree<GameMode.Management.GameMode>(GAME_MODE_PATH);
         private const string GAME_MODE_PATH = "Assets/ScriptableObjects/GameModes";
+        private DrawScriptableObject<GameMode.Management.GameMode> _drawOneGameMode = new DrawScriptableObject<GameMode.Management.GameMode>(GAME_MODE_PATH);
 
         private bool _menuTreeIsDirty = false;
         
@@ -28,7 +29,8 @@ namespace DieOut.Editor.GameManager {
         }
 
         protected override void Initialize() {
-            _drawGameModes.SetPath(GAME_MODE_PATH);
+            //_drawGameModes.SetPath(GAME_MODE_PATH);
+            _drawOneGameMode.FindTarget();
         }
 
         private void OnTabChange() {
@@ -74,7 +76,7 @@ namespace DieOut.Editor.GameManager {
             List<object> targets = new List<object>();
             
             targets.Add(_drawGameModes);
-            targets.Add(null);
+            targets.Add(_drawOneGameMode);
             
             targets.Add(base.GetTarget());
             

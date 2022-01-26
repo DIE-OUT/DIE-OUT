@@ -13,6 +13,11 @@ namespace DieOut.Editor.GameManager {
         [HorizontalGroup("CreateNew")]
         public string NameForNew;
         private string _path;
+
+
+        public DrawScriptableObjectTree(string path) {
+            _path = path;
+        }
         
         [HorizontalGroup("CreateNew")]
         [GUIColor(0.7f, 0.7f, 1.0f)]
@@ -56,9 +61,9 @@ namespace DieOut.Editor.GameManager {
             }
         }
 
-        public void SetPath(string path) {
-            _path = path;
-        }
+//        public void SetPath(string path) {
+//            _path = path;
+//        }
         
     }
     
