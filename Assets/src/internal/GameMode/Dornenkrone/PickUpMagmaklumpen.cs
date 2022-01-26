@@ -18,13 +18,14 @@ namespace DieOut.GameMode.Dornenkrone {
         private void Awake() {
             
             _inputTable = new InputTable();
+            
             if(_deviceTypes == DeviceTypes.Gamepad)
                 _inputTable.devices = new[] { Gamepad.all[0] };
             else if(_deviceTypes == DeviceTypes.Keyboard)
                 _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
             
-            
             _inputTable.CharacterControls.PickUp.performed += OnPickUp;
+            
             _itemPosition = GetComponentInChildren<ItemPosition>();
         }
 
@@ -50,6 +51,7 @@ namespace DieOut.GameMode.Dornenkrone {
 
         private void OnPickUp(InputAction.CallbackContext _) {
             // ? Ich versteh nicht warum es so funktioniert, ich würde denken _magmaklumpen.AttachedToPlayer() muss false sein
+            // - brauchen wir aber wahrscheinlich hier eh nicht
             if (_magmaklumpenInRange == true /*&& _magmaklumpen.AttachedToPlayer() == true*/ && _itemPosition.transform.childCount == 0) {
                 _itemPosition.TriggerPickUpKlumpen(_magmaklumpen);
             }

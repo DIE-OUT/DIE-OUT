@@ -8,11 +8,12 @@ using System.Linq;
 
 namespace DieOut.GameMode {
     public class Throwable : MonoBehaviour {
-        // ! Rotation fehlt noch
-
-        private float _throwForce = 800;
+       
+        [SerializeField] float _throwForce = 800;
         public bool _isHolding = false;
-        private bool _attachedToPlayer = false;
+        
+        // - brauchen wir wahrscheinlich nicht
+        //private bool _attachedToPlayer = false;
 
         void Update() {
 
@@ -27,8 +28,10 @@ namespace DieOut.GameMode {
         }
         
         public void TriggerPickUp() {
+            // ! hier muss noch irgendwas passieren, damit sich der stone bei collision nicht mehr bewegt
             _isHolding = true;
             GetComponent<Rigidbody>().useGravity = false;
+            // - brauchen wir wahrscheinlich nicht
             //item.GetComponent<Rigidbody>().detectCollisions = true;
         }
 
@@ -38,8 +41,9 @@ namespace DieOut.GameMode {
                 _isHolding = false;
             }
         }
-
-        public bool AttachedToPlayer() {
+        
+        // - brauchen wir wahrscheinlich nicht
+        /*public bool AttachedToPlayer() {
             if (transform.parent != null) {
                 Debug.Log("has parent");
                 return _attachedToPlayer == true;
@@ -48,6 +52,6 @@ namespace DieOut.GameMode {
                 Debug.Log("no parent");
                 return _attachedToPlayer == false;
             }
-        }
+        }*/
     }
 }

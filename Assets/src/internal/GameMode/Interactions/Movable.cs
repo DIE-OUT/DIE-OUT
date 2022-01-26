@@ -8,6 +8,9 @@ namespace DieOut.GameMode.Interactions {
         
         
         //TODO: [SerializeField] private float _inAirGravityForceUp = 9.81f;
+        [SerializeField] public float _health = 100;
+        // - [Serialize Field] Name ist nur zum testen, wird noch verändert
+        [SerializeField] public string _name;
         [SerializeField] private float _inAirGravityForceDown = 0.5f;
         [SerializeField] private float _groundGravityForce = 0.01f;
         [SerializeField] private bool _hasGravity = true;
@@ -63,6 +66,10 @@ namespace DieOut.GameMode.Interactions {
         }
 
         public bool IsGrounded => _characterController.isGrounded;
+
+        public void TriggerDamage(float damage) {
+            _health -= damage;
+        }
 
     }
     

@@ -10,12 +10,14 @@ namespace DieOut.GameMode.Interactions {
     public class Tackle : MonoBehaviour {
         
         [SerializeField] private DeviceTypes _deviceTypes;
+        private InputTable _inputTable;
+        
         [SerializeField] private Movable _movable;
+        private List<Tackleable> _otherPlayers = new List<Tackleable>();
         [SerializeField] private List<Tackleable> _tackleablesToIgnore;
+        
         [SerializeField] private float _cooldown = 3f;
         private bool _onCooldown;
-        private List<Tackleable> _otherPlayers = new List<Tackleable>();
-        private InputTable _inputTable;
 
         private void Awake() {
             _inputTable = new InputTable();
@@ -59,14 +61,13 @@ namespace DieOut.GameMode.Interactions {
         }
 
         private void OnTackle(InputAction.CallbackContext _) {
-            
             // dont do anything if tackle is on cooldown
             if(_onCooldown) {
                 Debug.Log("tackle has cooldown");
                 return;
             }
             
-            // sort list according to distance from Player, exclude the once that have tackle immunity and then take first element in List
+            // sort list according to distance from Player, exclude the once that have tackle immunity and then take first element in list
             Tackleable target = _otherPlayers
                 .OrderBy(x => Vector2.Distance(this.transform.parent.position, x.transform.position)).
                 FirstOrDefault(tackleable => !tackleable.tackleImmunity);
@@ -77,12 +78,13 @@ namespace DieOut.GameMode.Interactions {
                 return;
             }
             
+            // falls irgendwann mal was anderes als Player getackled werden soll, könnte hier auch nur eine Position übergeben werden
             target.TriggerTackle(_movable);
 
-            if (_movable != null)
+            if (_movable != null) {
                 // ! Sollte so weit mit dem Tackle kommen, dass er mit seinem Ziel collided
                 _movable.AddVelocity((target.transform.position - transform.position).normalized / 10);
-            Debug.Log((target.transform.position - transform.position).normalized / 10);
+            }
 
             _onCooldown = true;
             StartCoroutine(TackleCooldown());

@@ -9,10 +9,10 @@ namespace DieOut.GameMode.Interactions {
         
         [SerializeField] private float _stunDuration = 2f;
         [SerializeField] private float _immunity = 3f;
-        private Movable _movable;
         public bool tackleImmunity = false;
 
         private CharacterController _characterController;
+        private Movable _movable;
         private Magmaklumpen _magmaklumpen;
         private Throwable _throwable;
 
@@ -37,7 +37,9 @@ namespace DieOut.GameMode.Interactions {
         public void TriggerTackle(Movable tacklingPlayer) {
             if (_movable != null) {
                 //TODO: disable character controls
-                
+
+                // Wenn der getackelte Player einen Magmaklumpen trägt, geht dieser auf den Angreifer über
+                // Wenn der tackelnde und/oder der getackelte Player ein Throwable Item trägt, lässt er dieses fallen
                 if (_characterController.GetComponentInChildren<Magmaklumpen>() != null) {
 
                     if (tacklingPlayer.GetComponentInChildren<Throwable>() != null) {

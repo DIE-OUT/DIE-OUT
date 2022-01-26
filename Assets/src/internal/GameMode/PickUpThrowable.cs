@@ -26,6 +26,7 @@ namespace DieOut.GameMode {
             
             _inputTable.CharacterControls.PickUp.performed += OnPickUp;
             _inputTable.CharacterControls.Throw.performed += OnThrow;
+            
             _itemPosition = GetComponentInChildren<ItemPosition>();
         }
 
@@ -38,12 +39,14 @@ namespace DieOut.GameMode {
         }
 
         private void OnTriggerEnter(Collider other) {
+            // ! hier muss dann was mit der Liste passieren
             if (other.GetComponent<Throwable>() != null) {
                 _throwableInRange = true;
             }
         }
         
         private void OnTriggerExit(Collider other) {
+            // ! hier muss dann was mit der Liste passieren
             if (other.GetComponent<Throwable>() != null) {
                 _throwableInRange = false;
             }
@@ -51,6 +54,7 @@ namespace DieOut.GameMode {
 
         private void OnPickUp(InputAction.CallbackContext _) {
             // ? Ich versteh nicht warum es so funktioniert, ich würde denken _magmaklumpen.AttachedToPlayer() muss false sein
+            // - brauchen wir aber möglicherweise eh nicht
             if (_throwableInRange == true /*&& _throwable.AttachedToPlayer() == true*/ && _itemPosition.transform.childCount == 0) {
                 _itemPosition.TriggerPickUpThrowable(_throwable);
                 _throwable.TriggerPickUp();
