@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DieOut.Sessions;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities.Editor;
@@ -17,9 +18,9 @@ namespace DieOut.Editor.GameManager {
         private ManagerTab _currentManagerTab = ManagerTab.GameModes;
         private int _enumIndex;
         
-        private DrawScriptableObjectTree<GameMode.Management.GameMode> _drawGameModes = new DrawScriptableObjectTree<GameMode.Management.GameMode>(GAME_MODE_PATH);
+        private readonly DrawScriptableObjectTree<GameMode.Management.GameMode> _drawGameModes = new DrawScriptableObjectTree<GameMode.Management.GameMode>(GAME_MODE_PATH);
         private const string GAME_MODE_PATH = "Assets/ScriptableObjects/GameModes";
-        private DrawScriptableObject<GameMode.Management.GameMode> _drawOneGameMode = new DrawScriptableObject<GameMode.Management.GameMode>(GAME_MODE_PATH);
+        private readonly DrawScriptableObject<SessionSettingsSO> _drawSessionSettings = new DrawScriptableObject<SessionSettingsSO>("global");
 
         private bool _menuTreeIsDirty = false;
         
@@ -30,7 +31,7 @@ namespace DieOut.Editor.GameManager {
 
         protected override void Initialize() {
             //_drawGameModes.SetPath(GAME_MODE_PATH);
-            _drawOneGameMode.FindTarget();
+            _drawSessionSettings.FindTarget();
         }
 
         private void OnTabChange() {
@@ -76,7 +77,7 @@ namespace DieOut.Editor.GameManager {
             List<object> targets = new List<object>();
             
             targets.Add(_drawGameModes);
-            targets.Add(_drawOneGameMode);
+            targets.Add(_drawSessionSettings);
             
             targets.Add(base.GetTarget());
             

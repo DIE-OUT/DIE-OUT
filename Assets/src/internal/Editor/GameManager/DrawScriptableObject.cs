@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using System;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
@@ -6,13 +7,20 @@ namespace DieOut.Editor.GameManager {
     
     public class DrawScriptableObject<T> where T : ScriptableObject {
         
-        [Title("Test")]
         [ShowIf("@_myObject != null")]
         [InlineEditor(InlineEditorObjectFieldModes.CompletelyHidden)]
         public T _myObject;
         private string _path;
-
-
+        
+        [ShowIf("@_myObject == null")]
+        [ReadOnly]
+        [HideLabel]
+        [ShowInInspector]
+        [PropertyOrder(-1)]
+        [InfoBox("Notify Conor plss")]
+        private string _ = string.Empty;
+        
+        
         public DrawScriptableObject(string path) {
             _path = path;
         }
