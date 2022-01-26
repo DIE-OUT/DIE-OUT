@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using DieOut.GameMode.Management;
 using DieOut.SceneManagement;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 
 namespace DieOut.Sessions {
     
     [Serializable]
     public class Session {
 
-        public int PlayerCount => Player.Length;
-        public Player[] Player { get; }
-        public HashSet<GameMode.Management.GameMode> ActivatedGameModes { get; }
-        public int MaxRounds { get; }
-        public int WinningScore { get; }
+        [ReadOnly] [OdinSerialize] public int PlayerCount => Player.Length;
+        [OdinSerialize] public Player[] Player { get; }
+        [OdinSerialize] public HashSet<GameMode.Management.GameMode> ActivatedGameModes { get; }
+        [OdinSerialize] public int MaxRounds { get; }
+        [OdinSerialize] public int WinningScore { get; }
         
-        public int CurrentRound { get; private set; }
+        [ReadOnly] [OdinSerialize] public int CurrentRound { get; private set; }
         
         public Session(Player[] player, HashSet<GameMode.Management.GameMode> activatedGameModes, int maxRounds, int winningScore) {
             Player = player;

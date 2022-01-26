@@ -12,7 +12,6 @@ namespace DieOut.UI.MainMenu {
         
         [SerializeField] [ReadOnly] private SessionBuilder _sessionBuilder;
         [Required] [SerializeField] private SessionSettingsSO _sessionSettingsSo;
-        [Required] [SerializeField] private Switcher _playerCountSwitcher;
         [Required] [SerializeField] private Switcher _maxRoundsSwitcher;
         [Required] [SerializeField] private Switcher _winningScoreSwitcher;
         
