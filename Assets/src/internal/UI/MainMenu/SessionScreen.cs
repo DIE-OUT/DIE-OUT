@@ -37,7 +37,7 @@ namespace DieOut.UI.MainMenu {
                 return;
             
             Sessions.Sessions.SetNew(newSession);
-            //TODO: start game
+            Sessions.Sessions.Current.GoNext();
         }
         
     }

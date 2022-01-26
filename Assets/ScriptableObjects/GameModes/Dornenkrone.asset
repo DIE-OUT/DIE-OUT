@@ -16,8 +16,8 @@ MonoBehaviour:
   _splashScreen: {fileID: 0}
   _maps:
   - _scene:
-      m_SceneAsset: {fileID: 0}
-      m_SceneName: 
+      m_SceneAsset: {fileID: 102900000, guid: 1df757315930ac44f94d6ddf3c287db6, type: 3}
+      m_SceneName: PlayerInteractions
     _displayName: 
   _additionalScenes:
   - m_SceneAsset: {fileID: 0}
