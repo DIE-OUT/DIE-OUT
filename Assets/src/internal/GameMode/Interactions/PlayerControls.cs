@@ -11,7 +11,7 @@ namespace DieOut.GameMode.Interactions {
         [SerializeField] private DieOut.GameMode.DeviceTypes _deviceTypes;
         [Header("Settings")]
         [SerializeField] private float _cameraAngle = 45f;
-        [SerializeField] [Range(0f, 0.05f)] public float _movementSpeed = 0.02f;
+        [SerializeField] [Range(0f, 10f)] public float _movementSpeed = 5f;
         [SerializeField] [Range(0f, 1f)] public float _jumpForce = 0.1f;
         [SerializeField] private float _jumpInputBufferTime = 0.1f;
         
@@ -79,7 +79,7 @@ namespace DieOut.GameMode.Interactions {
         }
 
         private void UpdateMovable() {
-            _movable.Move(Quaternion.Euler(0, _cameraAngle, 0) * new Vector3(_moveInput.x, 0, _moveInput.y) * _movementSpeed);
+            _movable.Move(Quaternion.Euler(0, _cameraAngle, 0) * new Vector3(_moveInput.x, 0, _moveInput.y) * _movementSpeed * Time.deltaTime);
         }
 
         private void UpdateRotation() {
