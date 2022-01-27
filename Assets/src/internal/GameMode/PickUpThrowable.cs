@@ -24,6 +24,7 @@ namespace DieOut.GameMode {
             else if(_deviceTypes == DeviceTypes.Keyboard)
                 _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
             
+            // Variante bei der automatisch aufgehoben wird
             _inputTable.CharacterControls.PickUp.performed += OnPickUp;
             _inputTable.CharacterControls.Throw.performed += OnThrow;
             
@@ -42,9 +43,15 @@ namespace DieOut.GameMode {
             // ! hier muss dann was mit der Liste passieren
             if (other.GetComponent<Throwable>() != null) {
                 _throwableInRange = true;
+                // Variante bei der automatisch aufgehoben wird
+                /*if (_throwableInRange == true && _itemPosition.transform.childCount == 0 && _throwable.AttachedToPlayer() == true) { //&& _throwable.AttachedToPlayer() == true
+                    _itemPosition.TriggerPickUpThrowable(_throwable);
+                    _throwable.TriggerPickUp();
+                }*/
+                //
             }
         }
-        
+
         private void OnTriggerExit(Collider other) {
             // ! hier muss dann was mit der Liste passieren
             if (other.GetComponent<Throwable>() != null) {
@@ -52,10 +59,11 @@ namespace DieOut.GameMode {
             }
         }
 
+        // Variante bei der automatisch aufgehoben wird
         private void OnPickUp(InputAction.CallbackContext _) {
             // ? Ich versteh nicht warum es so funktioniert, ich würde denken _magmaklumpen.AttachedToPlayer() muss false sein
             // - brauchen wir aber möglicherweise eh nicht
-            if (_throwableInRange == true /*&& _throwable.AttachedToPlayer() == true*/ && _itemPosition.transform.childCount == 0) {
+            if (_throwableInRange == true && _itemPosition.transform.childCount == 0) { //&& _throwable.AttachedToPlayer() == true
                 _itemPosition.TriggerPickUpThrowable(_throwable);
                 _throwable.TriggerPickUp();
             }

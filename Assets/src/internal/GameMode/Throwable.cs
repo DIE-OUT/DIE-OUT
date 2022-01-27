@@ -8,15 +8,13 @@ using System.Linq;
 
 namespace DieOut.GameMode {
     public class Throwable : MonoBehaviour {
-       
         [SerializeField] float _throwForce = 800;
         public bool _isHolding = false;
-        
+
         // - brauchen wir wahrscheinlich nicht
-        //private bool _attachedToPlayer = false;
+        private bool _attachedToPlayer = false;
 
         void Update() {
-
             if (_isHolding == true) {
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
                 GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
@@ -26,7 +24,13 @@ namespace DieOut.GameMode {
                 GetComponent<Rigidbody>().useGravity = true;
             }
         }
-        
+
+        private void OnCollisionEnter(Collision collision) {
+            if (collision.gameObject.GetComponent<Movable>()) {
+                Debug.Log("hit");
+            }
+        }
+
         public void TriggerPickUp() {
             // ! hier muss noch irgendwas passieren, damit sich der stone bei collision nicht mehr bewegt
             _isHolding = true;
@@ -37,21 +41,20 @@ namespace DieOut.GameMode {
 
         public void TriggerThrow() {
             if (_isHolding == true) {
-                GetComponent<Rigidbody>().AddForce(GetComponentInParent<ItemPosition>().transform.forward * _throwForce);
+                GetComponent<Rigidbody>()
+                    .AddForce(GetComponentInParent<ItemPosition>().transform.forward * _throwForce);
                 _isHolding = false;
             }
         }
-        
+
         // - brauchen wir wahrscheinlich nicht
-        /*public bool AttachedToPlayer() {
+        public bool AttachedToPlayer() {
             if (transform.parent != null) {
-                Debug.Log("has parent");
                 return _attachedToPlayer == true;
             }
             else {
-                Debug.Log("no parent");
                 return _attachedToPlayer == false;
             }
-        }*/
+        }
     }
 }

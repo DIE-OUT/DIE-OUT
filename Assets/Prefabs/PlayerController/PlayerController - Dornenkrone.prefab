@@ -199,6 +199,20 @@ MonoBehaviour:
   _stunDuration: 2
   _immunity: 3
   tackleImmunity: 0
+--- !u!114 &6881634941943608829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028884854241720944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2c69cd09d36244888ccd65c8d750c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _throwable: {fileID: 0}
+  _deviceTypes: 0
 --- !u!114 &8401715106698432103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +226,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _magmaklumpen: {fileID: 0}
---- !u!114 &6881634941943608829
+  _deviceTypes: 0
+--- !u!114 &6860100141359333413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,6 +236,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6028884854241720944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a2c69cd09d36244888ccd65c8d750c9, type: 3}
+  m_Script: {fileID: 11500000, guid: ed2f6cfff85e1f14fb95044930355e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

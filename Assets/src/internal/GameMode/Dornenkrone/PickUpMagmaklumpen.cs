@@ -24,7 +24,8 @@ namespace DieOut.GameMode.Dornenkrone {
             else if(_deviceTypes == DeviceTypes.Keyboard)
                 _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
             
-            _inputTable.CharacterControls.PickUp.performed += OnPickUp;
+            // Variante bei der automatisch aufgehoben wird
+            //_inputTable.CharacterControls.PickUp.performed += OnPickUp;
             
             _itemPosition = GetComponentInChildren<ItemPosition>();
         }
@@ -36,25 +37,31 @@ namespace DieOut.GameMode.Dornenkrone {
         private void OnDisable() {
             _inputTable.Disable();
         }
-
+        
         private void OnTriggerEnter(Collider other) {
             if (other.GetComponent<Magmaklumpen>() != null) {
                 _magmaklumpenInRange = true;
+                // Variante bei der automatisch aufgehoben wird
+                if (_itemPosition.transform.childCount == 0 && _magmaklumpen.AttachedToPlayer() == true) { // && _magmaklumpen.AttachedToPlayer() == true
+                    _itemPosition.TriggerPickUpKlumpen(_magmaklumpen);
+                }
+                //
             }
         }
-        
+
         private void OnTriggerExit(Collider other) {
             if (other.GetComponent<Magmaklumpen>() != null) {
                 _magmaklumpenInRange = false;
             }
         }
 
+        /* Variante bei der automatisch aufgehoben wird
         private void OnPickUp(InputAction.CallbackContext _) {
             // ? Ich versteh nicht warum es so funktioniert, ich würde denken _magmaklumpen.AttachedToPlayer() muss false sein
             // - brauchen wir aber wahrscheinlich hier eh nicht
-            if (_magmaklumpenInRange == true /*&& _magmaklumpen.AttachedToPlayer() == true*/ && _itemPosition.transform.childCount == 0) {
+            if (_magmaklumpenInRange == true && _itemPosition.transform.childCount == 0) { // && _magmaklumpen.AttachedToPlayer() == true
                 _itemPosition.TriggerPickUpKlumpen(_magmaklumpen);
             }
-        }
+        }*/
     }
 }
