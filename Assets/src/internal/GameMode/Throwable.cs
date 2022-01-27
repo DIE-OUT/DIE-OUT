@@ -19,7 +19,7 @@ namespace DieOut.GameMode {
         public Rigidbody _rigidbody;
         
         // - brauchen wir wahrscheinlich nicht
-        private bool _attachedToPlayer = false;
+        public bool _attachedToPlayer = false;
 
         void Start()
         {
@@ -42,7 +42,7 @@ namespace DieOut.GameMode {
             if (collision.gameObject.GetComponent<Movable>() != null) {
                 _enemyPlayer = collision.gameObject.GetComponent<Movable>();
                 // _enemyPlayer.Stun();
-                if (_enemyPlayer.GetComponentInChildren<Magmaklumpen>() != null) {
+                if (_enemyPlayer.GetComponentInChildren<Magmaklumpen>() != null && _attachedToPlayer == false) {
                     _magmaklumpen = _enemyPlayer.GetComponentInChildren<Magmaklumpen>();
                     _magmaklumpen.transform.parent = _player.GetComponentInChildren<ItemPosition>().transform;
                     _magmaklumpen.transform.position =
@@ -71,13 +71,13 @@ namespace DieOut.GameMode {
         }
 
         // - brauchen wir wahrscheinlich nicht
-        public bool AttachedToPlayer() {
+        /*public bool AttachedToPlayer() {
             if (transform.parent != null) {
                 return _attachedToPlayer == true;
             }
             else {
                 return _attachedToPlayer == false;
             }
-        }
+        }*/
     }
 }

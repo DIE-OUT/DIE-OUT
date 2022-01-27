@@ -77,15 +77,18 @@ namespace DieOut.GameMode {
             
             // ? Ich versteh nicht warum es so funktioniert, ich würde denken _magmaklumpen.AttachedToPlayer() muss false sein
             // - brauchen wir aber möglicherweise eh nicht
-            if (_throwableInRange == true && _itemPosition.transform.childCount == 0) { //&& _throwable.AttachedToPlayer() == true
+            if (_throwableInRange == true && _itemPosition.transform.childCount == 0 && _targetStone._attachedToPlayer == false) { //&& _throwable.AttachedToPlayer() == true
+                _targetStone._attachedToPlayer = true;
                 _itemPosition.TriggerPickUpThrowable(_targetStone);
                 _targetStone.TriggerPickUp();
             }
         }
 
         private void OnThrow(InputAction.CallbackContext _) {
-            if(_targetStone != null)
+            if (_targetStone != null) {
+                _targetStone._attachedToPlayer = false;
                 _targetStone.TriggerThrow();
+            }
         }
     }
 }

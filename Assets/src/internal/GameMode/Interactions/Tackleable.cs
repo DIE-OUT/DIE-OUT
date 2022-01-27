@@ -47,6 +47,7 @@ namespace DieOut.GameMode.Interactions {
                         _throwable = tacklingPlayer.GetComponentInChildren<Throwable>();
                         _throwable._rigidbody.constraints = RigidbodyConstraints.None;
                         _throwable._isHolding = false;
+                        _throwable._attachedToPlayer = false;
                     }
                     _magmaklumpen = _characterController.GetComponentInChildren<Magmaklumpen>();
                     _magmaklumpen.transform.SetParent(tacklingPlayer.GetComponentInChildren<ItemPosition>().transform);
@@ -58,6 +59,7 @@ namespace DieOut.GameMode.Interactions {
                     _throwable = _characterController.GetComponentInChildren<Throwable>();
                     _throwable._rigidbody.constraints = RigidbodyConstraints.None;
                     _throwable._isHolding = false;
+                    _throwable._attachedToPlayer = false;
                 }
                 
                 // ! Sollte erst passieren, wenn der Angreifer mit seinem Ziel collided
