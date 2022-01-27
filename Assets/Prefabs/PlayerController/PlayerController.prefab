@@ -165,5 +165,5 @@ MonoBehaviour:
   _deviceTypes: 0
   _cameraAngle: 45
   _movementSpeed: 5
-  _jumpForce: 0.09
+  _jumpForce: 0.16
   _jumpInputBufferTime: 0.1
