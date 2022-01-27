@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
@@ -84,6 +85,9 @@ namespace DieOut.GameMode.Interactions {
             if (_movable != null) {
                 // ! Sollte so weit mit dem Tackle kommen, dass er mit seinem Ziel collided
                 _movable.AddVelocity((target.transform.position - transform.position).normalized / 10);
+                
+                // für Tackle in eine Richtung
+                //_movable.AddVelocity(Vector3.forward.normalized / 10);
             }
 
             _onCooldown = true;

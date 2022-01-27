@@ -6,7 +6,7 @@ namespace DieOut.GameMode.Dornenkrone {
     [RequireComponent(typeof(CharacterController))]
     public class PickUpMagmaklumpen : MonoBehaviour {
 
-        [SerializeField] Magmaklumpen _magmaklumpen;
+        Magmaklumpen _magmaklumpen;
         
         [SerializeField] private DeviceTypes _deviceTypes;
         private InputTable _inputTable;
@@ -40,10 +40,12 @@ namespace DieOut.GameMode.Dornenkrone {
         
         private void OnTriggerEnter(Collider other) {
             if (other.GetComponent<Magmaklumpen>() != null) {
+                _magmaklumpen = other.GetComponent<Magmaklumpen>();
                 _magmaklumpenInRange = true;
                 // Variante bei der automatisch aufgehoben wird
-                if (_itemPosition.transform.childCount == 0 && _magmaklumpen.AttachedToPlayer() == true) { // && _magmaklumpen.AttachedToPlayer() == true
+                if (_itemPosition.transform.childCount == 0 && _magmaklumpen._attachedToPlayer == false) { // && _magmaklumpen.AttachedToPlayer() == true
                     _itemPosition.TriggerPickUpKlumpen(_magmaklumpen);
+                    _magmaklumpen._attachedToPlayer = true;
                 }
                 //
             }

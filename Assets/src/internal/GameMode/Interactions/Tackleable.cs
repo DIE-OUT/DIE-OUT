@@ -15,6 +15,7 @@ namespace DieOut.GameMode.Interactions {
         private Movable _movable;
         private Magmaklumpen _magmaklumpen;
         private Throwable _throwable;
+        private Tackle _tackle;
 
 
         private void Awake() {
@@ -44,6 +45,7 @@ namespace DieOut.GameMode.Interactions {
 
                     if (tacklingPlayer.GetComponentInChildren<Throwable>() != null) {
                         _throwable = tacklingPlayer.GetComponentInChildren<Throwable>();
+                        _throwable._rigidbody.constraints = RigidbodyConstraints.None;
                         _throwable._isHolding = false;
                     }
                     _magmaklumpen = _characterController.GetComponentInChildren<Magmaklumpen>();
@@ -54,6 +56,7 @@ namespace DieOut.GameMode.Interactions {
 
                 if (_characterController.GetComponentInChildren<Throwable>() != null) {
                     _throwable = _characterController.GetComponentInChildren<Throwable>();
+                    _throwable._rigidbody.constraints = RigidbodyConstraints.None;
                     _throwable._isHolding = false;
                 }
                 
