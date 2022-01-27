@@ -49,7 +49,8 @@ namespace DieOut.GameMode.Interactions {
         
         private void OnJumpInput(InputAction.CallbackContext ctx) {
             
-            _movable.AddVelocity(new Vector3(0, _jumpForce, 0));
+            if(_movable.IsGrounded)
+                _movable.AddVelocity(new Vector3(0, _jumpForce, 0));
             
 //            _jumpInputBuffer = true;
 //    
