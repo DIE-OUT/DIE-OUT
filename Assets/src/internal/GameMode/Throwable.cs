@@ -44,7 +44,7 @@ namespace DieOut.GameMode {
                 // _enemyPlayer.Stun();
                 if (_enemyPlayer.GetComponentInChildren<Magmaklumpen>() != null) {
                     _magmaklumpen = _enemyPlayer.GetComponentInChildren<Magmaklumpen>();
-                    _magmaklumpen.transform.parent = _player.GetComponentInChildren<ItemPosition>().transform.parent;
+                    _magmaklumpen.transform.parent = _player.GetComponentInChildren<ItemPosition>().transform;
                     _magmaklumpen.transform.position =
                         _player.GetComponentInChildren<ItemPosition>().transform.position;
                 }
