@@ -8,80 +8,52 @@ using System.Linq;
 
 namespace DieOut.GameMode {
     public class Throwable : MonoBehaviour {
-        // ! Rotation fehlt noch
-        
-        private InputTable _inputTable;
-        [SerializeField] private DeviceTypes _deviceTypes;
-
-        private float _throwForce = 800;
-        private bool _inPickUpRange = false;
-        
-        public GameObject item;
-        // ! das tempParent sollte immer der ThrowPoint des Players sein, welcher das throwable item aufhebt
-        // ! -> entspricht dem Player, der E drückt und am nähesten am throwable item ist
-        public GameObject tempParent;
+        [SerializeField] float _throwForce = 800;
         public bool _isHolding = false;
-        
-        private void Awake() {
-            _inputTable = new InputTable();
 
-            if(_deviceTypes == DeviceTypes.Gamepad)
-                _inputTable.devices = new[] { Gamepad.all[0] };
-            else if(_deviceTypes == DeviceTypes.Keyboard)
-                _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
-            
-            _inputTable.CharacterControls.PickUp.performed += OnPickUp;
-            _inputTable.CharacterControls.Throw.performed += OnThrow;
-        }
-
-        private void OnEnable() {
-            _inputTable.Enable();
-        }
-
-        private void OnDisable() {
-            _inputTable.Disable();
-        }
+        // - brauchen wir wahrscheinlich nicht
+        private bool _attachedToPlayer = false;
 
         void Update() {
-
             if (_isHolding == true) {
-                item.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-                item.transform.SetParent(tempParent.transform);
-                item.transform.position = tempParent.transform.position;
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             }
             else {
-                item.transform.SetParent(null);
-                item.GetComponent<Rigidbody>().useGravity = true;
+                transform.SetParent(null);
+                GetComponent<Rigidbody>().useGravity = true;
             }
         }
 
-        private void OnTriggerEnter(Collider other) {
-
-            if (other.gameObject.GetComponent<Tackle>()) {
-                _inPickUpRange = true;
-            }
-        }
-        
-        private void OnTriggerExit(Collider other) {
-
-            if (other.gameObject.GetComponent<Tackle>()) {
-                _inPickUpRange = false;
+        private void OnCollisionEnter(Collision collision) {
+            if (collision.gameObject.GetComponent<Movable>()) {
+                Debug.Log("hit");
             }
         }
 
-        void OnPickUp(InputAction.CallbackContext _) {
-            if (_inPickUpRange == true) {
-                _isHolding = true;
-                item.GetComponent<Rigidbody>().useGravity = false;
-                //item.GetComponent<Rigidbody>().detectCollisions = true;
-            }
+        public void TriggerPickUp() {
+            // ! hier muss noch irgendwas passieren, damit sich der stone bei collision nicht mehr bewegt
+            _isHolding = true;
+            GetComponent<Rigidbody>().useGravity = false;
+            // - brauchen wir wahrscheinlich nicht
+            //item.GetComponent<Rigidbody>().detectCollisions = true;
         }
 
-        void OnThrow(InputAction.CallbackContext _) {
+        public void TriggerThrow() {
             if (_isHolding == true) {
-                item.GetComponent<Rigidbody>().AddForce(tempParent.transform.forward * _throwForce);
+                GetComponent<Rigidbody>()
+                    .AddForce(GetComponentInParent<ItemPosition>().transform.forward * _throwForce);
                 _isHolding = false;
+            }
+        }
+
+        // - brauchen wir wahrscheinlich nicht
+        public bool AttachedToPlayer() {
+            if (transform.parent != null) {
+                return _attachedToPlayer == true;
+            }
+            else {
+                return _attachedToPlayer == false;
             }
         }
     }
