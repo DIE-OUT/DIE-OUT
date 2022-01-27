@@ -84,7 +84,8 @@ namespace DieOut.GameMode {
         }
 
         private void OnThrow(InputAction.CallbackContext _) {
-            _targetStone.TriggerThrow();
+            if(_targetStone != null)
+                _targetStone.TriggerThrow();
         }
     }
 }
