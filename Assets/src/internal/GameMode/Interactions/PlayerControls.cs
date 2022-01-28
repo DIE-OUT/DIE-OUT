@@ -7,7 +7,8 @@ namespace DieOut.GameMode.Interactions {
     
     [RequireComponent(typeof(Movable))]
     public class PlayerControls : MonoBehaviour {
-        
+
+        public bool HasControl = true;
         [SerializeField] private DieOut.GameMode.DeviceTypes _deviceTypes;
         [Header("Settings")]
         [SerializeField] private float _cameraAngle = 45f;
@@ -48,6 +49,8 @@ namespace DieOut.GameMode.Interactions {
         }
         
         private void OnJumpInput(InputAction.CallbackContext ctx) {
+            if(!HasControl)
+                return;
             
             if(_movable.IsGrounded)
                 _movable.AddVelocity(new Vector3(0, _jumpForce, 0));
@@ -79,10 +82,14 @@ namespace DieOut.GameMode.Interactions {
         }
 
         private void UpdateMovable() {
+            if(!HasControl)
+                return;
             _movable.Move(Quaternion.Euler(0, _cameraAngle, 0) * new Vector3(_moveInput.x, 0, _moveInput.y) * _movementSpeed * Time.deltaTime);
         }
 
         private void UpdateRotation() {
+            if(!HasControl)
+                return;
             if(_moveInput.magnitude != 0)
                 transform.SetPositionAndRotation(transform.position, Quaternion.LookRotation(Quaternion.Euler(0, _cameraAngle, 0) * new Vector3(_moveInput.x, 0, _moveInput.y)));
         }

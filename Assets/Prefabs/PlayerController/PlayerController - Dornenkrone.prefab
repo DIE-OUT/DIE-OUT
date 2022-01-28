@@ -59,10 +59,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deviceTypes: 0
-  _movable: {fileID: 6028884854241720949}
   _tackleablesToIgnore:
   - {fileID: 5420079802391077671}
   _cooldown: 3
+  _tackleDistance: 50
 --- !u!1 &6952426200836093220
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,17 +185,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2091813251688484338, guid: 0869840eabdb0ea4faba6dcaedf2016f, type: 3}
   m_PrefabInstance: {fileID: 5669323591625717635}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6028884854241720949 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2091813251688484342, guid: 0869840eabdb0ea4faba6dcaedf2016f, type: 3}
-  m_PrefabInstance: {fileID: 5669323591625717635}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6028884854241720944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a960aa3be6349a9aac735f03d3ac302, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5420079802391077671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +200,7 @@ MonoBehaviour:
   _stunDuration: 2
   _immunity: 3
   tackleImmunity: 0
+  _tackleDistance: 30
 --- !u!114 &6860100141359333413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2c69cd09d36244888ccd65c8d750c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _throwable: {fileID: 0}
   _deviceTypes: 0
 --- !u!114 &8401715106698432103
 MonoBehaviour:
@@ -250,5 +239,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1242eb8b984294ba2c5dcac0f8ff7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _magmaklumpen: {fileID: 0}
-  _deviceTypes: 0

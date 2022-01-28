@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fc1c5e632c4572a62a560096665589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HasControl: 1
   _deviceTypes: 0
   _cameraAngle: 45
   _movementSpeed: 6
