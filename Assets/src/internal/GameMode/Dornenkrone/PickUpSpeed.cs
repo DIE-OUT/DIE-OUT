@@ -23,6 +23,14 @@ namespace DieOut.GameMode.Dornenkrone {
             
             _inputTable.CharacterControls.PickUp.performed += OnPickUp;
         }
+        
+        private void OnEnable() {
+            _inputTable.Enable();
+        }
+
+        private void OnDisable() {
+            _inputTable.Disable();
+        }
 
         private void OnTriggerEnter(Collider other) {
             if (other.GetComponent<SpeedPickUp>() != null) {
