@@ -202,6 +202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Magmaklumpen
       objectReference: {fileID: 0}
+    - target: {fileID: 3316166510986460507, guid: a9fe9b23f85439e4c8e2f33f497e57e3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9fe9b23f85439e4c8e2f33f497e57e3, type: 3}
 --- !u!114 &14190423 stripped
