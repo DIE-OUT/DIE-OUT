@@ -40,7 +40,12 @@ namespace DieOut.Sessions {
             GameMode.Management.GameMode newGameMode = ActivatedGameModes.ToArray()[randomGameModeIndex];
             int randomMapIndex = new Random().Next(0, newGameMode.Maps.Length - 1);
             Map newMap = newGameMode.Maps[randomMapIndex];
-            SceneManager.LoadScenesAsync(newMap.Scene); //todo: add newGameMode.AdditionalScenes
+
+            List<SceneField> scenesToLoad = new List<SceneField>();
+            scenesToLoad.Add(newMap.Scene);
+            scenesToLoad.AddRange(newGameMode.AdditionalScenes);
+
+            SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray());
         }
 
         public bool ValidateWin() {
