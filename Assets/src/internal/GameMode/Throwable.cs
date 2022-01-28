@@ -10,7 +10,8 @@ using UnityEngine.UI;
 
 namespace DieOut.GameMode {
     public class Throwable : MonoBehaviour {
-        
+
+        private PlayerControls _playerControls;
         private Movable _player;
         private Movable _enemyPlayer;
         private Magmaklumpen _magmaklumpen;
@@ -18,6 +19,7 @@ namespace DieOut.GameMode {
         public Rigidbody _rigidbody;
         
         [SerializeField] float _throwForce = 800;
+        [SerializeField] private float _stunDuration = 2;
         public bool _attachedToPlayer = false;
 
         void Start()
@@ -42,13 +44,11 @@ namespace DieOut.GameMode {
             _enemyPlayer = collision.gameObject.GetComponent<Movable>();
             
             if (_enemyPlayer != null) {
-                // ! hier muss der enemy Player gestunned werden
+                _playerControls = _enemyPlayer.GetComponent<PlayerControls>();
+                StartCoroutine(Stun());
                 _magmaklumpen = _enemyPlayer.GetComponentInChildren<Magmaklumpen>();
 
                 if (_magmaklumpen != null && _attachedToPlayer == false) {
-                    if (_player == null) {
-                        Debug.Log("Player is nulll");
-                    }
                     _itemPosition = _player.GetComponentInChildren<ItemPosition>();
                     _magmaklumpen.transform.parent = _itemPosition.transform;
                     _magmaklumpen.transform.position = _itemPosition.transform.position;
@@ -56,14 +56,14 @@ namespace DieOut.GameMode {
             }
         }
 
+        private IEnumerator Stun() {
+            _playerControls.HasControl = false;
+            yield return new WaitForSeconds(_stunDuration);
+            _playerControls.HasControl = true;
+        }
+
         public void TriggerPickUp() {
             _player = GetComponentInParent<Movable>();
-            if (_player == null) {
-                Debug.Log("is 0");
-            }
-            else {
-                Debug.Log("exists");
-            }
         }
 
         public void TriggerThrow() {

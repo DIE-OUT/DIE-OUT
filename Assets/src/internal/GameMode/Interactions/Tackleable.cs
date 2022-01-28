@@ -31,12 +31,12 @@ namespace DieOut.GameMode.Interactions {
         
         private IEnumerator TackleStunDuration() {
             yield return new WaitForSeconds(_stunDuration);
-            //TODO: reenable character controls
+            _movable.GetComponent<PlayerControls>().HasControl = true;
         }
 
         public void TriggerTackle(Movable tacklingPlayer) {
             if (_movable != null) {
-                //TODO: disable character controls
+                _movable.GetComponent<PlayerControls>().HasControl = false;
 
                 // Wenn der getacklete Player einen Magmaklumpen trägt, geht dieser auf den tacklenden Player über
                 // -> Wenn der tacklende Player dabei ein Throwable Item trägt, lässt er dieses Fallen um den Itemposition Platz für den Magmaklumpen frei zu machen
