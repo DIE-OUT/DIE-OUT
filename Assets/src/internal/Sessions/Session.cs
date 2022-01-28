@@ -7,6 +7,8 @@ using DieOut.SceneManagement;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityAsync;
+using UnityEngine;
+using Random = System.Random;
 
 namespace DieOut.Sessions {
 
@@ -43,8 +45,9 @@ namespace DieOut.Sessions {
             
             await LoadNextGameMode();
             OnGameModePrepare?.Invoke();
-            await Await.Seconds(3);
+            await Countdown.Run();
             OnGameModeStart?.Invoke();
+            Debug.Log("Start");
         }
 
         private async Task LoadNextGameMode() {
