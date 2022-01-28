@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using DieOut.GameMode.Management;
 using DieOut.SceneManagement;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using UnityAsync;
 
 namespace DieOut.Sessions {
 
@@ -35,14 +37,17 @@ namespace DieOut.Sessions {
             CurrentRound = 0;
         }
 
-        public void GoNext() {
+        public async Task GoNext() {
             if(ValidateWin())
                 throw new NotImplementedException("A player won the game");
-
-            LoadNextGameMode();
+            
+            await LoadNextGameMode();
+            OnGameModePrepare?.Invoke();
+            await Await.Seconds(3);
+            OnGameModeStart?.Invoke();
         }
 
-        private void LoadNextGameMode() {
+        private async Task LoadNextGameMode() {
             int randomGameModeIndex = new Random().Next(0, ActivatedGameModes.Count - 1);
             GameMode.Management.GameMode newGameMode = ActivatedGameModes.ToArray()[randomGameModeIndex];
             int randomMapIndex = new Random().Next(0, newGameMode.Maps.Length - 1);
@@ -52,7 +57,7 @@ namespace DieOut.Sessions {
             scenesToLoad.Add(newMap.Scene);
             scenesToLoad.AddRange(newGameMode.AdditionalScenes);
 
-            SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray());
+            await SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray());
         }
 
         public bool ValidateWin() {

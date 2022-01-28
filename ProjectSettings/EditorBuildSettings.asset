@@ -8,19 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayTestLevelSelect.unity
     guid: dc7fc784a30c3ec48aff611ebfbd2efe
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/StartUp.unity
     guid: 9262e1c218bc0c4469f452359486c25d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/LoadingScreen.unity
     guid: 01f2584c0325a37438055444bb057d98
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 57779fc25205dc14c813daa6a2dd274e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PlayerInteractions.unity
     guid: 1df757315930ac44f94d6ddf3c287db6
   - enabled: 1
@@ -44,4 +44,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dornenkrone/Dornenkrone_Map05 L.unity
     guid: 28e8606a464a81a4c80ab32439b5c940
+  - enabled: 1
+    path: Assets/Scenes/GameMode_Management.unity
+    guid: 690b8fe4b4be1374787146238f4480a0
+  - enabled: 1
+    path: Assets/Scenes/Dornenkrone/Dornenkrone_Management.unity
+    guid: 30f8850d14e046f4fade8b1f57be951d
+  - enabled: 1
+    path: Assets/Scenes/Dornenkrone/Dornenkrone_UI.unity
+    guid: 910af1b8dd82610468b2bd3bebcdeec4
   m_configObjects: {}
