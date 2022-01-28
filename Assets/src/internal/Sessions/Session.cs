@@ -7,10 +7,17 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 
 namespace DieOut.Sessions {
+
+    public delegate void OnGameModePrepare();
+    public delegate void OnGameModeStart();
+    public delegate void OnGameModeEnd();
     
     [Serializable]
     public class Session {
 
+        public event OnGameModePrepare OnGameModePrepare;
+        public event OnGameModeStart OnGameModeStart;
+        public event OnGameModeEnd OnGameModeEnd;
         [ReadOnly] [OdinSerialize] public int PlayerCount => Player.Length;
         [OdinSerialize] public Player[] Player { get; }
         [OdinSerialize] public HashSet<GameMode.Management.GameMode> ActivatedGameModes { get; }
