@@ -7,10 +7,8 @@ using DieOut.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
-// die ganze Klasse wird probably nochmal anders geschrieben werden
 namespace DieOut.GameMode.Dornenkrone {
     public class Win : MonoBehaviour {
-        // ! statt [SerializeField] sollten alle Objects in der Szene mit dem type of Movable automatisch gefunden und in die Liste gefügt werden
         private List<Movable> _players;
         [SerializeField] private SceneField _levelSelectScene;
 

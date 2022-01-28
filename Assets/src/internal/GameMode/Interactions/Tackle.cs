@@ -13,12 +13,13 @@ namespace DieOut.GameMode.Interactions {
         [SerializeField] private DeviceTypes _deviceTypes;
         private InputTable _inputTable;
         
-        [SerializeField] private Movable _movable;
+        private Movable _player;
         private List<Tackleable> _otherPlayers = new List<Tackleable>();
         [SerializeField] private List<Tackleable> _tackleablesToIgnore;
         
         [SerializeField] private float _cooldown = 3f;
         private bool _onCooldown;
+        [SerializeField] private float _tackleDistance = 50;
 
         private void Awake() {
             _inputTable = new InputTable();
@@ -29,6 +30,8 @@ namespace DieOut.GameMode.Interactions {
                 _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
             
             _inputTable.CharacterControls.Tackle.performed += OnTackle;
+
+            _player = GetComponentInParent<Movable>();
         }
 
         private void OnEnable() {
@@ -80,12 +83,12 @@ namespace DieOut.GameMode.Interactions {
             }
             
             // falls irgendwann mal was anderes als Player getackled werden soll, könnte hier auch nur eine Position übergeben werden
-            target.TriggerTackle(_movable);
+            target.TriggerTackle(_player);
 
-            if (_movable != null) {
+            if (_player != null) {
                 // ! Sollte so weit mit dem Tackle kommen, dass er mit seinem Ziel collided
-                _movable.AddVelocity((target.transform.position - transform.position).normalized / 10);
-                
+                _player.AddVelocity((target.transform.position - _player.transform.position).normalized * _tackleDistance);
+
                 // für Tackle in eine Richtung
                 //_movable.AddVelocity(Vector3.forward.normalized / 10);
             }

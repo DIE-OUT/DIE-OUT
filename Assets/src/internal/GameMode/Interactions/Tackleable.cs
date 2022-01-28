@@ -3,25 +3,24 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using DieOut.GameMode.Dornenkrone;
+using UnityEditor;
 
 namespace DieOut.GameMode.Interactions {
     public class Tackleable : MonoBehaviour {
         
-        [SerializeField] private float _stunDuration = 2f;
-        [SerializeField] private float _immunity = 3f;
-        public bool tackleImmunity = false;
-
-        private CharacterController _characterController;
         private Movable _movable;
         private Magmaklumpen _magmaklumpen;
         private Throwable _throwable;
         private Tackle _tackle;
-
+        private ItemPosition _itemPosition;
+        
+        [SerializeField] private float _stunDuration = 2f;
+        [SerializeField] private float _immunity = 3f;
+        public bool tackleImmunity = false;
+        [SerializeField] private float _tackleDistance = 30;
 
         private void Awake() {
             _movable = GetComponent<Movable>();
-
-            _characterController = GetComponent<CharacterController>();
         }
 
         private IEnumerator TackleImmunity() {
@@ -39,31 +38,31 @@ namespace DieOut.GameMode.Interactions {
             if (_movable != null) {
                 //TODO: disable character controls
 
-                // Wenn der getackelte Player einen Magmaklumpen trägt, geht dieser auf den Angreifer über
-                // Wenn der tackelnde und/oder der getackelte Player ein Throwable Item trägt, lässt er dieses fallen
-                if (_characterController.GetComponentInChildren<Magmaklumpen>() != null) {
+                // Wenn der getacklete Player einen Magmaklumpen trägt, geht dieser auf den tacklenden Player über
+                // -> Wenn der tacklende Player dabei ein Throwable Item trägt, lässt er dieses Fallen um den Itemposition Platz für den Magmaklumpen frei zu machen
+                _magmaklumpen = GetComponentInChildren<Magmaklumpen>();
+                
+                if (_magmaklumpen != null) {
+                    _throwable = tacklingPlayer.GetComponentInChildren<Throwable>();
 
-                    if (tacklingPlayer.GetComponentInChildren<Throwable>() != null) {
-                        _throwable = tacklingPlayer.GetComponentInChildren<Throwable>();
-                        _throwable._rigidbody.constraints = RigidbodyConstraints.None;
-                        //_throwable._isHolding = false;
+                    if (_throwable != null) {
                         _throwable._attachedToPlayer = false;
                     }
-                    _magmaklumpen = _characterController.GetComponentInChildren<Magmaklumpen>();
-                    _magmaklumpen.transform.SetParent(tacklingPlayer.GetComponentInChildren<ItemPosition>().transform);
-                    _magmaklumpen.transform.position =
-                        tacklingPlayer.GetComponentInChildren<ItemPosition>().transform.position;
+
+                    _itemPosition = tacklingPlayer.GetComponentInChildren<ItemPosition>();
+                    _magmaklumpen.transform.SetParent(_itemPosition.transform);
+                    _magmaklumpen.transform.position = _itemPosition.transform.position;
                 }
 
-                if (_characterController.GetComponentInChildren<Throwable>() != null) {
-                    _throwable = _characterController.GetComponentInChildren<Throwable>();
-                    _throwable._rigidbody.constraints = RigidbodyConstraints.None;
-                    //_throwable._isHolding = false;
+                // Wenn der getacklete Player ein Throwable Item trägt, lässt er dieses Fallen
+                _throwable = GetComponentInChildren<Throwable>();
+                if (_throwable != null) {
                     _throwable._attachedToPlayer = false;
                 }
                 
-                // ! Sollte erst passieren, wenn der Angreifer mit seinem Ziel collided
-                _movable.AddVelocity((_movable.transform.position - tacklingPlayer.transform.position).normalized / 5);
+                // Der Tacklende Player bewegt sich schnell in die Richtung des getackleten Players
+                // ! Sollte erst passieren, wenn der Tacklende Player mit dem getackleten Player collided
+                _movable.AddVelocity((_movable.transform.position - tacklingPlayer.transform.position).normalized * _tackleDistance);
             }
 
             tackleImmunity = true;

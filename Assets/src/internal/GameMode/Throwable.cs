@@ -46,6 +46,9 @@ namespace DieOut.GameMode {
                 _magmaklumpen = _enemyPlayer.GetComponentInChildren<Magmaklumpen>();
 
                 if (_magmaklumpen != null && _attachedToPlayer == false) {
+                    if (_player == null) {
+                        Debug.Log("Player is nulll");
+                    }
                     _itemPosition = _player.GetComponentInChildren<ItemPosition>();
                     _magmaklumpen.transform.parent = _itemPosition.transform;
                     _magmaklumpen.transform.position = _itemPosition.transform.position;
@@ -55,6 +58,12 @@ namespace DieOut.GameMode {
 
         public void TriggerPickUp() {
             _player = GetComponentInParent<Movable>();
+            if (_player == null) {
+                Debug.Log("is 0");
+            }
+            else {
+                Debug.Log("exists");
+            }
         }
 
         public void TriggerThrow() {

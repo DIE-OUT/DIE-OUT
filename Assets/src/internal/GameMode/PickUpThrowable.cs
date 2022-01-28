@@ -67,8 +67,8 @@ namespace DieOut.GameMode {
             
             if (_itemPosition.transform.childCount == 0 && _targetStone._attachedToPlayer == false) {
                 _targetStone._attachedToPlayer = true;
-                _targetStone.TriggerPickUp();
                 _itemPosition.TriggerPickUpThrowable(_targetStone);
+                _targetStone.TriggerPickUp();
             }
         }
 

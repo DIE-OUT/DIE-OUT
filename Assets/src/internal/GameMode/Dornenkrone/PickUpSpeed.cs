@@ -21,7 +21,7 @@ namespace DieOut.GameMode.Dornenkrone {
             else if(_deviceTypes == DeviceTypes.Keyboard)
                 _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
             
-            _inputTable.CharacterControls.PickUp.started += OnPickUp;
+            _inputTable.CharacterControls.PickUp.performed += OnPickUp;
         }
 
         private void OnTriggerEnter(Collider other) {
