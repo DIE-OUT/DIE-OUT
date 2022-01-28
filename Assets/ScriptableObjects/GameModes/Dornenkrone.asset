@@ -16,8 +16,8 @@ MonoBehaviour:
   _splashScreen: {fileID: 0}
   _maps:
   - _scene:
-      m_SceneAsset: {fileID: 102900000, guid: 1df757315930ac44f94d6ddf3c287db6, type: 3}
-      m_SceneName: PlayerInteractions
+      m_SceneAsset: {fileID: 102900000, guid: 44ffa5bac379ad94096f816ccbaf3049, type: 3}
+      m_SceneName: Emis_TestScene_Dornenkrone
     _displayName: 
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 910af1b8dd82610468b2bd3bebcdeec4, type: 3}
