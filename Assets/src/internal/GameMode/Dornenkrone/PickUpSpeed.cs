@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DieOut.GameMode.Interactions;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 namespace DieOut.GameMode.Dornenkrone {
     public class PickUpSpeed : MonoBehaviour {
@@ -11,7 +12,11 @@ namespace DieOut.GameMode.Dornenkrone {
         [SerializeField] private DeviceTypes _deviceTypes;
         private InputTable _inputTable;
 
-        private bool _inPickUpRange = false;
+        private List<SpeedPickUp> _speedPickUps;
+        private SpeedPickUp _speedPickUp;
+
+        [SerializeField] private float _speedDuration = 5;
+        private int _amountOfCollectedSpeedPickUps = 0;
 
         private void Awake() {
             _inputTable = new InputTable();
@@ -22,6 +27,8 @@ namespace DieOut.GameMode.Dornenkrone {
                 _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
             
             _inputTable.CharacterControls.PickUp.performed += OnPickUp;
+
+            _speedPickUps = new List<SpeedPickUp>();
         }
         
         private void OnEnable() {
@@ -33,25 +40,45 @@ namespace DieOut.GameMode.Dornenkrone {
         }
 
         private void OnTriggerEnter(Collider other) {
-            if (other.GetComponent<SpeedPickUp>() != null) {
-                _inPickUpRange = true;
+            _speedPickUp = other.GetComponent<SpeedPickUp>();
+            
+            if (_speedPickUp != null) {
+                _speedPickUps.Add(_speedPickUp);
             }
         }
         
         private void OnTriggerExit(Collider other) {
-            if (other.GetComponent<SpeedPickUp>() != null) {
-                _inPickUpRange = false;
+            _speedPickUp = other.GetComponent<SpeedPickUp>();
+            
+            if (_speedPickUp != null) {
+                _speedPickUps.Remove(_speedPickUp);
+            }
+        }
+
+        private IEnumerator SpeedDuration() {
+            GetComponent<PlayerControls>()._movementSpeed = 10;
+            yield return new WaitForSeconds(_speedDuration);
+            _amountOfCollectedSpeedPickUps -= 1;
+            
+            if (_amountOfCollectedSpeedPickUps == 0) {
+                GetComponent<PlayerControls>()._movementSpeed -= 4;
             }
         }
         
-        // ? Why does this not work? :(
         private void OnPickUp(InputAction.CallbackContext _) {
-            Debug.Log("E pressed");
-            if (_inPickUpRange == true) {
-                Debug.Log("got the speed pick up");
-                GetComponent<Movable>().AddVelocity(Vector3.forward);
-                Debug.Log("Speeded");
+
+            if (_speedPickUps.Count == 0) {
+                return;
             }
+            
+            SpeedPickUp _targetSpeedPickUp = _speedPickUps
+                .OrderBy(x => Vector2.Distance(this.transform.position, x.transform.position)).First();
+
+            _speedPickUps.Remove(_targetSpeedPickUp);
+            _amountOfCollectedSpeedPickUps += 1;
+            StartCoroutine(SpeedDuration());
+
+            Destroy(_targetSpeedPickUp.gameObject);
         }
     }
 }
