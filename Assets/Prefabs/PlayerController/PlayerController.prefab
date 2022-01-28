@@ -146,10 +146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  _name: 
-  _inAirGravityForceDown: 0.5
-  _groundGravityForce: 0.01
-  _hasGravity: 1
+  _inAirGravityForceUp: 50
+  _inAirGravityForceDown: 50
+  _groundGravityForce: 1
 --- !u!114 &2091813251688484336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,5 +164,5 @@ MonoBehaviour:
   _deviceTypes: 0
   _cameraAngle: 45
   _movementSpeed: 5
-  _jumpForce: 0.16
+  _jumpForce: 15
   _jumpInputBufferTime: 0.1

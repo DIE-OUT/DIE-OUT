@@ -12,7 +12,7 @@ namespace DieOut.GameMode.Interactions {
         [Header("Settings")]
         [SerializeField] private float _cameraAngle = 45f;
         [SerializeField] [Range(0f, 10f)] public float _movementSpeed = 5f;
-        [SerializeField] [Range(0f, 1f)] public float _jumpForce = 0.1f;
+        [SerializeField] public float _jumpForce = 15f;
         [SerializeField] private float _jumpInputBufferTime = 0.1f;
         
         private Vector2 _moveInput;

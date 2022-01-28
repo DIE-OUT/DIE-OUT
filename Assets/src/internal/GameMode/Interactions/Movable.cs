@@ -6,14 +6,11 @@ namespace DieOut.GameMode.Interactions {
     [RequireComponent(typeof(CharacterController))]
     public class Movable : MonoBehaviour {
         
-        
-        //TODO: [SerializeField] private float _inAirGravityForceUp = 9.81f;
         [SerializeField] public float _health = 100;
-        // - [Serialize Field] Name ist nur zum testen, wird noch verändert
-        [SerializeField] public string _name;
-        [SerializeField] private float _inAirGravityForceDown = 0.5f;
-        [SerializeField] private float _groundGravityForce = 0.01f;
-        [SerializeField] private bool _hasGravity = true;
+        [SerializeField] private float _inAirGravityForceUp = 50f;
+        [SerializeField] private float _inAirGravityForceDown = 50f;
+        [SerializeField] private float _groundGravityForce = 1f;
+        private bool _hasGravity = true;
         private CharacterController _characterController;
         private Vector3 _currentVelocity;
         private Vector3 _move;
@@ -29,11 +26,11 @@ namespace DieOut.GameMode.Interactions {
         }
 
         private Vector3 CalcNextFrame() {
-            Vector3 direction = default;
-            direction += _currentVelocity;
-            direction += _move;
+            Vector3 direction = Vector3.zero;
             if(_hasGravity)
                 ApplyGravity();
+            direction += _currentVelocity * Time.deltaTime;
+            direction += _move;
             ApplyHorizontalDrag();
             return direction;
         }
@@ -45,7 +42,10 @@ namespace DieOut.GameMode.Interactions {
         }
 
         private void ApplyGravity() {
-            _currentVelocity += new Vector3(0, -_inAirGravityForceDown * Time.deltaTime, 0);
+            if(_currentVelocity.y >= 0)
+                _currentVelocity += new Vector3(0, -_inAirGravityForceUp * Time.deltaTime, 0);
+            else
+                _currentVelocity += new Vector3(0, -_inAirGravityForceDown * Time.deltaTime, 0);
         }
         
         //TODO: better drag implementation
