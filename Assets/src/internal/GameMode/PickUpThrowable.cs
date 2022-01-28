@@ -6,15 +6,14 @@ using System.Linq;
 
 namespace DieOut.GameMode {
     public class PickUpThrowable : MonoBehaviour {
-        private List<Throwable> _throwables;
-        private Throwable _targetStone;
 
         [SerializeField] private DeviceTypes _deviceTypes;
         private InputTable _inputTable;
-
-        private ItemPosition _itemPosition;
         
-        private bool _throwableInRange = false;
+        private List<Throwable> _throwables;
+        private Throwable _aStone;
+        private Throwable _targetStone;
+        private ItemPosition _itemPosition;
 
         private void Awake() {
             
@@ -25,7 +24,6 @@ namespace DieOut.GameMode {
             else if(_deviceTypes == DeviceTypes.Keyboard)
                 _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
             
-            // Variante bei der automatisch aufgehoben wird
             _inputTable.CharacterControls.PickUp.performed += OnPickUp;
             _inputTable.CharacterControls.Throw.performed += OnThrow;
             
@@ -43,44 +41,34 @@ namespace DieOut.GameMode {
         }
 
         private void OnTriggerEnter(Collider other) {
-            if (other.GetComponent<Throwable>() != null) {
-                _throwableInRange = true;
-                _throwables.Add(other.GetComponent<Throwable>());
-                // Variante bei der automatisch aufgehoben wird
-                /*if (_throwableInRange == true && _itemPosition.transform.childCount == 0 && _throwable.AttachedToPlayer() == true) { //&& _throwable.AttachedToPlayer() == true
-                    _itemPosition.TriggerPickUpThrowable(_throwable);
-                    _throwable.TriggerPickUp();
-                }*/
-                //
+            _aStone = other.GetComponent<Throwable>();
+            
+            if (_aStone != null) {
+                _throwables.Add(_aStone);
             }
         }
 
         private void OnTriggerExit(Collider other) {
-            if (other.GetComponent<Throwable>() != null) {
-                //_throwableInRange = false;
-                _throwables.Remove(other.GetComponent<Throwable>());
+            _aStone = other.GetComponent<Throwable>();
+            
+            if (_aStone != null) {
+                _throwables.Remove(_aStone);
             }
         }
-
-        // Variante bei der automatisch aufgehoben wird
+        
         private void OnPickUp(InputAction.CallbackContext _) {
+            
             if (_throwables.Count == 0) {
                 return;
             }
             
             _targetStone = _throwables
                 .OrderBy(x => Vector2.Distance(this.transform.position, x.transform.position)).First();
-
-            if (_targetStone == null) {
-                return;
-            }
             
-            // ? Ich versteh nicht warum es so funktioniert, ich würde denken _magmaklumpen.AttachedToPlayer() muss false sein
-            // - brauchen wir aber möglicherweise eh nicht
-            if (_throwableInRange == true && _itemPosition.transform.childCount == 0 && _targetStone._attachedToPlayer == false) { //&& _throwable.AttachedToPlayer() == true
+            if (_itemPosition.transform.childCount == 0 && _targetStone._attachedToPlayer == false) {
                 _targetStone._attachedToPlayer = true;
-                _itemPosition.TriggerPickUpThrowable(_targetStone);
                 _targetStone.TriggerPickUp();
+                _itemPosition.TriggerPickUpThrowable(_targetStone);
             }
         }
 

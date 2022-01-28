@@ -10,15 +10,14 @@ using UnityEngine.UI;
 
 namespace DieOut.GameMode {
     public class Throwable : MonoBehaviour {
-        [SerializeField] float _throwForce = 800;
-        public bool _isHolding = false;
-
+        
         private Movable _player;
         private Movable _enemyPlayer;
         private Magmaklumpen _magmaklumpen;
+        private ItemPosition _itemPosition;
         public Rigidbody _rigidbody;
         
-        // - brauchen wir wahrscheinlich nicht
+        [SerializeField] float _throwForce = 800;
         public bool _attachedToPlayer = false;
 
         void Start()
@@ -27,57 +26,39 @@ namespace DieOut.GameMode {
         }
         
         void Update() {
-            if (_isHolding == true) {
-                GetComponent<Rigidbody>().velocity = Vector3.zero;
-                GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            if (_attachedToPlayer == true) {
+                GetComponent<Rigidbody>().useGravity = false;
+                _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
             }
             else {
                 transform.SetParent(null);
                 GetComponent<Rigidbody>().useGravity = true;
+                _rigidbody.constraints = RigidbodyConstraints.None;
             }
         }
 
         // Wenn man einen Enemy mit Throwable hitted, geht dessen Magmaklumpen auf den Werfer über
         private void OnCollisionEnter(Collision collision) {
-            if (collision.gameObject.GetComponent<Movable>() != null) {
-                _enemyPlayer = collision.gameObject.GetComponent<Movable>();
-                // _enemyPlayer.Stun();
-                if (_enemyPlayer.GetComponentInChildren<Magmaklumpen>() != null && _attachedToPlayer == false) {
-                    _magmaklumpen = _enemyPlayer.GetComponentInChildren<Magmaklumpen>();
-                    _magmaklumpen.transform.parent = _player.GetComponentInChildren<ItemPosition>().transform;
-                    _magmaklumpen.transform.position =
-                        _player.GetComponentInChildren<ItemPosition>().transform.position;
+            _enemyPlayer = collision.gameObject.GetComponent<Movable>();
+            
+            if (_enemyPlayer != null) {
+                // ! hier muss der enemy Player gestunned werden
+                _magmaklumpen = _enemyPlayer.GetComponentInChildren<Magmaklumpen>();
+
+                if (_magmaklumpen != null && _attachedToPlayer == false) {
+                    _itemPosition = _player.GetComponentInChildren<ItemPosition>();
+                    _magmaklumpen.transform.parent = _itemPosition.transform;
+                    _magmaklumpen.transform.position = _itemPosition.transform.position;
                 }
             }
         }
 
         public void TriggerPickUp() {
-            // ! hier muss noch irgendwas passieren, damit sich der stone bei collision nicht mehr bewegt
-            _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-            _isHolding = true;
-            GetComponent<Rigidbody>().useGravity = false;
             _player = GetComponentInParent<Movable>();
-            // - brauchen wir wahrscheinlich nicht
-            //item.GetComponent<Rigidbody>().detectCollisions = true;
         }
 
         public void TriggerThrow() {
-            if (_isHolding == true) {
-                _rigidbody.constraints = RigidbodyConstraints.None;
-                GetComponent<Rigidbody>()
-                    .AddForce(GetComponentInParent<ItemPosition>().transform.forward * _throwForce);
-                _isHolding = false;
-            }
+            GetComponent<Rigidbody>().AddForce(GetComponentInParent<ItemPosition>().transform.forward * _throwForce);
         }
-
-        // - brauchen wir wahrscheinlich nicht
-        /*public bool AttachedToPlayer() {
-            if (transform.parent != null) {
-                return _attachedToPlayer == true;
-            }
-            else {
-                return _attachedToPlayer == false;
-            }
-        }*/
     }
 }
