@@ -163,6 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deviceTypes: 0
   _cameraAngle: 45
-  _movementSpeed: 5
-  _jumpForce: 15
+  _movementSpeed: 6
+  _jumpForce: 13
   _jumpInputBufferTime: 0.1
