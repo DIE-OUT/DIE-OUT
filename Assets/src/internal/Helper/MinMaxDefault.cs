@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 
-namespace DieOut.Sessions {
+namespace DieOut.Helper {
     
     [Serializable]
     [InlineProperty(LabelWidth = 50)]

@@ -3,13 +3,7 @@ using DieOut.SceneManagement;
 
 namespace DieOut.UI.MainMenu {
     
-    public class MainScreen : MonoBehaviour {
-        
-        [SerializeField] private SceneField _sampleScene;
-        
-        public void PlayGame() {
-            SceneManager.LoadScenesAsync(_sampleScene.SceneName);
-        }
+    public class StartingScreen : MonoBehaviour {
         
         public void QuitGame() {
             #if UNITY_EDITOR

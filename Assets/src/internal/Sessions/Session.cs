@@ -18,6 +18,14 @@ namespace DieOut.Sessions {
     [Serializable]
     public class Session {
 
+        private static Session _current;
+        public static Session Current => _current ?? throw new Exception("There is no current session");
+        public static bool HasCurrent => _current != null;
+        
+        public static void SetNew(Session session) {
+            _current = session;
+        }
+        
         public event OnGameModePrepare OnGameModePrepare;
         public event OnGameModeStart OnGameModeStart;
         public event OnGameModeEnd OnGameModeEnd;

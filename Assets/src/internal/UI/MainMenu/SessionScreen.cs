@@ -34,8 +34,8 @@ namespace DieOut.UI.MainMenu {
             if(newSession == null)
                 return;
             
-            Sessions.Sessions.SetNew(newSession);
-            Sessions.Sessions.Current.GoNext();
+            Session.SetNew(newSession);
+            Session.Current.GoNext();
         }
         
     }
