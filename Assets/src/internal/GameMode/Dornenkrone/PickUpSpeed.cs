@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DieOut.GameMode.Interactions;
+using DieOut.GameMode.Management;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace DieOut.GameMode.Dornenkrone {
-    public class PickUpSpeed : MonoBehaviour {
+    public class PickUpSpeed : MonoBehaviour, IDeviceReceiver {
     
         [SerializeField] private DeviceTypes _deviceTypes;
         private InputTable _inputTable;
@@ -22,6 +23,10 @@ namespace DieOut.GameMode.Dornenkrone {
                 _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
             
             _inputTable.CharacterControls.PickUp.performed += OnPickUp;
+        }
+        
+        public void SetDevices(InputDevice[] devices) {
+            _inputTable.devices = devices;
         }
         
         private void OnEnable() {

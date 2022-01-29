@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using System.Linq;
+using DieOut.GameMode.Management;
 using UnityEngine;
 
 namespace DieOut.GameMode.Interactions {
     
     [RequireComponent(typeof(Collider))]
-    public class Tackle : MonoBehaviour {
+    public class Tackle : MonoBehaviour, IDeviceReceiver {
         
         [SerializeField] private DeviceTypes _deviceTypes;
         private InputTable _inputTable;
@@ -33,7 +34,11 @@ namespace DieOut.GameMode.Interactions {
 
             _player = GetComponentInParent<Movable>();
         }
-
+        
+        public void SetDevices(InputDevice[] devices) {
+            _inputTable.devices = devices;
+        }
+        
         private void OnEnable() {
             _inputTable.Enable();
         }
