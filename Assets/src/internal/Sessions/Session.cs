@@ -1,25 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DieOut.GameMode.Management;
+using System.Threading.Tasks;
+using DieOut.GameModes.Management;
 using DieOut.SceneManagement;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using UnityEngine;
+using Random = System.Random;
 
 namespace DieOut.Sessions {
+
+    public delegate void OnGameModePrepare();
+    public delegate void OnGameModeStart();
+    public delegate void OnGameModeEnd();
     
     [Serializable]
     public class Session {
 
+        private static Session _current;
+        public static Session Current => _current ?? throw new Exception("There is no current session");
+        public static bool HasCurrent => _current != null;
+        
+        public static void SetNew(Session session) {
+            _current = session;
+        }
+        
+        public event OnGameModePrepare OnGameModePrepare;
+        public event OnGameModeStart OnGameModeStart;
+        public event OnGameModeEnd OnGameModeEnd;
         [ReadOnly] [OdinSerialize] public int PlayerCount => Player.Length;
         [OdinSerialize] public Player[] Player { get; }
-        [OdinSerialize] public HashSet<GameMode.Management.GameMode> ActivatedGameModes { get; }
+        [OdinSerialize] public HashSet<GameMode> ActivatedGameModes { get; }
         [OdinSerialize] public int MaxRounds { get; }
         [OdinSerialize] public int WinningScore { get; }
         
         [ReadOnly] [OdinSerialize] public int CurrentRound { get; private set; }
         
-        public Session(Player[] player, HashSet<GameMode.Management.GameMode> activatedGameModes, int maxRounds, int winningScore) {
+        public Session(Player[] player, HashSet<GameMode> activatedGameModes, int maxRounds, int winningScore) {
             Player = player;
             ActivatedGameModes = activatedGameModes;
             MaxRounds = maxRounds;
@@ -28,19 +46,28 @@ namespace DieOut.Sessions {
             CurrentRound = 0;
         }
 
-        public void GoNext() {
+        public async Task GoNext() {
             if(ValidateWin())
                 throw new NotImplementedException("A player won the game");
-
-            LoadNextGameMode();
+            
+            await LoadNextGameMode();
+            OnGameModePrepare?.Invoke();
+            await Countdown.Run();
+            OnGameModeStart?.Invoke();
+            Debug.Log("Start");
         }
 
-        private void LoadNextGameMode() {
+        private async Task LoadNextGameMode() {
             int randomGameModeIndex = new Random().Next(0, ActivatedGameModes.Count - 1);
-            GameMode.Management.GameMode newGameMode = ActivatedGameModes.ToArray()[randomGameModeIndex];
+            GameMode newGameMode = ActivatedGameModes.ToArray()[randomGameModeIndex];
             int randomMapIndex = new Random().Next(0, newGameMode.Maps.Length - 1);
             Map newMap = newGameMode.Maps[randomMapIndex];
-            SceneManager.LoadScenesAsync(newMap.Scene); //todo: add newGameMode.AdditionalScenes
+
+            List<SceneField> scenesToLoad = new List<SceneField>();
+            scenesToLoad.Add(newMap.Scene);
+            scenesToLoad.AddRange(newGameMode.AdditionalScenes);
+
+            await SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray());
         }
 
         public bool ValidateWin() {

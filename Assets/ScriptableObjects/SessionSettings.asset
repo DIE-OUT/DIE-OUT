@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: MaxRounds
       Entry: 7
-      Data: DieOut.Sessions.MinMaxDefault`1[[System.Int32, mscorlib]], Assembly-CSharp
+      Data: DieOut.Helper.MinMaxDefault`1[[System.Int32, mscorlib]], Assembly-CSharp
     - Name: Min
       Entry: 3
       Data: 1
@@ -32,13 +32,13 @@ MonoBehaviour:
       Data: 3
     - Name: Max
       Entry: 3
-      Data: 10
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
     - Name: WinningScore
       Entry: 7
-      Data: DieOut.Sessions.MinMaxDefault`1[[System.Int32, mscorlib]], Assembly-CSharp
+      Data: DieOut.Helper.MinMaxDefault`1[[System.Int32, mscorlib]], Assembly-CSharp
     - Name: Min
       Entry: 3
       Data: 2

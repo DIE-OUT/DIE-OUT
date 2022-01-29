@@ -1,6 +1,5 @@
-﻿using System.Linq.Expressions;
-using DieOut.AudioManagement;
-using DieOut.GraphicsQualityManagement;
+﻿using DieOut.AudioManagement;
+using DieOut.QualityManagement;
 using DieOut.UI.Elements;
 using DieOut.WindowManagement;
 using UnityEngine;

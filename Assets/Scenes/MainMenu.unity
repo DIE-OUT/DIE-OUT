@@ -2665,7 +2665,7 @@ MonoBehaviour:
   _sessionBuilder:
     MaxRounds: 0
     WinningScore: 0
-  _sessionSettingsSo: {fileID: 11400000, guid: 2f0fde8c4a23fae47898bf02e24b530e, type: 2}
+  _sessionSettings: {fileID: 11400000, guid: 2f0fde8c4a23fae47898bf02e24b530e, type: 2}
   _maxRoundsSwitcher: {fileID: 569615992}
   _winningScoreSwitcher: {fileID: 1987719285}
 --- !u!225 &1054737682
@@ -3500,7 +3500,7 @@ GameObject:
   - component: {fileID: 1533796090}
   - component: {fileID: 1533796094}
   m_Layer: 5
-  m_Name: Screen - Main
+  m_Name: Screen - Starting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3518,9 +3518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10af2e5ea5512a64f873e712d562b56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sampleScene:
-    m_SceneAsset: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
-    m_SceneName: SampleScene
 --- !u!224 &1533796091
 RectTransform:
   m_ObjectHideFlags: 0

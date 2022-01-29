@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 357725816}
   - component: {fileID: 357725817}
   m_Layer: 0
-  m_Name: Sessions
+  m_Name: SessionDebugger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,13 +324,7 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: _current
-      Entry: 7
-      Data: 0|DieOut.Sessions.Session, Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
 --- !u!1 &388248457
 GameObject:
   m_ObjectHideFlags: 0
