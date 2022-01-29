@@ -1,8 +1,7 @@
-﻿using System;
-using DieOut.Helper;
+﻿using DieOut.Helper;
 using UnityEngine;
 
-namespace DieOut.GraphicsQualityManagement {
+namespace DieOut.QualityManagement {
     
     public class GraphicsQualityManger : MonoBehaviour {
 
