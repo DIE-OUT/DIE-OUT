@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections;
+using DieOut.GameMode.Management;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace DieOut.GameMode.Interactions {
     
     [RequireComponent(typeof(Movable))]
-    public class PlayerControls : MonoBehaviour {
+    public class PlayerControls : MonoBehaviour, IDeviceReceiver {
 
         public bool HasControl = true;
         [SerializeField] private DieOut.GameMode.DeviceTypes _deviceTypes;
@@ -38,6 +39,10 @@ namespace DieOut.GameMode.Interactions {
                 _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
             
             _inputTable.CharacterControls.Jump.performed += OnJumpInput;
+        }
+        
+        public void SetDevices(InputDevice[] devices) {
+            _inputTable.devices = devices;
         }
         
         private void OnEnable() {
