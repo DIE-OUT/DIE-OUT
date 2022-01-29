@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using DieOut.GameMode.Interactions;
+using DieOut.GameModes.Interactions;
 using UnityEngine;
 
-namespace DieOut.GameMode.Dornenkrone {
+namespace DieOut.GameModes.Dornenkrone {
     
     public class Win : MonoBehaviour {
         

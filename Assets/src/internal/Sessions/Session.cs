@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DieOut.GameMode.Management;
+using DieOut.GameModes.Management;
 using DieOut.SceneManagement;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using UnityAsync;
 using UnityEngine;
 using Random = System.Random;
 
@@ -24,13 +23,13 @@ namespace DieOut.Sessions {
         public event OnGameModeEnd OnGameModeEnd;
         [ReadOnly] [OdinSerialize] public int PlayerCount => Player.Length;
         [OdinSerialize] public Player[] Player { get; }
-        [OdinSerialize] public HashSet<GameMode.Management.GameMode> ActivatedGameModes { get; }
+        [OdinSerialize] public HashSet<GameMode> ActivatedGameModes { get; }
         [OdinSerialize] public int MaxRounds { get; }
         [OdinSerialize] public int WinningScore { get; }
         
         [ReadOnly] [OdinSerialize] public int CurrentRound { get; private set; }
         
-        public Session(Player[] player, HashSet<GameMode.Management.GameMode> activatedGameModes, int maxRounds, int winningScore) {
+        public Session(Player[] player, HashSet<GameMode> activatedGameModes, int maxRounds, int winningScore) {
             Player = player;
             ActivatedGameModes = activatedGameModes;
             MaxRounds = maxRounds;
@@ -52,7 +51,7 @@ namespace DieOut.Sessions {
 
         private async Task LoadNextGameMode() {
             int randomGameModeIndex = new Random().Next(0, ActivatedGameModes.Count - 1);
-            GameMode.Management.GameMode newGameMode = ActivatedGameModes.ToArray()[randomGameModeIndex];
+            GameMode newGameMode = ActivatedGameModes.ToArray()[randomGameModeIndex];
             int randomMapIndex = new Random().Next(0, newGameMode.Maps.Length - 1);
             Map newMap = newGameMode.Maps[randomMapIndex];
 

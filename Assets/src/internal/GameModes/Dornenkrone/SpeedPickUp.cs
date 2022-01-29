@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DieOut.GameMode.Dornenkrone {
+namespace DieOut.GameModes.Dornenkrone {
     
     public class SpeedPickUp : MonoBehaviour {
 

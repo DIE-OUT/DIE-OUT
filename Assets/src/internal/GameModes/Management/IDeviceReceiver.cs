@@ -1,6 +1,6 @@
 ﻿using UnityEngine.InputSystem;
 
-namespace DieOut.GameMode.Management {
+namespace DieOut.GameModes.Management {
     
     public interface IDeviceReceiver {
         

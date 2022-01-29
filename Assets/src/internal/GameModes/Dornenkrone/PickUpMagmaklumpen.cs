@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DieOut.GameMode.Dornenkrone {
+namespace DieOut.GameModes.Dornenkrone {
     
     [RequireComponent(typeof(CharacterController))]
     public class PickUpMagmaklumpen : MonoBehaviour {

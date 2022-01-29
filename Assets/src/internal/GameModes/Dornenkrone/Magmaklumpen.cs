@@ -1,8 +1,8 @@
 using System.Collections;
-using DieOut.GameMode.Interactions;
+using DieOut.GameModes.Interactions;
 using UnityEngine;
 
-namespace DieOut.GameMode.Dornenkrone {
+namespace DieOut.GameModes.Dornenkrone {
     
     public class Magmaklumpen : MonoBehaviour {
         

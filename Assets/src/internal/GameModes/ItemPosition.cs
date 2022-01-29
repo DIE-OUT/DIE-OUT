@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using DieOut.GameMode.Dornenkrone;
+using DieOut.GameModes.Dornenkrone;
 using UnityEngine;
 
-namespace DieOut.GameMode {
+namespace DieOut.GameModes {
+    
     public class ItemPosition : MonoBehaviour {
 
         public void TriggerPickUpKlumpen(Magmaklumpen _magmaklumpen) {
@@ -15,6 +14,8 @@ namespace DieOut.GameMode {
             _throwable.transform.SetParent(transform);
             _throwable.transform.position = transform.position;
         }
+        
     }
+    
 }
 

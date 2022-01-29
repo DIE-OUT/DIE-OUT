@@ -1,8 +1,8 @@
-﻿using DieOut.GameMode.Management;
+﻿using DieOut.GameModes.Management;
 using DieOut.Sessions;
 using UnityEngine;
 
-namespace DieOut.GameMode.Dornenkrone {
+namespace DieOut.GameModes.Dornenkrone {
     
     public class DornenkronePlayerSpawner : PlayerSpawner {
 

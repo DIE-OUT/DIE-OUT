@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using DieOut.GameModes.Management;
 using DieOut.Sessions;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
@@ -18,7 +18,7 @@ namespace DieOut.Editor.GameManager {
         private ManagerTab _currentManagerTab = ManagerTab.GameModes;
         private int _enumIndex;
         
-        private readonly DrawScriptableObjectTree<GameMode.Management.GameMode> _drawGameModes = new DrawScriptableObjectTree<GameMode.Management.GameMode>(GAME_MODE_PATH);
+        private readonly DrawScriptableObjectTree<GameMode> _drawGameModes = new DrawScriptableObjectTree<GameMode>(GAME_MODE_PATH);
         private const string GAME_MODE_PATH = "Assets/ScriptableObjects/GameModes";
         private readonly DrawScriptableObject<SessionSettingsSO> _drawSessionSettings = new DrawScriptableObject<SessionSettingsSO>("global");
 
@@ -101,7 +101,7 @@ namespace DieOut.Editor.GameManager {
 
             switch(_currentManagerTab) {
                 case ManagerTab.GameModes:
-                    tree.AddAllAssetsAtPath("Game Modes", GAME_MODE_PATH, typeof(GameMode.Management.GameMode));
+                    tree.AddAllAssetsAtPath("Game Modes", GAME_MODE_PATH, typeof(GameMode));
                     break;
                 default:
                     break;

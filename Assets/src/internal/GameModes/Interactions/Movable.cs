@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DieOut.GameMode.Interactions {
+namespace DieOut.GameModes.Interactions {
     
     [RequireComponent(typeof(CharacterController))]
     public class Movable : MonoBehaviour {

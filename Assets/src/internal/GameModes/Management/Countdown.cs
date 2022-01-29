@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 using UnityAsync;
 using UnityEngine;
 
-namespace DieOut.GameMode.Management {
+namespace DieOut.GameModes.Management {
     
     [RequireComponent(typeof(Animation))]
     public class Countdown : SerializedMonoBehaviour {
