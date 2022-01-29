@@ -7,12 +7,12 @@ namespace DieOut.GameModes.Management {
     public abstract class PlayerSpawner : MonoBehaviour {
         
         private void Awake() {
-            Sessions.Sessions.Current.OnGameModePrepare += InvokeGameModePrepare;
+            Session.Current.OnGameModePrepare += InvokeGameModePrepare;
         }
 
         private void InvokeGameModePrepare() {
             PlayerSpawnpoint[] playerSpawnpoints = FindObjectsOfType<PlayerSpawnpoint>();
-            Player[] players = Sessions.Sessions.Current.Player;
+            Player[] players = Session.Current.Player;
             
             if(players.Length > playerSpawnpoints.Length)
                 throw new Exception("map has less player spawns than players that are playing!");
