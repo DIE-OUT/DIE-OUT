@@ -10,7 +10,7 @@ namespace DieOut.GameMode.Dornenkrone {
         [SerializeField] private GameObject _dornenkronePlayerPrefab;
         
         
-        protected override void OnGameModePrepare(Player[] players, PlayerSpawnpoint[] playerSpawnpoints) {
+        protected override void OnPlayerInitialization(Player[] players, PlayerSpawnpoint[] playerSpawnpoints) {
             for(int i = 0; i < players.Length; i++) {
                 GameObject player = Instantiate(_dornenkronePlayerPrefab, playerSpawnpoints[i].transform.position, Quaternion.identity);
                 //todo: more initialization

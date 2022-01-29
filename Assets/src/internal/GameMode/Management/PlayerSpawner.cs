@@ -17,10 +17,10 @@ namespace DieOut.GameMode.Management {
             if(players.Length > playerSpawnpoints.Length)
                 throw new Exception("map has less player spawns than players that are playing!");
             
-            OnGameModePrepare(players, playerSpawnpoints);
+            OnPlayerInitialization(players, playerSpawnpoints);
         }
 
-        protected abstract void OnGameModePrepare(Player[] players, PlayerSpawnpoint[] playerSpawnpoints);
+        protected abstract void OnPlayerInitialization(Player[] players, PlayerSpawnpoint[] playerSpawnpoints);
         
     }
     
