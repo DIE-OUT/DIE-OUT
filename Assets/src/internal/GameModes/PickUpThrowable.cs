@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
 
-namespace DieOut.GameMode {
+namespace DieOut.GameModes {
+    
     public class PickUpThrowable : MonoBehaviour {
 
         [SerializeField] private DeviceTypes _deviceTypes;
@@ -78,5 +78,7 @@ namespace DieOut.GameMode {
                 _targetStone.TriggerThrow();
             }
         }
+        
     }
+    
 }

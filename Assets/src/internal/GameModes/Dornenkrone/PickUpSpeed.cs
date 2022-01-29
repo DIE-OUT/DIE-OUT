@@ -1,19 +1,16 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using DieOut.GameMode.Interactions;
-using DieOut.GameMode.Management;
+using DieOut.GameModes.Interactions;
+using DieOut.GameModes.Management;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace DieOut.GameMode.Dornenkrone {
+namespace DieOut.GameModes.Dornenkrone {
+    
     public class PickUpSpeed : MonoBehaviour, IDeviceReceiver {
     
         [SerializeField] private DeviceTypes _deviceTypes;
         private InputTable _inputTable;
-
         private bool _inPickUpRange = false;
-
+        
         private void Awake() {
             _inputTable = new InputTable();
             
@@ -58,5 +55,7 @@ namespace DieOut.GameMode.Dornenkrone {
                 Debug.Log("Speeded");
             }
         }
+        
     }
+    
 }

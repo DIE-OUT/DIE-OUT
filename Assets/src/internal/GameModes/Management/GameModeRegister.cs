@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using DieOut.Helper;
+﻿using DieOut.Helper;
 using UnityEngine;
 
-namespace DieOut.GameMode.Management {
+namespace DieOut.GameModes.Management {
     
     public class GameModeRegister : MonoBehaviour {
         

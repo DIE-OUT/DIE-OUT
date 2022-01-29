@@ -1,5 +1,4 @@
-﻿using System;
-using DieOut.GameMode.Management;
+﻿using DieOut.GameModes.Management;
 using DieOut.Sessions;
 using DieOut.UI.Elements;
 using Sirenix.OdinInspector;

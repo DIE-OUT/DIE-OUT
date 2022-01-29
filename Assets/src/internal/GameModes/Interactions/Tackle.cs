@@ -1,19 +1,17 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using System.Linq;
-using DieOut.GameMode.Management;
+using DieOut.GameModes.Management;
 using UnityEngine;
 
-namespace DieOut.GameMode.Interactions {
+namespace DieOut.GameModes.Interactions {
     
     [RequireComponent(typeof(Collider))]
     public class Tackle : MonoBehaviour, IDeviceReceiver {
         
         [SerializeField] private DeviceTypes _deviceTypes;
         private InputTable _inputTable;
-        
         private Movable _player;
         private List<Tackleable> _otherPlayers = new List<Tackleable>();
         [SerializeField] private List<Tackleable> _tackleablesToIgnore;

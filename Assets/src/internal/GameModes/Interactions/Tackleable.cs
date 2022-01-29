@@ -1,11 +1,8 @@
-using System;
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using DieOut.GameMode.Dornenkrone;
-using UnityEditor;
+using DieOut.GameModes.Dornenkrone;
 
-namespace DieOut.GameMode.Interactions {
+namespace DieOut.GameModes.Interactions {
     public class Tackleable : MonoBehaviour {
         
         private Movable _movable;

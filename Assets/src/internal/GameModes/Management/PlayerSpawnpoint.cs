@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DieOut.GameMode.Management {
+namespace DieOut.GameModes.Management {
     
     public class PlayerSpawnpoint : MonoBehaviour {
         

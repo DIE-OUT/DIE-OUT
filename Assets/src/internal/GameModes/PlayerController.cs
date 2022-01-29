@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace DieOut.GameMode {
+namespace DieOut.GameModes {
     
     [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour {

@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections;
-using DieOut.GameMode.Management;
+using DieOut.GameModes.Management;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace DieOut.GameMode.Interactions {
+namespace DieOut.GameModes.Interactions {
     
     [RequireComponent(typeof(Movable))]
     public class PlayerControls : MonoBehaviour, IDeviceReceiver {
 
         public bool HasControl = true;
-        [SerializeField] private DieOut.GameMode.DeviceTypes _deviceTypes;
+        [SerializeField] private DieOut.GameModes.DeviceTypes _deviceTypes;
         [Header("Settings")]
         [SerializeField] private float _cameraAngle = 45f;
         [SerializeField] [Range(0f, 10f)] public float _movementSpeed = 5f;
@@ -33,9 +33,9 @@ namespace DieOut.GameMode.Interactions {
 
             _inputTable = new InputTable();
 
-            if(_deviceTypes == DieOut.GameMode.DeviceTypes.Gamepad)
+            if(_deviceTypes == DieOut.GameModes.DeviceTypes.Gamepad)
                 _inputTable.devices = new[] { Gamepad.all[0] };
-            else if(_deviceTypes == DieOut.GameMode.DeviceTypes.Keyboard)
+            else if(_deviceTypes == DieOut.GameModes.DeviceTypes.Keyboard)
                 _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
             
             _inputTable.CharacterControls.Jump.performed += OnJumpInput;

@@ -1,14 +1,9 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using DieOut.GameMode.Interactions;
+using DieOut.GameModes.Interactions;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using System.Linq;
-using DieOut.GameMode.Dornenkrone;
-using UnityEngine.UI;
+using DieOut.GameModes.Dornenkrone;
 
-namespace DieOut.GameMode {
+namespace DieOut.GameModes {
     public class Throwable : MonoBehaviour {
 
         private PlayerControls _playerControls;
@@ -69,5 +64,7 @@ namespace DieOut.GameMode {
         public void TriggerThrow() {
             GetComponent<Rigidbody>().AddForce(GetComponentInParent<ItemPosition>().transform.forward * _throwForce);
         }
+        
     }
+    
 }

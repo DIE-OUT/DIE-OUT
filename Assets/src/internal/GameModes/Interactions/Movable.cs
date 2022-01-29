@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace DieOut.GameMode.Interactions {
+namespace DieOut.GameModes.Interactions {
     
     [RequireComponent(typeof(CharacterController))]
     public class Movable : MonoBehaviour {
@@ -70,7 +69,7 @@ namespace DieOut.GameMode.Interactions {
         public void TriggerDamage(float damage) {
             _health -= damage;
         }
-
+        
     }
     
 }

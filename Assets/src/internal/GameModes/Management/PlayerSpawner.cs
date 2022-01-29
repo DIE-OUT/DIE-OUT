@@ -2,7 +2,7 @@
 using DieOut.Sessions;
 using UnityEngine;
 
-namespace DieOut.GameMode.Management {
+namespace DieOut.GameModes.Management {
     
     public abstract class PlayerSpawner : MonoBehaviour {
         

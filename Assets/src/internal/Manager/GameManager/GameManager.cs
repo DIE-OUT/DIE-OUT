@@ -1,5 +1,4 @@
-using DieOut.GameMode;
-using DieOut.GameMode.Management;
+using DieOut.GameModes.Management;
 using DieOut.Helper;
 using UnityEngine;
 

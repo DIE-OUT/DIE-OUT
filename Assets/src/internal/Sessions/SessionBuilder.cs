@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DieOut.GameModes.Management;
 using UnityEngine.InputSystem;
 
 namespace DieOut.Sessions {
@@ -7,7 +8,7 @@ namespace DieOut.Sessions {
     [Serializable]
     public class SessionBuilder {
 
-        public HashSet<GameMode.Management.GameMode> ActivatedGameModes = new HashSet<GameMode.Management.GameMode>();
+        public HashSet<GameMode> ActivatedGameModes = new HashSet<GameMode>();
         public int MaxRounds;
         public int WinningScore;
         

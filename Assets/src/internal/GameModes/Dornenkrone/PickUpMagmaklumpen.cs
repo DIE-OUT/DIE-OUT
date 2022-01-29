@@ -1,18 +1,17 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace DieOut.GameMode.Dornenkrone {
+namespace DieOut.GameModes.Dornenkrone {
     
     [RequireComponent(typeof(CharacterController))]
     public class PickUpMagmaklumpen : MonoBehaviour {
-
+        
         private Magmaklumpen _magmaklumpen;
         private ItemPosition _itemPosition;
-
+        
         private void Awake() {
             _itemPosition = GetComponentInChildren<ItemPosition>();
         }
-
+        
         private void OnTriggerEnter(Collider other) {
             _magmaklumpen = other.GetComponent<Magmaklumpen>();
             
@@ -21,5 +20,7 @@ namespace DieOut.GameMode.Dornenkrone {
                 _itemPosition.TriggerPickUpKlumpen(_magmaklumpen);
             }
         }
+        
     }
+    
 }
