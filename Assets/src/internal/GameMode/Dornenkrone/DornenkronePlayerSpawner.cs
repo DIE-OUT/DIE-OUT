@@ -1,5 +1,4 @@
-﻿using System;
-using DieOut.GameMode.Management;
+﻿using DieOut.GameMode.Management;
 using DieOut.Sessions;
 using UnityEngine;
 
@@ -8,7 +7,6 @@ namespace DieOut.GameMode.Dornenkrone {
     public class DornenkronePlayerSpawner : PlayerSpawner {
 
         [SerializeField] private GameObject _dornenkronePlayerPrefab;
-        
         
         protected override void OnPlayerInitialization(Player[] players, PlayerSpawnpoint[] playerSpawnpoints) {
             for(int i = 0; i < players.Length; i++) {

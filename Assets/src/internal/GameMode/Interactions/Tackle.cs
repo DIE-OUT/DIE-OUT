@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
@@ -13,7 +12,6 @@ namespace DieOut.GameMode.Interactions {
         
         [SerializeField] private DeviceTypes _deviceTypes;
         private InputTable _inputTable;
-        
         private Movable _player;
         private List<Tackleable> _otherPlayers = new List<Tackleable>();
         [SerializeField] private List<Tackleable> _tackleablesToIgnore;

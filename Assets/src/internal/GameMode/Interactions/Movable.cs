@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DieOut.GameMode.Interactions {
     
@@ -70,7 +69,7 @@ namespace DieOut.GameMode.Interactions {
         public void TriggerDamage(float damage) {
             _health -= damage;
         }
-
+        
     }
     
 }

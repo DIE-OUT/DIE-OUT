@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using DieOut.Helper;
+﻿using DieOut.Helper;
 using UnityEngine;
 
 namespace DieOut.GameMode.Management {

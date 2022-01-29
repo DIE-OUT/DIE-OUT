@@ -1,18 +1,15 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DieOut.GameMode.Interactions;
-using DieOut.SceneManagement;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace DieOut.GameMode.Dornenkrone {
+    
     public class Win : MonoBehaviour {
+        
         private List<Movable> _players;
         [SerializeField] private SceneField _levelSelectScene;
-
-
+        
         private void Awake() {
             _players = FindObjectsOfType<Movable>().ToList();
         }
@@ -30,5 +27,7 @@ namespace DieOut.GameMode.Dornenkrone {
         public void LoadLevelSelect() {
             UnityEngine.SceneManagement.SceneManager.LoadScene(_levelSelectScene.SceneName);
         }
+        
     }
+    
 }
