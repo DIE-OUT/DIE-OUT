@@ -2665,7 +2665,7 @@ MonoBehaviour:
   _sessionBuilder:
     MaxRounds: 0
     WinningScore: 0
-  _sessionSettingsSo: {fileID: 11400000, guid: 2f0fde8c4a23fae47898bf02e24b530e, type: 2}
+  _sessionSettings: {fileID: 11400000, guid: 2f0fde8c4a23fae47898bf02e24b530e, type: 2}
   _maxRoundsSwitcher: {fileID: 569615992}
   _winningScoreSwitcher: {fileID: 1987719285}
 --- !u!225 &1054737682

@@ -20,7 +20,7 @@ namespace DieOut.Editor.GameManager {
         
         private readonly DrawScriptableObjectTree<GameMode> _drawGameModes = new DrawScriptableObjectTree<GameMode>(GAME_MODE_PATH);
         private const string GAME_MODE_PATH = "Assets/ScriptableObjects/GameModes";
-        private readonly DrawScriptableObject<SessionSettingsSO> _drawSessionSettings = new DrawScriptableObject<SessionSettingsSO>("global");
+        private readonly DrawScriptableObject<SessionSettings> _drawSessionSettings = new DrawScriptableObject<SessionSettings>("global");
 
         private bool _menuTreeIsDirty = false;
         
