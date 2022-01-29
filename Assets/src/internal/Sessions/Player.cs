@@ -6,7 +6,7 @@ namespace DieOut.Sessions {
     [Serializable]
     public class Player {
         
-        private InputDevice[] InputDevices { get; }
+        public InputDevice[] InputDevices { get; }
         
         
         public Player(InputDevice[] inputDevices) {

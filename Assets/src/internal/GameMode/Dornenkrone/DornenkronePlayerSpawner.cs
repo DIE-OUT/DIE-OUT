@@ -14,6 +14,10 @@ namespace DieOut.GameMode.Dornenkrone {
             for(int i = 0; i < players.Length; i++) {
                 GameObject player = Instantiate(_dornenkronePlayerPrefab, playerSpawnpoints[i].transform.position, Quaternion.identity);
                 //todo: more initialization
+                IDeviceReceiver[] deviceReceivers = player.GetComponentsInChildren<IDeviceReceiver>(true);
+                foreach(IDeviceReceiver deviceReceiver in deviceReceivers) {
+                    deviceReceiver.SetDevices(players[i].InputDevices);
+                }
             }
         }
         
