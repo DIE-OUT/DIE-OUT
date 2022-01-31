@@ -90,9 +90,7 @@ namespace DieOut.Editor {
         
         [Button("@GetTitle()")]
         public void Load() {
-            if(!Session.HasCurrent)
-                Session.SetNew(new Session(CreatePlayers(), new HashSet<GameMode>(), 1, 1));
-
+            Session.SetNew(new Session(CreatePlayers(), new HashSet<GameMode>(), 1, 1));
             Session.Current.GoNextSelect(_gameMode , _map);
         }
         
