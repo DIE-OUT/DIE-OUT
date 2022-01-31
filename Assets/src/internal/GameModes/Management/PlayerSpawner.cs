@@ -7,7 +7,7 @@ namespace DieOut.GameModes.Management {
     public abstract class PlayerSpawner : MonoBehaviour {
         
         private void Awake() {
-            Session.Current.OnGameModePrepare += InvokeGameModePrepare;
+            Session.Current.GameModeInstance.OnGameModePrepare += InvokeGameModePrepare;
         }
 
         private void InvokeGameModePrepare() {

@@ -6,14 +6,9 @@ using DieOut.GameModes.Management;
 using DieOut.SceneManagement;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using UnityEngine;
 using Random = System.Random;
 
 namespace DieOut.Sessions {
-
-    public delegate void OnGameModePrepare();
-    public delegate void OnGameModeStart();
-    public delegate void OnGameModeEnd();
     
     [Serializable]
     public class Session {
@@ -25,10 +20,9 @@ namespace DieOut.Sessions {
         public static void SetNew(Session session) {
             _current = session;
         }
-        
-        public event OnGameModePrepare OnGameModePrepare;
-        public event OnGameModeStart OnGameModeStart;
-        public event OnGameModeEnd OnGameModeEnd;
+
+        public GameModeInstance GameModeInstance;
+            
         [ReadOnly] [OdinSerialize] public int PlayerCount => Player.Length;
         [OdinSerialize] public Player[] Player { get; }
         [OdinSerialize] public HashSet<GameMode> ActivatedGameModes { get; }
@@ -54,6 +48,7 @@ namespace DieOut.Sessions {
             GameMode newGameMode = ActivatedGameModes.ToArray()[randomGameModeIndex];
             int randomMapIndex = new Random().Next(0, newGameMode.Maps.Length - 1);
             Map newMap = newGameMode.Maps[randomMapIndex];
+            
             await GoNext(newGameMode, newMap);
         }
         
@@ -65,27 +60,10 @@ namespace DieOut.Sessions {
         }
         
         private async Task GoNext(GameMode gameMode, Map map) {
-            ClearEvents();
-            await LoadGameModeMap(gameMode, map);
-            OnGameModePrepare?.Invoke();
-            await Countdown.Run();
-            OnGameModeStart?.Invoke();
-        }
-
-        private void ClearEvents() {
-            OnGameModePrepare = null;
-            OnGameModeStart = null;
-            OnGameModeEnd = null;
+            GameModeInstance = new GameModeInstance(gameMode, map);
+            await GameModeInstance.Load();
         }
         
-        private async Task LoadGameModeMap(GameMode gameMode, Map map) {
-            List<SceneField> scenesToLoad = new List<SceneField>();
-            scenesToLoad.Add(map.Scene);
-            scenesToLoad.AddRange(gameMode.AdditionalScenes);
-            
-            await SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray());
-        }
-
         public bool ValidateWin() {
             return false;
         }
