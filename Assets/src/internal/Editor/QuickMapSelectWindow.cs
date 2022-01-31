@@ -13,6 +13,7 @@ using UnityEngine.InputSystem;
 namespace DieOut.Editor {
     
     [InfoBox("This will show a selection of all maps once in play mode", VisibleIf = "@!EditorApplication.isPlaying")]
+    [InfoBox("Startup Scene hasn't been initialized - Start Play Mode with Auto Scene Loader enabled", VisibleIf = "@EditorApplication.isPlaying && !StartUp.HasBeenLoaded")]
     public class QuickMapSelectWindow : OdinEditorWindow {
         
         [MenuItem("DieOut/Quick Map Select")]
@@ -22,7 +23,7 @@ namespace DieOut.Editor {
         
         [ListDrawerSettings(DraggableItems = false, Expanded = true, HideAddButton = true, HideRemoveButton = true, ShowItemCount = false)]
         [LabelText("Select a Map to load..")]
-        [HideInEditorMode]
+        [HideIf("@!EditorApplication.isPlaying || !StartUp.HasBeenLoaded")]
         [SerializeField] private List<GameModeMapCollection> _gamModeMapCollections;
 
         protected override void Initialize() {
