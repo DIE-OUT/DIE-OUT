@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124e74490b664a40a53ea244fe4c802f, type: 3}
   m_Name: Dornenkrone
   m_EditorClassIdentifier: 
-  _displayName: 
+  _displayName: Dornenkrone
   _splashScreen: {fileID: 0}
   _maps:
   - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 356dde602a40de94ebe8cff669c81ef9, type: 3}
       m_SceneName: Conors_TestScene_DornenkroneInitialization
-    _displayName: 
+    _displayName: Conors TestScene
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 910af1b8dd82610468b2bd3bebcdeec4, type: 3}
     m_SceneName: Dornenkrone_UI

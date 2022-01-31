@@ -45,28 +45,44 @@ namespace DieOut.Sessions {
 
             CurrentRound = 0;
         }
-
-        public async Task GoNext() {
+        
+        public async Task GoNextRandom() {
             if(ValidateWin())
                 throw new NotImplementedException("A player won the game");
             
-            await LoadNextGameMode();
-            OnGameModePrepare?.Invoke();
-            await Countdown.Run();
-            OnGameModeStart?.Invoke();
-            Debug.Log("Start");
-        }
-
-        private async Task LoadNextGameMode() {
             int randomGameModeIndex = new Random().Next(0, ActivatedGameModes.Count - 1);
             GameMode newGameMode = ActivatedGameModes.ToArray()[randomGameModeIndex];
             int randomMapIndex = new Random().Next(0, newGameMode.Maps.Length - 1);
             Map newMap = newGameMode.Maps[randomMapIndex];
+            await GoNext(newGameMode, newMap);
+        }
+        
+        public async Task GoNextSelect(GameMode gameMode, Map map) {
+            if(ValidateWin())
+                throw new NotImplementedException("A player won the game");
+            
+            await GoNext(gameMode, map);
+        }
+        
+        private async Task GoNext(GameMode gameMode, Map map) {
+            ClearEvents();
+            await LoadGameModeMap(gameMode, map);
+            OnGameModePrepare?.Invoke();
+            await Countdown.Run();
+            OnGameModeStart?.Invoke();
+        }
 
+        private void ClearEvents() {
+            OnGameModePrepare = null;
+            OnGameModeStart = null;
+            OnGameModeEnd = null;
+        }
+        
+        private async Task LoadGameModeMap(GameMode gameMode, Map map) {
             List<SceneField> scenesToLoad = new List<SceneField>();
-            scenesToLoad.Add(newMap.Scene);
-            scenesToLoad.AddRange(newGameMode.AdditionalScenes);
-
+            scenesToLoad.Add(map.Scene);
+            scenesToLoad.AddRange(gameMode.AdditionalScenes);
+            
             await SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray());
         }
 
