@@ -1,0 +1,19 @@
+{
+    "name": "Afired.GameManagement",
+    "rootNamespace": "",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:5bfc46b91fd2a2c44b6ac35ac2d1a9ff",
+        "GUID:ca59ba5821dafdc4787ad63c049c9b6e",
+        "GUID:f99e17d42649aaf46b3a99f53752fdf8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

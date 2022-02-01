@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Afired.GameManagement.GameModes;
+using Afired.GameManagement.Sessions;
 using Afired.SceneManagement;
 
-namespace Afired.GameManagement.Sessions {
+namespace Afired.GameManagement.GameModes {
     
     public delegate void OnGameModePrepare();
     public delegate void OnGameModeStart();
