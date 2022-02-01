@@ -41,7 +41,7 @@ namespace DieOut.Sessions {
         }
         
         public async Task GoNext() {
-            if(ValidateWin())
+            if(ValidateSessionWin())
                 throw new NotImplementedException("A player won the game");
 
             await LoadRandomGameMode();
@@ -61,8 +61,9 @@ namespace DieOut.Sessions {
             await GameModeInstance.Load();
         }
         
-        public bool ValidateWin() {
-            return false;
+        public bool ValidateSessionWin() {
+            //todo: figure out who won
+            return Player.Any(player => player.Score >= WinningScore);
         }
         
     }
