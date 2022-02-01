@@ -27,7 +27,7 @@ namespace DieOut.GameModes.Dornenkrone {
             _finishedTick = false;
             yield return new WaitForSeconds(_damageTickRate);
             _finishedTick = true;
-            _player.TriggerDamage(_damage);
+            _player.GetComponent<Health>().TriggerDamage(_damage);
         }
         
     }

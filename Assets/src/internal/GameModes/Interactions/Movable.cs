@@ -5,7 +5,6 @@ namespace DieOut.GameModes.Interactions {
     [RequireComponent(typeof(CharacterController))]
     public class Movable : MonoBehaviour {
         
-        [SerializeField] public float _health = 100;
         [SerializeField] private float _inAirGravityForceUp = 50f;
         [SerializeField] private float _inAirGravityForceDown = 50f;
         [SerializeField] private float _groundGravityForce = 1f;
@@ -65,11 +64,6 @@ namespace DieOut.GameModes.Interactions {
         }
 
         public bool IsGrounded => _characterController.isGrounded;
-
-        public void TriggerDamage(float damage) {
-            _health -= damage;
-        }
-        
     }
     
 }

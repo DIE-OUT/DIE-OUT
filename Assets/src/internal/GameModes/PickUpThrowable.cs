@@ -2,10 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
+using DieOut.GameModes.Management;
 
 namespace DieOut.GameModes {
     
-    public class PickUpThrowable : MonoBehaviour {
+    public class PickUpThrowable : MonoBehaviour, IDeviceReceiver {
 
         [SerializeField] private DeviceTypes _deviceTypes;
         private InputTable _inputTable;
@@ -32,6 +33,10 @@ namespace DieOut.GameModes {
             _throwables = new List<Throwable>();
         }
 
+        public void SetDevices(InputDevice[] devices) {
+            _inputTable.devices = devices;
+        }
+        
         private void OnEnable() {
             _inputTable.Enable();
         }
