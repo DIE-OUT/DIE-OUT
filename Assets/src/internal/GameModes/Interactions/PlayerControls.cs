@@ -26,6 +26,8 @@ namespace DieOut.GameModes.Interactions {
         private Camera _mainCamera;
         private InputTable _inputTable;
 
+        public Quaternion _direction;
+
 
         private void Awake() {
             _mainCamera = Camera.main;
@@ -95,8 +97,11 @@ namespace DieOut.GameModes.Interactions {
         private void UpdateRotation() {
             if(!HasControl)
                 return;
-            if(_moveInput.magnitude != 0)
-                transform.SetPositionAndRotation(transform.position, Quaternion.LookRotation(Quaternion.Euler(0, _cameraAngle, 0) * new Vector3(_moveInput.x, 0, _moveInput.y)));
+            if (_moveInput.magnitude != 0) {
+                _direction = Quaternion.LookRotation(Quaternion.Euler(0, _cameraAngle, 0) *
+                                                     new Vector3(_moveInput.x, 0, _moveInput.y));
+                transform.SetPositionAndRotation(transform.position, _direction);
+            }
         }
         
     }
