@@ -1,7 +1,9 @@
 {
-    "name": "DieOut.QualityManagement",
-    "rootNamespace": "",
+    "name": "Afired.SceneManagement",
+    "rootNamespace": "Afired.SceneManagement",
     "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:5bfc46b91fd2a2c44b6ac35ac2d1a9ff",
         "GUID:f99e17d42649aaf46b3a99f53752fdf8"
     ],
     "includePlatforms": [],
