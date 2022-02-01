@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace DieOut.UI.Elements {
+namespace Afired.UI.Elements {
     
     public class Switcher : MonoBehaviour {
         

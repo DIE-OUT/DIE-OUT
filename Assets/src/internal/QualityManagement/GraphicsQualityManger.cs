@@ -1,7 +1,7 @@
-﻿using DieOut.Helper;
+﻿using Afired.Helper;
 using UnityEngine;
 
-namespace DieOut.QualityManagement {
+namespace Afired.QualityManagement {
     
     public class GraphicsQualityManger : MonoBehaviour {
 

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
-using DieOut.Helper;
+using Afired.Helper;
 using UnityEngine;
 
-namespace DieOut.WindowManagement {
+namespace Afired.WindowManagement {
     
     public class WindowManager : MonoBehaviour {
         

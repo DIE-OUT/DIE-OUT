@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using DieOut.GameModes.Management;
-using DieOut.Sessions;
+using Afired.GameManagement.GameModes;
+using Afired.GameManagement.Sessions;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities.Editor;

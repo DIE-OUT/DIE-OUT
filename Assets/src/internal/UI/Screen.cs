@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DieOut.UI {
+namespace Afired.UI {
     
     public class Screen : MonoBehaviour {
 

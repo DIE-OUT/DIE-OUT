@@ -1,4 +1,4 @@
-﻿namespace DieOut.WindowManagement {
+﻿namespace Afired.AudioManagement {
     
     public enum AudioChannel {
         Master,

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DieOut.UI.Elements {
+namespace Afired.UI.Elements {
     
     public class RangedIntSwitchControl : ISwitchControl {
         

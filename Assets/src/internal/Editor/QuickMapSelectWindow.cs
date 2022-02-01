@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using DieOut.GameModes.Management;
-using DieOut.SceneManagement;
-using DieOut.Sessions;
+using Afired.GameManagement.GameModes;
+using Afired.GameManagement.Sessions;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;

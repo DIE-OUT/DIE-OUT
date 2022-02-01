@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 
-namespace DieOut.SceneManagement {
+namespace Afired.SceneManagement {
 
     public class LoadingScreen : MonoBehaviour {
         

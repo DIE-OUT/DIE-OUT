@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace DieOut.Helper {
+namespace Afired.Helper {
     
     public struct SingletonInstance<T> where T : MonoBehaviour {
 

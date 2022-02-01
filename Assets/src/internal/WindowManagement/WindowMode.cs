@@ -1,4 +1,4 @@
-﻿namespace DieOut.WindowManagement {
+﻿namespace Afired.WindowManagement {
     
     public enum WindowMode {
         Window,
