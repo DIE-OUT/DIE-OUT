@@ -1,6 +1,6 @@
 ﻿using Afired.AudioManagement;
 using Afired.QualityManagement;
-using DieOut.UI.Elements;
+using Afired.UI.Elements;
 using Afired.WindowManagement;
 using UnityEngine;
 

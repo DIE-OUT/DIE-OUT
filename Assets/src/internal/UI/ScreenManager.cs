@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace DieOut.UI {
+namespace Afired.UI {
     
     public class ScreenManager : MonoBehaviour {
         

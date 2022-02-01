@@ -1,7 +1,7 @@
 ﻿using System;
 using Afired.Helper;
 
-namespace DieOut.UI.Elements {
+namespace Afired.UI.Elements {
     
     public class EnumSwitchControl<T> : SwitchControl<T> where T: Enum {
         

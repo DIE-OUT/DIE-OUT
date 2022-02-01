@@ -1,6 +1,6 @@
 ﻿using DieOut.GameModes.Management;
 using Afired.SessionManagement;
-using DieOut.UI.Elements;
+using Afired.UI.Elements;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;

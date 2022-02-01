@@ -1,4 +1,4 @@
-﻿namespace DieOut.UI.Elements {
+﻿namespace Afired.UI.Elements {
     
     public delegate void OnValueChanged(object value, string valueAsText);
     

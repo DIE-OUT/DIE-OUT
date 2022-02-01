@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace DieOut.UI.Elements {
+namespace Afired.UI.Elements {
     
     public class SwitchControl<T> : ISwitchControl {
         
