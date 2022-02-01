@@ -40,32 +40,30 @@ namespace DieOut.Sessions {
             CurrentRound = 0;
         }
         
-        public async Task GoNextRandom() {
-            if(ValidateWin())
+        public async Task GoNext() {
+            if(ValidateSessionWin())
                 throw new NotImplementedException("A player won the game");
-            
+
+            await LoadRandomGameMode();
+        }
+
+        public async Task LoadRandomGameMode() {
             int randomGameModeIndex = new Random().Next(0, ActivatedGameModes.Count - 1);
             GameMode newGameMode = ActivatedGameModes.ToArray()[randomGameModeIndex];
             int randomMapIndex = new Random().Next(0, newGameMode.Maps.Length - 1);
             Map newMap = newGameMode.Maps[randomMapIndex];
             
-            await GoNext(newGameMode, newMap);
+            await LoadGameMode(newGameMode, newMap);
         }
         
-        public async Task GoNextSelect(GameMode gameMode, Map map) {
-            if(ValidateWin())
-                throw new NotImplementedException("A player won the game");
-            
-            await GoNext(gameMode, map);
-        }
-        
-        private async Task GoNext(GameMode gameMode, Map map) {
+        public async Task LoadGameMode(GameMode gameMode, Map map) {
             GameModeInstance = new GameModeInstance(gameMode, map);
             await GameModeInstance.Load();
         }
         
-        public bool ValidateWin() {
-            return false;
+        public bool ValidateSessionWin() {
+            //todo: figure out who won
+            return Player.Any(player => player.Score >= WinningScore);
         }
         
     }
