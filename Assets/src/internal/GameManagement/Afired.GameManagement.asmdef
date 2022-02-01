@@ -1,6 +1,6 @@
 {
     "name": "Afired.GameManagement",
-    "rootNamespace": "",
+    "rootNamespace": "Afired.GameManagement",
     "references": [
         "GUID:75469ad4d38634e559750d17036d5f7c",
         "GUID:5bfc46b91fd2a2c44b6ac35ac2d1a9ff",
