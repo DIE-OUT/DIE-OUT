@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace DieOut.GameModes.Management {
+namespace Afired.GameModes.Management {
     
     [CreateAssetMenu]
     public class GameMode : ScriptableObject {

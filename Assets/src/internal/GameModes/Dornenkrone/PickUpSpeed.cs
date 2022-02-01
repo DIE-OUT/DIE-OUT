@@ -4,7 +4,7 @@ using DieOut.GameModes.Interactions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
-using DieOut.GameModes.Management;
+using Afired.GameModes.Management;
 
 namespace DieOut.GameModes.Dornenkrone {
     public class PickUpSpeed : MonoBehaviour, IDeviceReceiver {

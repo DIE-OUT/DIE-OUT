@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DieOut.GameModes.Management;
+using Afired.GameModes.Management;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Random = System.Random;

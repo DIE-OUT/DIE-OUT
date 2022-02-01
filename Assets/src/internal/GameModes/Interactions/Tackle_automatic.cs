@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using System.Linq;
-using DieOut.GameModes.Management;
+using Afired.GameModes.Management;
 using UnityEngine;
 
 namespace DieOut.GameModes.Interactions {

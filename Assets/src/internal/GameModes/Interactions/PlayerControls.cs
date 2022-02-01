@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using DieOut.GameModes.Management;
+using Afired.GameModes.Management;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

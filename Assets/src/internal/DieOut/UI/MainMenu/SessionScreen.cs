@@ -1,4 +1,4 @@
-﻿using DieOut.GameModes.Management;
+﻿using Afired.GameModes.Management;
 using Afired.SessionManagement;
 using Afired.UI.Elements;
 using Sirenix.OdinInspector;

@@ -1,4 +1,4 @@
-﻿using DieOut.GameModes.Management;
+﻿using Afired.GameModes.Management;
 using System.Collections.Generic;
 using Afired.SessionManagement;
 using UnityEngine;
