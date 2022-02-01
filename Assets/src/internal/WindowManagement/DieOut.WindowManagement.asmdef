@@ -1,0 +1,16 @@
+{
+    "name": "DieOut.WindowManagement",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f99e17d42649aaf46b3a99f53752fdf8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
