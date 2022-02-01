@@ -42,10 +42,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 2
-  m_Height: 4.87
+  m_Radius: 0.7
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.5, z: 0.5}
 --- !u!114 &3048491868967737754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +63,7 @@ MonoBehaviour:
   - {fileID: 5420079802391077671}
   _cooldown: 3
   _tackleDistance: 50
+  _tackling: 0
 --- !u!1 &6952426200836093220
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +186,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2091813251688484338, guid: 0869840eabdb0ea4faba6dcaedf2016f, type: 3}
   m_PrefabInstance: {fileID: 5669323591625717635}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &3298585752519470288
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028884854241720944}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.15
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5420079802391077671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +215,7 @@ MonoBehaviour:
   _stunDuration: 2
   _immunity: 3
   tackleImmunity: 0
-  _tackleDistance: 30
+  _tackleDistance: 100
 --- !u!114 &6860100141359333413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deviceTypes: 0
+  _speedDuration: 5
 --- !u!114 &6881634941943608829
 MonoBehaviour:
   m_ObjectHideFlags: 0

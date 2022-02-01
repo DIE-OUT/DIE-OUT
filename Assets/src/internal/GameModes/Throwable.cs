@@ -10,6 +10,7 @@ namespace DieOut.GameModes {
         private Movable _player;
         private Movable _enemyPlayer;
         private Magmaklumpen _magmaklumpen;
+        private Throwable _throwable;
         private ItemPosition _itemPosition;
         public Rigidbody _rigidbody;
         
@@ -34,7 +35,7 @@ namespace DieOut.GameModes {
             }
         }
 
-        // Wenn man einen Enemy mit Throwable hitted, geht dessen Magmaklumpen auf den Werfer über
+        // Wenn man einen Enemy mit Throwable hitted, geht dessen Magmaklumpen auf den Werfer über bzw lässt dieser sein Throwable Item fallen
         private void OnCollisionEnter(Collision collision) {
             _enemyPlayer = collision.gameObject.GetComponent<Movable>();
             
@@ -47,6 +48,12 @@ namespace DieOut.GameModes {
                     _itemPosition = _player.GetComponentInChildren<ItemPosition>();
                     _magmaklumpen.transform.parent = _itemPosition.transform;
                     _magmaklumpen.transform.position = _itemPosition.transform.position;
+                }
+
+                _throwable = _enemyPlayer.GetComponentInChildren<Throwable>();
+
+                if (_throwable != null && _attachedToPlayer == false) {
+                    _throwable._attachedToPlayer = false;
                 }
             }
         }

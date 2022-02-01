@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using DieOut.GameModes.Dornenkrone;
@@ -32,7 +33,7 @@ namespace DieOut.GameModes.Interactions {
         }
 
         public void TriggerTackle(Movable tacklingPlayer) {
-            if (_movable != null) {
+            if (_movable != null && tackleImmunity == false) {
                 _movable.GetComponent<PlayerControls>().HasControl = false;
 
                 // Wenn der getacklete Player einen Magmaklumpen trägt, geht dieser auf den tacklenden Player über
@@ -58,7 +59,6 @@ namespace DieOut.GameModes.Interactions {
                 }
                 
                 // Der Tacklende Player bewegt sich schnell in die Richtung des getackleten Players
-                // ! Sollte erst passieren, wenn der Tacklende Player mit dem getackleten Player collided
                 _movable.AddVelocity((_movable.transform.position - tacklingPlayer.transform.position).normalized * _tackleDistance);
             }
 

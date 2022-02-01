@@ -9,18 +9,17 @@ using UnityEngine;
 namespace DieOut.GameModes.Interactions {
     
     [RequireComponent(typeof(Collider))]
-    public class Tackle : MonoBehaviour, IDeviceReceiver {
+    public class Tackle_automatic : MonoBehaviour, IDeviceReceiver {
         
         [SerializeField] private DeviceTypes _deviceTypes;
         private InputTable _inputTable;
-        
-        [SerializeField] private List<Tackleable> _tackleablesToIgnore;
         private Movable _player;
+        private List<Tackleable> _otherPlayers = new List<Tackleable>();
+        [SerializeField] private List<Tackleable> _tackleablesToIgnore;
         
         [SerializeField] private float _cooldown = 3f;
         private bool _onCooldown;
         [SerializeField] private float _tackleDistance = 50;
-        public bool _tackling = false;
 
         private void Awake() {
             _inputTable = new InputTable();
@@ -46,29 +45,23 @@ namespace DieOut.GameModes.Interactions {
         private void OnDisable() {
             _inputTable.Disable();
         }
-        
+
         private void OnTriggerEnter(Collider other) {
-            Tackleable _enemyPlayer = other.GetComponent<Tackleable>();
-
-            if (_tackling == true && _enemyPlayer != null && !_tackleablesToIgnore.Contains(_enemyPlayer)) {
-                _enemyPlayer.TriggerTackle(_player);
-            }
-        }
-        
-        private void OnTriggerStay(Collider other) {
-            Tackleable _enemyPlayer = other.GetComponent<Tackleable>();
-
-            if (_tackling == true && _enemyPlayer != null && !_tackleablesToIgnore.Contains(_enemyPlayer)) {
-                _enemyPlayer.TriggerTackle(_player);
+            Tackleable tackleableComponent = other.gameObject.GetComponent<Tackleable>();
+            
+            if(tackleableComponent != null && !_tackleablesToIgnore.Contains(tackleableComponent)) {
+                _otherPlayers.Add(tackleableComponent);
             }
         }
 
-        private IEnumerator TackleDuration() {
-            _tackling = true;
-            yield return new WaitForSeconds(0.8f);
-            _tackling = false;
+        private void OnTriggerExit(Collider other) {
+            Tackleable tackleableComponent = other.gameObject.GetComponent<Tackleable>();
+            
+            if(tackleableComponent != null && !_tackleablesToIgnore.Contains(tackleableComponent)) {
+                _otherPlayers.Remove(tackleableComponent);
+            }
         }
-        
+
         private IEnumerator TackleCooldown() {
             yield return new WaitForSeconds(_cooldown);
             Debug.Log("cooldown finished");
@@ -81,11 +74,24 @@ namespace DieOut.GameModes.Interactions {
                 Debug.Log("tackle has cooldown");
                 return;
             }
+            
+            // sort list according to distance from Player, exclude the once that have tackle immunity and then take first element in list
+            Tackleable target = _otherPlayers
+                .OrderBy(x => Vector2.Distance(this.transform.parent.position, x.transform.position)).
+                FirstOrDefault(tackleable => !tackleable.tackleImmunity);
+            
+            // dont do anything if there is no target to tackle
+            if(target == null) {
+                Debug.Log("no tackelable target is in range");
+                return;
+            }
+            
+            // falls irgendwann mal was anderes als Player getackled werden soll, könnte hier auch nur eine Position übergeben werden
+            target.TriggerTackle(_player);
 
             if (_player != null) {
-                StartCoroutine(TackleDuration());
-                PlayerControls _playerControls = _player.GetComponent<PlayerControls>();
-                _player.AddVelocity(_playerControls._direction * Vector3.forward.normalized * _tackleDistance);
+                // ! Sollte so weit mit dem Tackle kommen, dass er mit seinem Ziel collided
+                _player.AddVelocity((target.transform.position - _player.transform.position).normalized * _tackleDistance);
             }
 
             _onCooldown = true;
