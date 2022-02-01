@@ -35,7 +35,7 @@ namespace DieOut.UI.MainMenu {
                 return;
             
             Session.SetNew(newSession);
-            Session.Current.GoNextRandom();
+            Session.Current.LoadRandomGameMode();
         }
         
     }
