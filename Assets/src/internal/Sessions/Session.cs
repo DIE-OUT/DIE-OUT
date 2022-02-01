@@ -6,14 +6,9 @@ using DieOut.GameModes.Management;
 using DieOut.SceneManagement;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using UnityEngine;
 using Random = System.Random;
 
 namespace DieOut.Sessions {
-
-    public delegate void OnGameModePrepare();
-    public delegate void OnGameModeStart();
-    public delegate void OnGameModeEnd();
     
     [Serializable]
     public class Session {
@@ -25,10 +20,9 @@ namespace DieOut.Sessions {
         public static void SetNew(Session session) {
             _current = session;
         }
-        
-        public event OnGameModePrepare OnGameModePrepare;
-        public event OnGameModeStart OnGameModeStart;
-        public event OnGameModeEnd OnGameModeEnd;
+
+        public GameModeInstance GameModeInstance;
+            
         [ReadOnly] [OdinSerialize] public int PlayerCount => Player.Length;
         [OdinSerialize] public Player[] Player { get; }
         [OdinSerialize] public HashSet<GameMode> ActivatedGameModes { get; }
@@ -45,31 +39,31 @@ namespace DieOut.Sessions {
 
             CurrentRound = 0;
         }
-
-        public async Task GoNext() {
+        
+        public async Task GoNextRandom() {
             if(ValidateWin())
                 throw new NotImplementedException("A player won the game");
             
-            await LoadNextGameMode();
-            OnGameModePrepare?.Invoke();
-            await Countdown.Run();
-            OnGameModeStart?.Invoke();
-            Debug.Log("Start");
-        }
-
-        private async Task LoadNextGameMode() {
             int randomGameModeIndex = new Random().Next(0, ActivatedGameModes.Count - 1);
             GameMode newGameMode = ActivatedGameModes.ToArray()[randomGameModeIndex];
             int randomMapIndex = new Random().Next(0, newGameMode.Maps.Length - 1);
             Map newMap = newGameMode.Maps[randomMapIndex];
-
-            List<SceneField> scenesToLoad = new List<SceneField>();
-            scenesToLoad.Add(newMap.Scene);
-            scenesToLoad.AddRange(newGameMode.AdditionalScenes);
-
-            await SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray());
+            
+            await GoNext(newGameMode, newMap);
         }
-
+        
+        public async Task GoNextSelect(GameMode gameMode, Map map) {
+            if(ValidateWin())
+                throw new NotImplementedException("A player won the game");
+            
+            await GoNext(gameMode, map);
+        }
+        
+        private async Task GoNext(GameMode gameMode, Map map) {
+            GameModeInstance = new GameModeInstance(gameMode, map);
+            await GameModeInstance.Load();
+        }
+        
         public bool ValidateWin() {
             return false;
         }

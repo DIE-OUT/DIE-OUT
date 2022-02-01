@@ -8,9 +8,11 @@ namespace DieOut {
     public class StartUp : MonoBehaviour {
         
         [SerializeField] private SceneField _mainMenuScene;
+        public static bool HasBeenLoaded { get; private set; }
         
         private void Start() {
             GameManager.GameState = GameState.MainMenu;
+            HasBeenLoaded = true;
             SceneManager.LoadScenesAsync(_mainMenuScene.SceneName);
         }
         
