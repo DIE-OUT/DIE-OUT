@@ -1,6 +1,6 @@
 {
     "name": "Afired.Helper",
-    "rootNamespace": "",
+    "rootNamespace": "Afired.Helper",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
