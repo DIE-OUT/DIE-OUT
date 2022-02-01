@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Threading.Tasks;
 using DieOut.GameModes.Management;
-using DieOut.SceneManagement;
+using Afired.SceneManagement;
 
-namespace DieOut.Sessions {
+namespace Afired.SessionManagement {
     
     public delegate void OnGameModePrepare();
     public delegate void OnGameModeStart();

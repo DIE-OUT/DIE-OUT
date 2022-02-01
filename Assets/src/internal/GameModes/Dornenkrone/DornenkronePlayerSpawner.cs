@@ -1,7 +1,6 @@
 ﻿using DieOut.GameModes.Management;
-using System.Collections;
 using System.Collections.Generic;
-using DieOut.Sessions;
+using Afired.SessionManagement;
 using UnityEngine;
 
 namespace DieOut.GameModes.Dornenkrone {

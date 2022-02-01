@@ -1,6 +1,4 @@
-﻿using System;
-using DieOut.SceneManagement;
-using UnityEditor;
+﻿using Afired.SceneManagement;
 using UnityEngine;
 
 namespace DieOut {

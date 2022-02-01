@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DieOut.GameModes.Management;
-using DieOut.SceneManagement;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Random = System.Random;
 
-namespace DieOut.Sessions {
+namespace Afired.SessionManagement {
     
     [Serializable]
     public class Session {

@@ -1,7 +1,7 @@
-﻿using DieOut.AudioManagement;
-using DieOut.QualityManagement;
+﻿using Afired.AudioManagement;
+using Afired.QualityManagement;
 using DieOut.UI.Elements;
-using DieOut.WindowManagement;
+using Afired.WindowManagement;
 using UnityEngine;
 
 namespace DieOut.UI.MainMenu {

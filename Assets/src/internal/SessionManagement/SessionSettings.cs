@@ -1,8 +1,8 @@
-﻿using DieOut.Helper;
+﻿using Afired.Helper;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 
-namespace DieOut.Sessions {
+namespace Afired.SessionManagement {
     
     public class SessionSettings : SerializedScriptableObject {
         

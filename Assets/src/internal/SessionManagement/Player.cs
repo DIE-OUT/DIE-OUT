@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine.InputSystem;
 
-namespace DieOut.Sessions {
+namespace Afired.SessionManagement {
     
     [Serializable]
     public class Player {

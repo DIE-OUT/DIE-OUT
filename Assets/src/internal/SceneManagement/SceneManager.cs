@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DieOut.Helper;
+using Afired.Helper;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityAsync;
 
-namespace DieOut.SceneManagement {
+namespace Afired.SceneManagement {
 
     public delegate void StartAsyncLevelLoading();
     public delegate void EndAsyncLevelLoading();

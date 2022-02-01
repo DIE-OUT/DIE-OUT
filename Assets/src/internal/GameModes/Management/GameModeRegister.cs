@@ -1,4 +1,4 @@
-﻿using DieOut.Helper;
+﻿using Afired.Helper;
 using UnityEngine;
 
 namespace DieOut.GameModes.Management {

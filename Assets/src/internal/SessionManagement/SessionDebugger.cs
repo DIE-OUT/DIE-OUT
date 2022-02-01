@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 
-namespace DieOut.Sessions {
+namespace Afired.SessionManagement {
     
     [InfoBox("No session has been created yet", VisibleIf = "@_current == null && EditorApplication.isPlaying")]
     [InfoBox("This will show the current session once in play mode", VisibleIf = "@!EditorApplication.isPlaying")]

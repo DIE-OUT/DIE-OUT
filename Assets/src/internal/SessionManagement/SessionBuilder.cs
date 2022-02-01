@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DieOut.GameModes.Management;
 using UnityEngine.InputSystem;
 
-namespace DieOut.Sessions {
+namespace Afired.SessionManagement {
     
     [Serializable]
     public class SessionBuilder {

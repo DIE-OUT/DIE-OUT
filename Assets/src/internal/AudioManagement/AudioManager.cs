@@ -1,11 +1,9 @@
-﻿using System;
-using System.ComponentModel;
-using DieOut.Helper;
-using DieOut.WindowManagement;
+﻿using System.ComponentModel;
+using Afired.Helper;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace DieOut.AudioManagement {
+namespace Afired.AudioManagement {
     
     public class AudioManager : MonoBehaviour {
         

@@ -1,5 +1,4 @@
 using UnityEngine;
-using DieOut.SceneManagement;
 
 namespace DieOut.UI.MainMenu {
     
