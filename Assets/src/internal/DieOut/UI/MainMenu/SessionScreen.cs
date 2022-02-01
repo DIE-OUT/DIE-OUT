@@ -1,5 +1,5 @@
-﻿using Afired.GameModes.Management;
-using Afired.SessionManagement;
+﻿using Afired.GameManagement.GameModes;
+using Afired.GameManagement.Sessions;
 using Afired.UI.Elements;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
-using Afired.GameModes.Management;
+using Afired.GameManagement.GameModes;
 
 namespace DieOut.GameModes {
     

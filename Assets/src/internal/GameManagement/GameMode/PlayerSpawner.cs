@@ -1,8 +1,8 @@
 ﻿using System;
-using Afired.SessionManagement;
+using Afired.GameManagement.Sessions;
 using UnityEngine;
 
-namespace Afired.GameModes.Management {
+namespace Afired.GameManagement.GameModes {
     
     public abstract class PlayerSpawner : MonoBehaviour {
         

@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 using UnityAsync;
 using UnityEngine;
 
-namespace Afired.GameModes.Management {
+namespace Afired.GameManagement.GameModes {
     
     [RequireComponent(typeof(Animation))]
     public class Countdown : SerializedMonoBehaviour {

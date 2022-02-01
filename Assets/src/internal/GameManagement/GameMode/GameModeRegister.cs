@@ -1,7 +1,7 @@
 ﻿using Afired.Helper;
 using UnityEngine;
 
-namespace Afired.GameModes.Management {
+namespace Afired.GameManagement.GameModes {
     
     public class GameModeRegister : MonoBehaviour {
         

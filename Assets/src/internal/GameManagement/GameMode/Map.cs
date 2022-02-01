@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Afired.GameModes.Management {
+namespace Afired.GameManagement.GameModes {
     
     [Serializable]
     public class Map {

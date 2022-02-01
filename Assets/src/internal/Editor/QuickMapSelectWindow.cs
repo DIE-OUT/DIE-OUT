@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Afired.GameModes.Management;
-using Afired.SessionManagement;
+using Afired.GameManagement.GameModes;
+using Afired.GameManagement.Sessions;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;

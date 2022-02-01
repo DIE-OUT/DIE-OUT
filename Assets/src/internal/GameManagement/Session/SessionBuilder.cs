@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Afired.GameModes.Management;
+using Afired.GameManagement.GameModes;
 using UnityEngine.InputSystem;
 
-namespace Afired.SessionManagement {
+namespace Afired.GameManagement.Sessions {
     
     [Serializable]
     public class SessionBuilder {

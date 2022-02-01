@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Afired.GameModes.Management;
+using Afired.GameManagement.GameModes;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Random = System.Random;
 
-namespace Afired.SessionManagement {
+namespace Afired.GameManagement.Sessions {
     
     [Serializable]
     public class Session {

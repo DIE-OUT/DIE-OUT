@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 
-namespace Afired.SessionManagement {
+namespace Afired.GameManagement.Sessions {
     
     public class SessionSettings : SerializedScriptableObject {
         

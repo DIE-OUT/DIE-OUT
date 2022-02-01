@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using Afired.GameModes.Management;
+using Afired.GameManagement.GameModes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

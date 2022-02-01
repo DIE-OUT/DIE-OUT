@@ -1,6 +1,6 @@
 ﻿using UnityEngine.InputSystem;
 
-namespace Afired.GameModes.Management {
+namespace Afired.GameManagement.GameModes {
     
     public interface IDeviceReceiver {
         
