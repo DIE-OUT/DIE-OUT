@@ -46,20 +46,13 @@ namespace DieOut.GameModes.Interactions {
         private void OnDisable() {
             _inputTable.Disable();
         }
-        
-        private void OnTriggerEnter(Collider other) {
-            Tackleable _enemyPlayer = other.GetComponent<Tackleable>();
 
-            if (_tackling == true && _enemyPlayer != null && !_tackleablesToIgnore.Contains(_enemyPlayer)) {
-                _enemyPlayer.TriggerTackle(_player);
-            }
-        }
-        
         private void OnTriggerStay(Collider other) {
             Tackleable _enemyPlayer = other.GetComponent<Tackleable>();
 
             if (_tackling == true && _enemyPlayer != null && !_tackleablesToIgnore.Contains(_enemyPlayer)) {
                 _enemyPlayer.TriggerTackle(_player);
+                _tackling = false;
             }
         }
 
