@@ -11,7 +11,6 @@ namespace DieOut {
         public static bool HasBeenLoaded { get; private set; }
         
         private void Start() {
-            GameManager.GameState = GameState.MainMenu;
             HasBeenLoaded = true;
             SceneManager.LoadScenesAsync(_mainMenuScene.SceneName);
         }
