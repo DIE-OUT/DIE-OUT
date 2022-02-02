@@ -9,6 +9,8 @@ namespace DieOut.GameModes.Interactions {
     
     [RequireComponent(typeof(Collider))]
     public class Tackle : MonoBehaviour, IDeviceReceiver {
+
+        [SerializeField] private Animator _animator;
         
         [SerializeField] private DeviceTypes _deviceTypes;
         private InputTable _inputTable;
@@ -47,18 +49,20 @@ namespace DieOut.GameModes.Interactions {
         }
 
         private void OnTriggerStay(Collider other) {
-            Tackleable _enemyPlayer = other.GetComponent<Tackleable>();
+            Tackleable enemyPlayer = other.GetComponent<Tackleable>();
 
-            if (_tackling == true && _enemyPlayer != null && !_tackleablesToIgnore.Contains(_enemyPlayer)) {
-                _enemyPlayer.TriggerTackle(_player);
+            if (_tackling == true && enemyPlayer != null && !_tackleablesToIgnore.Contains(enemyPlayer)) {
+                enemyPlayer.TriggerTackle(_player);
                 _tackling = false;
             }
         }
 
         private IEnumerator TackleDuration() {
             _tackling = true;
-            yield return new WaitForSeconds(0.8f);
+            _animator.SetBool(AnimatorStringHashes.IsTackling, true);
+            yield return new WaitForSeconds(0.25f);
             _tackling = false;
+            _animator.SetBool(AnimatorStringHashes.IsTackling, false);
         }
         
         private IEnumerator TackleCooldown() {

@@ -16,10 +16,6 @@ MonoBehaviour:
   _splashScreen: {fileID: 0}
   _maps:
   - _scene:
-      m_SceneAsset: {fileID: 102900000, guid: 356dde602a40de94ebe8cff669c81ef9, type: 3}
-      m_SceneName: Conors_TestScene_DornenkroneInitialization
-    _displayName: Conors TestScene
-  - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 44ffa5bac379ad94096f816ccbaf3049, type: 3}
       m_SceneName: Emis_TestScene_Dornenkrone
     _displayName: Emis_TestScene_Dornenkrone
