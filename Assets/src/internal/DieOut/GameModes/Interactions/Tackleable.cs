@@ -57,8 +57,11 @@ namespace DieOut.GameModes.Interactions {
                     _throwable._attachedToPlayer = false;
                 }
                 
-                // Der Tacklende Player bewegt sich schnell in die Richtung des getackleten Players
-                _movable.AddVelocity((_movable.transform.position - tacklingPlayer.transform.position).normalized * _tackleDistance);
+                // Der getacklete Player bewegt sich in die entgegengesetzte Richtung des tacklenden Players
+                _movable.AddVelocity(new Vector3(_movable.transform.position.x - tacklingPlayer.transform.position.x, 0, _movable.transform.position.y - tacklingPlayer.transform.position.y).normalized * _tackleDistance);
+                
+                // mit Höhe:
+                //_movable.AddVelocity((_movable.transform.position - tacklingPlayer.transform.position).normalized * _tackleDistance);
             }
 
             tackleImmunity = true;
