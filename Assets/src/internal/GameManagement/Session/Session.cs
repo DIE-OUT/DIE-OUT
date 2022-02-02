@@ -49,9 +49,9 @@ namespace Afired.GameManagement.Sessions {
         }
 
         public async Task LoadRandomGameMode() {
-            int randomGameModeIndex = new Random().Next(0, ActivatedGameModes.Count - 1);
+            int randomGameModeIndex = UnityEngine.Random.Range(0, ActivatedGameModes.Count);
             GameMode newGameMode = ActivatedGameModes.ToArray()[randomGameModeIndex];
-            int randomMapIndex = new Random().Next(0, newGameMode.Maps.Length - 1);
+            int randomMapIndex = UnityEngine.Random.Range(0, newGameMode.Maps.Length);
             Map newMap = newGameMode.Maps[randomMapIndex];
             
             await LoadGameMode(newGameMode, newMap);

@@ -10,13 +10,14 @@ namespace DieOut.GameModes.Dornenkrone {
     public class DornenkronePlayerSpawner : PlayerSpawner {
         
         public event OnPlayersSpawned OnPlayersSpawned;
-        [SerializeField] private GameObject _dornenkronePlayerPrefab;
+        //todo: use a model register to retrieve the models instead of having multiple player prefab varients
+        [SerializeField] private GameObject[] _dornenkronePlayerPrefabs;
         
         protected override void OnPlayerInitialization(Player[] players, PlayerSpawnpoint[] playerSpawnpoints) {
             GameObject[] playerGameObjects = new GameObject[players.Length];
             
             for(int i = 0; i < players.Length; i++) {
-                GameObject playerGameObject = Instantiate(_dornenkronePlayerPrefab, playerSpawnpoints[i].transform.position, Quaternion.identity);
+                GameObject playerGameObject = Instantiate(_dornenkronePlayerPrefabs[i], playerSpawnpoints[i].transform.position, Quaternion.identity);
                 
                 IDeviceReceiver[] deviceReceivers = playerGameObject.GetComponentsInChildren<IDeviceReceiver>(true);
                 foreach(IDeviceReceiver deviceReceiver in deviceReceivers) {

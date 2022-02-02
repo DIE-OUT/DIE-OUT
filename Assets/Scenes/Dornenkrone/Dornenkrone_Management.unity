@@ -166,7 +166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14715ca9f1864762a8ce857391171605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dornenkronePlayerPrefab: {fileID: 6028884854241720944, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
+  _dornenkronePlayerPrefabs:
+  - {fileID: 4067892400106972289, guid: e89fcb59f42f9fc40b905f61baf6de56, type: 3}
+  - {fileID: 6328441243500695334, guid: 55d3be337d5dc4e45aff3a517d9ac067, type: 3}
+  - {fileID: 4067892400106972289, guid: e89fcb59f42f9fc40b905f61baf6de56, type: 3}
+  - {fileID: 6328441243500695334, guid: 55d3be337d5dc4e45aff3a517d9ac067, type: 3}
 --- !u!1 &1080169633
 GameObject:
   m_ObjectHideFlags: 0
