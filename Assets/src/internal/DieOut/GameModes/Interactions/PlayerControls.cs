@@ -59,17 +59,17 @@ namespace DieOut.GameModes.Interactions {
             if(!HasControl)
                 return;
             
-            if(_movable.IsGrounded)
-                _movable.AddVelocity(new Vector3(0, _jumpForce, 0));
+//            if(_movable.IsGrounded)
+//                _movable.AddVelocity(new Vector3(0, _jumpForce, 0));
             
-//            _jumpInputBuffer = true;
-//    
-//            if(_clearJumpInputBuffer != null)
-//                StopCoroutine(_clearJumpInputBuffer);
-//    
-//            _clearJumpInputBuffer = ClearJumpInputBuffer();
-//            
-//            StartCoroutine(_clearJumpInputBuffer);
+            _jumpInputBuffer = true;
+    
+            if(_clearJumpInputBuffer != null)
+                StopCoroutine(_clearJumpInputBuffer);
+    
+            _clearJumpInputBuffer = ClearJumpInputBuffer();
+            
+            StartCoroutine(_clearJumpInputBuffer);
         }
 
         private IEnumerator ClearJumpInputBuffer() {
@@ -81,6 +81,16 @@ namespace DieOut.GameModes.Interactions {
             UpdateInputs();
             UpdateMovable();
             UpdateRotation();
+            UpdateJump();
+        }
+
+        private void UpdateJump() {
+            if(_jumpInputBuffer && _movable.IsGrounded) {
+                _movable.AddVelocity(new Vector3(0, _jumpForce, 0));
+                if(_clearJumpInputBuffer != null)
+                    StopCoroutine(_clearJumpInputBuffer);
+                _jumpInputBuffer = false;
+            }
         }
 
         private void UpdateInputs() {
