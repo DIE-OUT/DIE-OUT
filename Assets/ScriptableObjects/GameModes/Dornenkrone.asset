@@ -19,6 +19,14 @@ MonoBehaviour:
       m_SceneAsset: {fileID: 102900000, guid: 356dde602a40de94ebe8cff669c81ef9, type: 3}
       m_SceneName: Conors_TestScene_DornenkroneInitialization
     _displayName: Conors TestScene
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 44ffa5bac379ad94096f816ccbaf3049, type: 3}
+      m_SceneName: Emis_TestScene_Dornenkrone
+    _displayName: Emis_TestScene_Dornenkrone
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 3fad75f4455423d4fa7346afaddb0a39, type: 3}
+      m_SceneName: Emis_TestScene_Gewitterwolke
+    _displayName: Emis_TestScene_Gewitterwolke
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 910af1b8dd82610468b2bd3bebcdeec4, type: 3}
     m_SceneName: Dornenkrone_UI
