@@ -84,12 +84,12 @@ namespace DieOut.GameModes.Interactions {
             UpdateMovable();
             UpdateRotation();
             UpdateJump();
-            _animator.SetBool("isGrounded", _movable.IsGrounded);
+            _animator.SetBool(AnimatorStringHashes.IsGrounded, _movable.IsGrounded);
         }
 
         private void UpdateJump() {
             if(_jumpInputBuffer && _movable.IsGrounded) {
-                _animator.SetTrigger("triggerJump");
+                _animator.SetTrigger(AnimatorStringHashes.TriggerJump);
                 _movable.AddVelocity(new Vector3(0, _jumpForce, 0));
                 if(_clearJumpInputBuffer != null)
                     StopCoroutine(_clearJumpInputBuffer);
@@ -104,11 +104,11 @@ namespace DieOut.GameModes.Interactions {
 
         private void UpdateMovable() {
             if(!HasControl) {
-                _animator.SetFloat("walkingSpeed", 0f);
+                _animator.SetFloat(AnimatorStringHashes.WalkingSpeed, 0f);
                 return;
             }
             _movable.Move(Quaternion.Euler(0, _cameraAngle, 0) * new Vector3(_moveInput.x, 0, _moveInput.y) * _movementSpeed * Time.deltaTime);
-            _animator.SetFloat("walkingSpeed", _moveInput.magnitude* _movementSpeed);
+            _animator.SetFloat(AnimatorStringHashes.WalkingSpeed, _moveInput.magnitude* _movementSpeed);
         }
 
         private void UpdateRotation() {
