@@ -145,7 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a960aa3be6349a9aac735f03d3ac302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
   _inAirGravityForceUp: 50
   _inAirGravityForceDown: 50
   _groundGravityForce: 1
@@ -165,5 +164,6 @@ MonoBehaviour:
   _deviceTypes: 0
   _cameraAngle: 45
   _movementSpeed: 6
-  _jumpForce: 13
+  _jumpForce: 11
   _jumpInputBufferTime: 0.1
+  _direction: {x: 0, y: 0, z: 0, w: 0}

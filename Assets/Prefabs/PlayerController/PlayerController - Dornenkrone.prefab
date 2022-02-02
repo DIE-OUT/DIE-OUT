@@ -375,7 +375,7 @@ MonoBehaviour:
   _tackleablesToIgnore:
   - {fileID: 5420079802391077671}
   _cooldown: 3
-  _tackleDistance: 50
+  _tackleDistance: 30
   _tackling: 0
 --- !u!1 &6952426200836093220
 GameObject:
