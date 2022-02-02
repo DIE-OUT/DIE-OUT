@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Afired.GameManagement.GameModes;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using UnityEngine;
 using Random = System.Random;
 
 namespace Afired.GameManagement.Sessions {
@@ -40,9 +41,10 @@ namespace Afired.GameManagement.Sessions {
         }
         
         public async Task GoNext() {
-            if(ValidateSessionWin())
-                throw new NotImplementedException("A player won the game");
-
+            if(ValidateSessionWin()) {
+                EndSession();
+                return;
+            }
             await LoadRandomGameMode();
         }
 
@@ -56,13 +58,22 @@ namespace Afired.GameManagement.Sessions {
         }
         
         public async Task LoadGameMode(GameMode gameMode, Map map) {
+            CurrentRound++;
             GameModeInstance = new GameModeInstance(gameMode, map);
             await GameModeInstance.Load();
         }
         
         public bool ValidateSessionWin() {
             //todo: figure out who won
-            return Player.Any(player => player.Score >= WinningScore);
+            if(Player.Any(player => player.Score >= WinningScore))
+                return true;
+            if(CurrentRound >= MaxRounds)
+                return true;
+            return false;
+        }
+
+        private void EndSession() {
+            Debug.Log($"Session ended, a player won {Player.OrderByDescending(player => player.Score).FirstOrDefault()?.InputDevices.FirstOrDefault()?.displayName} with a score of {Player.OrderByDescending(player => player.Score).FirstOrDefault()?.Score}");
         }
         
     }

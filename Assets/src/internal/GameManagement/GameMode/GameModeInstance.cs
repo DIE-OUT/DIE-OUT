@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Afired.GameManagement.Sessions;
 using Afired.SceneManagement;
+using UnityEngine;
 
 namespace Afired.GameManagement.GameModes {
     
@@ -39,13 +40,13 @@ namespace Afired.GameManagement.GameModes {
             await SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray());
         }
         
-        public async void EndGameMode(Player[] players, int[] scores) {
-            
-            //todo: sort scores to figure out who did best in current game mode
-
-            for(int i = 0; i < players.Length; i++) {
-                players[i].AddScore(scores[i]);
-            }
+        public async void EndGameMode(/*Player[] players, int[] scores*/) {
+//            
+//            //todo: sort scores to figure out who did best in current game mode
+//
+//            for(int i = 0; i < players.Length; i++) {
+//                players[i].AddScore(scores[i]);
+//            }
             
             OnGameModeEnd?.Invoke();
             //todo: show scoreboard (await scoreboard finish)
