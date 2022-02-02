@@ -5371,6 +5371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasWinScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 2611171956564153934, guid: ee5ded3bc4a897f4ba79f4858a81f80b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee5ded3bc4a897f4ba79f4858a81f80b, type: 3}
 --- !u!1001 &3316166511525890341
