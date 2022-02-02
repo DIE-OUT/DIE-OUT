@@ -60,7 +60,7 @@ namespace DieOut.GameModes.Interactions {
         private IEnumerator TackleDuration() {
             _tackling = true;
             _animator.SetBool(AnimatorStringHashes.IsTackling, true);
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(0.25f);
             _tackling = false;
             _animator.SetBool(AnimatorStringHashes.IsTackling, false);
         }
