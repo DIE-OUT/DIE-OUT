@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 857700043}
   - component: {fileID: 857700044}
+  - component: {fileID: 857700045}
   m_Layer: 0
   m_Name: Playerspawner
   m_TagString: Untagged
@@ -167,3 +168,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dornenkronePlayerPrefab: {fileID: 6028884854241720944, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
+  _players: []
+--- !u!114 &857700045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857700042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7bac11d54551b14cb9f1c126daa08d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

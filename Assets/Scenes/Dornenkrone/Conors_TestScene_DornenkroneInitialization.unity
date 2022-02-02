@@ -877,6 +877,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3316166510685455915, guid: a9fe9b23f85439e4c8e2f33f497e57e3, type: 3}
+      propertyPath: _damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3316166510685455918, guid: a9fe9b23f85439e4c8e2f33f497e57e3, type: 3}
       propertyPath: m_Name
       value: Magmaklumpen

@@ -9,7 +9,7 @@ namespace DieOut.GameModes.Dornenkrone {
 
         [SerializeField] private GameObject _dornenkronePlayerPrefab;
 
-        private List<GameObject> _players;
+        public List<GameObject> _players;
 
         protected override void OnPlayerInitialization(Player[] players, PlayerSpawnpoint[] playerSpawnpoints) {
             _players = new List<GameObject>();
@@ -22,7 +22,6 @@ namespace DieOut.GameModes.Dornenkrone {
                     deviceReceiver.SetDevices(players[i].InputDevices);
                 }
             }
-            Debug.Log(players.Length);
         }
         
     }
