@@ -12,7 +12,6 @@ namespace DieOut.GameModes.Interactions {
         [SerializeField] private Animator _animator;
         
         public bool HasControl = true;
-        [SerializeField] private DieOut.GameModes.DeviceTypes _deviceTypes;
         [Header("Settings")]
         [SerializeField] private float _cameraAngle = 45f;
         [SerializeField] [Range(0f, 10f)] public float _movementSpeed = 5f;
@@ -36,12 +35,6 @@ namespace DieOut.GameModes.Interactions {
             _movable = GetComponent<Movable>();
 
             _inputTable = new InputTable();
-
-            if(_deviceTypes == DieOut.GameModes.DeviceTypes.Gamepad)
-                _inputTable.devices = new[] { Gamepad.all[0] };
-            else if(_deviceTypes == DieOut.GameModes.DeviceTypes.Keyboard)
-                _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
-            
             _inputTable.CharacterControls.Jump.performed += OnJumpInput;
         }
         
@@ -60,9 +53,6 @@ namespace DieOut.GameModes.Interactions {
         private void OnJumpInput(InputAction.CallbackContext ctx) {
             if(!HasControl)
                 return;
-            
-//            if(_movable.IsGrounded)
-//                _movable.AddVelocity(new Vector3(0, _jumpForce, 0));
             
             _jumpInputBuffer = true;
     
@@ -121,12 +111,6 @@ namespace DieOut.GameModes.Interactions {
             }
         }
         
-    }
-    
-    [Serializable]
-    public enum DeviceTypes {
-        Keyboard,
-        Gamepad
     }
     
 }

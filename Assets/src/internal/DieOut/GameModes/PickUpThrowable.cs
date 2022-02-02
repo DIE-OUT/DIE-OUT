@@ -7,10 +7,8 @@ using Afired.GameManagement.GameModes;
 namespace DieOut.GameModes {
     
     public class PickUpThrowable : MonoBehaviour, IDeviceReceiver {
-
-        [SerializeField] private DeviceTypes _deviceTypes;
-        private InputTable _inputTable;
         
+        private InputTable _inputTable;
         private List<Throwable> _throwables;
         private Throwable _aStone;
         private Throwable _targetStone;
@@ -19,12 +17,6 @@ namespace DieOut.GameModes {
         private void Awake() {
             
             _inputTable = new InputTable();
-
-            if(_deviceTypes == DeviceTypes.Gamepad)
-                _inputTable.devices = new[] { Gamepad.all[0] };
-            else if(_deviceTypes == DeviceTypes.Keyboard)
-                _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
-            
             _inputTable.CharacterControls.PickUp.performed += OnPickUp;
             _inputTable.CharacterControls.Throw.performed += OnThrow;
             

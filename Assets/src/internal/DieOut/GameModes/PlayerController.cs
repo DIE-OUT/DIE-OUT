@@ -7,8 +7,7 @@ namespace DieOut.GameModes {
     
     [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour {
-
-        [SerializeField] private DeviceTypes _deviceTypes;
+        
         [Header("Settings")]
         [SerializeField] private float _cameraAngle = 45f;
         [SerializeField] public float _movementSpeed = 5f;
@@ -33,12 +32,6 @@ namespace DieOut.GameModes {
             _mainCamera = Camera.main;
 
             _inputTable = new InputTable();
-
-            if(_deviceTypes == DeviceTypes.Gamepad)
-                _inputTable.devices = new[] { Gamepad.all[0] };
-            else if(_deviceTypes == DeviceTypes.Keyboard)
-                _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
-            
             _inputTable.CharacterControls.Jump.performed += OnJumpInput;
         }
 
@@ -99,10 +92,4 @@ namespace DieOut.GameModes {
         
     }
     
-    [Serializable]
-    public enum DeviceTypes {
-        Keyboard,
-        Gamepad
-    }
-
 }
