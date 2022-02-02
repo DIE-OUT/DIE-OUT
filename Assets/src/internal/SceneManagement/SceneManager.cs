@@ -33,8 +33,6 @@ namespace Afired.SceneManagement {
                 scenesLoading.Add(UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(scenes[i], LoadSceneMode.Additive));
             }
             
-//            _instance.Get().StartCoroutine(_instance.Get().GetSceneLoadProgress());
-
             while(scenesLoading.Any(scene => !scene.isDone)) {
                 LoadingProgress = scenesLoading.Sum(operation => operation.progress) / scenesLoading.Count;
                 await Await.NextUpdate();
@@ -42,17 +40,6 @@ namespace Afired.SceneManagement {
             UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(_instance.Get()._loadingScreenScene.SceneName, UnloadSceneOptions.None);
             EndAsyncLevelLoading?.Invoke();
         }
-        
-//        private IEnumerator GetSceneLoadProgress() {
-//            for(int i = 0; i < _scenesLoading.Count; i++) {
-//                while(!_scenesLoading[i].isDone) {
-//                    LoadingProgress = _scenesLoading.Sum(operation => operation.progress) / _scenesLoading.Count;
-//                    yield return null;
-//                }
-//            }
-//            EndAsyncLevelLoading?.Invoke();
-//            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(_loadingScreenScene.SceneName, UnloadSceneOptions.None);
-//        }
         
         public static int sceneCount => UnityEngine.SceneManagement.SceneManager.sceneCount;
         public static int sceneCountInBuildSettings => UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;

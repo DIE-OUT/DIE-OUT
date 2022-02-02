@@ -10,7 +10,6 @@ namespace DieOut.GameModes.Interactions {
     [RequireComponent(typeof(Collider))]
     public class Tackle_automatic : MonoBehaviour, IDeviceReceiver {
         
-        [SerializeField] private DeviceTypes _deviceTypes;
         private InputTable _inputTable;
         private Movable _player;
         private List<Tackleable> _otherPlayers = new List<Tackleable>();
@@ -22,12 +21,6 @@ namespace DieOut.GameModes.Interactions {
 
         private void Awake() {
             _inputTable = new InputTable();
-            
-            if(_deviceTypes == DeviceTypes.Gamepad)
-                _inputTable.devices = new[] { Gamepad.all[0] };
-            else if(_deviceTypes == DeviceTypes.Keyboard)
-                _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
-            
             _inputTable.CharacterControls.Tackle.performed += OnTackle;
 
             _player = GetComponentInParent<Movable>();

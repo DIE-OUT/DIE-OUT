@@ -8,24 +8,16 @@ using Afired.GameManagement.GameModes;
 
 namespace DieOut.GameModes.Dornenkrone {
     public class PickUpSpeed : MonoBehaviour, IDeviceReceiver {
-    
-        [SerializeField] private DeviceTypes _deviceTypes;
+        
         private InputTable _inputTable;
-
         private List<SpeedPickUp> _speedPickUps;
         private SpeedPickUp _speedPickUp;
-
         [SerializeField] private float _speedDuration = 5;
         private int _amountOfCollectedSpeedPickUps = 0;
-
+        
+        
         private void Awake() {
             _inputTable = new InputTable();
-            
-            if(_deviceTypes == DeviceTypes.Gamepad)
-                _inputTable.devices = new[] { Gamepad.all[0] };
-            else if(_deviceTypes == DeviceTypes.Keyboard)
-                _inputTable.devices = new InputDevice[] { Keyboard.current, Mouse.current };
-            
             _inputTable.CharacterControls.PickUp.performed += OnPickUp;
 
             _speedPickUps = new List<SpeedPickUp>();
