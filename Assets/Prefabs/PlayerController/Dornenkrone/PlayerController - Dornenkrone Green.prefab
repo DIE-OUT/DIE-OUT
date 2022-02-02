@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6028884854241720944, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: m_Name
-      value: PlayerController - Dornenkrone
+      value: PlayerController - Dornenkrone Green
       objectReference: {fileID: 0}
     - target: {fileID: 6028884854241720945, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: m_RootOrder
@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6028884854241720947, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1869148847}
     - target: {fileID: 6028884854496110482, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: m_IsActive
       value: 0

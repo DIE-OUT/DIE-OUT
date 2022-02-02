@@ -9,6 +9,8 @@ namespace DieOut.GameModes.Interactions {
     [RequireComponent(typeof(Movable))]
     public class PlayerControls : MonoBehaviour, IDeviceReceiver {
 
+        [SerializeField] private Animator _animator;
+        
         public bool HasControl = true;
         [SerializeField] private DieOut.GameModes.DeviceTypes _deviceTypes;
         [Header("Settings")]
@@ -86,6 +88,7 @@ namespace DieOut.GameModes.Interactions {
 
         private void UpdateJump() {
             if(_jumpInputBuffer && _movable.IsGrounded) {
+                _animator.SetTrigger("triggerJump");
                 _movable.AddVelocity(new Vector3(0, _jumpForce, 0));
                 if(_clearJumpInputBuffer != null)
                     StopCoroutine(_clearJumpInputBuffer);
