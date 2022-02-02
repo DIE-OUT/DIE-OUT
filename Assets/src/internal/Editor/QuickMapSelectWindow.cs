@@ -59,7 +59,7 @@ namespace DieOut.Editor {
         [SerializeField] private List<LoadableMap> _loadableMaps;
 
         private string GetTitle() {
-            return string.IsNullOrEmpty(_gameMode.Name) ? "Untitled Game Mode" : _gameMode.Name;
+            return string.IsNullOrEmpty(_gameMode.DisplayName) ? "Untitled Game Mode" : _gameMode.DisplayName;
         }
         
         public GameModeMapCollection(GameMode gameMode) {
