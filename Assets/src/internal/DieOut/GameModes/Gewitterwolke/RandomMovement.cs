@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DieOut.GameModes.Interactions;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace DieOut.GameModes.Gewitterwolke {
     public class RandomMovement : MonoBehaviour {
@@ -9,12 +13,17 @@ namespace DieOut.GameModes.Gewitterwolke {
         public NavMeshAgent _navMeshAgent;
         //private NavMeshPath _path;
         private Vector3 _target;
+        
         [SerializeField] private float _timeForNewPath = 1;
         private bool _inCoroutine = false;
         //private bool _validPath;
+        [SerializeField] [MinMaxSlider(0, 20)] private Vector2 _speedRange = new Vector2(1, 5);
         
-        void Start() {
+        void Awake() {
             _navMeshAgent = GetComponent<NavMeshAgent>();
+        }
+
+        void Start() {
             //_path = new NavMeshPath();
         }
 
@@ -43,12 +52,13 @@ namespace DieOut.GameModes.Gewitterwolke {
                 GetNewPath();
                 _validPath = _navMeshAgent.CalculatePath(_target, _path);
             }*/
-            _inCoroutine = false;
         }
 
         private void GetNewPath() {
             _target = GetNewRandomPosition();
+            _navMeshAgent.speed = Random.Range(_speedRange.x, _speedRange.y);
             _navMeshAgent.SetDestination(_target);
+            _inCoroutine = false;
         }
     }
 }
