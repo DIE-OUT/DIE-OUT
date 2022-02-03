@@ -1,5 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Afired.GameManagement.Sessions;
 using Sirenix.OdinInspector;
 using UnityAsync;
 using UnityEngine;
@@ -10,19 +10,17 @@ namespace Afired.GameManagement.GameModes {
     public class Countdown : SerializedMonoBehaviour {
         
         private Animation _animation;
-        private static Countdown _instance;
 
         private void Awake() {
             _animation = GetComponent<Animation>();
-            _instance = this;
+            Session.Current.GameModeInstance.OnGameModePrepare += Run;
         }
         
         [Button]
-        public static async Task Run() {
-            if(_instance == null) throw new Exception("game mode countdown not loaded!");
-            if(_instance._animation.clip != null) {
-                _instance._animation.Play();
-                await Await.Seconds(_instance._animation.clip.length);
+        public async Task Run() {
+            if(_animation.clip != null) {
+                _animation.Play();
+                await Await.Seconds(_animation.clip.length);
             }
         }
         
