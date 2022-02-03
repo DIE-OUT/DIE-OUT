@@ -37,7 +37,7 @@ namespace Afired.GameManagement.GameModes {
             scenesToLoad.Add(map.Scene);
             scenesToLoad.AddRange(gameMode.AdditionalScenes);
             
-            await SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray());
+            await SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray(), 5f);
         }
         
         public async void EndGameMode(/*Player[] players, int[] scores*/) {

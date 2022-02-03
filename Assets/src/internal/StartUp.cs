@@ -10,7 +10,7 @@ namespace DieOut {
         
         private void Start() {
             HasBeenLoaded = true;
-            SceneManager.LoadScenesAsync(_mainMenuScene.SceneName);
+            SceneManager.LoadScenesAsync(new string[] { _mainMenuScene.SceneName });
         }
         
     }
