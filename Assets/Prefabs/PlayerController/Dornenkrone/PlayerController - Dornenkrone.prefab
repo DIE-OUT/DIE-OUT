@@ -301,7 +301,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 2458979888819464252}
   m_HandleRect: {fileID: 0}
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8a45a951c193842a645f5b02bfc587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deviceTypes: 0
+  _animator: {fileID: 0}
   _tackleablesToIgnore:
   - {fileID: 5420079802391077671}
   _cooldown: 3
@@ -666,7 +666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2f6cfff85e1f14fb95044930355e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deviceTypes: 0
   _speedDuration: 5
 --- !u!114 &6881634941943608829
 MonoBehaviour:
@@ -680,7 +679,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2c69cd09d36244888ccd65c8d750c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deviceTypes: 0
 --- !u!114 &8401715106698432103
 MonoBehaviour:
   m_ObjectHideFlags: 0
