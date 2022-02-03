@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Afired.GameManagement.Sessions;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace Afired.GameManagement.GameModes {
             Session.Current.GameModeInstance.OnGameModePrepare += InvokeGameModePrepare;
         }
 
-        private void InvokeGameModePrepare() {
+        private Task InvokeGameModePrepare() {
             PlayerSpawnpoint[] playerSpawnpoints = FindObjectsOfType<PlayerSpawnpoint>();
             Player[] players = Session.Current.Player;
             
@@ -18,6 +19,7 @@ namespace Afired.GameManagement.GameModes {
                 throw new Exception("map has less player spawns than players that are playing!");
             
             OnPlayerInitialization(players, playerSpawnpoints);
+            return Task.CompletedTask;
         }
 
         protected abstract void OnPlayerInitialization(Player[] players, PlayerSpawnpoint[] playerSpawnpoints);

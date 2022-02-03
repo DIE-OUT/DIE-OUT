@@ -2,18 +2,17 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Afired.GameManagement.Sessions;
+using Afired.Helper;
 using Afired.SceneManagement;
-using UnityEngine;
 
 namespace Afired.GameManagement.GameModes {
     
-    public delegate void OnGameModePrepare();
     public delegate void OnGameModeStart();
     public delegate void OnGameModeEnd();
     
     public class GameModeInstance {
         
-        public event OnGameModePrepare OnGameModePrepare;
+        public TaskQueue OnGameModePrepare = new TaskQueue();
         public event OnGameModeStart OnGameModeStart;
         public event OnGameModeEnd OnGameModeEnd;
         public GameMode GameMode { get; }
@@ -27,8 +26,7 @@ namespace Afired.GameManagement.GameModes {
 
         public async Task Load() {
             await LoadGameModeMap(GameMode, Map);
-            OnGameModePrepare?.Invoke();
-            await Countdown.Run();
+            await OnGameModePrepare.InvokeAsynchronously();
             OnGameModeStart?.Invoke();
         }
         

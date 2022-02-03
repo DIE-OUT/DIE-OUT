@@ -20,14 +20,14 @@ namespace Afired.SceneManagement {
         [SerializeField] private SceneField _loadingScreenScene;
         private static SingletonInstance<SceneManager> _instance;
         
-        public static TaskQueue TaskOnEndAsyncLevelLoading = new TaskQueue();
+        public static TaskQueue OnEndAsyncLevelLoading = new TaskQueue();
         
         private void Awake() {
             _instance.Init(this);
         }
         
         public static async Task LoadScenesAsync(string[] scenes/*, float minLoadingTime = 0f*/) {
-            TaskOnEndAsyncLevelLoading.Clear();
+            OnEndAsyncLevelLoading.Clear();
             
             StartAsyncLevelLoading?.Invoke();
             Stopwatch stopwatch = new Stopwatch();
@@ -45,7 +45,7 @@ namespace Afired.SceneManagement {
                 await Await.NextUpdate();
             }
             
-            await TaskOnEndAsyncLevelLoading.InvokeAsynchronously();
+            await OnEndAsyncLevelLoading.InvokeAsynchronously();
             
             UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(_instance.Get()._loadingScreenScene.SceneName, UnloadSceneOptions.None);
             EndAsyncLevelLoading?.Invoke();

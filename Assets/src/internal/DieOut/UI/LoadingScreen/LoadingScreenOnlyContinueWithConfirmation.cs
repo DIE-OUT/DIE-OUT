@@ -20,8 +20,8 @@ namespace DieOut.UI.LoadingScreen {
             if(!Session.HasCurrent || Session.Current.GameModeInstance == null) {
                 return;
             }
-            SceneManager.TaskOnEndAsyncLevelLoading += EnableConfirmationButton;
-            SceneManager.TaskOnEndAsyncLevelLoading += WaitForConfirmation;
+            SceneManager.OnEndAsyncLevelLoading += EnableConfirmationButton;
+            SceneManager.OnEndAsyncLevelLoading += WaitForConfirmation;
         }
 
         private Task EnableConfirmationButton() {
