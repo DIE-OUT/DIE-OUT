@@ -8,13 +8,12 @@ using Afired.SceneManagement;
 namespace Afired.GameManagement.GameModes {
     
     public delegate void OnGameModeStart();
-    public delegate void OnGameModeEnd();
     
     public class GameModeInstance {
         
         public TaskQueue OnGameModePrepare = new TaskQueue();
         public event OnGameModeStart OnGameModeStart;
-        public event OnGameModeEnd OnGameModeEnd;
+        public TaskQueue OnGameModeEnd = new TaskQueue();
         public GameMode GameMode { get; }
         public Map Map { get; }
         
@@ -46,7 +45,7 @@ namespace Afired.GameManagement.GameModes {
 //                players[i].AddScore(scores[i]);
 //            }
             
-            OnGameModeEnd?.Invoke();
+            await OnGameModeEnd.InvokeAsynchronously();
             //todo: show scoreboard (await scoreboard finish)
             
             Session.Current.GoNext();

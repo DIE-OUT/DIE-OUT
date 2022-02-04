@@ -6,19 +6,20 @@ using UnityEngine;
 namespace DieOut.UI.Scoreboard {
     
     public class ScoreboardPlayerEntry : MonoBehaviour {
-
+        
         private Player _player;
         [SerializeField] private TMP_Text _playersIdentificationText;
         [SerializeField] private TMP_Text _playersScoreText;
-
-
+        
+        
         public void Init(Player player) {
             if(_player != null)
                 throw new Exception("this scoreboard cant be initialized more than once");
             _player = player;
+            player.OnScoreChanged += Refresh;
             Refresh();
         }
-
+        
         private void Refresh() {
             if(_player is null)
                 throw new Exception("scoreboard player entry is refreshed without a player assigned");
