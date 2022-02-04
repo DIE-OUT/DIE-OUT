@@ -51,3 +51,5 @@ MonoBehaviour:
     m_SceneName: Dornenkrone_Management
   - m_SceneAsset: {fileID: 102900000, guid: 690b8fe4b4be1374787146238f4480a0, type: 3}
     m_SceneName: GameMode_Management
+  - m_SceneAsset: {fileID: 102900000, guid: 4a95a3295be56194788f84d4c9a1e7b9, type: 3}
+    m_SceneName: Scoreboard
