@@ -1,6 +1,7 @@
 ﻿using Afired.GameManagement.GameModes;
 using Afired.GameManagement;
 using Afired.GameManagement.Sessions;
+using DieOut.GameModes.Interactions;
 using UnityEngine;
 
 namespace DieOut.GameModes.Dornenkrone {
@@ -12,9 +13,10 @@ namespace DieOut.GameModes.Dornenkrone {
         public event OnPlayersSpawned OnPlayersSpawned;
         //todo: use a model register to retrieve the models instead of having multiple player prefab varients
         [SerializeField] private GameObject[] _dornenkronePlayerPrefabs;
+        private GameObject[] _playerGameObjects;
         
         protected override void OnPlayerInitialization(Player[] players, PlayerSpawnpoint[] playerSpawnpoints) {
-            GameObject[] playerGameObjects = new GameObject[players.Length];
+            _playerGameObjects = new GameObject[players.Length];
             
             for(int i = 0; i < players.Length; i++) {
                 GameObject playerGameObject = Instantiate(_dornenkronePlayerPrefabs[i], playerSpawnpoints[i].transform.position, Quaternion.identity);
@@ -29,12 +31,21 @@ namespace DieOut.GameModes.Dornenkrone {
                     deviceReceiver.SetPlayer(players[i]);
                 }
 
-                playerGameObjects[i] = playerGameObject;
+                PlayerControls playerControls = playerGameObject.GetComponent<PlayerControls>();
+                playerControls.HasControl = false;
+                
+                _playerGameObjects[i] = playerGameObject;
             }
             
-            OnPlayersSpawned?.Invoke(playerGameObjects);
+            OnPlayersSpawned?.Invoke(_playerGameObjects);
+            Session.Current.GameModeInstance.OnGameModeStart += GiveControl;
         }
-        
+
+        private void GiveControl() {
+            foreach(GameObject playerGameObject in _playerGameObjects) {
+                playerGameObject.GetComponent<PlayerControls>().HasControl = true;
+            }
+        }
     }
     
 }
