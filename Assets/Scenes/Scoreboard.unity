@@ -1510,6 +1510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6c694b951f40a1b0a50616dc288efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _afterGameEndedShowScoreboardForSeconds: 5
   _scoreboardRoot: {fileID: 813240482}
 --- !u!1 &2127917924
 GameObject:

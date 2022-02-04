@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dornenkronePlayerPrefabs:
-  - {fileID: 4067892400106972289, guid: e89fcb59f42f9fc40b905f61baf6de56, type: 3}
-  - {fileID: 6328441243500695334, guid: 55d3be337d5dc4e45aff3a517d9ac067, type: 3}
+  - {fileID: 2324120323504503995, guid: 4db5e7880bd5bf54a9dd6d244f08cb63, type: 3}
+  - {fileID: 7865095031200048159, guid: 679e205ea6de0a943bbc56e82e27ed1f, type: 3}
   - {fileID: 4067892400106972289, guid: e89fcb59f42f9fc40b905f61baf6de56, type: 3}
   - {fileID: 6328441243500695334, guid: 55d3be337d5dc4e45aff3a517d9ac067, type: 3}
 --- !u!1 &1080169633
