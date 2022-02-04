@@ -1,16 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &322505577416963414
+--- !u!1001 &1171567625394416530
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2458979888819464252, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2458979888819464252, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3048491868967737754, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: _animator
       value: 
-      objectReference: {fileID: 1869148847}
+      objectReference: {fileID: 1223213290}
     - target: {fileID: 4975745717789748503, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -66,7 +74,7 @@ PrefabInstance:
     - target: {fileID: 6028884854241720947, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: _animator
       value: 
-      objectReference: {fileID: 1869148847}
+      objectReference: {fileID: 1223213290}
     - target: {fileID: 6028884854496110482, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -77,17 +85,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
---- !u!4 &6328441243500695335 stripped
+--- !u!4 &4893398873733861859 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6028884854241720945, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
-  m_PrefabInstance: {fileID: 322505577416963414}
+  m_PrefabInstance: {fileID: 1171567625394416530}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &322505577510477668
+--- !u!1001 &3366372390044899482
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6328441243500695335}
+    m_TransformParent: {fileID: 4893398873733861859}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5e6c711c88e6d8c4ab54d6ffaa5352e3, type: 3}
       propertyPath: m_RootOrder
@@ -135,23 +143,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5e6c711c88e6d8c4ab54d6ffaa5352e3, type: 3}
       propertyPath: m_Name
-      value: o_DinoTestAnim 1
+      value: o_Dino_Green
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e6c711c88e6d8c4ab54d6ffaa5352e3, type: 3}
---- !u!1 &628442143774810677 stripped
+--- !u!1 &2483357012931519947 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e6c711c88e6d8c4ab54d6ffaa5352e3, type: 3}
-  m_PrefabInstance: {fileID: 322505577510477668}
+  m_PrefabInstance: {fileID: 3366372390044899482}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1869148847
+--- !u!95 &1223213290
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628442143774810677}
+  m_GameObject: {fileID: 2483357012931519947}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6f96a16d3a591ff4a9b47122c45f1812, type: 2}
