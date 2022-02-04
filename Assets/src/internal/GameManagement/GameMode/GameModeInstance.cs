@@ -37,18 +37,13 @@ namespace Afired.GameManagement.GameModes {
             await SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray());
         }
         
-        public async void EndGameMode(/*Player[] players, int[] scores*/) {
-//            
-//            //todo: sort scores to figure out who did best in current game mode
-//
-//            for(int i = 0; i < players.Length; i++) {
-//                players[i].AddScore(scores[i]);
-//            }
+        public async void EndGameMode() {
             
             await OnGameModeEnd.InvokeAsynchronously();
-            //todo: show scoreboard (await scoreboard finish)
             
+            #pragma warning disable CS4014
             Session.Current.GoNext();
+            #pragma warning restore CS4014
         }
         
     }
