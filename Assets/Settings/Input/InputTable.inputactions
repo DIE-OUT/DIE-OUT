@@ -280,6 +280,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Scoreboard",
+                    "type": "Button",
+                    "id": "5797bf1b-55b2-44f4-9af7-4f97168ae51e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -379,6 +387,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "AnyButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "91fb8054-b3f1-4690-9b26-546fb9525837",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Scoreboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce9269b2-f868-4d39-ad5d-177e4ce330f9",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Scoreboard",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

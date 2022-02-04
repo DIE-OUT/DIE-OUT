@@ -293,6 +293,14 @@ public class @InputTable : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Scoreboard"",
+                    ""type"": ""Button"",
+                    ""id"": ""5797bf1b-55b2-44f4-9af7-4f97168ae51e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -394,6 +402,28 @@ public class @InputTable : IInputActionCollection, IDisposable
                     ""action"": ""AnyButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91fb8054-b3f1-4690-9b26-546fb9525837"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Scoreboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce9269b2-f868-4d39-ad5d-177e4ce330f9"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Scoreboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -433,6 +463,7 @@ public class @InputTable : IInputActionCollection, IDisposable
         // Navigation
         m_Navigation = asset.FindActionMap("Navigation", throwIfNotFound: true);
         m_Navigation_AnyButton = m_Navigation.FindAction("AnyButton", throwIfNotFound: true);
+        m_Navigation_Scoreboard = m_Navigation.FindAction("Scoreboard", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -548,11 +579,13 @@ public class @InputTable : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Navigation;
     private INavigationActions m_NavigationActionsCallbackInterface;
     private readonly InputAction m_Navigation_AnyButton;
+    private readonly InputAction m_Navigation_Scoreboard;
     public struct NavigationActions
     {
         private @InputTable m_Wrapper;
         public NavigationActions(@InputTable wrapper) { m_Wrapper = wrapper; }
         public InputAction @AnyButton => m_Wrapper.m_Navigation_AnyButton;
+        public InputAction @Scoreboard => m_Wrapper.m_Navigation_Scoreboard;
         public InputActionMap Get() { return m_Wrapper.m_Navigation; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -565,6 +598,9 @@ public class @InputTable : IInputActionCollection, IDisposable
                 @AnyButton.started -= m_Wrapper.m_NavigationActionsCallbackInterface.OnAnyButton;
                 @AnyButton.performed -= m_Wrapper.m_NavigationActionsCallbackInterface.OnAnyButton;
                 @AnyButton.canceled -= m_Wrapper.m_NavigationActionsCallbackInterface.OnAnyButton;
+                @Scoreboard.started -= m_Wrapper.m_NavigationActionsCallbackInterface.OnScoreboard;
+                @Scoreboard.performed -= m_Wrapper.m_NavigationActionsCallbackInterface.OnScoreboard;
+                @Scoreboard.canceled -= m_Wrapper.m_NavigationActionsCallbackInterface.OnScoreboard;
             }
             m_Wrapper.m_NavigationActionsCallbackInterface = instance;
             if (instance != null)
@@ -572,6 +608,9 @@ public class @InputTable : IInputActionCollection, IDisposable
                 @AnyButton.started += instance.OnAnyButton;
                 @AnyButton.performed += instance.OnAnyButton;
                 @AnyButton.canceled += instance.OnAnyButton;
+                @Scoreboard.started += instance.OnScoreboard;
+                @Scoreboard.performed += instance.OnScoreboard;
+                @Scoreboard.canceled += instance.OnScoreboard;
             }
         }
     }
@@ -605,5 +644,6 @@ public class @InputTable : IInputActionCollection, IDisposable
     public interface INavigationActions
     {
         void OnAnyButton(InputAction.CallbackContext context);
+        void OnScoreboard(InputAction.CallbackContext context);
     }
 }

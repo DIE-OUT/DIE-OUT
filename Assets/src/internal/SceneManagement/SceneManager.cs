@@ -26,9 +26,7 @@ namespace Afired.SceneManagement {
             _instance.Init(this);
         }
         
-        public static async Task LoadScenesAsync(string[] scenes/*, float minLoadingTime = 0f*/) {
-            OnEndAsyncLevelLoading.Clear();
-            
+        public static async Task LoadScenesAsync(string[] scenes) {
             StartAsyncLevelLoading?.Invoke();
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
