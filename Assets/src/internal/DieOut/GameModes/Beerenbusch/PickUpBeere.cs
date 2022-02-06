@@ -13,7 +13,7 @@ namespace DieOut.GameModes.Beerenbusch {
         private InputTable _inputTable;
 
         private Movable _player;
-        private List<Beere> _beeren;
+        public List<Beere> _beeren;
         private Beere _beere;
         private Beere _targetBeere;
 
@@ -50,7 +50,7 @@ namespace DieOut.GameModes.Beerenbusch {
             _beere = other.GetComponent<Beere>();
 
             if (_beere != null) {
-                _beeren.Add(_beere);
+                _beeren.Remove(_beere);
             }
         }
 
