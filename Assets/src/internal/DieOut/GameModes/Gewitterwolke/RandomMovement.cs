@@ -11,20 +11,14 @@ namespace DieOut.GameModes.Gewitterwolke {
     public class RandomMovement : MonoBehaviour {
 
         public NavMeshAgent _navMeshAgent;
-        //private NavMeshPath _path;
         private Vector3 _target;
         
         [SerializeField] private float _timeForNewPath = 1;
         private bool _inCoroutine = false;
-        //private bool _validPath;
         [SerializeField] [MinMaxSlider(0, 20)] private Vector2 _speedRange = new Vector2(1, 5);
         
         void Awake() {
             _navMeshAgent = GetComponent<NavMeshAgent>();
-        }
-
-        void Start() {
-            //_path = new NavMeshPath();
         }
 
         void Update() {
@@ -45,18 +39,13 @@ namespace DieOut.GameModes.Gewitterwolke {
             _inCoroutine = true;
             yield return new WaitForSeconds(_timeForNewPath);
             GetNewPath();
-            /*_validPath = _navMeshAgent.CalculatePath(_target, _path);
-
-            while (!_validPath) {
-                yield return new WaitForSeconds(0.01f);
-                GetNewPath();
-                _validPath = _navMeshAgent.CalculatePath(_target, _path);
-            }*/
         }
 
         private void GetNewPath() {
             _target = GetNewRandomPosition();
-            _navMeshAgent.speed = Random.Range(_speedRange.x, _speedRange.y);
+            if (_navMeshAgent.speed != 0) {
+                _navMeshAgent.speed = Random.Range(_speedRange.x, _speedRange.y);
+            }
             _navMeshAgent.SetDestination(_target);
             _inCoroutine = false;
         }
