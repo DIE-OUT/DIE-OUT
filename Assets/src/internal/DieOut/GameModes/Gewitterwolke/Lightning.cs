@@ -52,7 +52,7 @@ namespace DieOut.GameModes.Gewitterwolke {
         IEnumerator LightningStrike() {
             float currentSpeed = _gewitterwolke._navMeshAgent.speed;
             _gewitterwolke._navMeshAgent.speed = 0;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             Debug.Log("Lightning strikes!");
             if (_playersUnderGewitterwolke.Count != 0) {
                 foreach (Movable _player in _playersUnderGewitterwolke) {
