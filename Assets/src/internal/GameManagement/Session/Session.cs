@@ -74,6 +74,7 @@ namespace Afired.GameManagement.Sessions {
 
         private void EndSession() {
             Debug.Log($"Session ended, a player won {Player.OrderByDescending(player => player.Score).FirstOrDefault()?.InputDevices.FirstOrDefault()?.displayName} with a score of {Player.OrderByDescending(player => player.Score).FirstOrDefault()?.Score}");
+            //TODO: load into Siegerehrung
         }
         
     }
