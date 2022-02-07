@@ -95,16 +95,21 @@ namespace DieOut.Editor {
         
         private Player[] CreatePlayers() {
             
-            List<Player> players = new List<Player>();
+            List<InputDevice> playerInputDevices = new List<InputDevice>();
             
-            if(Keyboard.current != null && Mouse.current != null)
-                players.Add(new Player(new InputDevice[] { Keyboard.current, Mouse.current }));
+            if(Keyboard.current != null)
+                playerInputDevices.Add(Keyboard.current);
             
             for(int i = 0; i < Gamepad.all.Count; i++) {
-                players.Add(new Player(new InputDevice[] { Gamepad.all[0] }));
+                playerInputDevices.Add(Gamepad.all[i]);
             }
             
-            return players.ToArray();
+            Player[] players = new Player[playerInputDevices.Count];
+            for(int i = 0; i < playerInputDevices.Count; i++) {
+                players[i] = new Player(new InputDevice[] { playerInputDevices[i] }, $"Player {i + 1}");
+            }
+            
+            return players;
         }
         
     }

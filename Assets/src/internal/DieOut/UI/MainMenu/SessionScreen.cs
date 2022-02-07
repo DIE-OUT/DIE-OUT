@@ -46,19 +46,19 @@ namespace DieOut.UI.MainMenu {
             #pragma warning restore CS4014
         }
         
-        private Player[] CreatePlayers() {
-            
-            List<Player> players = new List<Player>();
-            
-            if(Keyboard.current != null && Mouse.current != null)
-                players.Add(new Player(new InputDevice[] { Keyboard.current, Mouse.current }));
-            
-            for(int i = 0; i < Gamepad.all.Count; i++) {
-                players.Add(new Player(new InputDevice[] { Gamepad.all[0] }));
-            }
-            
-            return players.ToArray();
-        }
+//        private Player[] CreatePlayers() {
+//            
+//            List<Player> players = new List<Player>();
+//            
+//            if(Keyboard.current != null && Mouse.current != null)
+//                players.Add(new Player(new InputDevice[] { Keyboard.current, Mouse.current }));
+//            
+//            for(int i = 0; i < Gamepad.all.Count; i++) {
+//                players.Add(new Player(new InputDevice[] { Gamepad.all[0] }));
+//            }
+//            
+//            return players.ToArray();
+//        }
         
     }
     

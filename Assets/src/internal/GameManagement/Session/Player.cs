@@ -11,12 +11,14 @@ namespace Afired.GameManagement.Sessions {
     public class Player {
         
         [OdinSerialize] [ReadOnly] public InputDevice[] InputDevices { get; }
+        [OdinSerialize] [ReadOnly] public string Name { get; }
         public int Score { get; private set; }
         public event OnScoreChanged OnScoreChanged;
-
-
-        public Player(InputDevice[] inputDevices) {
+        
+        
+        public Player(InputDevice[] inputDevices, string name) {
             InputDevices = inputDevices;
+            Name = name;
         }
 
         public void AddScore(int scoreToAdd) {

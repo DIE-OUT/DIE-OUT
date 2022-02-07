@@ -45,7 +45,7 @@ namespace DieOut.UI.CharacterSelect {
         public Player[] CreatePlayers() {
             Player[] players = new Player[_playerInputDevices.Count];
             for(int i = 0; i < _playerInputDevices.Count; i++) {
-                players[i] = new Player(new InputDevice[] { _playerInputDevices[i] });
+                players[i] = new Player(new InputDevice[] { _playerInputDevices[i] }, $"Player {i + 1}");
             }
             return players;
         }
