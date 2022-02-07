@@ -288,6 +288,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SessionJoin",
+                    "type": "Button",
+                    "id": "8ae187df-4815-44a5-8b62-713909e8ef21",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -409,6 +417,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Scoreboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b31f3fc-0ac1-4a0f-9c66-0936235b2cea",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SessionJoin",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b30cddb2-89a4-421f-923b-045e959d74da",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "SessionJoin",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -301,6 +301,14 @@ public class @InputTable : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SessionJoin"",
+                    ""type"": ""Button"",
+                    ""id"": ""8ae187df-4815-44a5-8b62-713909e8ef21"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -422,6 +430,28 @@ public class @InputTable : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Scoreboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b31f3fc-0ac1-4a0f-9c66-0936235b2cea"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SessionJoin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b30cddb2-89a4-421f-923b-045e959d74da"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""SessionJoin"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -970,6 +1000,7 @@ public class @InputTable : IInputActionCollection, IDisposable
         m_Navigation = asset.FindActionMap("Navigation", throwIfNotFound: true);
         m_Navigation_AnyButton = m_Navigation.FindAction("AnyButton", throwIfNotFound: true);
         m_Navigation_Scoreboard = m_Navigation.FindAction("Scoreboard", throwIfNotFound: true);
+        m_Navigation_SessionJoin = m_Navigation.FindAction("SessionJoin", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1098,12 +1129,14 @@ public class @InputTable : IInputActionCollection, IDisposable
     private INavigationActions m_NavigationActionsCallbackInterface;
     private readonly InputAction m_Navigation_AnyButton;
     private readonly InputAction m_Navigation_Scoreboard;
+    private readonly InputAction m_Navigation_SessionJoin;
     public struct NavigationActions
     {
         private @InputTable m_Wrapper;
         public NavigationActions(@InputTable wrapper) { m_Wrapper = wrapper; }
         public InputAction @AnyButton => m_Wrapper.m_Navigation_AnyButton;
         public InputAction @Scoreboard => m_Wrapper.m_Navigation_Scoreboard;
+        public InputAction @SessionJoin => m_Wrapper.m_Navigation_SessionJoin;
         public InputActionMap Get() { return m_Wrapper.m_Navigation; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1119,6 +1152,9 @@ public class @InputTable : IInputActionCollection, IDisposable
                 @Scoreboard.started -= m_Wrapper.m_NavigationActionsCallbackInterface.OnScoreboard;
                 @Scoreboard.performed -= m_Wrapper.m_NavigationActionsCallbackInterface.OnScoreboard;
                 @Scoreboard.canceled -= m_Wrapper.m_NavigationActionsCallbackInterface.OnScoreboard;
+                @SessionJoin.started -= m_Wrapper.m_NavigationActionsCallbackInterface.OnSessionJoin;
+                @SessionJoin.performed -= m_Wrapper.m_NavigationActionsCallbackInterface.OnSessionJoin;
+                @SessionJoin.canceled -= m_Wrapper.m_NavigationActionsCallbackInterface.OnSessionJoin;
             }
             m_Wrapper.m_NavigationActionsCallbackInterface = instance;
             if (instance != null)
@@ -1129,6 +1165,9 @@ public class @InputTable : IInputActionCollection, IDisposable
                 @Scoreboard.started += instance.OnScoreboard;
                 @Scoreboard.performed += instance.OnScoreboard;
                 @Scoreboard.canceled += instance.OnScoreboard;
+                @SessionJoin.started += instance.OnSessionJoin;
+                @SessionJoin.performed += instance.OnSessionJoin;
+                @SessionJoin.canceled += instance.OnSessionJoin;
             }
         }
     }
@@ -1268,6 +1307,7 @@ public class @InputTable : IInputActionCollection, IDisposable
     {
         void OnAnyButton(InputAction.CallbackContext context);
         void OnScoreboard(InputAction.CallbackContext context);
+        void OnSessionJoin(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

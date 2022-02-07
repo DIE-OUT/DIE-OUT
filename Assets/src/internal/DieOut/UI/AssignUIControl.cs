@@ -1,22 +1,32 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 
 namespace DieOut.UI {
     
-    [RequireComponent(typeof(PlayerInput))]
+    [RequireComponent(typeof(PlayerInput), typeof(MultiplayerEventSystem), typeof(InputSystemUIInputModule))]
     public class AssignUIControl : MonoBehaviour {
         
         private PlayerInput _playerInput;
+        private MultiplayerEventSystem _multiplayerEventSystem;
+        private InputSystemUIInputModule _inputSystemUIInputModule;
         
         
         private void Awake() {
             _playerInput = GetComponent<PlayerInput>();
+            _multiplayerEventSystem = GetComponent<MultiplayerEventSystem>();
+            _inputSystemUIInputModule = GetComponent<InputSystemUIInputModule>();
+            DeactivateInput();
         }
         
-        private void Start() {
-            _playerInput.SwitchCurrentControlScheme(new InputDevice[] { Gamepad.all[0] });
+        public void SetDevice(InputDevice inputDevice) {
+            _playerInput.SwitchCurrentControlScheme(new InputDevice[] { inputDevice });
+            _multiplayerEventSystem.enabled = true;
+        }
+
+        public void DeactivateInput() {
+            _playerInput.SwitchCurrentControlScheme(new InputDevice[] { });
+            _multiplayerEventSystem.enabled = false;
         }
         
     }
