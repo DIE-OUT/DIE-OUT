@@ -2311,7 +2311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d07599625449bc87dbb3fb1e6b059d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerManager: {fileID: 0}
+  _playerManager: {fileID: 1598897069}
   _sessionBuilder:
     MaxRounds: 0
     WinningScore: 0

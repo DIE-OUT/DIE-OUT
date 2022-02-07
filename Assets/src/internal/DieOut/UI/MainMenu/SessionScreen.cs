@@ -34,7 +34,7 @@ namespace DieOut.UI.MainMenu {
         }
 
         public void TryToStartSession() {
-            _sessionBuilder.Players = CreatePlayers();
+            _sessionBuilder.Players = _playerManager.CreatePlayers();//CreatePlayers();
             
             Session newSession = _sessionBuilder.Create();
             if(newSession == null)

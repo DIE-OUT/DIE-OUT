@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Afired.GameManagement.Sessions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,27 +10,27 @@ namespace DieOut.UI.CharacterSelect {
 
         [SerializeField] private List<CharacterSelectCard> _characterSelectCards;
         private InputTable _inputTable;
-        public List<InputDevice> PlayerInputDevices { get; private set; }
+        private List<InputDevice> _playerInputDevices;
         
         private void Awake() {
-            PlayerInputDevices = new List<InputDevice>();
+            _playerInputDevices = new List<InputDevice>();
             _inputTable = new InputTable();
             _inputTable.Navigation.SessionJoin.performed += OnSessionJoinInput;
         }
 
         private void OnSessionJoinInput(InputAction.CallbackContext ctx) {
-            if(PlayerInputDevices.Contains(ctx.control.device)) {
+            if(_playerInputDevices.Contains(ctx.control.device)) {
                 Debug.LogWarning($"{ctx.control.device.displayName} cant join multiple times");
                 return;
             }
 
-            if(PlayerInputDevices.Count >= _characterSelectCards.Count) {
+            if(_playerInputDevices.Count >= _characterSelectCards.Count) {
                 Debug.LogWarning($"{ctx.control.device.displayName} cant join, cause the session is already full");
                 return;
             }
 
-            _characterSelectCards[PlayerInputDevices.Count].AssignDevice(ctx.control.device);
-            PlayerInputDevices.Add(ctx.control.device);
+            _characterSelectCards[_playerInputDevices.Count].AssignDevice(ctx.control.device);
+            _playerInputDevices.Add(ctx.control.device);
             Debug.Log($"{ctx.control.device.displayName} joined the session");
         }
 
@@ -39,6 +40,14 @@ namespace DieOut.UI.CharacterSelect {
 
         private void OnDisable() {
             _inputTable.Disable();
+        }
+
+        public Player[] CreatePlayers() {
+            Player[] players = new Player[_playerInputDevices.Count];
+            for(int i = 0; i < _playerInputDevices.Count; i++) {
+                players[i] = new Player(new InputDevice[] { _playerInputDevices[i] });
+            }
+            return players;
         }
         
     }
