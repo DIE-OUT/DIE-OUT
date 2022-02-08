@@ -296,6 +296,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SessionStart",
+                    "type": "Button",
+                    "id": "0653e3f7-f2f4-435a-be77-bde8dea6657f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -439,6 +447,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "SessionJoin",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "04e91125-5a09-458d-aee7-c262e4ac9c69",
+                    "path": "<DualShockGamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SessionStart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

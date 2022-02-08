@@ -309,6 +309,14 @@ public class @InputTable : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SessionStart"",
+                    ""type"": ""Button"",
+                    ""id"": ""0653e3f7-f2f4-435a-be77-bde8dea6657f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -452,6 +460,17 @@ public class @InputTable : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""SessionJoin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""04e91125-5a09-458d-aee7-c262e4ac9c69"",
+                    ""path"": ""<DualShockGamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SessionStart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1001,6 +1020,7 @@ public class @InputTable : IInputActionCollection, IDisposable
         m_Navigation_AnyButton = m_Navigation.FindAction("AnyButton", throwIfNotFound: true);
         m_Navigation_Scoreboard = m_Navigation.FindAction("Scoreboard", throwIfNotFound: true);
         m_Navigation_SessionJoin = m_Navigation.FindAction("SessionJoin", throwIfNotFound: true);
+        m_Navigation_SessionStart = m_Navigation.FindAction("SessionStart", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1130,6 +1150,7 @@ public class @InputTable : IInputActionCollection, IDisposable
     private readonly InputAction m_Navigation_AnyButton;
     private readonly InputAction m_Navigation_Scoreboard;
     private readonly InputAction m_Navigation_SessionJoin;
+    private readonly InputAction m_Navigation_SessionStart;
     public struct NavigationActions
     {
         private @InputTable m_Wrapper;
@@ -1137,6 +1158,7 @@ public class @InputTable : IInputActionCollection, IDisposable
         public InputAction @AnyButton => m_Wrapper.m_Navigation_AnyButton;
         public InputAction @Scoreboard => m_Wrapper.m_Navigation_Scoreboard;
         public InputAction @SessionJoin => m_Wrapper.m_Navigation_SessionJoin;
+        public InputAction @SessionStart => m_Wrapper.m_Navigation_SessionStart;
         public InputActionMap Get() { return m_Wrapper.m_Navigation; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1155,6 +1177,9 @@ public class @InputTable : IInputActionCollection, IDisposable
                 @SessionJoin.started -= m_Wrapper.m_NavigationActionsCallbackInterface.OnSessionJoin;
                 @SessionJoin.performed -= m_Wrapper.m_NavigationActionsCallbackInterface.OnSessionJoin;
                 @SessionJoin.canceled -= m_Wrapper.m_NavigationActionsCallbackInterface.OnSessionJoin;
+                @SessionStart.started -= m_Wrapper.m_NavigationActionsCallbackInterface.OnSessionStart;
+                @SessionStart.performed -= m_Wrapper.m_NavigationActionsCallbackInterface.OnSessionStart;
+                @SessionStart.canceled -= m_Wrapper.m_NavigationActionsCallbackInterface.OnSessionStart;
             }
             m_Wrapper.m_NavigationActionsCallbackInterface = instance;
             if (instance != null)
@@ -1168,6 +1193,9 @@ public class @InputTable : IInputActionCollection, IDisposable
                 @SessionJoin.started += instance.OnSessionJoin;
                 @SessionJoin.performed += instance.OnSessionJoin;
                 @SessionJoin.canceled += instance.OnSessionJoin;
+                @SessionStart.started += instance.OnSessionStart;
+                @SessionStart.performed += instance.OnSessionStart;
+                @SessionStart.canceled += instance.OnSessionStart;
             }
         }
     }
@@ -1308,6 +1336,7 @@ public class @InputTable : IInputActionCollection, IDisposable
         void OnAnyButton(InputAction.CallbackContext context);
         void OnScoreboard(InputAction.CallbackContext context);
         void OnSessionJoin(InputAction.CallbackContext context);
+        void OnSessionStart(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
