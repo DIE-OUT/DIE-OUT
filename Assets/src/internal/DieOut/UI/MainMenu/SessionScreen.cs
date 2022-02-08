@@ -35,7 +35,9 @@ namespace DieOut.UI.MainMenu {
                 return;
             
             Session.SetNew(newSession);
+            #pragma warning disable CS4014
             Session.Current.LoadRandomGameMode();
+            #pragma warning restore CS4014
         }
         
     }

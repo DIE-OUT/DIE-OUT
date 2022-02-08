@@ -281,6 +281,151 @@ public class @InputTable : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Navigation"",
+            ""id"": ""619623e0-daa8-4626-b766-edc9ff8b722e"",
+            ""actions"": [
+                {
+                    ""name"": ""AnyButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""9527c1be-d873-49f0-951d-3bb0578020af"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Scoreboard"",
+                    ""type"": ""Button"",
+                    ""id"": ""5797bf1b-55b2-44f4-9af7-4f97168ae51e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7e1d39bd-e16c-4aec-a2a0-484fc198a43c"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""AnyButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7748be90-326c-4c58-b1b0-b1ee18c4ad1c"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d4b3927-6271-4b79-9ccf-4e7b5dcd4b74"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""668147f9-f470-40a3-9dc6-fdab3df1f90d"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a91a139d-6157-4166-affb-e22164f7eaf6"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6e8fdbb-0600-476e-9af9-ca55b2a01626"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a87a6e2f-8d28-4fac-9443-55ea43a84ad3"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3031a79c-3522-4441-b779-9667193743c7"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51c8d647-7c24-49c0-a336-b770d9c7924c"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91fb8054-b3f1-4690-9b26-546fb9525837"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Scoreboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce9269b2-f868-4d39-ad5d-177e4ce330f9"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Scoreboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -315,6 +460,10 @@ public class @InputTable : IInputActionCollection, IDisposable
         m_CharacterControls_Tackle = m_CharacterControls.FindAction("Tackle", throwIfNotFound: true);
         m_CharacterControls_PickUp = m_CharacterControls.FindAction("PickUp", throwIfNotFound: true);
         m_CharacterControls_Throw = m_CharacterControls.FindAction("Throw", throwIfNotFound: true);
+        // Navigation
+        m_Navigation = asset.FindActionMap("Navigation", throwIfNotFound: true);
+        m_Navigation_AnyButton = m_Navigation.FindAction("AnyButton", throwIfNotFound: true);
+        m_Navigation_Scoreboard = m_Navigation.FindAction("Scoreboard", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -425,6 +574,47 @@ public class @InputTable : IInputActionCollection, IDisposable
         }
     }
     public CharacterControlsActions @CharacterControls => new CharacterControlsActions(this);
+
+    // Navigation
+    private readonly InputActionMap m_Navigation;
+    private INavigationActions m_NavigationActionsCallbackInterface;
+    private readonly InputAction m_Navigation_AnyButton;
+    private readonly InputAction m_Navigation_Scoreboard;
+    public struct NavigationActions
+    {
+        private @InputTable m_Wrapper;
+        public NavigationActions(@InputTable wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AnyButton => m_Wrapper.m_Navigation_AnyButton;
+        public InputAction @Scoreboard => m_Wrapper.m_Navigation_Scoreboard;
+        public InputActionMap Get() { return m_Wrapper.m_Navigation; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(NavigationActions set) { return set.Get(); }
+        public void SetCallbacks(INavigationActions instance)
+        {
+            if (m_Wrapper.m_NavigationActionsCallbackInterface != null)
+            {
+                @AnyButton.started -= m_Wrapper.m_NavigationActionsCallbackInterface.OnAnyButton;
+                @AnyButton.performed -= m_Wrapper.m_NavigationActionsCallbackInterface.OnAnyButton;
+                @AnyButton.canceled -= m_Wrapper.m_NavigationActionsCallbackInterface.OnAnyButton;
+                @Scoreboard.started -= m_Wrapper.m_NavigationActionsCallbackInterface.OnScoreboard;
+                @Scoreboard.performed -= m_Wrapper.m_NavigationActionsCallbackInterface.OnScoreboard;
+                @Scoreboard.canceled -= m_Wrapper.m_NavigationActionsCallbackInterface.OnScoreboard;
+            }
+            m_Wrapper.m_NavigationActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @AnyButton.started += instance.OnAnyButton;
+                @AnyButton.performed += instance.OnAnyButton;
+                @AnyButton.canceled += instance.OnAnyButton;
+                @Scoreboard.started += instance.OnScoreboard;
+                @Scoreboard.performed += instance.OnScoreboard;
+                @Scoreboard.canceled += instance.OnScoreboard;
+            }
+        }
+    }
+    public NavigationActions @Navigation => new NavigationActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -450,5 +640,10 @@ public class @InputTable : IInputActionCollection, IDisposable
         void OnTackle(InputAction.CallbackContext context);
         void OnPickUp(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
+    }
+    public interface INavigationActions
+    {
+        void OnAnyButton(InputAction.CallbackContext context);
+        void OnScoreboard(InputAction.CallbackContext context);
     }
 }
