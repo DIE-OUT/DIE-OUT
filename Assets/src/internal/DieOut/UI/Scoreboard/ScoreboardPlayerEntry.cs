@@ -23,7 +23,7 @@ namespace DieOut.UI.Scoreboard {
         private void Refresh() {
             if(_player is null)
                 throw new Exception("scoreboard player entry is refreshed without a player assigned");
-            _playersIdentificationText.text = _player.InputDevices[0].displayName;
+            _playersIdentificationText.text = _player.Name;
             _playersScoreText.text = _player.Score.ToString();
         }
         

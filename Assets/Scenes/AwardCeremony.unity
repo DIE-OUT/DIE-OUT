@@ -257,6 +257,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 863258263973279036, guid: 08a426935024c614fbc6d60673293fea, type: 3}
   m_PrefabInstance: {fileID: 46851877}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &46851879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1988815571829676100, guid: 08a426935024c614fbc6d60673293fea, type: 3}
+  m_PrefabInstance: {fileID: 46851877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &728993483
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +415,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1377859228}
   - component: {fileID: 1377859229}
+  - component: {fileID: 1377859231}
+  - component: {fileID: 1377859230}
   m_Layer: 5
   m_Name: AwardCeremonyScreen
   m_TagString: Untagged
@@ -449,6 +456,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5222a26b3d246a888b120ce36703196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1377859230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377859227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 6ce93f45483096641b47fb579fc0b5d4, type: 3}
+  m_PointAction: {fileID: 1054132383583890850, guid: 6ce93f45483096641b47fb579fc0b5d4, type: 3}
+  m_MoveAction: {fileID: 3710738434707379630, guid: 6ce93f45483096641b47fb579fc0b5d4, type: 3}
+  m_SubmitAction: {fileID: 2064916234097673511, guid: 6ce93f45483096641b47fb579fc0b5d4, type: 3}
+  m_CancelAction: {fileID: -1967631576421560919, guid: 6ce93f45483096641b47fb579fc0b5d4, type: 3}
+  m_LeftClickAction: {fileID: 8056856818456041789, guid: 6ce93f45483096641b47fb579fc0b5d4, type: 3}
+  m_MiddleClickAction: {fileID: 3279352641294131588, guid: 6ce93f45483096641b47fb579fc0b5d4, type: 3}
+  m_RightClickAction: {fileID: 3837173908680883260, guid: 6ce93f45483096641b47fb579fc0b5d4, type: 3}
+  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: 6ce93f45483096641b47fb579fc0b5d4, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: 6ce93f45483096641b47fb579fc0b5d4, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: 6ce93f45483096641b47fb579fc0b5d4, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+--- !u!114 &1377859231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377859227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16c6f78230fa4964a222622d8aae332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 46851879}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+  m_PlayerRoot: {fileID: 1377859227}
 --- !u!1 &1393514324
 GameObject:
   m_ObjectHideFlags: 0
