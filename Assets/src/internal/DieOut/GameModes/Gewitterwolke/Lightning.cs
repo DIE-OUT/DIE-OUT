@@ -69,10 +69,9 @@ namespace DieOut.GameModes.Gewitterwolke {
             float currentSpeed = _gewitterwolke._navMeshAgent.speed;
             _gewitterwolke._navMeshAgent.speed = 0;
             Raycast();
-            Instantiate(_prefab, _collision, Quaternion.identity);
+            GameObject prefabToDestroy = Instantiate(_prefab, _collision, Quaternion.identity);
             yield return new WaitForSeconds(1f);
-            //GameObject prefabToDestroy = _prefab;
-            //Destroy(prefabToDestroy);
+            Destroy(prefabToDestroy);
             Debug.Log("Lightning strikes!");
             if (_playersUnderGewitterwolke.Count != 0) {
                 foreach (Movable _player in _playersUnderGewitterwolke) {
