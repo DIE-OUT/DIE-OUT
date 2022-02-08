@@ -6953,15 +6953,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8029892092563669472, guid: 45057b44d23f6294086074cd2e790885, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8029892092563669472, guid: 45057b44d23f6294086074cd2e790885, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8713480487155286648, guid: 45057b44d23f6294086074cd2e790885, type: 3}
       propertyPath: m_Name
       value: PlayerController - Beerenbusch Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713480487155286648, guid: 45057b44d23f6294086074cd2e790885, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8713480487155286649, guid: 45057b44d23f6294086074cd2e790885, type: 3}
       propertyPath: m_RootOrder
@@ -7018,15 +7022,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7592749576271938572, guid: c31123722edeea245b3477f6503802bb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7592749576271938572, guid: c31123722edeea245b3477f6503802bb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9141662400828032916, guid: c31123722edeea245b3477f6503802bb, type: 3}
       propertyPath: m_Name
       value: PlayerController - Beerenbusch Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141662400828032916, guid: c31123722edeea245b3477f6503802bb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9141662400828032917, guid: c31123722edeea245b3477f6503802bb, type: 3}
       propertyPath: m_RootOrder
@@ -7140,15 +7148,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 730723416902729762, guid: c18425d0a648f3f498b4c580e207d7c4, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 730723416902729762, guid: c18425d0a648f3f498b4c580e207d7c4, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2136787690526704570, guid: c18425d0a648f3f498b4c580e207d7c4, type: 3}
       propertyPath: m_Name
       value: PlayerController - Beerenbusch Yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136787690526704570, guid: c18425d0a648f3f498b4c580e207d7c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2136787690526704571, guid: c18425d0a648f3f498b4c580e207d7c4, type: 3}
       propertyPath: m_RootOrder
@@ -7205,11 +7217,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3450262942759148029, guid: d00b8d69d50b2e04d86fa4bf40f8f47e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3450262942759148029, guid: d00b8d69d50b2e04d86fa4bf40f8f47e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4062989977369434724, guid: d00b8d69d50b2e04d86fa4bf40f8f47e, type: 3}
       propertyPath: m_RootOrder
@@ -7258,6 +7270,10 @@ PrefabInstance:
     - target: {fileID: 4062989977369434725, guid: d00b8d69d50b2e04d86fa4bf40f8f47e, type: 3}
       propertyPath: m_Name
       value: PlayerController - Beerenbusch Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062989977369434725, guid: d00b8d69d50b2e04d86fa4bf40f8f47e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d00b8d69d50b2e04d86fa4bf40f8f47e, type: 3}

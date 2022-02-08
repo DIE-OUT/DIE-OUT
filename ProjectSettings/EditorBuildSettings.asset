@@ -65,4 +65,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gewitterwolke/Gewitterwolke_Management.unity
     guid: 531abf1637236224485a003dc1cdc53c
+  - enabled: 1
+    path: Assets/Scenes/Beerenbusch/Beerenbusch.unity
+    guid: 74940bf0e96ce894dae3649f1adf4782
+  - enabled: 1
+    path: Assets/Scenes/Beerenbusch/Beerenbusch_Management.unity
+    guid: 7c39d69cd7eb59d4a84cdd987cba8a3a
   m_configObjects: {}
