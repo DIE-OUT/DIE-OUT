@@ -17,6 +17,7 @@ namespace Afired.GameManagement.Sessions {
         
         public Session Create() {
             // validate
+            if(Players == null) throw new Exception("Duplicate player colors");
             if(Players.Length < 2) throw new Exception("Session Builder is invalid or incomplete: too less players");
             if(ActivatedGameModes.Count == 0) throw new Exception("Session Builder is invalid or incomplete: required to have one or more game modes activated");
             

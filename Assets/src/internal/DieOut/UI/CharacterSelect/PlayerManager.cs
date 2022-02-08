@@ -46,8 +46,13 @@ namespace DieOut.UI.CharacterSelect {
 
         public Player[] CreatePlayers() {
             Player[] players = new Player[_playerInputDevices.Count];
+            HashSet<PlayerColor> usedColors = new HashSet<PlayerColor>();
             for(int i = 0; i < _playerInputDevices.Count; i++) {
-                players[i] = new Player(new InputDevice[] { _playerInputDevices[i] }, _characterSelectCards[i].PlayerColor);
+                PlayerColor playerColor = _characterSelectCards[i].PlayerColor;
+                if(usedColors.Contains(playerColor))
+                    return null;
+                players[i] = new Player(new InputDevice[] { _playerInputDevices[i] }, playerColor);
+                usedColors.Add(playerColor);
             }
             return players;
         }
