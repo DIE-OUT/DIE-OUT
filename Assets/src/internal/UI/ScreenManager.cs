@@ -16,6 +16,7 @@ namespace Afired.UI {
         public void Activate(Screen screenToBeActivated) {
             _screens.ForEach(screen => screen.gameObject.SetActive(false));
             screenToBeActivated.gameObject.SetActive(true);
+            Debug.Log("actiaveted " + screenToBeActivated);
         }
         
     }

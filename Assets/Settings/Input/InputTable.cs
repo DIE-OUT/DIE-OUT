@@ -317,6 +317,14 @@ public class @InputTable : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""5f5155ea-f0de-411d-87d5-21e41b78bd38"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -471,6 +479,28 @@ public class @InputTable : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SessionStart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b57a14b-b554-4a99-a8f0-480112e3c2c6"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b710f4ec-fc0e-4dac-a132-5d7bfbf5b0fe"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1021,6 +1051,7 @@ public class @InputTable : IInputActionCollection, IDisposable
         m_Navigation_Scoreboard = m_Navigation.FindAction("Scoreboard", throwIfNotFound: true);
         m_Navigation_SessionJoin = m_Navigation.FindAction("SessionJoin", throwIfNotFound: true);
         m_Navigation_SessionStart = m_Navigation.FindAction("SessionStart", throwIfNotFound: true);
+        m_Navigation_Back = m_Navigation.FindAction("Back", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1151,6 +1182,7 @@ public class @InputTable : IInputActionCollection, IDisposable
     private readonly InputAction m_Navigation_Scoreboard;
     private readonly InputAction m_Navigation_SessionJoin;
     private readonly InputAction m_Navigation_SessionStart;
+    private readonly InputAction m_Navigation_Back;
     public struct NavigationActions
     {
         private @InputTable m_Wrapper;
@@ -1159,6 +1191,7 @@ public class @InputTable : IInputActionCollection, IDisposable
         public InputAction @Scoreboard => m_Wrapper.m_Navigation_Scoreboard;
         public InputAction @SessionJoin => m_Wrapper.m_Navigation_SessionJoin;
         public InputAction @SessionStart => m_Wrapper.m_Navigation_SessionStart;
+        public InputAction @Back => m_Wrapper.m_Navigation_Back;
         public InputActionMap Get() { return m_Wrapper.m_Navigation; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1180,6 +1213,9 @@ public class @InputTable : IInputActionCollection, IDisposable
                 @SessionStart.started -= m_Wrapper.m_NavigationActionsCallbackInterface.OnSessionStart;
                 @SessionStart.performed -= m_Wrapper.m_NavigationActionsCallbackInterface.OnSessionStart;
                 @SessionStart.canceled -= m_Wrapper.m_NavigationActionsCallbackInterface.OnSessionStart;
+                @Back.started -= m_Wrapper.m_NavigationActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_NavigationActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_NavigationActionsCallbackInterface.OnBack;
             }
             m_Wrapper.m_NavigationActionsCallbackInterface = instance;
             if (instance != null)
@@ -1196,6 +1232,9 @@ public class @InputTable : IInputActionCollection, IDisposable
                 @SessionStart.started += instance.OnSessionStart;
                 @SessionStart.performed += instance.OnSessionStart;
                 @SessionStart.canceled += instance.OnSessionStart;
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
             }
         }
     }
@@ -1337,6 +1376,7 @@ public class @InputTable : IInputActionCollection, IDisposable
         void OnScoreboard(InputAction.CallbackContext context);
         void OnSessionJoin(InputAction.CallbackContext context);
         void OnSessionStart(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
