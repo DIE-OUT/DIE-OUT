@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Afired.Helper;
@@ -18,13 +19,17 @@ namespace Afired.SceneManagement {
         public static float LoadingProgress { get; private set; }
         [SerializeField] private SceneField _loadingScreenScene;
         private static SingletonInstance<SceneManager> _instance;
-
+        
+        public static TaskQueue OnEndAsyncLevelLoading = new TaskQueue();
+        
         private void Awake() {
             _instance.Init(this);
         }
         
         public static async Task LoadScenesAsync(params string[] scenes) {
             StartAsyncLevelLoading?.Invoke();
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
             
             List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
             
@@ -37,6 +42,9 @@ namespace Afired.SceneManagement {
                 LoadingProgress = scenesLoading.Sum(operation => operation.progress) / scenesLoading.Count;
                 await Await.NextUpdate();
             }
+            
+            await OnEndAsyncLevelLoading.InvokeAsynchronously();
+            
             UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(_instance.Get()._loadingScreenScene.SceneName, UnloadSceneOptions.None);
             EndAsyncLevelLoading?.Invoke();
         }

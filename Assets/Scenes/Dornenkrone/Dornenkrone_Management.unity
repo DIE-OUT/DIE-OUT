@@ -167,10 +167,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dornenkronePlayerPrefabs:
-  - {fileID: 4067892400106972289, guid: e89fcb59f42f9fc40b905f61baf6de56, type: 3}
-  - {fileID: 6328441243500695334, guid: 55d3be337d5dc4e45aff3a517d9ac067, type: 3}
-  - {fileID: 4067892400106972289, guid: e89fcb59f42f9fc40b905f61baf6de56, type: 3}
-  - {fileID: 6328441243500695334, guid: 55d3be337d5dc4e45aff3a517d9ac067, type: 3}
+  - {fileID: 4674564476039170481, guid: ad26df03d0e09ed4298b8634f399c2ec, type: 3}
+  - {fileID: 4893398873733861858, guid: 57f40f0310f61c749a89767d385d8777, type: 3}
+  - {fileID: 3750114929658445582, guid: a36d0d81c8ffd634da82c298eaaf7136, type: 3}
+  - {fileID: 1941438590203340377, guid: efcaa2dbb3782124fb1967131f967d79, type: 3}
 --- !u!1 &1080169633
 GameObject:
   m_ObjectHideFlags: 0

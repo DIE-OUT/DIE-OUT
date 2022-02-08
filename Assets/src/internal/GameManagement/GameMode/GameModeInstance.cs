@@ -2,20 +2,18 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Afired.GameManagement.Sessions;
+using Afired.Helper;
 using Afired.SceneManagement;
-using UnityEngine;
 
 namespace Afired.GameManagement.GameModes {
     
-    public delegate void OnGameModePrepare();
     public delegate void OnGameModeStart();
-    public delegate void OnGameModeEnd();
     
     public class GameModeInstance {
         
-        public event OnGameModePrepare OnGameModePrepare;
+        public TaskQueue OnGameModePrepare = new TaskQueue();
         public event OnGameModeStart OnGameModeStart;
-        public event OnGameModeEnd OnGameModeEnd;
+        public TaskQueue OnGameModeEnd = new TaskQueue();
         public GameMode GameMode { get; }
         public Map Map { get; }
         
@@ -27,8 +25,7 @@ namespace Afired.GameManagement.GameModes {
 
         public async Task Load() {
             await LoadGameModeMap(GameMode, Map);
-            OnGameModePrepare?.Invoke();
-            await Countdown.Run();
+            await OnGameModePrepare.InvokeAsynchronously();
             OnGameModeStart?.Invoke();
         }
         
@@ -40,18 +37,13 @@ namespace Afired.GameManagement.GameModes {
             await SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray());
         }
         
-        public async void EndGameMode(/*Player[] players, int[] scores*/) {
-//            
-//            //todo: sort scores to figure out who did best in current game mode
-//
-//            for(int i = 0; i < players.Length; i++) {
-//                players[i].AddScore(scores[i]);
-//            }
+        public async void EndGameMode() {
             
-            OnGameModeEnd?.Invoke();
-            //todo: show scoreboard (await scoreboard finish)
+            await OnGameModeEnd.InvokeAsynchronously();
             
+            #pragma warning disable CS4014
             Session.Current.GoNext();
+            #pragma warning restore CS4014
         }
         
     }
