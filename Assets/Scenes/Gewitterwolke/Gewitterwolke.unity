@@ -6388,6 +6388,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _delayRange: {x: 10.060165, y: 30}
+  _lastHit: {fileID: 0}
+  _collision: {x: 0, y: 0, z: 0}
+  _layer:
+    serializedVersion: 2
+    m_Bits: 0
+  _prefab: {fileID: 3316166510685455918, guid: a9fe9b23f85439e4c8e2f33f497e57e3, type: 3}
 --- !u!114 &1645008139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6395,7 +6401,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645008130}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e2be096e92de8849a57efd46b74fbb2, type: 3}
   m_Name: 

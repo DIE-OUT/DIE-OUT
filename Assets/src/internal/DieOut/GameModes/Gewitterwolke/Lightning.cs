@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DieOut.GameModes.Dornenkrone;
 using DieOut.GameModes.Interactions;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -14,6 +15,12 @@ namespace DieOut.GameModes.Gewitterwolke {
         
         private float _timer = 0;
         [SerializeField] [MinMaxSlider(0, 60)] private Vector2 _delayRange = new Vector2(10, 30);
+        
+        public GameObject _lastHit;
+        public Vector3 _collision = Vector3.zero;
+        private Vector3 _height = new Vector3(0, 1, 0);
+        public LayerMask _layer;
+        [SerializeField] private GameObject _prefab;
 
         void Awake() {
             _gewitterwolke = GetComponent<RandomMovement>();
@@ -49,10 +56,22 @@ namespace DieOut.GameModes.Gewitterwolke {
             }
         }
 
+        private void Raycast() {
+            var ray = new Ray(this.transform.position - _height, -this.transform.up);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100)) {
+                _lastHit = hit.transform.gameObject;
+                _collision = hit.point;
+            }
+        }
+
         IEnumerator LightningStrike() {
             float currentSpeed = _gewitterwolke._navMeshAgent.speed;
             _gewitterwolke._navMeshAgent.speed = 0;
+            Raycast();
+            Instantiate(_prefab, _collision, Quaternion.identity);
             yield return new WaitForSeconds(1f);
+            //Destroy(_gameObject);
             Debug.Log("Lightning strikes!");
             if (_playersUnderGewitterwolke.Count != 0) {
                 foreach (Movable _player in _playersUnderGewitterwolke) {
