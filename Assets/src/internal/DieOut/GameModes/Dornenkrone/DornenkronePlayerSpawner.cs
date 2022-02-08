@@ -1,7 +1,10 @@
-﻿using Afired.GameManagement.GameModes;
+﻿using System.Collections.Generic;
+using Afired.GameManagement.GameModes;
 using Afired.GameManagement;
 using Afired.GameManagement.Sessions;
 using DieOut.GameModes.Interactions;
+using DieOut.UI.CharacterSelect;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace DieOut.GameModes.Dornenkrone {
@@ -11,15 +14,14 @@ namespace DieOut.GameModes.Dornenkrone {
     public class DornenkronePlayerSpawner : PlayerSpawner {
         
         public event OnPlayersSpawned OnPlayersSpawned;
-        //todo: use a model register to retrieve the models instead of having multiple player prefab varients
-        [SerializeField] private GameObject[] _dornenkronePlayerPrefabs;
+        [OdinSerialize] private Dictionary<PlayerColor, GameObject> _dornenkronePlayerPrefabs = new Dictionary<PlayerColor, GameObject>();
         private GameObject[] _playerGameObjects;
         
         protected override void OnPlayerInitialization(Player[] players, PlayerSpawnpoint[] playerSpawnpoints) {
             _playerGameObjects = new GameObject[players.Length];
             
             for(int i = 0; i < players.Length; i++) {
-                GameObject playerGameObject = Instantiate(_dornenkronePlayerPrefabs[i], playerSpawnpoints[i].transform.position, Quaternion.identity);
+                GameObject playerGameObject = Instantiate(_dornenkronePlayerPrefabs[players[i].PlayerColor], playerSpawnpoints[i].transform.position, Quaternion.identity);
                 
                 IDeviceReceiver[] deviceReceivers = playerGameObject.GetComponentsInChildren<IDeviceReceiver>(true);
                 foreach(IDeviceReceiver deviceReceiver in deviceReceivers) {

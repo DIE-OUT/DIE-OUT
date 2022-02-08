@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Afired.GameManagement.Sessions;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Afired.GameManagement.GameModes {
     
-    public abstract class PlayerSpawner : MonoBehaviour {
+    public abstract class PlayerSpawner : SerializedMonoBehaviour {
         
         private void Awake() {
             Session.Current.GameModeInstance.OnGameModePrepare += InvokeGameModePrepare;

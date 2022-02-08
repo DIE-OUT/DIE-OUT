@@ -166,11 +166,93 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14715ca9f1864762a8ce857391171605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dornenkronePlayerPrefabs:
-  - {fileID: 4674564476039170481, guid: ad26df03d0e09ed4298b8634f399c2ec, type: 3}
-  - {fileID: 4893398873733861858, guid: 57f40f0310f61c749a89767d385d8777, type: 3}
-  - {fileID: 3750114929658445582, guid: a36d0d81c8ffd634da82c298eaaf7136, type: 3}
-  - {fileID: 1941438590203340377, guid: efcaa2dbb3782124fb1967131f967d79, type: 3}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 3750114929658445582, guid: a36d0d81c8ffd634da82c298eaaf7136, type: 3}
+    - {fileID: 4674564476039170481, guid: ad26df03d0e09ed4298b8634f399c2ec, type: 3}
+    - {fileID: 1941438590203340377, guid: efcaa2dbb3782124fb1967131f967d79, type: 3}
+    - {fileID: 4893398873733861858, guid: 57f40f0310f61c749a89767d385d8777, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _dornenkronePlayerPrefabs
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[DieOut.UI.CharacterSelect.PlayerColor,
+        Assembly-CSharp],[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[DieOut.UI.CharacterSelect.PlayerColor,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &1080169633
 GameObject:
   m_ObjectHideFlags: 0
