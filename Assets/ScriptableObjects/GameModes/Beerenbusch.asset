@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Beerenbusch
   m_EditorClassIdentifier: 
   _splashScreen: {fileID: 21300000, guid: 11afa8fcf3a44f144a529983889a0fa5, type: 3}
-  _displayName: 
-  _description: 
+  _displayName: Beerenbusch
+  _description: This Description will be shown on the loading screen
   _maps:
   - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 74940bf0e96ce894dae3649f1adf4782, type: 3}
       m_SceneName: Beerenbusch
-    _displayName: Beerenbusch
+    _displayName: BeerenbuschMap
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 690b8fe4b4be1374787146238f4480a0, type: 3}
     m_SceneName: GameMode_Management
