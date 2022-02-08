@@ -509,6 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameModes:
   - {fileID: 11400000, guid: 654c318d9cf7ec54198fcce85e53721f, type: 2}
+  - {fileID: 11400000, guid: 311980cd07e6e02418b150da818ddd42, type: 2}
 --- !u!1 &543880121
 GameObject:
   m_ObjectHideFlags: 0
