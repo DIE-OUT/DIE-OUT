@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Afired.GameManagement.Sessions;
+using Afired.Helper;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -45,7 +47,7 @@ namespace DieOut.UI.CharacterSelect {
         public Player[] CreatePlayers() {
             Player[] players = new Player[_playerInputDevices.Count];
             for(int i = 0; i < _playerInputDevices.Count; i++) {
-                players[i] = new Player(new InputDevice[] { _playerInputDevices[i] }, $"Player {_characterSelectCards[i].PlayerColor.ToString()}");
+                players[i] = new Player(new InputDevice[] { _playerInputDevices[i] }, _characterSelectCards[i].PlayerColor);
             }
             return players;
         }

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Afired.GameManagement.GameModes;
 using Afired.GameManagement.Sessions;
+using Afired.Helper;
+using DieOut.UI.CharacterSelect;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
@@ -106,7 +109,7 @@ namespace DieOut.Editor {
             
             Player[] players = new Player[playerInputDevices.Count];
             for(int i = 0; i < playerInputDevices.Count; i++) {
-                players[i] = new Player(new InputDevice[] { playerInputDevices[i] }, $"Player {i + 1}");
+                players[i] = new Player(new InputDevice[] { playerInputDevices[i] }, EnumHelper.GetAllEnumValuesOfType<PlayerColor>().ToArray()[i]);
             }
             
             return players;
