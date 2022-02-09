@@ -38,16 +38,9 @@ namespace DieOut.GameModes.Interactions {
                 _movable.GetComponent<PlayerControls>().HasControl = false;
 
                 // Wenn der getacklete Player einen Magmaklumpen trägt, geht dieser auf den tacklenden Player über
-                // -> Wenn der tacklende Player dabei ein Throwable Item trägt, lässt er dieses Fallen um den Itemposition Platz für den Magmaklumpen frei zu machen
                 _magmaklumpen = GetComponentInChildren<Magmaklumpen>();
                 
                 if (_magmaklumpen != null) {
-                    _throwable = tacklingPlayer.GetComponentInChildren<Throwable>();
-
-                    if (_throwable != null) {
-                        _throwable._attachedToPlayer = false;
-                    }
-
                     _itemPosition = tacklingPlayer.GetComponentInChildren<ItemPosition>();
                     _magmaklumpen.transform.SetParent(_itemPosition.transform);
                     _magmaklumpen.transform.position = _itemPosition.transform.position;

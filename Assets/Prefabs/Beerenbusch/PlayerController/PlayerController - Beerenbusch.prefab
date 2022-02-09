@@ -381,7 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
   _tackleablesToIgnore:
-  - {fileID: 0}
+  - {fileID: 4059209646827942614}
   _cooldown: 3
   _tackleDistance: 30
   _tackling: 0
