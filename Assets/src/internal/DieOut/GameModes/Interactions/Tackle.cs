@@ -16,6 +16,7 @@ namespace DieOut.GameModes.Interactions {
         [SerializeField] private List<Tackleable> _tackleablesToIgnore;
         private Movable _player;
         private ItemPosition _itemPosition;
+        private CooldownIndicator _cooldownIndicator;
         
         [SerializeField] private float _cooldown = 3f;
         private bool _onCooldown;
@@ -28,6 +29,7 @@ namespace DieOut.GameModes.Interactions {
 
             _player = GetComponentInParent<Movable>();
             _itemPosition = _player.GetComponentInChildren<ItemPosition>();
+            _cooldownIndicator = _player.GetComponentInChildren<CooldownIndicator>();
         }
         
         public void SetDevices(InputDevice[] devices) {
@@ -63,6 +65,9 @@ namespace DieOut.GameModes.Interactions {
             yield return new WaitForSeconds(_cooldown);
             Debug.Log("cooldown finished");
             _onCooldown = false;
+            if (_cooldownIndicator != null) {
+                _cooldownIndicator.gameObject.SetActive(true);
+            }
         }
 
         private void OnTackle(InputAction.CallbackContext _) {
@@ -85,6 +90,9 @@ namespace DieOut.GameModes.Interactions {
             }
 
             _onCooldown = true;
+            if (_cooldownIndicator != null) {
+                _cooldownIndicator.gameObject.SetActive(false);
+            }
             StartCoroutine(TackleCooldown());
         }
         
