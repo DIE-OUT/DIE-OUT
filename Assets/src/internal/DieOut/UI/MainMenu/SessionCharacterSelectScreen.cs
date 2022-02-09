@@ -46,8 +46,9 @@ namespace DieOut.UI.MainMenu {
         }
 
         private void Back(InputAction.CallbackContext _) {
-            throw new NotImplementedException();
-            //_screenManager.Activate(_screenToGoBackTo);
+            //gameObject.SetActive(false);
+            _screenManager.Activate(_screenToGoBackTo);
+            //throw new NotImplementedException();
         }
         
     }

@@ -42,6 +42,11 @@ namespace DieOut.UI.CharacterSelect {
 
         private void OnDisable() {
             _inputTable.Disable();
+            Reset();
+        }
+
+        private void Reset() {
+            _playerInputDevices.Clear();
         }
 
         public Player[] CreatePlayers() {

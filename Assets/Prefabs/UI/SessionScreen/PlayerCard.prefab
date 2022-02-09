@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 3764874575154471535}
   - component: {fileID: 2563639882578301469}
   - component: {fileID: 6888906687458237582}
+  - component: {fileID: 9196820633912594745}
   m_Layer: 5
   m_Name: PlayerCard
   m_TagString: Untagged
@@ -400,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16c6f78230fa4964a222622d8aae332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 3653440309781392710}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
   m_PlayerRoot: {fileID: 4412023148628979585}
@@ -431,6 +432,19 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: 6ce93f45483096641b47fb579fc0b5d4, type: 3}
   m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
+--- !u!114 &9196820633912594745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412023148628979585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b00c71522404b58a40785813b97b29c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiElement: {fileID: 3653440309781392710}
 --- !u!1 &4898138772358506316
 GameObject:
   m_ObjectHideFlags: 0
