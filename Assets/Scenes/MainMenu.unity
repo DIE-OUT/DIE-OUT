@@ -2677,6 +2677,7 @@ GameObject:
   - component: {fileID: 1054737681}
   - component: {fileID: 1054737685}
   - component: {fileID: 1054737684}
+  - component: {fileID: 1054737686}
   m_Layer: 5
   m_Name: Screen - SessionSettings
   m_TagString: Untagged
@@ -2801,10 +2802,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16c6f78230fa4964a222622d8aae332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 1774039418}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
   m_PlayerRoot: {fileID: 1054737678}
+--- !u!114 &1054737686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054737678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b00c71522404b58a40785813b97b29c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiElement: {fileID: 1774039418}
 --- !u!1 &1069615456
 GameObject:
   m_ObjectHideFlags: 0
@@ -2820,6 +2834,7 @@ GameObject:
   - component: {fileID: 1069615458}
   - component: {fileID: 1069615463}
   - component: {fileID: 1069615462}
+  - component: {fileID: 1069615464}
   m_Layer: 5
   m_Name: Screen - Settings
   m_TagString: Untagged
@@ -2946,10 +2961,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16c6f78230fa4964a222622d8aae332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 1163055131}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
   m_PlayerRoot: {fileID: 1069615456}
+--- !u!114 &1069615464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069615456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b00c71522404b58a40785813b97b29c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiElement: {fileID: 1163055131}
 --- !u!1 &1115916072
 GameObject:
   m_ObjectHideFlags: 0
@@ -3973,6 +4001,7 @@ GameObject:
   - component: {fileID: 1533796090}
   - component: {fileID: 1533796096}
   - component: {fileID: 1533796095}
+  - component: {fileID: 1533796097}
   m_Layer: 5
   m_Name: Screen - Starting
   m_TagString: Untagged
@@ -4092,10 +4121,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16c6f78230fa4964a222622d8aae332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 406141178}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
   m_PlayerRoot: {fileID: 1533796089}
+--- !u!114 &1533796097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533796089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b00c71522404b58a40785813b97b29c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiElement: {fileID: 406141178}
 --- !u!1001 &1545030641
 PrefabInstance:
   m_ObjectHideFlags: 0
