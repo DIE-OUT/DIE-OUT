@@ -88,6 +88,38 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.318
       objectReference: {fileID: 0}
+    - target: {fileID: 1574626644512520924, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574626644512520924, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574626644512520924, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265256150130073392, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265256150130073392, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265256150130073392, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809557832953308748, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809557832953308748, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6917530274144671653, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
       propertyPath: m_Name
       value: Beerenbusch_2
@@ -171,6 +203,14 @@ PrefabInstance:
     - target: {fileID: 8865205839130869778, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.284
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164576142155642283, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164576142155642283, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
