@@ -10,7 +10,7 @@ namespace Afired.UI {
         
         
         private void Awake() {
-            _screens.AddRange(GetComponentsInChildren<Screen>());
+            _screens.AddRange(GetComponentsInChildren<Screen>(true));
         }
 
         public void Activate(Screen screenToBeActivated) {

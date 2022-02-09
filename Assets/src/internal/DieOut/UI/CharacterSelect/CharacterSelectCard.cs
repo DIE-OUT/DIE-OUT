@@ -1,4 +1,5 @@
-﻿using Afired.UI.Elements;
+﻿using System;
+using Afired.UI.Elements;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,16 +15,16 @@ namespace DieOut.UI.CharacterSelect {
         private AssignUIControl _assignUIControl;
         private InputDevice _inputDevice;
         [SerializeField] public PlayerColor PlayerColor;
-        
+        private ISwitchControl _colorSwitchControl;
         
         private void Awake() {
             _assignUIControl = GetComponent<AssignUIControl>();
             _gameObjectToActivateWhenControlAssigned.SetActive(false);
             _gameObjectToDeactivateWhenControlAssigned.SetActive(true);
             
-            ISwitchControl color = new EnumSwitchControl<PlayerColor>(PlayerColor);
-            color.OnValueChanged += (value, valueAsText) => PlayerColor = (PlayerColor) value;
-            _colorSwitcher.AssignControl(color);
+            _colorSwitchControl = new EnumSwitchControl<PlayerColor>(PlayerColor);
+            _colorSwitchControl.OnValueChanged += (value, valueAsText) => PlayerColor = (PlayerColor) value;
+            _colorSwitcher.AssignControl(_colorSwitchControl);
         }
         
         public void AssignDevice(InputDevice inputDevice) {
@@ -32,6 +33,19 @@ namespace DieOut.UI.CharacterSelect {
             
             _gameObjectToActivateWhenControlAssigned.SetActive(true);
             _gameObjectToDeactivateWhenControlAssigned.SetActive(false);
+        }
+
+        private void OnDisable() {
+            Reset();
+        }
+
+        private void Reset() {
+            PlayerColor = default;
+            _colorSwitchControl.SelectFirst();
+            _inputDevice = null;
+            _gameObjectToActivateWhenControlAssigned.SetActive(false);
+            _gameObjectToDeactivateWhenControlAssigned.SetActive(true);
+            _assignUIControl.DeactivateInput();
         }
         
     }
