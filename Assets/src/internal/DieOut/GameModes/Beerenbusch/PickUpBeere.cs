@@ -62,7 +62,12 @@ namespace DieOut.GameModes.Beerenbusch {
             _targetBeere = _beeren
                 .OrderBy(x => Vector2.Distance(this.transform.position, x.transform.position)).First();
             
-            _targetBeere.TriggerPickUp(_player);
+            ItemPosition _itemPosition = _player.GetComponentInChildren<ItemPosition>();
+            if (_itemPosition.transform.childCount == 0 && _targetBeere._attachedToPlayer == false) {
+                _targetBeere._attachedToPlayer = true;
+                _itemPosition.TriggerPickUpBeere(_targetBeere);
+                _targetBeere.TriggerPickUp(_player);
+            }
         }
     }
 }

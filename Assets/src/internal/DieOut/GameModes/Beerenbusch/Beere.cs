@@ -6,17 +6,25 @@ using DieOut.GameModes.Interactions;
 using UnityEngine;
 
 namespace DieOut.GameModes.Beerenbusch {
-    
-}
-public class Beere : MonoBehaviour {
+    public class Beere : MonoBehaviour {
 
-    private PickUpBeere _pickUpBeere;
-    
-    public void TriggerPickUp(Movable player) {
-        player.GetComponent<Health>().TriggerDamage(5);
-        this.gameObject.SetActive(false);
+        private PickUpBeere _pickUpBeere;
+        private float _movementSpeed;
+        //private float _currentSpeed;
 
-        _pickUpBeere = player.GetComponent<PickUpBeere>();
-        _pickUpBeere._beeren.Remove(this);
+        public bool _attachedToPlayer;
+    
+        public void TriggerPickUp(Movable player) {
+            _movementSpeed = player.GetComponent<PlayerControls>()._movementSpeed;
+            //_currentSpeed = _movementSpeed;
+            player.GetComponent<PlayerControls>()._movementSpeed = _movementSpeed / 2;
+            //_movementSpeed = _currentSpeed / 2;
+
+            player.GetComponent<Health>().TriggerDamage(5);
+            //this.gameObject.SetActive(false);
+
+            _pickUpBeere = player.GetComponent<PickUpBeere>();
+            _pickUpBeere._beeren.Remove(this);
+        }
     }
 }
