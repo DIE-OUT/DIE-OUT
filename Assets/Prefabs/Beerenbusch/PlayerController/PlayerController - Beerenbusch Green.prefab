@@ -7,10 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2949239172314232672, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408635936724258538, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6022663403170309454, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6424430157691816578, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 8459701624501368761}
+    - target: {fileID: 6424430157691816578, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
+      propertyPath: _tackleablesToIgnore.Array.data[0]
+      value: 
+      objectReference: {fileID: 4488213435001954492}
     - target: {fileID: 8017179738592646758, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -86,6 +102,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8701471770111088127, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
   m_PrefabInstance: {fileID: 440336798118957674}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4488213435001954492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4059209646827942614, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
+  m_PrefabInstance: {fileID: 440336798118957674}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d324b6ce613aa249a16fb8313c320e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5201456098010646901
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,26 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Unity.Mathematics;
 
 namespace DieOut.GameModes.Beerenbusch {
     public class GrowBack : MonoBehaviour {
-        
+
         [SerializeField] private float _growBackTime = 10;
-        private bool _allInactive;
+        private bool _beerenbuschEmpty;
         private bool _inCoroutine = false;
 
         private void Update() {
-            if (AllBeerenInactive() && !_inCoroutine) {
+            if (BeerenbuschEmpty() && !_inCoroutine) {
+                Debug.Log("empty");
                 _inCoroutine = true;
                 StartCoroutine(BeerenGrowBack());
             }
         }
 
-        private bool AllBeerenInactive() {
-
-            _allInactive = transform.Cast<Transform>().All(child => !child.gameObject.activeInHierarchy);
-
-            if (_allInactive) {
+        private bool BeerenbuschEmpty() {
+            Beere _anyBeere = GetComponentInChildren<Beere>();
+            
+            if (_anyBeere == null) {
                 return true;
             }
             else {
@@ -34,10 +35,8 @@ namespace DieOut.GameModes.Beerenbusch {
 
         private IEnumerator BeerenGrowBack() {
             yield return new WaitForSeconds(_growBackTime);
-
-            foreach (Transform child in transform) {
-                child.gameObject.SetActive(true);
-            }
+            
+            Debug.Log("growback");
 
             _inCoroutine = false;
         }
