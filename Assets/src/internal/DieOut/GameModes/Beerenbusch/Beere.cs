@@ -10,7 +10,6 @@ using UnityEngine.UI;
 namespace DieOut.GameModes.Beerenbusch {
     public class Beere : MonoBehaviour {
         
-        private PickUpBeere _pickUpBeere;
         private EatBeere _eatBeere;
 
         private float _movementSpeed;
@@ -20,9 +19,7 @@ namespace DieOut.GameModes.Beerenbusch {
         public bool _attachedToPlayer = false;
 
         public void TriggerPickUp(Movable player) {
-            _pickUpBeere = player.GetComponent<PickUpBeere>();
-            _pickUpBeere._beeren.Remove(this);
-            
+
             _movementSpeed = player.GetComponent<PlayerControls>()._movementSpeed;
             //_currentSpeed = _movementSpeed;
             player.GetComponent<PlayerControls>()._movementSpeed = _movementSpeed / 2;

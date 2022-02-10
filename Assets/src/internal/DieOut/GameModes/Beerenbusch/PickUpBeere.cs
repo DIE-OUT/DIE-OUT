@@ -48,22 +48,33 @@ namespace DieOut.GameModes.Beerenbusch {
         
         private void OnTriggerExit(Collider other) {
             _beere = other.GetComponent<Beere>();
-
-            if (_beere != null) {
-                _beeren.Remove(_beere);
-            }
+            
+            _beeren.Remove(_beere);
         }
 
         private void OnPickUp(InputAction.CallbackContext _) {
             if (_beeren.Count == 0) {
                 return;
             }
+
+            foreach (Beere beere in _beeren) {
+                if (beere == null) {
+                    _beeren.Remove(beere);
+                    return;
+                }
+            }
             
             _targetBeere = _beeren
                 .OrderBy(x => Vector2.Distance(this.transform.position, x.transform.position)).First();
+
+            if (_targetBeere == null) {
+                _beeren.Remove(_targetBeere);
+                return;
+            }
             
             ItemPosition _itemPosition = _player.GetComponentInChildren<ItemPosition>();
             if (_itemPosition.transform.childCount == 0 && _targetBeere._attachedToPlayer == false) {
+                _beeren.Remove(_targetBeere);
                 _targetBeere._attachedToPlayer = true;
                 _itemPosition.TriggerPickUpBeere(_targetBeere);
                 _targetBeere.TriggerPickUp(_player);

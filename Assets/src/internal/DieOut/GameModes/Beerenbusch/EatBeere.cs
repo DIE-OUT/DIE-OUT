@@ -58,10 +58,10 @@ namespace DieOut.GameModes.Beerenbusch {
                     _currentEatCount -= 1;
 
                     if (_currentEatCount == 0) {
-                        Destroy(_beere.gameObject);
                         _beere._attachedToPlayer = false;
                         _beere._slowedSpeed = _player.GetComponent<PlayerControls>()._movementSpeed;
                         _player.GetComponent<PlayerControls>()._movementSpeed = _beere._slowedSpeed * 2;
+                        Destroy(_beere.gameObject);
                         _currentEatCount = _eatCount;
                         this.enabled = false;
                     }
