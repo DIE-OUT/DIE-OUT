@@ -16,7 +16,7 @@ GameObject:
   m_Layer: 0
   m_Name: Stone
   m_TagString: Untagged
-  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8745729059088983222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.35, z: -1.89}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8745729060691824765}
@@ -63,9 +63,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df609778b2742c441bd9e703fb2916d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _throwForce: 800
-  _isHolding: 0
   _rigidbody: {fileID: 0}
+  _throwForce: 800
+  _stunDuration: 2
+  _attachedToPlayer: 0
 --- !u!65 &8745729059088983218
 BoxCollider:
   m_ObjectHideFlags: 0
