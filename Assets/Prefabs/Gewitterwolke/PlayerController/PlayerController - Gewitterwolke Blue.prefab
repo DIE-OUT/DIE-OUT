@@ -35,6 +35,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3714261236556181162, guid: f3f03eab08736ed40820a8ba4906a218, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1665104699897649925}
     - target: {fileID: 3846626933821240357, guid: f3f03eab08736ed40820a8ba4906a218, type: 3}
       propertyPath: _deviceTypes
       value: 1
@@ -110,6 +114,10 @@ PrefabInstance:
     - target: {fileID: 4177344560152088179, guid: f3f03eab08736ed40820a8ba4906a218, type: 3}
       propertyPath: _deviceTypes
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580672424488748189, guid: f3f03eab08736ed40820a8ba4906a218, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4966095088854492778, guid: f3f03eab08736ed40820a8ba4906a218, type: 3}
       propertyPath: m_AnchorMax.x
