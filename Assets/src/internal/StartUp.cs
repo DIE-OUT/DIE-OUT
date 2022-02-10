@@ -11,6 +11,10 @@ namespace DieOut {
         private void Start() {
             HasBeenLoaded = true;
             SceneManager.LoadScenesAsync(new string[] { _mainMenuScene.SceneName });
+            #if UNITY_EDITOR
+            #else
+            Application.targetFrameRate = -1;
+            #endif
         }
         
     }
