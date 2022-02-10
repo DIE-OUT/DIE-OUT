@@ -450,7 +450,7 @@
                 {
                     "name": "",
                     "id": "b30cddb2-89a4-421f-923b-045e959d74da",
-                    "path": "<Keyboard>/x",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -461,10 +461,32 @@
                 {
                     "name": "",
                     "id": "04e91125-5a09-458d-aee7-c262e4ac9c69",
-                    "path": "<DualShockGamepad>/start",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
+                    "action": "SessionStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7b6bb092-84a2-4a0c-8bc5-c6d829b82840",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "SessionStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "91e291c9-c14b-4784-81af-1495ec56a0d6",
+                    "path": "<Keyboard>/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
                     "action": "SessionStart",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -472,7 +494,7 @@
                 {
                     "name": "",
                     "id": "7b57a14b-b554-4a99-a8f0-480112e3c2c6",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
