@@ -42,8 +42,15 @@ namespace DieOut.GameModes.Beerenbusch {
         public void TriggerEating() {
             _beere = GetComponentInChildren<Beere>();
         }
+
+        private IEnumerator MiniDelay() {
+            OnDisable();
+            yield return new WaitForSeconds(0.2f);
+            OnEnable();
+        }
         
         private void OnEat(InputAction.CallbackContext _) {
+            StartCoroutine(MiniDelay());
             if (_beere != null) {
                 if (_currentEatCount >= 1) {
                     _player.GetComponent<Health>().TriggerDamage(_damage);
