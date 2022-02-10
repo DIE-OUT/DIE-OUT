@@ -1,10 +1,10 @@
 ﻿namespace DieOut.UI.CharacterSelect {
     
     public enum PlayerColor {
-        Red,
+        Pink,
         Blue,
         Yellow,
-        Green
+        Dark
     }
     
 }
