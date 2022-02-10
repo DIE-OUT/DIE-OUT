@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 09dd68227fc25a3488ae48653628c373, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09dd68227fc25a3488ae48653628c373, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 09dd68227fc25a3488ae48653628c373, type: 3}
       propertyPath: m_Name
-      value: o_RedDino
+      value: o_PinkDino
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09dd68227fc25a3488ae48653628c373, type: 3}
@@ -106,11 +106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4975745717789748503, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6028884854241720944, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: m_Name
-      value: PlayerController - Dornenkrone Red
+      value: PlayerController - Dornenkrone Pink
       objectReference: {fileID: 0}
     - target: {fileID: 6028884854241720945, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: m_RootOrder
