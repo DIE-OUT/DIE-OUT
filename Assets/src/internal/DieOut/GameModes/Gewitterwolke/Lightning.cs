@@ -70,7 +70,7 @@ namespace DieOut.GameModes.Gewitterwolke {
             _gewitterwolke._navMeshAgent.speed = 0;
             Raycast();
             GameObject prefabToDestroy = Instantiate(_prefab, _collision, Quaternion.identity);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2.5f);
             Destroy(prefabToDestroy);
             Debug.Log("Lightning strikes!");
             if (_playersUnderGewitterwolke.Count != 0) {
@@ -78,7 +78,7 @@ namespace DieOut.GameModes.Gewitterwolke {
                     _player.GetComponent<Health>().TriggerDamage(100);
                 }
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             _gewitterwolke._navMeshAgent.speed = currentSpeed;
         }
     }
