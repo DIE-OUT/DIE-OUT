@@ -6,14 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PlayTestLevelSelect.unity
-    guid: dc7fc784a30c3ec48aff611ebfbd2efe
-  - enabled: 1
     path: Assets/Scenes/StartUp.unity
     guid: 9262e1c218bc0c4469f452359486c25d
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/LoadingScreen.unity
     guid: 01f2584c0325a37438055444bb057d98
@@ -21,23 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 57779fc25205dc14c813daa6a2dd274e
   - enabled: 1
-    path: Assets/Scenes/PlayerInteractions.unity
-    guid: 1df757315930ac44f94d6ddf3c287db6
-  - enabled: 1
-    path: Assets/Scenes/Emis_TestScene_Dornenkrone.unity
-    guid: 44ffa5bac379ad94096f816ccbaf3049
-  - enabled: 1
-    path: Assets/Scenes/Emis_TestScene_Gewitterwolke.unity
-    guid: 3fad75f4455423d4fa7346afaddb0a39
-  - enabled: 1
     path: Assets/Scenes/Dornenkrone/Dornenkrone_Map01 L.unity
     guid: 9812700f4382fbd4ab380de60438aebd
-  - enabled: 1
-    path: Assets/Scenes/Dornenkrone/Dornenkrone_Map02 L.unity
-    guid: ed68b7b3c559b16458829eedaebb08b6
-  - enabled: 1
-    path: Assets/Scenes/Dornenkrone/Dornenkrone_Map03 L.unity
-    guid: 341daf9a5b729f74bb95089329e1e1e9
   - enabled: 1
     path: Assets/Scenes/Dornenkrone/Dornenkrone_Map04 L.unity
     guid: 29d660bec081ef84a8d2198d767ef980
@@ -51,23 +30,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Dornenkrone/Dornenkrone_Management.unity
     guid: 30f8850d14e046f4fade8b1f57be951d
   - enabled: 1
-    path: Assets/Scenes/Dornenkrone/Dornenkrone_UI.unity
-    guid: 910af1b8dd82610468b2bd3bebcdeec4
-  - enabled: 1
     path: Assets/Scenes/Scoreboard.unity
     guid: 4a95a3295be56194788f84d4c9a1e7b9
   - enabled: 1
     path: Assets/Scenes/AwardCeremony.unity
     guid: ce69a046399cd7a41a9a09cb7396ba1d
   - enabled: 1
-    path: Assets/Scenes/Gewitterwolke/Gewitterwolke.unity
-    guid: c6ab5e65d4c79f747bdda67dd4e8509e
-  - enabled: 1
     path: Assets/Scenes/Gewitterwolke/Gewitterwolke_Management.unity
     guid: 531abf1637236224485a003dc1cdc53c
-  - enabled: 1
-    path: Assets/Scenes/Beerenbusch/Beerenbusch.unity
-    guid: 74940bf0e96ce894dae3649f1adf4782
   - enabled: 1
     path: Assets/Scenes/Beerenbusch/Beerenbusch_Management.unity
     guid: 7c39d69cd7eb59d4a84cdd987cba8a3a
@@ -80,4 +50,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Beerenbusch/BB_M_3.unity
     guid: 35b2527147d5f6a42932818fdca3f01b
+  - enabled: 1
+    path: Assets/Scenes/Gewitterwolke/GW_M_1.unity
+    guid: f2ca227cb6560e6419aae6b236d120b4
+  - enabled: 1
+    path: Assets/Scenes/Gewitterwolke/GW_M_2.unity
+    guid: 84e5fbe79eff6d843877e134b27f9a56
+  - enabled: 1
+    path: Assets/Scenes/Gewitterwolke/GW_M_3.unity
+    guid: 138664746e7a82e4196103b018391b7a
   m_configObjects: {}
