@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124e74490b664a40a53ea244fe4c802f, type: 3}
+  m_Name: Gewitterwolke
+  m_EditorClassIdentifier: 
+  _splashScreen: {fileID: 21300000, guid: 11afa8fcf3a44f144a529983889a0fa5, type: 3}
+  _displayName: Gewitterwolke
+  _description: This Description will be shown on the loading screen
+  _maps:
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: f2ca227cb6560e6419aae6b236d120b4, type: 3}
+      m_SceneName: GW_M_1
+    _displayName: GW_M_1
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 84e5fbe79eff6d843877e134b27f9a56, type: 3}
+      m_SceneName: GW_M_2
+    _displayName: GW_M_2
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 138664746e7a82e4196103b018391b7a, type: 3}
+      m_SceneName: GW_M_3
+    _displayName: GW_M_3
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: c6ab5e65d4c79f747bdda67dd4e8509e, type: 3}
+      m_SceneName: GW_Emi_1
+    _displayName: GW_Emi_1
+  _additionalScenes:
+  - m_SceneAsset: {fileID: 102900000, guid: 531abf1637236224485a003dc1cdc53c, type: 3}
+    m_SceneName: Gewitterwolke_Management
+  - m_SceneAsset: {fileID: 102900000, guid: 4a95a3295be56194788f84d4c9a1e7b9, type: 3}
+    m_SceneName: Scoreboard
+  - m_SceneAsset: {fileID: 102900000, guid: 690b8fe4b4be1374787146238f4480a0, type: 3}
+    m_SceneName: GameMode_Management

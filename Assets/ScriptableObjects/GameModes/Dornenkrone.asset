@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124e74490b664a40a53ea244fe4c802f, type: 3}
+  m_Name: Dornenkrone
+  m_EditorClassIdentifier: 
+  _splashScreen: {fileID: 21300000, guid: a9cf5d1c598dffd4dbe9686cf4579216, type: 3}
+  _displayName: Dornenkrone
+  _description: This Description will be shown on the loading screen
+  _maps:
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 9812700f4382fbd4ab380de60438aebd, type: 3}
+      m_SceneName: Dornenkrone_Map01 L
+    _displayName: Dornenkrone_Map01 L
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 29d660bec081ef84a8d2198d767ef980, type: 3}
+      m_SceneName: Dornenkrone_Map04 L
+    _displayName: Dornenkrone_Map04 L
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 28e8606a464a81a4c80ab32439b5c940, type: 3}
+      m_SceneName: Dornenkrone_Map05 L
+    _displayName: Dornenkrone_Map05 L
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 44ffa5bac379ad94096f816ccbaf3049, type: 3}
+      m_SceneName: Dornenkrone_Emi_1
+    _displayName: Dornenkrone_Emi_1
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 3fad75f4455423d4fa7346afaddb0a39, type: 3}
+      m_SceneName: Dornenkrone_Emi_2
+    _displayName: Dornenkrone_Emi_2
+  _additionalScenes:
+  - m_SceneAsset: {fileID: 102900000, guid: 30f8850d14e046f4fade8b1f57be951d, type: 3}
+    m_SceneName: Dornenkrone_Management
+  - m_SceneAsset: {fileID: 102900000, guid: 690b8fe4b4be1374787146238f4480a0, type: 3}
+    m_SceneName: GameMode_Management
+  - m_SceneAsset: {fileID: 102900000, guid: 4a95a3295be56194788f84d4c9a1e7b9, type: 3}
+    m_SceneName: Scoreboard
