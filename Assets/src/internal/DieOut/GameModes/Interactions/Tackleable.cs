@@ -13,6 +13,10 @@ namespace DieOut.GameModes.Interactions {
         private Tackle _tackle;
         private ItemPosition _itemPosition;
         
+        private SkinnedMeshRenderer _meshRenderer;
+        private Color _origColor;
+        private float flickerTime = 0.5f;
+        
         [SerializeField] private float _stunDuration = 2f;
         [SerializeField] private float _immunity = 3f;
         public bool tackleImmunity = false;
@@ -22,15 +26,37 @@ namespace DieOut.GameModes.Interactions {
             _movable = GetComponent<Movable>();
         }
 
+        private void Start() {
+            _meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+            _origColor = _meshRenderer.material.color;
+        }
+
         private IEnumerator TackleImmunity() {
+            FlickerStart();
             yield return new WaitForSeconds(_stunDuration + _immunity);
             Debug.Log("tackle immunity OFF");
             tackleImmunity = false;
+            _meshRenderer.material.color = _origColor;
         }
         
         private IEnumerator TackleStunDuration() {
             yield return new WaitForSeconds(_stunDuration);
             _movable.GetComponent<PlayerControls>().HasControl = true;
+        }
+
+        private void FlickerStart() {
+            _meshRenderer.material.color = Color.gray;
+            StartCoroutine(FlickerStop());
+        }
+
+        private IEnumerator FlickerStop() {
+            yield return new WaitForSeconds(flickerTime);
+            _meshRenderer.material.color = _origColor;
+            
+            if (tackleImmunity) {
+                yield return new WaitForSeconds(flickerTime);
+                FlickerStart();
+            }
         }
 
         public void TriggerTackle(Movable tacklingPlayer) {
