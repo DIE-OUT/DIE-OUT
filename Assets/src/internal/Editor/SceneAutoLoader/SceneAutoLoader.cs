@@ -25,27 +25,8 @@ namespace DieOut.Editor {
 	    }
 	    
 		// Static constructor binds a playmode-changed callback.
-		// [InitializeOnLoad] above makes sure this gets executed.
 		static SceneAutoLoader() {
 		  EditorApplication.playModeStateChanged += OnPlayModeChanged;
-		}
-		
-		[MenuItem("File/Scene Autoload/Load Master On Play", true)]
-		private static bool ShowLoadMasterOnPlay() {
-		  return !LoadMasterOnPlay;
-		}
-		[MenuItem("File/Scene Autoload/Load Master On Play")]
-		private static void EnableLoadMasterOnPlay() {
-		  LoadMasterOnPlay = true;
-		}
-		
-		[MenuItem("File/Scene Autoload/Don't Load Master On Play", true)]
-		private static bool ShowDontLoadMasterOnPlay() {
-		  return LoadMasterOnPlay;
-		}
-		[MenuItem("File/Scene Autoload/Don't Load Master On Play")]
-		private static void DisableLoadMasterOnPlay() {
-		  LoadMasterOnPlay = false;
 		}
 		
 		// Play mode change callback handles the scene load/reload.
@@ -78,7 +59,6 @@ namespace DieOut.Editor {
 				} catch { 
 					Debug.LogError($"error: scene not found: {PreviousScene}");
 				}
-				
 			}
 			
 		}
