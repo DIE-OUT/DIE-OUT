@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Afired.GameManagement.Sessions;
 using Afired.Helper;
 using Afired.SceneManagement;
+using UnityEngine;
 
 namespace Afired.GameManagement.GameModes {
     
@@ -16,6 +17,7 @@ namespace Afired.GameManagement.GameModes {
         public TaskQueue OnGameModeEnd = new TaskQueue();
         public GameMode GameMode { get; }
         public Map Map { get; }
+        private bool _hasEnded;
         
         
         public GameModeInstance(GameMode gameMode, Map map) {
@@ -38,7 +40,11 @@ namespace Afired.GameManagement.GameModes {
         }
         
         public async void EndGameMode() {
-            
+            if(_hasEnded) {
+                Debug.Log($"{GameMode.DisplayName} has already been ended but there has been a try to end it a second time");
+                return;
+            }
+            _hasEnded = true;
             await OnGameModeEnd.InvokeAsynchronously();
             
             #pragma warning disable CS4014
