@@ -28,6 +28,10 @@ MonoBehaviour:
       m_SceneAsset: {fileID: 102900000, guid: 35b2527147d5f6a42932818fdca3f01b, type: 3}
       m_SceneName: BB_M_3
     _displayName: BB_M_3
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 74940bf0e96ce894dae3649f1adf4782, type: 3}
+      m_SceneName: BB_Emi_1
+    _displayName: BB_Emi_1
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 690b8fe4b4be1374787146238f4480a0, type: 3}
     m_SceneName: GameMode_Management

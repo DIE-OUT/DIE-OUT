@@ -28,6 +28,14 @@ MonoBehaviour:
       m_SceneAsset: {fileID: 102900000, guid: 28e8606a464a81a4c80ab32439b5c940, type: 3}
       m_SceneName: Dornenkrone_Map05 L
     _displayName: Dornenkrone_Map05 L
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 44ffa5bac379ad94096f816ccbaf3049, type: 3}
+      m_SceneName: Dornenkrone_Emi_1
+    _displayName: Dornenkrone_Emi_1
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 3fad75f4455423d4fa7346afaddb0a39, type: 3}
+      m_SceneName: Dornenkrone_Emi_2
+    _displayName: Dornenkrone_Emi_2
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 30f8850d14e046f4fade8b1f57be951d, type: 3}
     m_SceneName: Dornenkrone_Management

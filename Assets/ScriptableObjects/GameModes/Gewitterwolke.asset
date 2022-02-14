@@ -28,6 +28,10 @@ MonoBehaviour:
       m_SceneAsset: {fileID: 102900000, guid: 138664746e7a82e4196103b018391b7a, type: 3}
       m_SceneName: GW_M_3
     _displayName: GW_M_3
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: c6ab5e65d4c79f747bdda67dd4e8509e, type: 3}
+      m_SceneName: GW_Emi_1
+    _displayName: GW_Emi_1
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 531abf1637236224485a003dc1cdc53c, type: 3}
     m_SceneName: Gewitterwolke_Management
