@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace DieOut.UI.LoadingScreen {
     
-    [RequireComponent(typeof(Image))]
+    [RequireComponent(typeof(Image), typeof(AspectRatioFitter))]
     public class LoadingSplashImage : MonoBehaviour {
         
         private void Awake() {
@@ -15,6 +15,7 @@ namespace DieOut.UI.LoadingScreen {
             if(splashScreen is null)
                 return;
             image.sprite = splashScreen;
+            GetComponent<AspectRatioFitter>().aspectRatio = image.sprite.rect.width / image.sprite.rect.height;
         }
         
     }
