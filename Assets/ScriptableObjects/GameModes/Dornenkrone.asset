@@ -36,6 +36,10 @@ MonoBehaviour:
       m_SceneAsset: {fileID: 102900000, guid: 3fad75f4455423d4fa7346afaddb0a39, type: 3}
       m_SceneName: Dornenkrone_Emi_2
     _displayName: Dornenkrone_Emi_2
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 205105c82bc697e46bbf7cc00daf1a27, type: 3}
+      m_SceneName: 04_Cake
+    _displayName: CakeMap
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 30f8850d14e046f4fade8b1f57be951d, type: 3}
     m_SceneName: Dornenkrone_Management
