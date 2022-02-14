@@ -18,8 +18,10 @@ namespace DieOut.Editor.GameManager {
         private ManagerTab _currentManagerTab = ManagerTab.GameModes;
         private int _enumIndex;
         
-        private readonly DrawScriptableObjectTree<GameMode> _drawGameModes = new DrawScriptableObjectTree<GameMode>(GAME_MODE_PATH);
-        private const string GAME_MODE_PATH = "Assets/ScriptableObjects/GameModes";
+        private const string GAME_MODES_PATH = "Assets/ScriptableObjects/GameModes";
+        private readonly DrawScriptableObjectTree<GameMode> _drawGameModes = new DrawScriptableObjectTree<GameMode>(GAME_MODES_PATH);
+        private const string CHARACTERS_PATH = "Assets/ScriptableObjects/Characters";
+        private readonly DrawScriptableObjectTree<Character> _drawCharacters = new DrawScriptableObjectTree<Character>(CHARACTERS_PATH);
         private readonly DrawScriptableObject<SessionSettings> _drawSessionSettings = new DrawScriptableObject<SessionSettings>("global");
 
         private bool _menuTreeIsDirty = false;
@@ -30,7 +32,6 @@ namespace DieOut.Editor.GameManager {
         }
 
         protected override void Initialize() {
-            //_drawGameModes.SetPath(GAME_MODE_PATH);
             _drawSessionSettings.FindTarget();
         }
 
@@ -45,11 +46,14 @@ namespace DieOut.Editor.GameManager {
                 _menuTreeIsDirty = false;
             }
             
-            SirenixEditorGUI.Title("Game Manager", "Subtitle", TextAlignment.Center, true);
+            SirenixEditorGUI.Title("Game Manager", _currentManagerTab.ToString(), TextAlignment.Center, true);
             EditorGUILayout.Space();
             switch(_currentManagerTab) {
                 // all tabs that should draw a menu tree
                 case ManagerTab.GameModes:
+                    DrawEditor(_enumIndex);
+                    break;
+                case ManagerTab.Characters:
                     DrawEditor(_enumIndex);
                     break;
                 default:
@@ -62,6 +66,9 @@ namespace DieOut.Editor.GameManager {
             switch(_currentManagerTab) {
                 case ManagerTab.GameModes:
                     _drawGameModes.SetSelected(MenuTree.Selection.SelectedValue);
+                    break;
+                case ManagerTab.Characters:
+                    _drawCharacters.SetSelected(MenuTree.Selection.SelectedValue);
                     break;
                 case ManagerTab.SessionSettings:
                     DrawEditor(_enumIndex);
@@ -77,6 +84,7 @@ namespace DieOut.Editor.GameManager {
             List<object> targets = new List<object>();
             
             targets.Add(_drawGameModes);
+            targets.Add(_drawCharacters);
             targets.Add(_drawSessionSettings);
             
             targets.Add(base.GetTarget());
@@ -91,6 +99,9 @@ namespace DieOut.Editor.GameManager {
                 case ManagerTab.GameModes:
                     base.DrawMenu();
                     break;
+                case ManagerTab.Characters:
+                    base.DrawMenu();
+                    break;
                 default:
                     break;
             }
@@ -101,7 +112,10 @@ namespace DieOut.Editor.GameManager {
 
             switch(_currentManagerTab) {
                 case ManagerTab.GameModes:
-                    tree.AddAllAssetsAtPath("Game Modes", GAME_MODE_PATH, typeof(GameMode));
+                    tree.AddAllAssetsAtPath("Game Modes", GAME_MODES_PATH, typeof(GameMode));
+                    break;
+                case ManagerTab.Characters:
+                    tree.AddAllAssetsAtPath("Characters", CHARACTERS_PATH, typeof(Character));
                     break;
                 default:
                     break;
@@ -114,6 +128,7 @@ namespace DieOut.Editor.GameManager {
 
     internal enum ManagerTab {
         GameModes,
+        Characters,
         SessionSettings
     }
     
