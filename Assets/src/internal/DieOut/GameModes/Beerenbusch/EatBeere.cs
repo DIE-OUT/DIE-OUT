@@ -8,6 +8,8 @@ using DieOut.GameModes.Interactions;
 namespace DieOut.GameModes.Beerenbusch {
     public class EatBeere : MonoBehaviour, IDeviceReceiver {
 
+        [SerializeField] private Animator _animator;
+        
         private InputTable _inputTable;
 
         private Movable _player;
@@ -48,12 +50,13 @@ namespace DieOut.GameModes.Beerenbusch {
             yield return new WaitForSeconds(0.2f);
             OnEnable();
         }
-        
+
         private void OnEat(InputAction.CallbackContext _) {
             StartCoroutine(MiniDelay());
             if (_beere != null) {
                 if (_currentEatCount >= 1) {
-                    _player.GetComponent<Health>().TriggerDamage(_damage);
+                    _animator.SetTrigger(AnimatorStringHashes.TriggerEatBeere);
+                    _player.GetComponent<Health>().TriggerDamage(_damage, DamageType.Poison);
                     _beere.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
                     _currentEatCount -= 1;
 

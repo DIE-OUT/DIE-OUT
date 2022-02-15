@@ -99,6 +99,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6881634941943608829, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 6099135794828335252}
     - target: {fileID: 7955721275615211060, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: m_Layer
       value: 15

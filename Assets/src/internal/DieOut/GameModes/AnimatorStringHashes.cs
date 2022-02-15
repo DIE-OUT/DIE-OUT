@@ -8,6 +8,11 @@ namespace DieOut.GameModes {
         public static readonly int TriggerJump = Animator.StringToHash("triggerJump");
         public static readonly int IsGrounded = Animator.StringToHash("isGrounded");
         public static readonly int HasItem = Animator.StringToHash("hasItem");
+        public static readonly int TriggerFireDeath = Animator.StringToHash("TriggerFireDeath");
+        public static readonly int TriggerLightningDeath = Animator.StringToHash("TriggerLightningDeath");
+        public static readonly int TriggerPoisonDeath = Animator.StringToHash("TriggerPoisonDeath");
+        public static readonly int TriggerEatBeere = Animator.StringToHash("TriggerEatBeere");
+        public static readonly int TriggerThrow = Animator.StringToHash("TriggerThrow");
     }
     
 }
