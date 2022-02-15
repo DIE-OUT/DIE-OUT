@@ -55,7 +55,7 @@ namespace DieOut.GameModes.Beerenbusch {
             StartCoroutine(MiniDelay());
             if (_beere != null) {
                 if (_currentEatCount >= 1) {
-                    _animator.SetTrigger(AnimatorStringHashes.TriggerEatBeere);
+                    _animator.SetTrigger(AnimatorStringHashes.TriggerEatBerry);
                     _player.GetComponent<Health>().TriggerDamage(_damage, DamageType.Poison);
                     _beere.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
                     _currentEatCount -= 1;
