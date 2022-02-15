@@ -74,4 +74,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dornenkrone/04_Cake.unity
     guid: 205105c82bc697e46bbf7cc00daf1a27
+  - enabled: 1
+    path: Assets/Scenes/Dornenkrone/Dornenkrone_Gina.unity
+    guid: 3c7d76a4288a46f41bd80e11a7c6df64
   m_configObjects: {}

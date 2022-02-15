@@ -40,6 +40,10 @@ MonoBehaviour:
       m_SceneAsset: {fileID: 102900000, guid: 205105c82bc697e46bbf7cc00daf1a27, type: 3}
       m_SceneName: 04_Cake
     _displayName: CakeMap
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 3c7d76a4288a46f41bd80e11a7c6df64, type: 3}
+      m_SceneName: Dornenkrone_Gina
+    _displayName: Jungle Ruins [Map05L]
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 30f8850d14e046f4fade8b1f57be951d, type: 3}
     m_SceneName: Dornenkrone_Management
