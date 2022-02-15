@@ -16,7 +16,7 @@ namespace DieOut.GameModes.Gewitterwolke {
         
         private float _timer = 0;
         [SerializeField] [MinMaxSlider(0, 60)] private Vector2 _delayRange = new Vector2(10, 30);
-        
+        [SerializeField] private int _damage = 100;
         public GameObject _lastHit;
         public Vector3 _collision = Vector3.zero;
         private Vector3 _height = new Vector3(0, 1, 0);
@@ -97,7 +97,7 @@ namespace DieOut.GameModes.Gewitterwolke {
             Debug.Log("Lightning strikes!");
             if (_playersUnderGewitterwolke.Count != 0) {
                 foreach (Movable _player in _playersUnderGewitterwolke) {
-                    _player.GetComponent<Health>().TriggerDamage(100);
+                    _player.GetComponent<Health>().TriggerDamage(_damage, DamageType.Lightning);
                 }
             }
             yield return new WaitForSeconds(1f);

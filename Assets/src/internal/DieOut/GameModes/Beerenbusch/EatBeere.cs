@@ -48,12 +48,12 @@ namespace DieOut.GameModes.Beerenbusch {
             yield return new WaitForSeconds(0.2f);
             OnEnable();
         }
-        
+
         private void OnEat(InputAction.CallbackContext _) {
             StartCoroutine(MiniDelay());
             if (_beere != null) {
                 if (_currentEatCount >= 1) {
-                    _player.GetComponent<Health>().TriggerDamage(_damage);
+                    _player.GetComponent<Health>().TriggerDamage(_damage, DamageType.Poison);
                     _beere.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
                     _currentEatCount -= 1;
 
