@@ -39,6 +39,10 @@ PrefabInstance:
       propertyPath: _tackleablesToIgnore.Array.data[0]
       value: 
       objectReference: {fileID: 8716224538965769549}
+    - target: {fileID: 6671061574344216572, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 9016826992230045668}
     - target: {fileID: 7257608038744673637, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
       propertyPath: m_Layer
       value: 15

@@ -8,6 +8,8 @@ namespace DieOut.GameModes {
     
     public class PickUpThrowable : MonoBehaviour, IDeviceReceiver {
         
+        [SerializeField] private Animator _animator;
+        
         private InputTable _inputTable;
         private List<Throwable> _throwables;
         private Throwable _aStone;
@@ -71,6 +73,7 @@ namespace DieOut.GameModes {
 
         private void OnThrow(InputAction.CallbackContext _) {
             if (_targetStone != null) {
+                _animator.SetTrigger(AnimatorStringHashes.TriggerThrow);
                 _targetStone._attachedToPlayer = false;
                 _targetStone.TriggerThrow();
             }
