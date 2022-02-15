@@ -9,6 +9,7 @@ namespace DieOut.GameModes {
         private PlayerControls _playerControls;
         private Movable _player;
         private Movable _enemyPlayer;
+        private Tackleable _tackleable;
         private Magmaklumpen _magmaklumpen;
         private Throwable _throwable;
         private ItemPosition _itemPosition;
@@ -38,22 +39,27 @@ namespace DieOut.GameModes {
         // Wenn man einen Enemy mit Throwable hitted, geht dessen Magmaklumpen auf den Werfer über bzw lässt dieser sein Throwable Item fallen
         private void OnCollisionEnter(Collision collision) {
             _enemyPlayer = collision.gameObject.GetComponent<Movable>();
-            
+
             if (_enemyPlayer != null) {
-                _playerControls = _enemyPlayer.GetComponent<PlayerControls>();
-                StartCoroutine(Stun());
-                _magmaklumpen = _enemyPlayer.GetComponentInChildren<Magmaklumpen>();
+                _tackleable = _enemyPlayer.GetComponent<Tackleable>();
+                
+                if (!_tackleable._ccImmunity && !_attachedToPlayer) {
+                    StartCoroutine(_tackleable.CC_Immunity());
+                    _playerControls = _enemyPlayer.GetComponent<PlayerControls>();
+                    StartCoroutine(Stun());
+                    _magmaklumpen = _enemyPlayer.GetComponentInChildren<Magmaklumpen>();
 
-                if (_magmaklumpen != null && _attachedToPlayer == false) {
-                    _itemPosition = _player.GetComponentInChildren<ItemPosition>();
-                    _magmaklumpen.transform.parent = _itemPosition.transform;
-                    _magmaklumpen.transform.position = _itemPosition.transform.position;
-                }
+                    if (_magmaklumpen != null) {
+                        _itemPosition = _player.GetComponentInChildren<ItemPosition>();
+                        _magmaklumpen.transform.parent = _itemPosition.transform;
+                        _magmaklumpen.transform.position = _itemPosition.transform.position;
+                    }
 
-                _throwable = _enemyPlayer.GetComponentInChildren<Throwable>();
+                    _throwable = _enemyPlayer.GetComponentInChildren<Throwable>();
 
-                if (_throwable != null && _attachedToPlayer == false) {
-                    _throwable._attachedToPlayer = false;
+                    if (_throwable != null) {
+                        _throwable._attachedToPlayer = false;
+                    }
                 }
             }
         }
