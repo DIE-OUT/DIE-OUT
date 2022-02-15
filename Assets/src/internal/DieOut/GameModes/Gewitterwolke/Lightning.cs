@@ -21,14 +21,21 @@ namespace DieOut.GameModes.Gewitterwolke {
         private Vector3 _height = new Vector3(0, 1, 0);
         public LayerMask _layer;
         [SerializeField] private GameObject _prefab;
+        [SerializeField] private GameObject _prefabShadow;
+        private GameObject _prefabShadowToDestroy;
 
         void Awake() {
             _gewitterwolke = GetComponent<RandomMovement>();
             _playersUnderGewitterwolke = new List<Movable>();
+            
+            Raycast();
         }
 
         private void Start() {
             _timer = Random.Range(_delayRange.x, _delayRange.y);
+            
+            _prefabShadowToDestroy = Instantiate(_prefabShadow, _collision, Quaternion.identity);
+            Debug.Log(_prefabShadowToDestroy);
         }
 
         void Update() {
@@ -37,6 +44,10 @@ namespace DieOut.GameModes.Gewitterwolke {
             if (_timer <= 0) {
                 StartCoroutine(LightningStrike());
                 _timer = Random.Range(_delayRange.x, _delayRange.y);
+            }
+            else {
+                Raycast();
+                _prefabShadowToDestroy.transform.position = _collision;
             }
         }
 
@@ -66,6 +77,7 @@ namespace DieOut.GameModes.Gewitterwolke {
         }
 
         IEnumerator LightningStrike() {
+            //Destroy(_prefabShadowToDestroy);
             float currentSpeed = _gewitterwolke._navMeshAgent.speed;
             _gewitterwolke._navMeshAgent.speed = 0;
             Raycast();
@@ -80,6 +92,8 @@ namespace DieOut.GameModes.Gewitterwolke {
             }
             yield return new WaitForSeconds(1f);
             _gewitterwolke._navMeshAgent.speed = currentSpeed;
+            
+            //_prefabShadowToDestroy  = Instantiate(_prefabShadow, _collision, Quaternion.identity);
         }
     }
 }
