@@ -17,9 +17,9 @@ namespace DieOut.UI.LoadingScreen {
             _gameObjectToBeEnabled.SetActive(false);
             
             // dont require confirmation if not loading into a game mode
-            if(!Session.HasCurrent || Session.Current.GameModeInstance == null) {
+            if(!Session.HasCurrent || !Session.Current.IsRunning)
                 return;
-            }
+            
             SceneManager.OnEndAsyncLevelLoading += EnableConfirmationButton;
             SceneManager.OnEndAsyncLevelLoading += WaitForConfirmation;
         }

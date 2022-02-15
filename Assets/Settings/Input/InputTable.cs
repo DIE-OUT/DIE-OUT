@@ -206,7 +206,7 @@ public class @InputTable : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""cd19726d-e1b6-4f35-a994-1a01c08a6168"",
-                    ""path"": ""<Keyboard>/h"",
+                    ""path"": ""<Keyboard>/j"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -239,7 +239,7 @@ public class @InputTable : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3e756a7b-e179-495f-9d7c-d2508e033b9d"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -250,7 +250,7 @@ public class @InputTable : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""03c1fa0d-f61b-4d28-a00e-10de7c113c83"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -272,7 +272,18 @@ public class @InputTable : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1cc0c213-d9b1-41ee-91b1-7b19f376133a"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Throw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8aae58c0-03de-4db7-aa2f-63001cd1b997"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",

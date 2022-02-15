@@ -13,7 +13,7 @@ namespace Afired.GameManagement.Sessions {
         
         [OdinSerialize] [ReadOnly] public InputDevice[] InputDevices { get; }
         [OdinSerialize] [ReadOnly] public PlayerColor PlayerColor { get; }
-        [OdinSerialize] [ReadOnly] public string Name => $"Player {PlayerColor.ToString()}";
+        [OdinSerialize] [ReadOnly] public string Name => PlayerColor.ToString();
         public int Score { get; private set; }
         public event OnScoreChanged OnScoreChanged;
         
