@@ -8,6 +8,7 @@ namespace DieOut.GameModes.Interactions {
         [SerializeField] private float _inAirGravityForceUp = 50f;
         [SerializeField] private float _inAirGravityForceDown = 50f;
         [SerializeField] private float _groundGravityForce = 1f;
+        [SerializeField] private float _horizontalDrag = 15f;
         private bool _hasGravity = true;
         private CharacterController _characterController;
         private Vector3 _currentVelocity;
@@ -46,11 +47,11 @@ namespace DieOut.GameModes.Interactions {
                 _currentVelocity += new Vector3(0, -_inAirGravityForceDown * Time.deltaTime, 0);
         }
         
-        //TODO: better drag implementation
         private void ApplyHorizontalDrag() {
-            _currentVelocity = new Vector3(_currentVelocity.x / 1.1f, _currentVelocity.y, _currentVelocity.z / 1.1f);
+            Vector3 newVelocity = _currentVelocity * ( 1 - Time.deltaTime * _horizontalDrag);
+            _currentVelocity = new Vector3(newVelocity.x, _currentVelocity.y, newVelocity.z);
         }
-
+        
         public void Move(Vector3 direction) {
             _move += direction;
         }

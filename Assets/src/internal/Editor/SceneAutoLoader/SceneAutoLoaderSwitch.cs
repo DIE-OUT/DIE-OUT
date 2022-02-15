@@ -25,9 +25,9 @@ namespace DieOut.Editor {
     }
     
     [InitializeOnLoad]
-    public static class DontAutoLoadOnPlayToolbarButton {
+    public static class SceneAutoLoaderSwitch {
 
-        static DontAutoLoadOnPlayToolbarButton() {
+        static SceneAutoLoaderSwitch() {
             ToolbarExtender.LeftToolbarGUI.Add(OnToolbarGui);
         }
 

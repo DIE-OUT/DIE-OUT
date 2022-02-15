@@ -1,16 +1,21 @@
 ﻿using System.Linq;
 using Afired.GameManagement.Sessions;
+using TMPro;
 using UnityEngine;
 
 namespace DieOut.AwardCeremony {
     
+    [RequireComponent(typeof(TMP_Text))]
     public class DebugWinner : MonoBehaviour {
-        
+
+        [SerializeField] private string _prefix;
+        [SerializeField] private string _suffix;
         private Player[] Player => Session.Current.Player;
         
         
         private void Awake() {
-            Debug.Log($"Session ended, a player won {Player.OrderByDescending(player => player.Score).FirstOrDefault()?.InputDevices.FirstOrDefault()?.displayName} with a score of {Player.OrderByDescending(player => player.Score).FirstOrDefault()?.Score}");
+            TMP_Text text = GetComponent<TMP_Text>();
+            text.text = $"{_prefix}{Player.OrderByDescending(player => player.Score).FirstOrDefault()?.Name}{_suffix}";
         }
         
     }
