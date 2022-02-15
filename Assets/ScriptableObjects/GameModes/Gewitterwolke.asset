@@ -32,6 +32,14 @@ MonoBehaviour:
       m_SceneAsset: {fileID: 102900000, guid: c6ab5e65d4c79f747bdda67dd4e8509e, type: 3}
       m_SceneName: GW_Emi_1
     _displayName: GW_Emi_1
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 2b1c1780583ee684d93fac4455ff0a0a, type: 3}
+      m_SceneName: Cottage
+    _displayName: Cottage
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: bf7dfd65b63348c43adfebbb68524c33, type: 3}
+      m_SceneName: Suburbs
+    _displayName: Suburbs
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 531abf1637236224485a003dc1cdc53c, type: 3}
     m_SceneName: Gewitterwolke_Management
