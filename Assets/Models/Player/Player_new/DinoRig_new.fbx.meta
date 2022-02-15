@@ -1,8 +1,20 @@
 fileFormatVersion: 2
-guid: e8785aa15f6b2204b8c41738ac41afdc
+guid: 4a1fc6d43963d6a4d861d69b5e09eb29
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
+  - first:
+      74: 6425083781117909640
+    second: DinoRig|Death_00
+  - first:
+      74: -4288536147848874409
+    second: DinoRig|Death_01
+  - first:
+      74: 8812465293314668999
+    second: DinoRig|Death_02
+  - first:
+      74: 8178584589260409318
+    second: DinoRig|Death_03
   - first:
       74: -5817612768882489617
     second: DinoRig|Idle
@@ -10,17 +22,17 @@ ModelImporter:
       74: 5294548455036524252
     second: DinoRig|Jump
   - first:
-      74: 2167559577022370454
-    second: DinoRig|Jump_01
+      74: 5596006978887619978
+    second: DinoRig|Jump_Fall
   - first:
-      74: 4122852600219191957
-    second: DinoRig|Jump_02
+      74: -5563980379542087958
+    second: DinoRig|Jump_Land
   - first:
-      74: 1826187911399585634
-    second: DinoRig|Tackle_01
+      74: -2054006256125125306
+    second: DinoRig|Tackle_end
   - first:
-      74: -2662751255775536319
-    second: DinoRig|Tackle_02
+      74: 1917801440395023383
+    second: DinoRig|Tackle_start
   - first:
       74: 7739149113444728351
     second: DinoRig|Walk
@@ -52,6 +64,122 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations:
+    - serializedVersion: 16
+      name: DinoRig|Death_00
+      takeName: DinoRig|Death_00
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: DinoRig|Death_01
+      takeName: DinoRig|Death_01
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: DinoRig|Death_02
+      takeName: DinoRig|Death_02
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: DinoRig|Death_03
+      takeName: DinoRig|Death_03
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: DinoRig|Idle
       takeName: DinoRig|Idle
@@ -111,11 +239,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: DinoRig|Jump_01
-      takeName: DinoRig|Jump_01
+      name: DinoRig|Jump_Fall
+      takeName: DinoRig|Jump_Fall
       internalID: 0
       firstFrame: 0
-      lastFrame: 12
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -140,11 +268,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: DinoRig|Jump_02
-      takeName: DinoRig|Jump_02
+      name: DinoRig|Jump_Land
+      takeName: DinoRig|Jump_Land
       internalID: 0
       firstFrame: 0
-      lastFrame: 12
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -169,11 +297,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: DinoRig|Tackle_01
-      takeName: DinoRig|Tackle_01
+      name: DinoRig|Tackle_end
+      takeName: DinoRig|Tackle_end
       internalID: 0
       firstFrame: 0
-      lastFrame: 5
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -198,8 +326,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: DinoRig|Tackle_02
-      takeName: DinoRig|Tackle_02
+      name: DinoRig|Tackle_start
+      takeName: DinoRig|Tackle_start
       internalID: 0
       firstFrame: 0
       lastFrame: 5

@@ -1,23 +1,8 @@
 fileFormatVersion: 2
-guid: 1fdc991cf2761244db990b72743cc29e
+guid: ed09221a197a74443b90d941cf7c36b9
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: -5817612768882489617
-    second: DinoRig|Idle
-  - first:
-      74: 5294548455036524252
-    second: DinoRig|Jump
-  - first:
-      74: 1826187911399585634
-    second: DinoRig|Tackle_01
-  - first:
-      74: -2662751255775536319
-    second: DinoRig|Tackle_02
-  - first:
-      74: 7739149113444728351
-    second: DinoRig|Walk
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -88,7 +73,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
