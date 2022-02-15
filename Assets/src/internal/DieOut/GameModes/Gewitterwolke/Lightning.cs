@@ -1,7 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using DieOut.GameModes.Dornenkrone;
+using System.Threading.Tasks;
+using Afired.GameManagement.Sessions;
 using DieOut.GameModes.Interactions;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -23,22 +24,31 @@ namespace DieOut.GameModes.Gewitterwolke {
         [SerializeField] private GameObject _prefab;
         [SerializeField] private GameObject _prefabShadow;
         private GameObject _prefabShadowToDestroy;
+        private bool _isPrepared;
 
-        void Awake() {
+        private void Awake() {
             _gewitterwolke = GetComponent<RandomMovement>();
             _playersUnderGewitterwolke = new List<Movable>();
-            
-            Raycast();
-        }
 
-        private void Start() {
+            Session.Current.GameModeInstance.OnGameModePrepare += OnGameModePrepare;
+        }
+        
+
+        private Task OnGameModePrepare() {
             _timer = Random.Range(_delayRange.x, _delayRange.y);
             
+            Raycast();
             _prefabShadowToDestroy = Instantiate(_prefabShadow, _collision, Quaternion.identity);
             Debug.Log(_prefabShadowToDestroy);
+            _isPrepared = true;
+            
+            return Task.CompletedTask;
         }
-
-        void Update() {
+        
+        private void Update() {
+            if(!_isPrepared)
+                return;
+            
             _timer -= Time.deltaTime;
             
             if (_timer <= 0) {
