@@ -7,6 +7,7 @@ namespace DieOut.GameModes {
         public static readonly int WalkingSpeed = Animator.StringToHash("walkingSpeed");
         public static readonly int TriggerJump = Animator.StringToHash("triggerJump");
         public static readonly int IsGrounded = Animator.StringToHash("isGrounded");
+        public static readonly int HasItem = Animator.StringToHash("hasItem");
     }
     
 }

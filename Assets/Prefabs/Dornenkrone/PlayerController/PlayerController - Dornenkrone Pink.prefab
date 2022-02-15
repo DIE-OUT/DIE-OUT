@@ -43,6 +43,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5149522483450910838, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 5798417192732611286}
     - target: {fileID: 6028884854241720944, guid: a5b4855d8be002e44a72f4c45e752b3d, type: 3}
       propertyPath: m_Name
       value: PlayerController - Dornenkrone Pink

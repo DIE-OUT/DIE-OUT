@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 7790655366852409336, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 8303468623927833709}
     - target: {fileID: 8017179738592646758, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
