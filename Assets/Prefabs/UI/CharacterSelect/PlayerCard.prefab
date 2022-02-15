@@ -761,7 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b00c71522404b58a40785813b97b29c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiElement: {fileID: 3653440309781392710}
+  _uiElement: {fileID: 3653440309320600537}
 --- !u!1 &4898138772358506316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,14 +1388,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f786cc5fd6e4e7247a27a32ebd38a0d4, type: 3}
---- !u!1 &1667394290375599085 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f786cc5fd6e4e7247a27a32ebd38a0d4, type: 3}
-  m_PrefabInstance: {fileID: 2009361434996580028}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2046911221712189783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f786cc5fd6e4e7247a27a32ebd38a0d4, type: 3}
+  m_PrefabInstance: {fileID: 2009361434996580028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1667394290375599085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f786cc5fd6e4e7247a27a32ebd38a0d4, type: 3}
   m_PrefabInstance: {fileID: 2009361434996580028}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &6050858975600114418
@@ -1529,7 +1529,7 @@ PrefabInstance:
     - target: {fileID: 809266445223721500, guid: 0166a1ebc856b0745b6f8a4ebce65c01, type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
-      objectReference: {fileID: 3653440309781392708}
+      objectReference: {fileID: 0}
     - target: {fileID: 809266445261366492, guid: 0166a1ebc856b0745b6f8a4ebce65c01, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
@@ -1537,7 +1537,7 @@ PrefabInstance:
     - target: {fileID: 809266445261366492, guid: 0166a1ebc856b0745b6f8a4ebce65c01, type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 3653440309819175812}
+      objectReference: {fileID: 0}
     - target: {fileID: 809266445753729601, guid: 0166a1ebc856b0745b6f8a4ebce65c01, type: 3}
       propertyPath: m_Name
       value: Switcher - PlayerColor
@@ -1633,39 +1633,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 809266445753729630, guid: 0166a1ebc856b0745b6f8a4ebce65c01, type: 3}
   m_PrefabInstance: {fileID: 4145764743705954712}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3653440309819175812 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 809266445223721500, guid: 0166a1ebc856b0745b6f8a4ebce65c01, type: 3}
-  m_PrefabInstance: {fileID: 4145764743705954712}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &3653440309781392710 stripped
+--- !u!1 &3653440309320600537 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 809266445261366494, guid: 0166a1ebc856b0745b6f8a4ebce65c01, type: 3}
+  m_CorrespondingSourceObject: {fileID: 809266445753729601, guid: 0166a1ebc856b0745b6f8a4ebce65c01, type: 3}
   m_PrefabInstance: {fileID: 4145764743705954712}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3653440309781392708 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 809266445261366492, guid: 0166a1ebc856b0745b6f8a4ebce65c01, type: 3}
-  m_PrefabInstance: {fileID: 4145764743705954712}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3653440309781392710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3653440309320600519 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 809266445753729631, guid: 0166a1ebc856b0745b6f8a4ebce65c01, type: 3}
   m_PrefabInstance: {fileID: 4145764743705954712}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3653440309320600537}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ced81804304141cda97ab8e59e5566b7, type: 3}
