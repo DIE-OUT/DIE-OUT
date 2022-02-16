@@ -1,4 +1,5 @@
 ﻿using System;
+using Afired.GameManagement.Characters;
 using DieOut.UI.CharacterSelect;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
@@ -12,17 +13,17 @@ namespace Afired.GameManagement.Sessions {
     public class Player {
         
         [OdinSerialize] [ReadOnly] public InputDevice[] InputDevices { get; }
-        [OdinSerialize] [ReadOnly] public PlayerColor PlayerColor { get; }
-        [OdinSerialize] [ReadOnly] public string Name => PlayerColor.ToString();
+        [OdinSerialize] [ReadOnly] public Character Character { get; }
+        [OdinSerialize] [ReadOnly] public string DisplayName => Character.DisplayName;
         public int Score { get; private set; }
         public event OnScoreChanged OnScoreChanged;
         
         
-        public Player(InputDevice[] inputDevices, PlayerColor playerColor) {
+        public Player(InputDevice[] inputDevices, Character character) {
             InputDevices = inputDevices;
-            PlayerColor = playerColor;
+            Character = character;
         }
-
+        
         public void AddScore(int scoreToAdd) {
             if(scoreToAdd < 0)
                 throw new ArgumentOutOfRangeException();

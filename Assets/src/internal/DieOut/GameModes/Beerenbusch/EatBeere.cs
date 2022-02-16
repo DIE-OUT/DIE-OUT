@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Afired.GameManagement.Characters;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Afired.GameManagement.GameModes;
 using DieOut.GameModes.Interactions;
 
 namespace DieOut.GameModes.Beerenbusch {
-    public class EatBeere : MonoBehaviour, IDeviceReceiver {
+    public class EatBeere : MonoBehaviour, IDeviceReceiver, IAnimatorReceiver {
 
-        [SerializeField] private Animator _animator;
-        
+        private Animator _animator;
         private InputTable _inputTable;
 
         private Movable _player;
@@ -31,6 +31,10 @@ namespace DieOut.GameModes.Beerenbusch {
 
         public void SetDevices(InputDevice[] devices) {
             _inputTable.devices = devices;
+        }
+        
+        public void SetAnimator(Animator animator) {
+            _animator = animator;
         }
         
         private void OnEnable() {

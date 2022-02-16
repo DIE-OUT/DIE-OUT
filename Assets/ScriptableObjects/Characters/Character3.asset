@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334ee95ceb874e0aaf61c94f5c68fb64, type: 3}
   m_Name: Character3
   m_EditorClassIdentifier: 
-  _model: {fileID: 919132149155446097, guid: 0202431cc13fa1b49ac47e9bc3b5fc47, type: 3}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _model: {fileID: 7971348782173832059, guid: e7739f9adb4c0bc488855f99e9044923, type: 3}
   _displayName: Yellow
   _color: {r: 0.8962264, g: 0.7130364, b: 0.2747864, a: 1}
-  _avatar: {fileID: 0}

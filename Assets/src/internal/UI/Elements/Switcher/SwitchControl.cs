@@ -55,7 +55,7 @@ namespace Afired.UI.Elements {
         }
         
         public string GetValueAsText() {
-            return _options[CurrentIndex].ToString();
+            return _getString(_options[CurrentIndex]);
         }
 
         private void ClampIndex() {
