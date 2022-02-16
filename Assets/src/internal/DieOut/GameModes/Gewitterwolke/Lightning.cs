@@ -17,7 +17,6 @@ namespace DieOut.GameModes.Gewitterwolke {
         private float _timer = 0;
         [SerializeField] [MinMaxSlider(0, 60)] private Vector2 _delayRange = new Vector2(10, 30);
         [SerializeField] private int _damage = 100;
-        public GameObject _lastHit;
         public Vector3 _collision = Vector3.zero;
         private Vector3 _height = new Vector3(0, 1, 0);
         public LayerMask _layer;
@@ -49,15 +48,14 @@ namespace DieOut.GameModes.Gewitterwolke {
             if(!_isPrepared)
                 return;
             
+            Raycast();
+            _prefabShadowToDestroy.transform.position = _collision;
+            
             _timer -= Time.deltaTime;
             
             if (_timer <= 0) {
                 StartCoroutine(LightningStrike());
                 _timer = Random.Range(_delayRange.x, _delayRange.y);
-            }
-            else {
-                Raycast();
-                _prefabShadowToDestroy.transform.position = _collision;
             }
         }
 
@@ -81,13 +79,12 @@ namespace DieOut.GameModes.Gewitterwolke {
             var ray = new Ray(this.transform.position - _height, -this.transform.up);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100)) {
-                _lastHit = hit.transform.gameObject;
                 _collision = hit.point;
             }
         }
 
         IEnumerator LightningStrike() {
-            //Destroy(_prefabShadowToDestroy);
+            _prefabShadowToDestroy.SetActive(false);
             float currentSpeed = _gewitterwolke._navMeshAgent.speed;
             _gewitterwolke._navMeshAgent.speed = 0;
             Raycast();
@@ -103,7 +100,7 @@ namespace DieOut.GameModes.Gewitterwolke {
             yield return new WaitForSeconds(1f);
             _gewitterwolke._navMeshAgent.speed = currentSpeed;
             
-            //_prefabShadowToDestroy  = Instantiate(_prefabShadow, _collision, Quaternion.identity);
+            _prefabShadowToDestroy.SetActive(true);
         }
     }
 }
