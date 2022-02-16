@@ -15,7 +15,7 @@ namespace DieOut.AwardCeremony {
         
         private void Awake() {
             TMP_Text text = GetComponent<TMP_Text>();
-            text.text = $"{_prefix}{Player.OrderByDescending(player => player.Score).FirstOrDefault()?.Name}{_suffix}";
+            text.text = $"{_prefix}{Player.OrderByDescending(player => player.Score).FirstOrDefault()?.DisplayName}{_suffix}";
         }
         
     }

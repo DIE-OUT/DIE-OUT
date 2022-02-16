@@ -109,7 +109,8 @@ namespace DieOut.Editor {
             
             Player[] players = new Player[playerInputDevices.Count];
             for(int i = 0; i < playerInputDevices.Count; i++) {
-                players[i] = new Player(new InputDevice[] { playerInputDevices[i] }, EnumHelper.GetAllEnumValuesOfType<PlayerColor>().ToArray()[i]);
+//                players[i] = new Player(new InputDevice[] { playerInputDevices[i] }, EnumHelper.GetAllEnumValuesOfType<PlayerColor>().ToArray()[i]);
+                players[i] = new Player(new InputDevice[] { playerInputDevices[i] }, CharacterRegister.Characters[i]);
             }
             
             return players;
