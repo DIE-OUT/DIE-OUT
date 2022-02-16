@@ -4865,6 +4865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0bd32d88364d744baf1cbbb7692931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 0}
   _attachedToPlayer: 0
   _damage: 5
   _damageTickRate: 2

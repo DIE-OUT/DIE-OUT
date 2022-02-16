@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaed8a650ceacd84eb6dd0cbdca4322b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstBusch: 0
   _prefabBeere: {fileID: 6333094394249425747, guid: 90a09469914226d41a0924985e7bf92a, type: 3}
+  _firstBusch: 0
 --- !u!1001 &2379604113565643939
 PrefabInstance:
   m_ObjectHideFlags: 0

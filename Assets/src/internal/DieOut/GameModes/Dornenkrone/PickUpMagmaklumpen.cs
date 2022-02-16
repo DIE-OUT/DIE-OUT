@@ -7,7 +7,7 @@ namespace DieOut.GameModes.Dornenkrone {
         
         private Magmaklumpen _magmaklumpen;
         private ItemPosition _itemPosition;
-        
+
         private void Awake() {
             _itemPosition = GetComponentInChildren<ItemPosition>();
         }
@@ -16,11 +16,11 @@ namespace DieOut.GameModes.Dornenkrone {
             _magmaklumpen = other.GetComponent<Magmaklumpen>();
             
             if (_magmaklumpen != null && _itemPosition.transform.childCount == 0 && _magmaklumpen._attachedToPlayer == false) {
+                //_magmaklumpen._rigidbody.gameObject.SetActive(false);
                 _magmaklumpen._attachedToPlayer = true;
                 _itemPosition.TriggerPickUpKlumpen(_magmaklumpen);
             }
         }
-        
     }
     
 }
