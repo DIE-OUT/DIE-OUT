@@ -9,6 +9,7 @@ namespace DieOut.GameModes {
         public void TriggerPickUpKlumpen(Magmaklumpen _magmaklumpen) {
             _magmaklumpen.transform.SetParent(transform);
             _magmaklumpen.transform.position = transform.position;
+            _magmaklumpen.transform.rotation = transform.rotation;
         }
 
         public void TriggerPickUpThrowable(Throwable _throwable) {
