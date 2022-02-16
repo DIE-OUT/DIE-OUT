@@ -21,10 +21,6 @@ namespace Afired.Helper {
         }
         
         public async Task InvokeAsynchronously() {
-//            Task[] tasks = new Task[_queuedFunctions.Count];
-//            for(int i = 0; i < _queuedFunctions.Count; i++) {
-//                tasks[i] = _queuedFunctions.Dequeue().Invoke();
-//            }
             List<Task> tasks = new List<Task>();
             while(_queuedFunctions.Count > 0) {
                 tasks.Add(_queuedFunctions.Dequeue().Invoke());

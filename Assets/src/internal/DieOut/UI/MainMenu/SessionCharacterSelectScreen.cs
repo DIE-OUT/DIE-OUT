@@ -1,5 +1,4 @@
-﻿using System;
-using Afired.GameManagement.Sessions;
+﻿using Afired.GameManagement.Sessions;
 using Afired.UI;
 using DieOut.UI.CharacterSelect;
 using UnityEngine;
@@ -41,14 +40,12 @@ namespace DieOut.UI.MainMenu {
             
             Session.SetNew(newSession);
             #pragma warning disable CS4014
-            Session.Current.LoadRandomGameMode();
+            Session.Current.Start();
             #pragma warning restore CS4014
         }
 
         private void Back(InputAction.CallbackContext _) {
-            //gameObject.SetActive(false);
             _screenManager.Activate(_screenToGoBackTo);
-            //throw new NotImplementedException();
         }
         
     }

@@ -13,19 +13,34 @@ namespace DieOut.GameModes.Interactions {
         private Tackle _tackle;
         private ItemPosition _itemPosition;
         
+        private SkinnedMeshRenderer _meshRenderer;
+        private Color _origColor;
+        private float flickerTime = 0.5f;
+        
         [SerializeField] private float _stunDuration = 2f;
         [SerializeField] private float _immunity = 3f;
-        public bool tackleImmunity = false;
+        public bool _ccImmunity = false;
         [SerializeField] private float _tackleDistance = 30;
 
         private void Awake() {
             _movable = GetComponent<Movable>();
         }
 
-        private IEnumerator TackleImmunity() {
-            yield return new WaitForSeconds(_stunDuration + _immunity);
-            Debug.Log("tackle immunity OFF");
-            tackleImmunity = false;
+        private void Start() {
+            _meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+            _origColor = _meshRenderer.material.color;
+        }
+
+        public IEnumerator CC_Immunity() {
+            if (_ccImmunity == false) {
+                _ccImmunity = true;
+                Debug.Log("cc immunity ON");
+                FlickerStart();
+                yield return new WaitForSeconds(_stunDuration + _immunity);
+                Debug.Log("cc immunity OFF");
+                _ccImmunity = false;
+                _meshRenderer.material.color = _origColor;
+            }
         }
         
         private IEnumerator TackleStunDuration() {
@@ -33,8 +48,23 @@ namespace DieOut.GameModes.Interactions {
             _movable.GetComponent<PlayerControls>().HasControl = true;
         }
 
+        private void FlickerStart() {
+            _meshRenderer.material.color = Color.gray;
+            StartCoroutine(FlickerStop());
+        }
+
+        private IEnumerator FlickerStop() {
+            yield return new WaitForSeconds(flickerTime);
+            _meshRenderer.material.color = _origColor;
+            
+            if (_ccImmunity) {
+                yield return new WaitForSeconds(flickerTime);
+                FlickerStart();
+            }
+        }
+
         public void TriggerTackle(Movable tacklingPlayer) {
-            if (_movable != null && tackleImmunity == false) {
+            if (_movable != null && _ccImmunity == false) {
                 _movable.GetComponent<PlayerControls>().HasControl = false;
 
                 // Wenn der getacklete Player einen Magmaklumpen trägt, geht dieser auf den tacklenden Player über
@@ -70,10 +100,8 @@ namespace DieOut.GameModes.Interactions {
                 // mit Höhe:
                 //_movable.AddVelocity((_movable.transform.position - tacklingPlayer.transform.position).normalized * _tackleDistance);
             }
-
-            tackleImmunity = true;
-            Debug.Log("tackle immunity ON");
-            StartCoroutine(TackleImmunity());
+            
+            StartCoroutine(CC_Immunity());
             StartCoroutine(TackleStunDuration());
         }
     }

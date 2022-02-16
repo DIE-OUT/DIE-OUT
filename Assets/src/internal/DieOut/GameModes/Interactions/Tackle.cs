@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using Afired.GameManagement.GameModes;
+using DieOut.GameModes.Dornenkrone;
 using UnityEngine;
 
 namespace DieOut.GameModes.Interactions {
@@ -17,7 +18,9 @@ namespace DieOut.GameModes.Interactions {
         private Movable _player;
         private ItemPosition _itemPosition;
         private CooldownIndicator _cooldownIndicator;
-        
+        private Throwable _throwable;
+        private Magmaklumpen _magmaklumpen;
+
         [SerializeField] private float _cooldown = 3f;
         private bool _onCooldown;
         [SerializeField] private float _tackleDistance = 50;
@@ -78,9 +81,16 @@ namespace DieOut.GameModes.Interactions {
             }
 
             // dont do anything if tackling player has an item
+            
+            
             if (_itemPosition.transform.childCount > 0) {
-                Debug.Log("Can`t tackle with item");
-                return;
+                _magmaklumpen = _itemPosition.GetComponentInChildren<Magmaklumpen>();
+                _throwable = _itemPosition.GetComponentInChildren<Throwable>();
+
+                if (_magmaklumpen != null || _throwable != null) {
+                    Debug.Log("Can`t tackle with item");
+                    return;
+                }
             }
 
             if (_player != null) {

@@ -747,7 +747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stunDuration: 2
   _immunity: 3
-  tackleImmunity: 0
+  _ccImmunity: 0
   _tackleDistance: 30
 --- !u!114 &6671061574344216572
 MonoBehaviour:

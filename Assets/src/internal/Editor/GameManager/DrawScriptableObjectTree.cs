@@ -46,6 +46,7 @@ namespace DieOut.Editor.GameManager {
             string path = AssetDatabase.GetAssetPath(Selected);
             AssetDatabase.DeleteAsset(path);
             AssetDatabase.SaveAssets();
+            Selected = null;
         }
         
         [PropertySpace(20)]
@@ -60,10 +61,6 @@ namespace DieOut.Editor.GameManager {
                 Selected = newSelected;
             }
         }
-
-//        public void SetPath(string path) {
-//            _path = path;
-//        }
         
     }
     

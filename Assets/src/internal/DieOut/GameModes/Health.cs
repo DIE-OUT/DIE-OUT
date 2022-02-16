@@ -11,6 +11,8 @@ namespace DieOut.GameModes {
     
     public class Health : MonoBehaviour, IPlayerReceiver {
 
+        [SerializeField] private Animator _animator;
+        
         public event OnDeath OnDeath;
         [SerializeField] private float _maxHealth = 100;
         [SerializeField] private PlayerControls _playerControls;
@@ -35,11 +37,25 @@ namespace DieOut.GameModes {
         private float CalculateHealth() {
             return _health / _maxHealth;
         }
-        
-        public void TriggerDamage(float damage) {
+
+        public void TriggerDamage(float damage, DamageType mannerOfDeath) {
             _health -= damage;
             if(_health <= 0 && !IsDead) {
                 OnDeath?.Invoke(_player);
+
+                switch (mannerOfDeath) {
+                    case DamageType.Fire:
+                        _animator.SetTrigger(AnimatorStringHashes.TriggerFireDeath);
+                        break;
+                    case  DamageType.Lightning:
+                        _animator.SetTrigger(AnimatorStringHashes.TriggerLightningDeath);
+                        break;
+                    case  DamageType.Poison:
+                        _animator.SetTrigger(AnimatorStringHashes.TriggerPoisonDeath);
+                        break;
+                    default:
+                        break;
+                }
                 IsDead = true;
                 if(_playerControls != null)
                     _playerControls.HasControl = false;

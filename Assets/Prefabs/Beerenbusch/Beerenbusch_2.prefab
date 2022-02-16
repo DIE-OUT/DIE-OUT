@@ -132,6 +132,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.09
       objectReference: {fileID: 0}
+    - target: {fileID: 3111952926129784030, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3115451988244758834, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4741466340144984427, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -160,6 +168,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.233
       objectReference: {fileID: 0}
+    - target: {fileID: 6748506319315789735, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6809557832953308748, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.07
@@ -168,6 +180,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 6917530274144671652, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: _prefabBeere
+      value: 
+      objectReference: {fileID: 6333094394249425747, guid: 90a09469914226d41a0924985e7bf92a, type: 3}
     - target: {fileID: 6917530274144671653, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
       propertyPath: m_Name
       value: Beerenbusch_2
@@ -255,6 +271,10 @@ PrefabInstance:
     - target: {fileID: 7362403895085669142, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.095
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514789154104826107, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8827280970890349870, guid: ea8c0abbebc0c24418567d48f1bfa736, type: 3}
       propertyPath: m_IsActive

@@ -10,26 +10,44 @@ namespace DieOut.GameModes.Beerenbusch {
 
         private List<Beere> _beeren;
 
-        [SerializeField] private float _firstGrowTime = 10;
-        [SerializeField] private float _growBackTime = 10;
+        //[SerializeField] private float _firstGrowTime = 10;
+        //[SerializeField] private float _growBackTime = 10;
         private bool _beerenbuschEmpty;
-        private bool _inCoroutine = false;
+        //private bool _inCoroutine = false;
+        [SerializeField] private bool _firstBusch = false;
+
+        private List<BeerenSpawnpoint> _beerenSpawnpoints;
+        [SerializeField] private Beere _prefabBeere;
+        public bool _empty = false;
 
         private void Awake() {
+            _beerenSpawnpoints = GetComponentsInChildren<BeerenSpawnpoint>().ToList();
+            
             _beeren = GetComponentsInChildren<Beere>().ToList();
-            foreach (Beere beere in _beeren) {
-                beere.gameObject.SetActive(false);
+            if (!_firstBusch) {
+                foreach (Beere beere in _beeren) {
+                    beere.gameObject.SetActive(false);
+                }
             }
         }
 
-        private void Start() {
+        /*private void Start() {
             StartCoroutine(FirstGrow());
-        }
+        }*/
         
-        private void Update() {
+        /*private void Update() {
             if (BeerenbuschEmpty() && !_inCoroutine) {
                 _inCoroutine = true;
                 StartCoroutine(BeerenGrowBack());
+            }
+        }*/
+
+        private void Update() {
+            if (BeerenbuschEmpty()) {
+                _empty = true;
+            }
+            else {
+                _empty = false;
             }
         }
 
@@ -44,17 +62,17 @@ namespace DieOut.GameModes.Beerenbusch {
             }
         }
 
-        private IEnumerator FirstGrow() {
+        /*private IEnumerator FirstGrow() {
             yield return new WaitForSeconds(_firstGrowTime);
             foreach (Beere beere in _beeren) {
                 beere.gameObject.SetActive(true);
             }
-        }
+        }*/
 
-        private IEnumerator BeerenGrowBack() { 
-            
-            yield return new WaitForSeconds(_growBackTime);
-            _inCoroutine = false;
+        public void BeerenGrowBack() { 
+            foreach (BeerenSpawnpoint beerenSpawnpoint in _beerenSpawnpoints) {
+                Instantiate(_prefabBeere, beerenSpawnpoint.transform.position, Quaternion.identity);
+            }
         }
     }
 }

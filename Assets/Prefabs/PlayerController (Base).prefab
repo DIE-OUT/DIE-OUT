@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 2091813251688484337}
   - component: {fileID: 2091813251688484342}
   - component: {fileID: 2091813251688484336}
+  - component: {fileID: 710368824962920437}
   m_Layer: 15
   m_Name: PlayerController (Base)
   m_TagString: Untagged
@@ -148,6 +149,7 @@ MonoBehaviour:
   _inAirGravityForceUp: 50
   _inAirGravityForceDown: 50
   _groundGravityForce: 1
+  _horizontalDrag: 15
 --- !u!114 &2091813251688484336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,10 +162,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fc1c5e632c4572a62a560096665589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
   HasControl: 1
-  _deviceTypes: 0
   _cameraAngle: 45
   _movementSpeed: 6
   _jumpForce: 11
   _jumpInputBufferTime: 0.1
   _direction: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &710368824962920437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091813251688484339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f92478779bfa840a7f50be18d7cbff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
