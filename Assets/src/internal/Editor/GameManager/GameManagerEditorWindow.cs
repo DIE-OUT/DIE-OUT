@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Afired.GameManagement.Characters;
 using Afired.GameManagement.GameModes;
 using Afired.GameManagement.Sessions;
 using Sirenix.OdinInspector;
