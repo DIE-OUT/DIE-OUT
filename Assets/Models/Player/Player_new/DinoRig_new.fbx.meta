@@ -19,14 +19,26 @@ ModelImporter:
       74: -5817612768882489617
     second: DinoRig|Idle
   - first:
+      74: -7511220479344724978
+    second: DinoRig|Idle_item_magma
+  - first:
       74: 5294548455036524252
     second: DinoRig|Jump
   - first:
       74: 5596006978887619978
     second: DinoRig|Jump_Fall
   - first:
+      74: -6093700376145899294
+    second: DinoRig|Jump_Fall_item_magma
+  - first:
+      74: -168500593512939256
+    second: DinoRig|Jump_item_magma
+  - first:
       74: -5563980379542087958
     second: DinoRig|Jump_Land
+  - first:
+      74: -7397511783203757888
+    second: DinoRig|Jump_Land_item_magma
   - first:
       74: -2054006256125125306
     second: DinoRig|Tackle_end
@@ -36,6 +48,9 @@ ModelImporter:
   - first:
       74: 7739149113444728351
     second: DinoRig|Walk
+  - first:
+      74: 8060177393588915990
+    second: DinoRig|Walk_item_magma
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -98,7 +113,7 @@ ModelImporter:
       takeName: DinoRig|Death_01
       internalID: 0
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 41
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -210,6 +225,35 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
+      name: DinoRig|Idle_item_magma
+      takeName: DinoRig|Idle_item_magma
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
       name: DinoRig|Jump
       takeName: DinoRig|Jump
       internalID: 0
@@ -268,8 +312,95 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
+      name: DinoRig|Jump_Fall_item_magma
+      takeName: DinoRig|Jump_Fall_item_magma
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: DinoRig|Jump_item_magma
+      takeName: DinoRig|Jump_item_magma
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
       name: DinoRig|Jump_Land
       takeName: DinoRig|Jump_Land
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: DinoRig|Jump_Land_item_magma
+      takeName: DinoRig|Jump_Land_item_magma
       internalID: 0
       firstFrame: 0
       lastFrame: 20
@@ -357,6 +488,35 @@ ModelImporter:
     - serializedVersion: 16
       name: DinoRig|Walk
       takeName: DinoRig|Walk
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: DinoRig|Walk_item_magma
+      takeName: DinoRig|Walk_item_magma
       internalID: 0
       firstFrame: 0
       lastFrame: 20
