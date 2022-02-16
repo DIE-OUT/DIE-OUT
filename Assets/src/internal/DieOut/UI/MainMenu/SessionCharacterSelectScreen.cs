@@ -1,4 +1,5 @@
-﻿using Afired.GameManagement.Sessions;
+﻿using System;
+using Afired.GameManagement.Sessions;
 using Afired.UI;
 using DieOut.UI.CharacterSelect;
 using UnityEngine;
@@ -11,15 +12,12 @@ namespace DieOut.UI.MainMenu {
 
         [SerializeField] private SessionSettingsScreen _sessionSettingsScreen;
         [SerializeField] private PlayerManager _playerManager;
-        [SerializeField] private ScreenManager _screenManager;
-        [SerializeField] private Screen _screenToGoBackTo;
         private InputTable _inputTable;
         
         
         private void Awake() {
             _inputTable = new InputTable();
             _inputTable.Navigation.SessionStart.performed += TryToStartSession;
-            _inputTable.Navigation.Back.performed += Back;
         }
 
         private void OnEnable() {
@@ -28,6 +26,10 @@ namespace DieOut.UI.MainMenu {
 
         private void OnDisable() {
             _inputTable.Disable();
+        }
+
+        private void OnDestroy() {
+            _inputTable.Dispose();
         }
 
         private void TryToStartSession(InputAction.CallbackContext _) {
@@ -42,10 +44,6 @@ namespace DieOut.UI.MainMenu {
             #pragma warning disable CS4014
             Session.Current.Start();
             #pragma warning restore CS4014
-        }
-
-        private void Back(InputAction.CallbackContext _) {
-            _screenManager.Activate(_screenToGoBackTo);
         }
         
     }

@@ -8,15 +8,11 @@ namespace DieOut.UI.QuickPlay {
         [SerializeField] private GameObject _quickMapSelectHeaderPrefab;
         [SerializeField] private GameObject _quickMapSelectButtonPrefab;
 
-        private void Awake() {
-
-            foreach(GameMode gameMode in GameModeRegister.GameModes) {
-                Instantiate(_quickMapSelectHeaderPrefab, transform).GetComponent<QuickMapSelectHeader>().Init(gameMode);
-                foreach(Map map in gameMode.Maps) {
-                    Instantiate(_quickMapSelectButtonPrefab, transform).GetComponent<QuickMapSelectButton>().Init(gameMode, map);
-                }
+        public void Init(GameMode gameMode) {
+            Instantiate(_quickMapSelectHeaderPrefab, transform).GetComponent<QuickMapSelectHeader>().Init(gameMode);
+            foreach(Map map in gameMode.Maps) {
+                Instantiate(_quickMapSelectButtonPrefab, transform).GetComponent<QuickMapSelectButton>().Init(gameMode, map);
             }
-            
         }
         
     }
