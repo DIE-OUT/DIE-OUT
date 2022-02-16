@@ -163,9 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e301df86914964445ae412721f2e7e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delayRange: {x: 10.060165, y: 30}
-  _damage: 100
-  _lastHit: {fileID: 0}
+  _delayRange: {x: 5.1442323, y: 9.951923}
+  _damage: 34
   _collision: {x: 0, y: 0, z: 0}
   _layer:
     serializedVersion: 2
