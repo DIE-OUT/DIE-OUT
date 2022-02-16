@@ -2,14 +2,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
+using Afired.GameManagement.Characters;
 using Afired.GameManagement.GameModes;
 
 namespace DieOut.GameModes {
     
-    public class PickUpThrowable : MonoBehaviour, IDeviceReceiver {
+    public class PickUpThrowable : MonoBehaviour, IDeviceReceiver, IAnimatorReceiver {
         
-        [SerializeField] private Animator _animator;
-        
+        private Animator _animator;
         private InputTable _inputTable;
         private List<Throwable> _throwables;
         private Throwable _aStone;
@@ -29,6 +29,10 @@ namespace DieOut.GameModes {
 
         public void SetDevices(InputDevice[] devices) {
             _inputTable.devices = devices;
+        }
+        
+        public void SetAnimator(Animator animator) {
+            _animator = animator;
         }
         
         private void OnEnable() {

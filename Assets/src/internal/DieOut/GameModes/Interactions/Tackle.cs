@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Afired.GameManagement.Characters;
 using UnityEngine.InputSystem;
 using Afired.GameManagement.GameModes;
 using DieOut.GameModes.Dornenkrone;
@@ -9,9 +10,9 @@ using UnityEngine;
 namespace DieOut.GameModes.Interactions {
     
     [RequireComponent(typeof(Collider))]
-    public class Tackle : MonoBehaviour, IDeviceReceiver {
+    public class Tackle : MonoBehaviour, IDeviceReceiver, IAnimatorReceiver {
 
-        [SerializeField] private Animator _animator;
+        private Animator _animator;
         private InputTable _inputTable;
         
         [SerializeField] private List<Tackleable> _tackleablesToIgnore;
@@ -37,6 +38,10 @@ namespace DieOut.GameModes.Interactions {
         
         public void SetDevices(InputDevice[] devices) {
             _inputTable.devices = devices;
+        }
+        
+        public void SetAnimator(Animator animator) {
+            _animator = animator;
         }
         
         private void OnEnable() {

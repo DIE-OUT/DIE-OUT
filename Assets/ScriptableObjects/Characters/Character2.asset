@@ -21,6 +21,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  _model: {fileID: 919132149155446097, guid: 09dd68227fc25a3488ae48653628c373, type: 3}
+  _model: {fileID: 7971348782173832059, guid: e7739f9adb4c0bc488855f99e9044923, type: 3}
   _displayName: Pink
   _color: {r: 0.8773585, g: 0.45109472, b: 0.6736661, a: 1}
