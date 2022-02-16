@@ -2,6 +2,7 @@
 
 namespace Afired.GameManagement.Characters {
     
+    [AttributeUsage(AttributeTargets.Field)]
     public class NeedsComponentInChildren : Attribute {
         
         public Type[] Types;
