@@ -226,90 +226,12 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1182329727167253051}
-    - {fileID: 1667394290375599085}
-    - {fileID: 3552186159210165486}
-    - {fileID: 9152859266387902804}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: _modelPreviewPrefabsGameObjects
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[DieOut.UI.CharacterSelect.PlayerColor,
-        Assembly-CSharp],[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[DieOut.UI.CharacterSelect.PlayerColor,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 4
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 0
-    - Name: $v
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
-    - Name: $v
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 2
-    - Name: $v
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 3
-    - Name: $v
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   _rotationSpeed: 10
   _previewModelGameObjectNone: {fileID: 40846182585866948}
 --- !u!1 &2018035554614512271
@@ -577,13 +499,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ee55d9d90348608d0d40f41ab56484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorSwitcher: {fileID: 3653440309320600519}
+  _characterSwitcher: {fileID: 3653440309320600519}
   _modelPreviewManager: {fileID: 7791563893558296963}
   _renderTextureDisplay: {fileID: 1840979567150347493}
   _renderTextureCamera: {fileID: 8924147713732068173}
   _gameObjectToActivateWhenControlAssigned: {fileID: 2018035554614512271}
   _gameObjectToDeactivateWhenControlAssigned: {fileID: 1125534841521024663}
-  PlayerColor: 0
 --- !u!114 &5039220238329956785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1540,7 +1461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 809266445753729601, guid: 0166a1ebc856b0745b6f8a4ebce65c01, type: 3}
       propertyPath: m_Name
-      value: Switcher - PlayerColor
+      value: Switcher - Character
       objectReference: {fileID: 0}
     - target: {fileID: 809266445753729630, guid: 0166a1ebc856b0745b6f8a4ebce65c01, type: 3}
       propertyPath: m_Pivot.x

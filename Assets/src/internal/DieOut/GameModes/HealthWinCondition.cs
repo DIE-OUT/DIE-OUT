@@ -1,18 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Afired.GameManagement.Sessions;
-using DieOut.GameModes.Beerenbusch;
 using UnityEngine;
 
-namespace DieOut.GameModes.Gewitterwolke {
+namespace DieOut.GameModes {
     
-    public class BeerenbuschWincondition : MonoBehaviour {
+    public class HealthWinCondition : MonoBehaviour {
         
-        [SerializeField] private BeerenbuschPlayerSpawner _beerenbuschPlayerSpawner;
+        [SerializeField] private GenericPlayerSpawner _genericPlayerSpawner;
         private List<Player> _playersStillAlive;
         
         private void Awake() {
-            _beerenbuschPlayerSpawner.OnPlayersSpawned += OnPlayersSpawned;
+            _genericPlayerSpawner.OnPlayersSpawned += OnPlayersSpawned;
         }
 
         private void OnPlayersSpawned(GameObject[] playerGameObjects) {

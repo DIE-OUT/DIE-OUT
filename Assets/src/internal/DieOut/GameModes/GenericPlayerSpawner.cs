@@ -1,18 +1,15 @@
-﻿using System.Collections.Generic;
-using Afired.GameManagement.GameModes;
+﻿using Afired.GameManagement.GameModes;
 using Afired.GameManagement;
 using Afired.GameManagement.Characters;
 using Afired.GameManagement.Sessions;
 using DieOut.GameModes.Interactions;
-using DieOut.UI.CharacterSelect;
-using Sirenix.Serialization;
 using UnityEngine;
 
-namespace DieOut.GameModes.Gewitterwolke {
+namespace DieOut.GameModes {
 
     public delegate void OnPlayersSpawned(GameObject[] playerGameObjects);
     
-    public class GewitterwolkePlayerSpawner : PlayerSpawner {
+    public class GenericPlayerSpawner : PlayerSpawner {
         
         public event OnPlayersSpawned OnPlayersSpawned;
         //[OdinSerialize] private Dictionary<PlayerColor, GameObject> _gewitterwolkePlayerPrefabs = new Dictionary<PlayerColor, GameObject>();
