@@ -12,7 +12,6 @@ namespace DieOut.GameModes {
     public class GenericPlayerSpawner : PlayerSpawner {
         
         public event OnPlayersSpawned OnPlayersSpawned;
-        //[OdinSerialize] private Dictionary<PlayerColor, GameObject> _gewitterwolkePlayerPrefabs = new Dictionary<PlayerColor, GameObject>();
         [SerializeField] private GameObject _playerControllerPrefab;
         private GameObject[] _playerGameObjects;
         
@@ -35,10 +34,14 @@ namespace DieOut.GameModes {
                 Animator animator = playerModelGameObject.GetComponentInChildren<Animator>();
                 ItemPositionTag itemPositionTag = playerModelGameObject.GetComponentInChildren<ItemPositionTag>();
                 
-//                IAnimatorReceiver[] animatorReceivers = playerControllerGameObject.GetComponentsInChildren<IAnimatorReceiver>(true);
-//                foreach(IAnimatorReceiver animatorReceiver in animatorReceivers) {
-//                    animatorReceiver.SetAnimator(players[i]);
-//                }
+                IAnimatorReceiver[] animatorReceivers = playerControllerGameObject.GetComponentsInChildren<IAnimatorReceiver>(true);
+                foreach(IAnimatorReceiver animatorReceiver in animatorReceivers) {
+                    animatorReceiver.SetAnimator(animator);
+                }
+                IItemPositionTagReceiver[] itemPositionTagReceivers = playerControllerGameObject.GetComponentsInChildren<IItemPositionTagReceiver>(true);
+                foreach(IItemPositionTagReceiver itemPositionTagReceiver in itemPositionTagReceivers) {
+                    itemPositionTagReceiver.SetItemPositionTag(itemPositionTag);
+                }
                 
                 
                 PlayerControls playerControls = playerControllerGameObject.GetComponent<PlayerControls>();
