@@ -20,9 +20,19 @@ namespace DieOut.GameModes.Dornenkrone {
         }
 
         private void Update() {
-            if (_attachedToPlayer == true && _finishedTick == true) {
+            if (_attachedToPlayer == true) {
                 GetAttachedPlayer();
-                StartCoroutine(ApplyTickDamage());
+                GetComponent<Rigidbody>().useGravity = false;
+                _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+                
+                if (_finishedTick == true) {
+                    StartCoroutine(ApplyTickDamage());
+                }
+            }
+            else {
+                transform.SetParent(null);
+                GetComponent<Rigidbody>().useGravity = true;
+                _rigidbody.constraints = RigidbodyConstraints.None;
             }
         }
         
@@ -39,7 +49,10 @@ namespace DieOut.GameModes.Dornenkrone {
             
             if (_health.IsDead) {
                 this._attachedToPlayer = false;
-                //_rigidbody.gameObject.SetActive(true);
+                transform.SetParent(null);
+                GetComponent<Rigidbody>().useGravity = true;
+                _rigidbody.constraints = RigidbodyConstraints.None;
+                _rigidbody.AddForce(transform.forward * 100);
             }
             
         }
