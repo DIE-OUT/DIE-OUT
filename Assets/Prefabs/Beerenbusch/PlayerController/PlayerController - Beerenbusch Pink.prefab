@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 479273045802347044, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 9016826992230045668}
     - target: {fileID: 1898641183200528540, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
       propertyPath: m_Layer
       value: 15

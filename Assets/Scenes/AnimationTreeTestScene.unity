@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -636,11 +636,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417140518}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!95 &515805483 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6157964266084766156, guid: ad26df03d0e09ed4298b8634f399c2ec, type: 3}
-  m_PrefabInstance: {fileID: 2023235605}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &611426980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3094,10 +3089,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4124152112601623131, guid: ad26df03d0e09ed4298b8634f399c2ec, type: 3}
-      propertyPath: _animator
-      value: 
-      objectReference: {fileID: 515805483}
-    - target: {fileID: 4124152112601623131, guid: ad26df03d0e09ed4298b8634f399c2ec, type: 3}
       propertyPath: _tackling
       value: 0
       objectReference: {fileID: 0}
@@ -3150,24 +3141,8 @@ PrefabInstance:
       value: PlayerController - Dornenkrone Blue
       objectReference: {fileID: 0}
     - target: {fileID: 4674564476039170482, guid: ad26df03d0e09ed4298b8634f399c2ec, type: 3}
-      propertyPath: _animator
-      value: 
-      objectReference: {fileID: 515805483}
-    - target: {fileID: 4674564476039170482, guid: ad26df03d0e09ed4298b8634f399c2ec, type: 3}
       propertyPath: _jumpForce
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550894653743163292, guid: ad26df03d0e09ed4298b8634f399c2ec, type: 3}
-      propertyPath: m_RenderingLayerMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7729765046507996580, guid: ad26df03d0e09ed4298b8634f399c2ec, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 8119599162778119489, guid: ad26df03d0e09ed4298b8634f399c2ec, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad26df03d0e09ed4298b8634f399c2ec, type: 3}

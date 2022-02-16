@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 7589733963783619630, guid: f3f03eab08736ed40820a8ba4906a218, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 5235833472017941169}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3f03eab08736ed40820a8ba4906a218, type: 3}
 --- !u!4 &4658189875533557215 stripped
@@ -163,7 +167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8b8a577acc810041a7f2b7015a8a306, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.951
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8b8a577acc810041a7f2b7015a8a306, type: 3}
       propertyPath: m_LocalPosition.z
