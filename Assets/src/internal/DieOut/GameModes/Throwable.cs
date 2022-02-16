@@ -5,8 +5,7 @@ using DieOut.GameModes.Dornenkrone;
 
 namespace DieOut.GameModes {
     public class Throwable : MonoBehaviour {
-
-        private PlayerControls _playerControls;
+        
         private Movable _player;
         private Movable _enemyPlayer;
         private Tackleable _tackleable;
@@ -16,7 +15,6 @@ namespace DieOut.GameModes {
         public Rigidbody _rigidbody;
         
         [SerializeField] float _throwForce = 800;
-        [SerializeField] private float _stunDuration = 2;
         public bool _attachedToPlayer = false;
 
         void Start()
@@ -44,9 +42,8 @@ namespace DieOut.GameModes {
                 _tackleable = _enemyPlayer.GetComponent<Tackleable>();
                 
                 if (!_tackleable._ccImmunity && !_attachedToPlayer) {
-                    StartCoroutine(_tackleable.CC_Immunity());
-                    _playerControls = _enemyPlayer.GetComponent<PlayerControls>();
-                    StartCoroutine(Stun());
+                    _tackleable.TriggerCC_Immunity();
+                    _tackleable.TriggerThrowableStun();
                     _magmaklumpen = _enemyPlayer.GetComponentInChildren<Magmaklumpen>();
 
                     if (_magmaklumpen != null) {
@@ -60,14 +57,10 @@ namespace DieOut.GameModes {
                     if (_throwable != null) {
                         _throwable._attachedToPlayer = false;
                     }
+                    
+                    Destroy(this.gameObject);
                 }
             }
-        }
-
-        private IEnumerator Stun() {
-            _playerControls.HasControl = false;
-            yield return new WaitForSeconds(_stunDuration);
-            _playerControls.HasControl = true;
         }
 
         public void TriggerPickUp() {

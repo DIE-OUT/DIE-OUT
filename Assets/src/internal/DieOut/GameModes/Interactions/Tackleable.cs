@@ -7,6 +7,7 @@ namespace DieOut.GameModes.Interactions {
     public class Tackleable : MonoBehaviour {
         
         private Movable _movable;
+        private PlayerControls _playerControls;
         private Magmaklumpen _magmaklumpen;
         private Throwable _throwable;
         private Beere _beere;
@@ -17,13 +18,14 @@ namespace DieOut.GameModes.Interactions {
         private Color _origColor;
         private float flickerTime = 0.5f;
         
-        [SerializeField] private float _stunDuration = 2f;
+        [SerializeField] private float _stunDuration = 3f;
         [SerializeField] private float _immunity = 3f;
         public bool _ccImmunity = false;
         [SerializeField] private float _tackleDistance = 30;
 
         private void Awake() {
             _movable = GetComponent<Movable>();
+            _playerControls = GetComponent<PlayerControls>();
         }
 
         private void Start() {
@@ -31,7 +33,11 @@ namespace DieOut.GameModes.Interactions {
             _origColor = _meshRenderer.material.color;
         }
 
-        public IEnumerator CC_Immunity() {
+        public void TriggerCC_Immunity() {
+            StartCoroutine(CC_Immunity());
+        }
+        
+        private IEnumerator CC_Immunity() {
             if (_ccImmunity == false) {
                 _ccImmunity = true;
                 Debug.Log("cc immunity ON");
@@ -46,6 +52,16 @@ namespace DieOut.GameModes.Interactions {
         private IEnumerator TackleStunDuration() {
             yield return new WaitForSeconds(_stunDuration);
             _movable.GetComponent<PlayerControls>().HasControl = true;
+        }
+
+        public void TriggerThrowableStun() {
+            StartCoroutine(ThrowableStunDuration());
+        }
+        
+        private IEnumerator ThrowableStunDuration() {
+            _playerControls.HasControl = false;
+            yield return new WaitForSeconds(_stunDuration);
+            _playerControls.HasControl = true;
         }
 
         private void FlickerStart() {
