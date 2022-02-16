@@ -155,90 +155,13 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 5457652999088629894, guid: 019a71863e5078c458a393ca359b37a2, type: 3}
-    - {fileID: 6609797013805476409, guid: 09042a5b871809841b13c81ab98cfc8c, type: 3}
-    - {fileID: 2064587291792322225, guid: 468607988bad7c04bb0ad21934d525a1, type: 3}
-    - {fileID: 4658189875533557214, guid: f970e6091437b814ca41f69979e54065, type: 3}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: _gewitterwolkePlayerPrefabs
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[DieOut.UI.CharacterSelect.PlayerColor,
-        Assembly-CSharp],[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[DieOut.UI.CharacterSelect.PlayerColor,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 4
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 0
-    - Name: $v
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
-    - Name: $v
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 2
-    - Name: $v
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 3
-    - Name: $v
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
+  _playerControllerPrefab: {fileID: 31371403374412154, guid: f3f03eab08736ed40820a8ba4906a218, type: 3}
 --- !u!4 &9063815
 Transform:
   m_ObjectHideFlags: 0
@@ -279,10 +202,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 121322892}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c6be1e6a5447b8ba9e772a36572670, type: 3}
+  m_Script: {fileID: 11500000, guid: a3c74e2372b549e58ddf12c537ccc014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gewitterwolkePlayerSpawner: {fileID: 9063814}
+  _genericPlayerSpawner: {fileID: 9063814}
 --- !u!4 &121322894
 Transform:
   m_ObjectHideFlags: 0

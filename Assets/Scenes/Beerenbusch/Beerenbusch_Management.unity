@@ -149,10 +149,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1007278894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f101fecf96c49e28e2ec03a0d0a5c4d, type: 3}
+  m_Script: {fileID: 11500000, guid: a3c74e2372b549e58ddf12c537ccc014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _beerenbuschPlayerSpawner: {fileID: 1457254766}
+  _genericPlayerSpawner: {fileID: 1457254766}
 --- !u!4 &1007278896
 Transform:
   m_ObjectHideFlags: 0
@@ -193,96 +193,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1457254765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 493bc17507de4ad78d8862ab20aa977b, type: 3}
+  m_Script: {fileID: 11500000, guid: d651bd734031471a928b89e18e53abae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 4062989977369434725, guid: d00b8d69d50b2e04d86fa4bf40f8f47e, type: 3}
-    - {fileID: 8713480487155286648, guid: 45057b44d23f6294086074cd2e790885, type: 3}
-    - {fileID: 2136787690526704570, guid: c18425d0a648f3f498b4c580e207d7c4, type: 3}
-    - {fileID: 9141662400828032916, guid: c31123722edeea245b3477f6503802bb, type: 3}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: _beerenbuschPlayerPrefabs
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[DieOut.UI.CharacterSelect.PlayerColor,
-        Assembly-CSharp],[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[DieOut.UI.CharacterSelect.PlayerColor,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 4
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 0
-    - Name: $v
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
-    - Name: $v
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 2
-    - Name: $v
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 3
-    - Name: $v
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
+  _playerControllerPrefab: {fileID: 8701471770111088126, guid: e931f16f15ca3eb41af0fa848561077b, type: 3}
 --- !u!4 &1457254767
 Transform:
   m_ObjectHideFlags: 0
