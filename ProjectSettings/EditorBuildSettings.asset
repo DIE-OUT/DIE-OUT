@@ -39,7 +39,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Scoreboard.unity
     guid: 4a95a3295be56194788f84d4c9a1e7b9
   - enabled: 1
-    path: Assets/Scenes/AwardCeremony.unity
+    path: Assets/Scenes/AwardCeremony/AwardCeremony.unity
     guid: ce69a046399cd7a41a9a09cb7396ba1d
   - enabled: 1
     path: Assets/Scenes/Gewitterwolke/Gewitterwolke_Management.unity

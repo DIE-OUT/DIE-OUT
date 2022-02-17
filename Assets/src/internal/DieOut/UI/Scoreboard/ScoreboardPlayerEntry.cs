@@ -10,6 +10,7 @@ namespace DieOut.UI.Scoreboard {
         private Player _player;
         [SerializeField] private TMP_Text _playersIdentificationText;
         [SerializeField] private TMP_Text _playersScoreText;
+        [SerializeField] private ScoreboardScoreIconList _scoreboardScoreIconList;
         
         
         public void Init(Player player) {
@@ -24,7 +25,10 @@ namespace DieOut.UI.Scoreboard {
             if(_player is null)
                 throw new Exception("scoreboard player entry is refreshed without a player assigned");
             _playersIdentificationText.text = _player.DisplayName;
-            _playersScoreText.text = _player.Score.ToString();
+            if(_playersScoreText != null)
+                _playersScoreText.text = _player.Score.ToString();
+            if(_scoreboardScoreIconList != null)
+                _scoreboardScoreIconList.SetScore(_player.Score);
         }
         
     }
