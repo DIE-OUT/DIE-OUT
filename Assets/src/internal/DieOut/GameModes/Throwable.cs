@@ -15,6 +15,7 @@ namespace DieOut.GameModes {
         public Rigidbody _rigidbody;
         
         [SerializeField] float _throwForce = 800;
+        [SerializeField] private float _throwAngle = 20;
         public bool _attachedToPlayer = false;
 
         void Start()
@@ -68,9 +69,9 @@ namespace DieOut.GameModes {
         }
 
         public void TriggerThrow() {
+            GetComponent<Rigidbody>().GetComponentInParent<ItemPosition>().transform.Rotate(_throwAngle, 0, 0, Space.Self);
             GetComponent<Rigidbody>().AddForce(GetComponentInParent<ItemPosition>().transform.forward * _throwForce);
         }
-        
     }
     
 }
