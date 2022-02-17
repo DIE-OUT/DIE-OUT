@@ -1,4 +1,5 @@
-﻿using Afired.GameManagement.Sessions;
+﻿using System.Linq;
+using Afired.GameManagement.Sessions;
 using UnityEngine;
 
 namespace DieOut.UI.Scoreboard {
@@ -8,7 +9,7 @@ namespace DieOut.UI.Scoreboard {
         [SerializeField] private GameObject _scoreboardPlayerEntryPrefab;
         
         
-        private void Awake() {
+        private void OnEnable() {
             Refresh();
         }
 
@@ -17,10 +18,11 @@ namespace DieOut.UI.Scoreboard {
                 Destroy(transform.GetChild(i).gameObject);
             }
             
-            for(int i = 0; i < Session.Current.PlayerCount; i++) {
+            foreach(Player player in Session.Current.Player.OrderByDescending(player => player.Score)) {
                 GameObject scoreboardPlayerEntry = Instantiate(_scoreboardPlayerEntryPrefab, transform);
-                scoreboardPlayerEntry.GetComponent<ScoreboardPlayerEntry>().Init(Session.Current.Player[i]);
+                scoreboardPlayerEntry.GetComponent<ScoreboardPlayerEntry>().Init(player);
             }
+            
         }
         
     }
