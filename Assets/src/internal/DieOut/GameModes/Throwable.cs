@@ -4,24 +4,22 @@ using UnityEngine;
 using DieOut.GameModes.Dornenkrone;
 
 namespace DieOut.GameModes {
-    public class Throwable : MonoBehaviour {
+    public abstract class Throwable : MonoBehaviour {
         
-        private Movable _player;
-        private Movable _enemyPlayer;
-        private Tackleable _tackleable;
-        private Magmaklumpen _magmaklumpen;
-        private Throwable _throwable;
-        private ItemPosition _itemPosition;
-        public Rigidbody _rigidbody;
-        
+        protected Movable _player;
+        protected Movable _enemyPlayer;
+        protected ItemPosition _itemPosition;
+        protected Throwable _throwable;
+        protected Rigidbody _rigidbody;
+
         [SerializeField] float _throwForce = 800;
         [SerializeField] private float _throwAngle = 20;
         public bool _attachedToPlayer = false;
 
-        void Start()
+        void Start()                                 
         {
             _rigidbody = GetComponent<Rigidbody>();
-        }
+        }                                         
         
         void Update() {
             if (_attachedToPlayer == true) {
@@ -35,35 +33,6 @@ namespace DieOut.GameModes {
             }
         }
 
-        // Wenn man einen Enemy mit Throwable hitted, geht dessen Magmaklumpen auf den Werfer über bzw lässt dieser sein Throwable Item fallen
-        private void OnCollisionEnter(Collision collision) {
-            _enemyPlayer = collision.gameObject.GetComponent<Movable>();
-
-            if (_enemyPlayer != null) {
-                _tackleable = _enemyPlayer.GetComponent<Tackleable>();
-                
-                if (!_tackleable._ccImmunity && !_attachedToPlayer) {
-                    _tackleable.TriggerCC_Immunity();
-                    _tackleable.TriggerThrowableStun();
-                    _magmaklumpen = _enemyPlayer.GetComponentInChildren<Magmaklumpen>();
-
-                    if (_magmaklumpen != null) {
-                        _itemPosition = _player.GetComponentInChildren<ItemPosition>();
-                        _magmaklumpen.transform.parent = _itemPosition.transform;
-                        _magmaklumpen.transform.position = _itemPosition.transform.position;
-                    }
-
-                    _throwable = _enemyPlayer.GetComponentInChildren<Throwable>();
-
-                    if (_throwable != null) {
-                        _throwable._attachedToPlayer = false;
-                    }
-                    
-                    Destroy(this.gameObject);
-                }
-            }
-        }
-
         public void TriggerPickUp() {
             _player = GetComponentInParent<Movable>();
         }
@@ -73,5 +42,4 @@ namespace DieOut.GameModes {
             GetComponent<Rigidbody>().AddForce(GetComponentInParent<ItemPosition>().transform.forward * _throwForce);
         }
     }
-    
 }

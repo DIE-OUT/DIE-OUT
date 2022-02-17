@@ -45,6 +45,7 @@ namespace DieOut.GameModes {
 
         public void TriggerDamage(float damage, DamageType mannerOfDeath) {
             _health -= damage;
+            
             if(_health <= 0 && !IsDead) {
                 OnDeath?.Invoke(_player);
 
@@ -65,6 +66,10 @@ namespace DieOut.GameModes {
                 if(_playerControls != null)
                     _playerControls.HasControl = false;
             }
+        }
+
+        public void Heal(float healAmount) {
+            _health += healAmount;
         }
 
         public void SetPlayer(Player player) {

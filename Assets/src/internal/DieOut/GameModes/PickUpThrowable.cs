@@ -12,8 +12,8 @@ namespace DieOut.GameModes {
         private Animator _animator;
         private InputTable _inputTable;
         private List<Throwable> _throwables;
-        private Throwable _aStone;
-        private Throwable _targetStone;
+        private Throwable _aThrowable;
+        private Throwable _targetThrowable;
         private ItemPosition _itemPosition;
 
         private void Awake() {
@@ -44,18 +44,18 @@ namespace DieOut.GameModes {
         }
 
         private void OnTriggerEnter(Collider other) {
-            _aStone = other.GetComponent<Throwable>();
+            _aThrowable = other.GetComponent<Throwable>();
             
-            if (_aStone != null) {
-                _throwables.Add(_aStone);
+            if (_aThrowable != null) {
+                _throwables.Add(_aThrowable);
             }
         }
 
         private void OnTriggerExit(Collider other) {
-            _aStone = other.GetComponent<Throwable>();
+            _aThrowable = other.GetComponent<Throwable>();
             
-            if (_aStone != null) {
-                _throwables.Remove(_aStone);
+            if (_aThrowable != null) {
+                _throwables.Remove(_aThrowable);
             }
         }
         
@@ -65,21 +65,21 @@ namespace DieOut.GameModes {
                 return;
             }
             
-            _targetStone = _throwables
+            _targetThrowable = _throwables
                 .OrderBy(x => Vector2.Distance(this.transform.position, x.transform.position)).First();
             
-            if (_itemPosition.transform.childCount == 0 && _targetStone._attachedToPlayer == false) {
-                _targetStone._attachedToPlayer = true;
-                _itemPosition.TriggerPickUpThrowable(_targetStone);
-                _targetStone.TriggerPickUp();
+            if (_itemPosition.transform.childCount == 0 && _targetThrowable._attachedToPlayer == false) {
+                _targetThrowable._attachedToPlayer = true;
+                _itemPosition.TriggerPickUpThrowable(_targetThrowable);
+                _targetThrowable.TriggerPickUp();
             }
         }
 
         private void OnThrow(InputAction.CallbackContext _) {
-            if (_targetStone != null) {
+            if (_targetThrowable != null) {
                 _animator.SetTrigger(AnimatorStringHashes.TriggerThrow);
-                _targetStone._attachedToPlayer = false;
-                _targetStone.TriggerThrow();
+                _targetThrowable._attachedToPlayer = false;
+                _targetThrowable.TriggerThrow();
             }
         }
         

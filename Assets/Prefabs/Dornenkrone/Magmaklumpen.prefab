@@ -4868,6 +4868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 0}
+  _collider: {fileID: 3431763386969534558}
   _attachedToPlayer: 0
   _damage: 20
   _damageTickRate: 2

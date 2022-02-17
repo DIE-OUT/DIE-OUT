@@ -8,7 +8,7 @@ namespace DieOut.GameModes.Dornenkrone {
     public class Magmaklumpen : MonoBehaviour {
 
         public Rigidbody _rigidbody;
-        
+
         public bool _attachedToPlayer = false;
         [SerializeField] private float _damage = 5;
         [SerializeField] private float _damageTickRate = 2;
@@ -24,7 +24,7 @@ namespace DieOut.GameModes.Dornenkrone {
                 GetAttachedPlayer();
                 GetComponent<Rigidbody>().useGravity = false;
                 _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-                
+
                 if (_finishedTick == true) {
                     StartCoroutine(ApplyTickDamage());
                 }
