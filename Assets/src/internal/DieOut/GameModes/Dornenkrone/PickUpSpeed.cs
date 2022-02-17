@@ -7,47 +7,19 @@ using System.Linq;
 using Afired.GameManagement.GameModes;
 
 namespace DieOut.GameModes.Dornenkrone {
-    public class PickUpSpeed : MonoBehaviour, IDeviceReceiver {
+    public class PickUpSpeed : MonoBehaviour {
         
-        private InputTable _inputTable;
-        private List<SpeedPickUp> _speedPickUps;
         private SpeedPickUp _speedPickUp;
         [SerializeField] private float _speedDuration = 5;
         private int _amountOfCollectedSpeedPickUps = 0;
-        
-        
-        private void Awake() {
-            _inputTable = new InputTable();
-            _inputTable.CharacterControls.PickUp.performed += OnPickUp;
-
-            _speedPickUps = new List<SpeedPickUp>();
-        }
-
-        public void SetDevices(InputDevice[] devices) {
-            _inputTable.devices = devices;
-        }
-        
-        private void OnEnable() {
-            _inputTable.Enable();
-        }
-
-        private void OnDisable() {
-            _inputTable.Disable();
-        }
 
         private void OnTriggerEnter(Collider other) {
             _speedPickUp = other.GetComponent<SpeedPickUp>();
-            
+
             if (_speedPickUp != null) {
-                _speedPickUps.Add(_speedPickUp);
-            }
-        }
-        
-        private void OnTriggerExit(Collider other) {
-            _speedPickUp = other.GetComponent<SpeedPickUp>();
-            
-            if (_speedPickUp != null) {
-                _speedPickUps.Remove(_speedPickUp);
+                _amountOfCollectedSpeedPickUps += 1;
+                StartCoroutine(SpeedDuration());
+                Destroy(_speedPickUp.gameObject);
             }
         }
 
@@ -60,22 +32,5 @@ namespace DieOut.GameModes.Dornenkrone {
                 GetComponent<PlayerControls>()._movementSpeed -= 4;
             }
         }
-        
-        private void OnPickUp(InputAction.CallbackContext _) {
-
-            if (_speedPickUps.Count == 0) {
-                return;
-            }
-            
-            SpeedPickUp _targetSpeedPickUp = _speedPickUps
-                .OrderBy(x => Vector2.Distance(this.transform.position, x.transform.position)).First();
-
-            _speedPickUps.Remove(_targetSpeedPickUp);
-            _amountOfCollectedSpeedPickUps += 1;
-            StartCoroutine(SpeedDuration());
-
-            Destroy(_targetSpeedPickUp.gameObject);
-        }
-        
     }
 }
