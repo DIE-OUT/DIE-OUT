@@ -13,6 +13,7 @@ namespace DieOut.GameModes.Beerenbusch {
         private InputTable _inputTable;
 
         private Movable _player;
+        private PlayerControls _playerControls;
         private Beere _beere;
 
         [SerializeField] private int _eatCount = 5;
@@ -25,6 +26,7 @@ namespace DieOut.GameModes.Beerenbusch {
             _inputTable.CharacterControls.PickUp.performed += OnEat;
 
             _player = GetComponent<Movable>();
+            _playerControls = GetComponent<PlayerControls>();
 
             _currentEatCount = _eatCount;
         }
@@ -56,6 +58,12 @@ namespace DieOut.GameModes.Beerenbusch {
         }
 
         private void OnEat(InputAction.CallbackContext _) {
+            
+            if (!_playerControls.HasControl) {
+                Debug.Log("can`t eat while player controls are disabled");
+                return;
+            }
+            
             StartCoroutine(MiniDelay());
             if (_beere != null) {
                 if (_currentEatCount >= 1) {
