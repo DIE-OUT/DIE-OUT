@@ -264,6 +264,7 @@ MonoBehaviour:
   _playersIdentificationText: {fileID: 4333255847338882577}
   _playersScoreText: {fileID: 4333255848027204804}
   _scoreboardScoreIconList: {fileID: 3593133455526192438}
+  _firstPlaceIndicator: {fileID: 5622785782909215894}
 --- !u!1 &4333255848027204806
 GameObject:
   m_ObjectHideFlags: 0

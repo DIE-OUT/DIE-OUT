@@ -17,10 +17,12 @@ namespace DieOut.UI.Scoreboard {
             for(int i = 0; i < transform.childCount; i++) {
                 Destroy(transform.GetChild(i).gameObject);
             }
-            
+
+            bool firstPlaceHasBeenAssigned = false;
             foreach(Player player in Session.Current.Player.OrderByDescending(player => player.Score)) {
                 GameObject scoreboardPlayerEntry = Instantiate(_scoreboardPlayerEntryPrefab, transform);
-                scoreboardPlayerEntry.GetComponent<ScoreboardPlayerEntry>().Init(player);
+                scoreboardPlayerEntry.GetComponent<ScoreboardPlayerEntry>().Init(player, !firstPlaceHasBeenAssigned);
+                firstPlaceHasBeenAssigned = true;
             }
             
         }

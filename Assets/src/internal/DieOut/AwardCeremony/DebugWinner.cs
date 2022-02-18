@@ -13,7 +13,7 @@ namespace DieOut.AwardCeremony {
         private Player[] Player => Session.Current.Player;
         
         
-        private void Awake() {
+        private void Start() {
             TMP_Text text = GetComponent<TMP_Text>();
             text.text = $"{_prefix}{Player.OrderByDescending(player => player.Score).FirstOrDefault()?.DisplayName}{_suffix}";
         }

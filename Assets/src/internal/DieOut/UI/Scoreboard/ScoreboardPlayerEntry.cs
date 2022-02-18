@@ -11,12 +11,15 @@ namespace DieOut.UI.Scoreboard {
         [SerializeField] private TMP_Text _playersIdentificationText;
         [SerializeField] private TMP_Text _playersScoreText;
         [SerializeField] private ScoreboardScoreIconList _scoreboardScoreIconList;
+        [SerializeField] private GameObject _firstPlaceIndicator;
+        private bool _isFirstPlace;
         
         
-        public void Init(Player player) {
+        public void Init(Player player, bool isFirstPlace) {
             if(_player != null)
                 throw new Exception("this scoreboard cant be initialized more than once");
             _player = player;
+            _isFirstPlace = isFirstPlace;
             player.OnScoreChanged += Refresh;
             Refresh();
         }
@@ -29,6 +32,8 @@ namespace DieOut.UI.Scoreboard {
                 _playersScoreText.text = _player.Score.ToString();
             if(_scoreboardScoreIconList != null)
                 _scoreboardScoreIconList.SetScore(_player.Score);
+            if(_firstPlaceIndicator != null)
+                _firstPlaceIndicator.SetActive(_isFirstPlace);
         }
         
     }
