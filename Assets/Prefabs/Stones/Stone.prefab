@@ -60,7 +60,7 @@ BoxCollider:
   m_GameObject: {fileID: 8745729059088983222}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba4a5113de6ae24890ab06a1712989e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 8745729059088983219}
   _throwForce: 800
   _throwAngle: 20
   _attachedToPlayer: 0
