@@ -28,7 +28,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8824691715926256013}
+  - {fileID: 6092821056256239379}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabStone: {fileID: 5120439622846688236, guid: 8224d4a65038f7a449f913519215150a, type: 3}
---- !u!1001 &227581736892140857
+--- !u!1001 &3301453288890893223
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -102,8 +102,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8224d4a65038f7a449f913519215150a, type: 3}
---- !u!4 &8824691715926256013 stripped
+--- !u!4 &6092821056256239379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8745729059088983220, guid: 8224d4a65038f7a449f913519215150a, type: 3}
-  m_PrefabInstance: {fileID: 227581736892140857}
+  m_PrefabInstance: {fileID: 3301453288890893223}
   m_PrefabAsset: {fileID: 0}

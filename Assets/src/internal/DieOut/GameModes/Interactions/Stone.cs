@@ -9,7 +9,7 @@ namespace DieOut.GameModes.Interactions {
         
         private Tackleable _tackleable;
         private Magmaklumpen _magmaklumpen;
-        
+
         // Wenn man einen Enemy mit Stein hitted, geht dessen Magmaklumpen auf den Werfer über bzw lässt dieser seinen Stein fallen
         private void OnCollisionEnter(Collision collision) {
             _enemyPlayer = collision.gameObject.GetComponent<Movable>();
