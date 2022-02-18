@@ -15,10 +15,11 @@ namespace DieOut.GameModes.Beerenbusch {
         private Movable _player;
         private PlayerControls _playerControls;
         private Beere _beere;
-
+        
         [SerializeField] private int _eatCount = 5;
         private int _currentEatCount;
         [SerializeField] private float _damage = 2;
+        [SerializeField] private float _beereShrinkAmount = 0.05f;
 
         private void Awake() {
             _inputTable = new InputTable();
@@ -69,7 +70,7 @@ namespace DieOut.GameModes.Beerenbusch {
                 if (_currentEatCount >= 1) {
                     _animator.SetTrigger(AnimatorStringHashes.TriggerEatBerry);
                     _player.GetComponent<Health>().TriggerDamage(_damage, DamageType.Poison);
-                    _beere.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
+                    _beere.transform.localScale -= new Vector3(_beereShrinkAmount, _beereShrinkAmount, _beereShrinkAmount);
                     _currentEatCount -= 1;
 
                     if (_currentEatCount == 0) {
@@ -77,7 +78,7 @@ namespace DieOut.GameModes.Beerenbusch {
                         _beere._slowedSpeed = _player.GetComponent<PlayerControls>()._movementSpeed;
                         _player.GetComponent<PlayerControls>()._movementSpeed = _beere._slowedSpeed * 2;
                         Destroy(_beere.gameObject);
-                        _currentEatCount = _eatCount;
+                        _currentEatCount = _eatCount + 1;
                         this.enabled = false;
                     }
                 }
