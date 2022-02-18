@@ -13,6 +13,8 @@ namespace DieOut.GameModes {
         
         private Animator _animator;
         private InputTable _inputTable;
+
+        private PlayerControls _playerControls;
         public List<Throwable> _throwables;
         private Throwable _aThrowable;
         private Throwable _targetThrowable;
@@ -23,7 +25,8 @@ namespace DieOut.GameModes {
             _inputTable = new InputTable();
             _inputTable.CharacterControls.PickUp.performed += OnPickUp;
             _inputTable.CharacterControls.Throw.performed += OnThrow;
-            
+
+            _playerControls = GetComponent<PlayerControls>();
             _itemPosition = GetComponentInChildren<ItemPosition>();
 
             _throwables = new List<Throwable>();
@@ -66,6 +69,11 @@ namespace DieOut.GameModes {
             if (_throwables.Count == 0) {
                 return;
             }
+
+            if (!_playerControls.HasControl) {
+                Debug.Log("can`t pick up while player controls are disabled");
+                return;
+            }
             
             _targetThrowable = _throwables
                 .OrderBy(x => Vector2.Distance(this.transform.position, x.transform.position)).First();
@@ -79,6 +87,12 @@ namespace DieOut.GameModes {
         }
 
         private void OnThrow(InputAction.CallbackContext _) {
+            
+            if (!_playerControls.HasControl) {
+                Debug.Log("can`t throw while player controls are disabled");
+                return;
+            }
+            
             if (_targetThrowable != null) {
                 _throwables.Remove(_targetThrowable);
                 _animator.SetTrigger(AnimatorStringHashes.TriggerThrow);

@@ -17,6 +17,7 @@ namespace DieOut.GameModes.Interactions {
         
         [SerializeField] private List<Tackleable> _tackleablesToIgnore;
         private Movable _player;
+        private PlayerControls _playerControls;
         private ItemPosition _itemPosition;
         private CooldownIndicator _cooldownIndicator;
         private Throwable _throwable;
@@ -32,6 +33,7 @@ namespace DieOut.GameModes.Interactions {
             _inputTable.CharacterControls.Tackle.performed += OnTackle;
 
             _player = GetComponentInParent<Movable>();
+            _playerControls = GetComponentInParent<PlayerControls>();
             _itemPosition = _player.GetComponentInChildren<ItemPosition>();
             _cooldownIndicator = _player.GetComponentInChildren<CooldownIndicator>();
         }
@@ -85,15 +87,19 @@ namespace DieOut.GameModes.Interactions {
                 return;
             }
 
-            // dont do anything if tackling player has an item
-            
-            
+            // dont do anything if tackling player is stunned
+            if (!_playerControls.HasControl) {
+                Debug.Log("can`t tackle while player controls are disabled");
+                return;
+            }
+
+            // dont do anything if tackling player has an item (excluding beeren)
             if (_itemPosition.transform.childCount > 0) {
                 _magmaklumpen = _itemPosition.GetComponentInChildren<Magmaklumpen>();
                 _throwable = _itemPosition.GetComponentInChildren<Throwable>();
 
                 if (_magmaklumpen != null || _throwable != null) {
-                    Debug.Log("Can`t tackle with item");
+                    Debug.Log("can`t tackle with item");
                     return;
                 }
             }
