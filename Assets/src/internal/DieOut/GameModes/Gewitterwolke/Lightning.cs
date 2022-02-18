@@ -24,6 +24,7 @@ namespace DieOut.GameModes.Gewitterwolke {
         [SerializeField] private GameObject _prefabShadow;
         private GameObject _prefabShadowToDestroy;
         private bool _isPrepared;
+        [SerializeField] private float _timeBeforeLightningStrikes = 2.5f;
 
         private void Awake() {
             _gewitterwolke = GetComponent<RandomMovement>();
@@ -89,7 +90,7 @@ namespace DieOut.GameModes.Gewitterwolke {
             _gewitterwolke._navMeshAgent.speed = 0;
             Raycast();
             GameObject prefabToDestroy = Instantiate(_prefab, _collision, Quaternion.identity);
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(_timeBeforeLightningStrikes);
             Destroy(prefabToDestroy);
             Debug.Log("Lightning strikes!");
             if (_playersUnderGewitterwolke.Count != 0) {
