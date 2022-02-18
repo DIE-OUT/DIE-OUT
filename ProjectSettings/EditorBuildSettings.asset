@@ -83,4 +83,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gewitterwolke/Suburbs.unity
     guid: bf7dfd65b63348c43adfebbb68524c33
+  - enabled: 1
+    path: Assets/Scenes/Gewitterwolke/Mushrooms.unity
+    guid: 8487b9c252007424296d1cb5d3dd7024
   m_configObjects: {}

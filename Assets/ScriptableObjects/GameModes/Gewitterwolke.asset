@@ -40,6 +40,10 @@ MonoBehaviour:
       m_SceneAsset: {fileID: 102900000, guid: bf7dfd65b63348c43adfebbb68524c33, type: 3}
       m_SceneName: Suburbs
     _displayName: Suburbs
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 8487b9c252007424296d1cb5d3dd7024, type: 3}
+      m_SceneName: Mushrooms
+    _displayName: Mushrooms
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 531abf1637236224485a003dc1cdc53c, type: 3}
     m_SceneName: Gewitterwolke_Management
