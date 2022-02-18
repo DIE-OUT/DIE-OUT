@@ -264,7 +264,7 @@ MonoBehaviour:
   _playersIdentificationText: {fileID: 4333255847338882577}
   _playersScoreText: {fileID: 4333255848027204804}
   _scoreboardScoreIconList: {fileID: 3593133455526192438}
-  _firstPlaceIndicator: {fileID: 5622785782909215894}
+  _scoreboardPlayerPlacementIndicator: {fileID: 4703618016662390688}
 --- !u!1 &4333255848027204806
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +537,7 @@ GameObject:
   - component: {fileID: 5622785782909215881}
   - component: {fileID: 5622785782909215883}
   - component: {fileID: 5622785782909215880}
+  - component: {fileID: 4703618016662390688}
   m_Layer: 5
   m_Name: WonIndicator
   m_TagString: Untagged
@@ -601,6 +602,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4703618016662390688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622785782909215894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0b3721ce8742c998889ef92d2f506a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _placementIcons:
+  - {fileID: 21300000, guid: d3d4d5b02f4cc9c4885f02af03c207ac, type: 3}
+  - {fileID: 21300000, guid: d578226e1c343524aaaeb4ad52bad395, type: 3}
+  - {fileID: 21300000, guid: 19d49524182f8af46afda2225a9c3d1a, type: 3}
 --- !u!1 &7487621084383178932
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,13 +18,19 @@ namespace DieOut.UI.Scoreboard {
                 Destroy(transform.GetChild(i).gameObject);
             }
 
-            bool firstPlaceHasBeenAssigned = false;
-            foreach(Player player in Session.Current.Player.OrderByDescending(player => player.Score)) {
+//            bool firstPlaceHasBeenAssigned = false;
+//            foreach(Player player in Session.Current.Player.OrderByDescending(player => player.Score)) {
+//                GameObject scoreboardPlayerEntry = Instantiate(_scoreboardPlayerEntryPrefab, transform);
+//                scoreboardPlayerEntry.GetComponent<ScoreboardPlayerEntry>().Init(player, !firstPlaceHasBeenAssigned);
+//                firstPlaceHasBeenAssigned = true;
+//            }
+
+            Player[] orderedPlayers = Session.Current.Player.OrderByDescending(player => player.Score).ToArray();
+            for(int i = 0; i < orderedPlayers.Length; i++) {
                 GameObject scoreboardPlayerEntry = Instantiate(_scoreboardPlayerEntryPrefab, transform);
-                scoreboardPlayerEntry.GetComponent<ScoreboardPlayerEntry>().Init(player, !firstPlaceHasBeenAssigned);
-                firstPlaceHasBeenAssigned = true;
+                scoreboardPlayerEntry.GetComponent<ScoreboardPlayerEntry>().Init(orderedPlayers[i], i);
             }
-            
+
         }
         
     }
