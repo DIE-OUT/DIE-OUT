@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _splashScreen: {fileID: 21300000, guid: 11afa8fcf3a44f144a529983889a0fa5, type: 3}
   _displayName: Beerenbusch
-  _description: This Description will be shown on the loading screen
+  _descriptionText: 
+  _descriptionSprite: {fileID: 21300000, guid: 11afa8fcf3a44f144a529983889a0fa5, type: 3}
   _maps:
   - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 118d2231fd4753441b0e82efa6ff4740, type: 3}

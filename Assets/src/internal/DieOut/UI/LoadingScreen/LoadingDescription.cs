@@ -12,7 +12,7 @@ namespace DieOut.UI.LoadingScreen {
                 return;
             
             TMP_Text text = GetComponent<TMP_Text>();
-            text.text = Session.Current?.GameModeInstance?.GameMode.Description;
+            text.text = Session.Current?.GameModeInstance?.GameMode.DescriptionText;
         }
         
     }
