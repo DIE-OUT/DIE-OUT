@@ -78,7 +78,7 @@ namespace DieOut.GameModes.Gewitterwolke {
         private void Raycast() {
             var ray = new Ray(this.transform.position - _height, -this.transform.up);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100)) {
+            if (Physics.Raycast(ray, out hit, 100,_layer)) {
                 _collision = hit.point;
             }
         }
