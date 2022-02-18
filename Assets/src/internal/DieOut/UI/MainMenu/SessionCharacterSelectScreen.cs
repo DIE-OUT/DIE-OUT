@@ -11,7 +11,7 @@ namespace DieOut.UI.MainMenu {
     public class SessionCharacterSelectScreen : MonoBehaviour {
 
         [SerializeField] private SessionSettingsScreen _sessionSettingsScreen;
-        [SerializeField] private PlayerManager _playerManager;
+        [SerializeField] private CharacterSelectCardManager _characterSelectCardManager;
         private InputTable _inputTable;
         
         
@@ -34,7 +34,7 @@ namespace DieOut.UI.MainMenu {
 
         private void TryToStartSession(InputAction.CallbackContext _) {
             SessionBuilder sessionBuilder = _sessionSettingsScreen.SessionBuilder;
-            sessionBuilder.Players = _playerManager.CreatePlayers();
+            sessionBuilder.Players = _characterSelectCardManager.CreatePlayers();
             
             Session newSession = sessionBuilder.Create();
             if(newSession == null)

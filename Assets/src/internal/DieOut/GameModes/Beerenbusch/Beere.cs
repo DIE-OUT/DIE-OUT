@@ -12,6 +12,7 @@ namespace DieOut.GameModes.Beerenbusch {
         
         private EatBeere _eatBeere;
 
+        [SerializeField] private float _beereGrowAmount = 0.5f; 
         private float _movementSpeed;
         //private float _currentSpeed;
         public float _slowedSpeed;
@@ -19,7 +20,9 @@ namespace DieOut.GameModes.Beerenbusch {
         public bool _attachedToPlayer = false;
 
         public void TriggerPickUp(Movable player) {
-
+            
+            transform.localScale += new Vector3(_beereGrowAmount, _beereGrowAmount, _beereGrowAmount);
+            
             _movementSpeed = player.GetComponent<PlayerControls>()._movementSpeed;
             //_currentSpeed = _movementSpeed;
             player.GetComponent<PlayerControls>()._movementSpeed = _movementSpeed / 2;

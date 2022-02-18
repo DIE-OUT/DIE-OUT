@@ -9,12 +9,18 @@ namespace DieOut.GameModes.Interactions {
         
         private Tackleable _tackleable;
         private Magmaklumpen _magmaklumpen;
-        
+
         // Wenn man einen Enemy mit Stein hitted, geht dessen Magmaklumpen auf den Werfer über bzw lässt dieser seinen Stein fallen
         private void OnCollisionEnter(Collision collision) {
             _enemyPlayer = collision.gameObject.GetComponent<Movable>();
 
             if (_enemyPlayer != null && !_attachedToPlayer) {
+                _throwable = _enemyPlayer.GetComponentInChildren<Throwable>();
+
+                if (_throwable != null) {
+                    _throwable._attachedToPlayer = false;
+                }
+                
                 _tackleable = _enemyPlayer.GetComponent<Tackleable>();
                     
                 if (!_tackleable._ccImmunity) {
@@ -27,15 +33,11 @@ namespace DieOut.GameModes.Interactions {
                         _magmaklumpen.transform.parent = _itemPosition.transform;
                         _magmaklumpen.transform.position = _itemPosition.transform.position;
                     }
-                }
 
-                _throwable = _enemyPlayer.GetComponentInChildren<Throwable>();
-
-                if (_throwable != null) {
-                    _throwable._attachedToPlayer = false;
+                    PickUpThrowable _pickUpThrowable = _enemyPlayer.GetComponent<PickUpThrowable>();
+                    _pickUpThrowable._throwables.Remove(this);
+                    Destroy(this.gameObject);
                 }
-                    
-                Destroy(this.gameObject);
             }
         }
     }

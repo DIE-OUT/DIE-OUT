@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
 using Afired.GameManagement.Characters;
 using Afired.GameManagement.GameModes;
+using DieOut.GameModes.Interactions;
 
 namespace DieOut.GameModes {
     
@@ -11,7 +13,9 @@ namespace DieOut.GameModes {
         
         private Animator _animator;
         private InputTable _inputTable;
-        private List<Throwable> _throwables;
+
+        private PlayerControls _playerControls;
+        public List<Throwable> _throwables;
         private Throwable _aThrowable;
         private Throwable _targetThrowable;
         private ItemPosition _itemPosition;
@@ -21,7 +25,8 @@ namespace DieOut.GameModes {
             _inputTable = new InputTable();
             _inputTable.CharacterControls.PickUp.performed += OnPickUp;
             _inputTable.CharacterControls.Throw.performed += OnThrow;
-            
+
+            _playerControls = GetComponent<PlayerControls>();
             _itemPosition = GetComponentInChildren<ItemPosition>();
 
             _throwables = new List<Throwable>();
@@ -58,10 +63,15 @@ namespace DieOut.GameModes {
                 _throwables.Remove(_aThrowable);
             }
         }
-        
+
         private void OnPickUp(InputAction.CallbackContext _) {
             
             if (_throwables.Count == 0) {
+                return;
+            }
+
+            if (!_playerControls.HasControl) {
+                Debug.Log("can`t pick up while player controls are disabled");
                 return;
             }
             
@@ -72,11 +82,19 @@ namespace DieOut.GameModes {
                 _targetThrowable._attachedToPlayer = true;
                 _itemPosition.TriggerPickUpThrowable(_targetThrowable);
                 _targetThrowable.TriggerPickUp();
+                _throwables.Remove(_targetThrowable);
             }
         }
 
         private void OnThrow(InputAction.CallbackContext _) {
+            
+            if (!_playerControls.HasControl) {
+                Debug.Log("can`t throw while player controls are disabled");
+                return;
+            }
+            
             if (_targetThrowable != null) {
+                _throwables.Remove(_targetThrowable);
                 _animator.SetTrigger(AnimatorStringHashes.TriggerThrow);
                 _targetThrowable._attachedToPlayer = false;
                 _targetThrowable.TriggerThrow();

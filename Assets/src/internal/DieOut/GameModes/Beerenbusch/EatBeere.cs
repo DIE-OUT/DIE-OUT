@@ -13,11 +13,13 @@ namespace DieOut.GameModes.Beerenbusch {
         private InputTable _inputTable;
 
         private Movable _player;
+        private PlayerControls _playerControls;
         private Beere _beere;
-
+        
         [SerializeField] private int _eatCount = 5;
         private int _currentEatCount;
         [SerializeField] private float _damage = 2;
+        [SerializeField] private float _beereShrinkAmount = 0.05f;
 
         private void Awake() {
             _inputTable = new InputTable();
@@ -25,6 +27,7 @@ namespace DieOut.GameModes.Beerenbusch {
             _inputTable.CharacterControls.PickUp.performed += OnEat;
 
             _player = GetComponent<Movable>();
+            _playerControls = GetComponent<PlayerControls>();
 
             _currentEatCount = _eatCount;
         }
@@ -56,12 +59,18 @@ namespace DieOut.GameModes.Beerenbusch {
         }
 
         private void OnEat(InputAction.CallbackContext _) {
+            
+            if (!_playerControls.HasControl) {
+                Debug.Log("can`t eat while player controls are disabled");
+                return;
+            }
+            
             StartCoroutine(MiniDelay());
             if (_beere != null) {
                 if (_currentEatCount >= 1) {
                     _animator.SetTrigger(AnimatorStringHashes.TriggerEatBerry);
                     _player.GetComponent<Health>().TriggerDamage(_damage, DamageType.Poison);
-                    _beere.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
+                    _beere.transform.localScale -= new Vector3(_beereShrinkAmount, _beereShrinkAmount, _beereShrinkAmount);
                     _currentEatCount -= 1;
 
                     if (_currentEatCount == 0) {
@@ -69,7 +78,7 @@ namespace DieOut.GameModes.Beerenbusch {
                         _beere._slowedSpeed = _player.GetComponent<PlayerControls>()._movementSpeed;
                         _player.GetComponent<PlayerControls>()._movementSpeed = _beere._slowedSpeed * 2;
                         Destroy(_beere.gameObject);
-                        _currentEatCount = _eatCount;
+                        _currentEatCount = _eatCount + 1;
                         this.enabled = false;
                     }
                 }

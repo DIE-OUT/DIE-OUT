@@ -11,11 +11,13 @@ namespace Afired.GameManagement.GameModes {
         [PreviewField(Height = 125, Alignment = ObjectFieldAlignment.Left)] [BoxGroup("General")] [VerticalGroup("General/Horizontal/Left")] [HideLabel]
         [SerializeField] private Sprite _splashScreen;
         
-        [BoxGroup("General")] [VerticalGroup("General/Horizontal/Right")] [LabelWidth(100)]
+        [BoxGroup("General")] [VerticalGroup("General/Horizontal/Right")] [LabelWidth(110)]
         [SerializeField] private string _displayName;
         
-        [TextArea(6, 6)] [BoxGroup("General")] [VerticalGroup("General/Horizontal/Right")]
-        [SerializeField] private string _description;
+        [TextArea(5, 5)] [BoxGroup("General")] [VerticalGroup("General/Horizontal/Right")]
+        [SerializeField] private string _descriptionText;
+        [BoxGroup("General")] [VerticalGroup("General/Horizontal/Right")] [LabelWidth(110)]
+        [SerializeField] private Sprite _descriptionSprite;
         
         #region Odin
         [TableList(AlwaysExpanded = true, DrawScrollView = false)]
@@ -34,7 +36,8 @@ namespace Afired.GameManagement.GameModes {
         /// <returns>the display name for this game mode</returns>>
         public string DisplayName => _displayName;
 
-        public string Description => _description;
+        public string DescriptionText => _descriptionText;
+        public Sprite DescriptionSprite => _descriptionSprite;
         /// <summary>
         /// returns all maps for this game mode
         /// </summary>
