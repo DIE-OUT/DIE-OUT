@@ -1,10 +1,9 @@
 ﻿using Afired.GameManagement.Characters;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace DieOut.UI.CharacterSelect {
     
-    public class ModelPreviewManager : SerializedMonoBehaviour {
+    public class CharacterModelPreview : MonoBehaviour {
         
         [SerializeField] private float _rotationSpeed = 10f;
         [SerializeField] private GameObject _previewModelGameObjectNone;

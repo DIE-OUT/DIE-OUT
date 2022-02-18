@@ -219,15 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee136c0ca1df44d4ba836c2105af1117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   _rotationSpeed: 10
   _previewModelGameObjectNone: {fileID: 3619140146379784692}
 --- !u!1 &2018035554614512271
@@ -496,7 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterSwitcher: {fileID: 3653440309320600519}
-  _modelPreviewManager: {fileID: 7791563893558296963}
+  _characterModelPreview: {fileID: 7791563893558296963}
   _renderTextureDisplay: {fileID: 1840979567150347493}
   _renderTextureCamera: {fileID: 8924147713732068173}
   _gameObjectToActivateWhenControlAssigned: {fileID: 2018035554614512271}

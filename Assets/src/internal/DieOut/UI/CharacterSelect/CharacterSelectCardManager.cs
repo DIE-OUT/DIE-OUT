@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Afired.GameManagement.Characters;
 using Afired.GameManagement.Sessions;
-using Afired.Helper;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace DieOut.UI.CharacterSelect {
     
-    public class PlayerManager : MonoBehaviour {
+    public class CharacterSelectCardManager : MonoBehaviour {
 
         [SerializeField] private List<CharacterSelectCard> _characterSelectCards;
         private InputTable _inputTable;

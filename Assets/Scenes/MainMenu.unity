@@ -1716,7 +1716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sessionSettingsScreen: {fileID: 1054737681}
-  _playerManager: {fileID: 1296566238}
+  _characterSelectCardManager: {fileID: 1296566238}
 --- !u!114 &452649792
 MonoBehaviour:
   m_ObjectHideFlags: 0

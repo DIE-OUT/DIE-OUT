@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Afired.GameManagement.Characters;
 using Afired.GameManagement.Sessions;
 using Afired.UI.Elements;
@@ -13,7 +12,7 @@ namespace DieOut.UI.CharacterSelect {
     public class CharacterSelectCard : MonoBehaviour {
         
         [SerializeField] private Switcher _characterSwitcher;
-        [SerializeField] private ModelPreviewManager _modelPreviewManager;
+        [SerializeField] private CharacterModelPreview _characterModelPreview;
         [SerializeField] private RawImage _renderTextureDisplay;
         [SerializeField] private Camera _renderTextureCamera;
         [SerializeField] private GameObject _gameObjectToActivateWhenControlAssigned;
@@ -30,14 +29,9 @@ namespace DieOut.UI.CharacterSelect {
             _gameObjectToActivateWhenControlAssigned.SetActive(false);
             _gameObjectToDeactivateWhenControlAssigned.SetActive(true);
             
-//            _colorSwitchControl = new EnumSwitchControl<PlayerColor>(PlayerColor);
-//            _colorSwitchControl.OnValueChanged += (value, valueAsText) => PlayerColor = (PlayerColor) value;
-//            _colorSwitchControl.OnValueChanged += (value, valueAsText) => _modelPreviewManager.Refresh((PlayerColor) value);
-//            _colorSwitcher.AssignControl(_colorSwitchControl);
-            
             _characterSwitchControl = new SwitchControl<Character>(CharacterRegister.Characters, CharacterRegister.Characters.FirstOrDefault(), character => character.DisplayName);
             _characterSwitchControl.OnValueChanged += (value, valueAsText) => Character = (Character) value;
-            _characterSwitchControl.OnValueChanged += (value, valueAsText) => _modelPreviewManager.Refresh((Character) value);
+            _characterSwitchControl.OnValueChanged += (value, valueAsText) => _characterModelPreview.Refresh((Character) value);
             _characterSwitcher.AssignControl(_characterSwitchControl);
 
             _renderTexture = new RenderTexture(256, 512, 16, RenderTextureFormat.ARGB32);
@@ -52,7 +46,7 @@ namespace DieOut.UI.CharacterSelect {
             
             _gameObjectToActivateWhenControlAssigned.SetActive(true);
             _gameObjectToDeactivateWhenControlAssigned.SetActive(false);
-            _modelPreviewManager.Refresh((Character) _characterSwitchControl.GetValue());
+            _characterModelPreview.Refresh((Character) _characterSwitchControl.GetValue());
         }
 
         private void OnDisable() {
@@ -70,7 +64,7 @@ namespace DieOut.UI.CharacterSelect {
             _gameObjectToActivateWhenControlAssigned.SetActive(false);
             _gameObjectToDeactivateWhenControlAssigned.SetActive(true);
             _assignUIControl.DeactivateInput();
-            _modelPreviewManager.Refresh(null);
+            _characterModelPreview.Refresh(null);
         }
         
     }
