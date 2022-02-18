@@ -23,11 +23,11 @@ MonoBehaviour:
   - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 092fc15b4ed1b3a4d88b99bceb634e56, type: 3}
       m_SceneName: BB_M_2
-    _displayName: BB_M_2
+    _displayName: Desertmine
   - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 35b2527147d5f6a42932818fdca3f01b, type: 3}
       m_SceneName: BB_M_3
-    _displayName: BB_M_3
+    _displayName: Spookmansion
   - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 74940bf0e96ce894dae3649f1adf4782, type: 3}
       m_SceneName: BB_Emi_1
