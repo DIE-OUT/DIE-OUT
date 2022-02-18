@@ -20,7 +20,8 @@ namespace DieOut.GameModes.Interactions {
                 if (_throwable != null) {
                     _throwable._attachedToPlayer = false;
                 }
-                    
+                PickUpThrowable _pickUpThrowable = _enemyPlayer.GetComponent<PickUpThrowable>();
+                _pickUpThrowable._throwables.Remove(this);    
                 Destroy(this.gameObject);
             }
         }

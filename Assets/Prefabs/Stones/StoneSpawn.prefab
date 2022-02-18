@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6363899750458856282}
   - component: {fileID: 7048931867683246780}
   m_Layer: 0
-  m_Name: Spawn
+  m_Name: StoneSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabStone: {fileID: 5120439622846688236, guid: 8224d4a65038f7a449f913519215150a, type: 3}
+  _respawnTime: 5
 --- !u!1001 &3301453288890893223
 PrefabInstance:
   m_ObjectHideFlags: 0
