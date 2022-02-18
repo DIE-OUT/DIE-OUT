@@ -46,6 +46,7 @@ namespace DieOut.UI.CharacterSelect {
             
             _gameObjectToActivateWhenControlAssigned.SetActive(true);
             _gameObjectToDeactivateWhenControlAssigned.SetActive(false);
+            Character = (Character) _characterSwitchControl.GetValue();
             _characterModelPreview.Refresh((Character) _characterSwitchControl.GetValue());
         }
 
