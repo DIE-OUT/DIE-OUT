@@ -25,6 +25,16 @@ namespace DieOut.GameModes {
             if (_attachedToPlayer == true) {
                 GetComponent<Rigidbody>().useGravity = false;
                 _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+                
+                Health _health = _player.GetComponent<Health>();
+
+                if (_health.IsDead) {
+                    this._attachedToPlayer = false;
+                    transform.SetParent(null);
+                    GetComponent<Rigidbody>().useGravity = true;
+                    _rigidbody.constraints = RigidbodyConstraints.None;
+                    _rigidbody.AddForce(transform.forward * 100);
+                }
             }
             else {
                 transform.SetParent(null);

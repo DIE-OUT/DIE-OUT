@@ -99,8 +99,8 @@ ParentConstraint:
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
-  m_IsContraintActive: 0
-  m_IsLocked: 0
+  m_IsContraintActive: 1
+  m_IsLocked: 1
   m_Sources: []
 --- !u!1 &419796067246712404
 GameObject:
@@ -719,6 +719,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0869840eabdb0ea4faba6dcaedf2016f, type: 3}
+--- !u!4 &31371403374412155 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2091813251688484338, guid: 0869840eabdb0ea4faba6dcaedf2016f, type: 3}
+  m_PrefabInstance: {fileID: 2119200024585047177}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &31371403374412153 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2091813251688484336, guid: 0869840eabdb0ea4faba6dcaedf2016f, type: 3}
@@ -730,16 +735,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fc1c5e632c4572a62a560096665589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &31371403374412155 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2091813251688484338, guid: 0869840eabdb0ea4faba6dcaedf2016f, type: 3}
-  m_PrefabInstance: {fileID: 2119200024585047177}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &31371403374412154 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2091813251688484339, guid: 0869840eabdb0ea4faba6dcaedf2016f, type: 3}
   m_PrefabInstance: {fileID: 2119200024585047177}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5336391738851096004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31371403374412154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2c69cd09d36244888ccd65c8d750c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _throwables: []
 --- !u!114 &6734299801570923033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,15 +797,17 @@ MonoBehaviour:
   _immunity: 3
   _ccImmunity: 0
   _tackleDistance: 50
---- !u!114 &5336391738851096004
-MonoBehaviour:
+--- !u!136 &8581698869852431488
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31371403374412154}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a2c69cd09d36244888ccd65c8d750c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 1.15
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
