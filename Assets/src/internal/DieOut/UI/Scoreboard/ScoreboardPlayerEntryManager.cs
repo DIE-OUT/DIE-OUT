@@ -25,7 +25,7 @@ namespace DieOut.UI.Scoreboard {
 //                firstPlaceHasBeenAssigned = true;
 //            }
 
-            Player[] orderedPlayers = Session.Current.Player.OrderByDescending(player => player.Score).ToArray();
+            Player[] orderedPlayers = Session.Current.Players.OrderByDescending(player => player.Score).ToArray();
             for(int i = 0; i < orderedPlayers.Length; i++) {
                 GameObject scoreboardPlayerEntry = Instantiate(_scoreboardPlayerEntryPrefab, transform);
                 scoreboardPlayerEntry.GetComponent<ScoreboardPlayerEntry>().Init(orderedPlayers[i], i);

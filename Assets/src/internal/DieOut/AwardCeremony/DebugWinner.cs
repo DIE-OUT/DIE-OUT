@@ -10,7 +10,7 @@ namespace DieOut.AwardCeremony {
 
         [SerializeField] private string _prefix;
         [SerializeField] private string _suffix;
-        private Player[] Player => Session.Current.Player;
+        private Player[] Player => Session.Current.Players;
         
         
         private void Start() {

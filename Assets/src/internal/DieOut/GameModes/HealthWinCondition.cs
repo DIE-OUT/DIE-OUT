@@ -18,7 +18,7 @@ namespace DieOut.GameModes {
             foreach(GameObject playerGameObject in playerGameObjects) {
                 playerGameObject.GetComponent<Health>().OnDeath += OnPlayerDeath;
             }
-            _playersStillAlive = Session.Current.Player.ToList();
+            _playersStillAlive = Session.Current.Players.ToList();
         }
 
         private void OnPlayerDeath(Player player) {

@@ -20,8 +20,8 @@ namespace Afired.GameManagement.Sessions {
             _current = session;
         }
         
-        [ReadOnly] [OdinSerialize] public int PlayerCount => Player.Length;
-        [OdinSerialize] public Player[] Player { get; }
+        [ReadOnly] [OdinSerialize] public int PlayerCount => Players.Length;
+        [OdinSerialize] public Player[] Players { get; }
         [OdinSerialize] public HashSet<GameMode> ActivatedGameModes { get; }
         [OdinSerialize] public int MaxRounds { get; }
         [OdinSerialize] public int WinningScore { get; }
@@ -32,8 +32,8 @@ namespace Afired.GameManagement.Sessions {
         public bool HasStarted { get; private set; }
         public bool HasEnded { get; private set; }
         
-        public Session(Player[] player, HashSet<GameMode> activatedGameModes, int maxRounds, int winningScore) {
-            Player = player;
+        public Session(Player[] players, HashSet<GameMode> activatedGameModes, int maxRounds, int winningScore) {
+            Players = players;
             ActivatedGameModes = activatedGameModes;
             MaxRounds = maxRounds;
             WinningScore = winningScore;
@@ -73,7 +73,7 @@ namespace Afired.GameManagement.Sessions {
         }
         
         public bool ValidateSessionWin() {
-            if(Player.Any(player => player.Score >= WinningScore))
+            if(Players.Any(player => player.Score >= WinningScore))
                 return true;
             if(CurrentRound >= MaxRounds)
                 return true;

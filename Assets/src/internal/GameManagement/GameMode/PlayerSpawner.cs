@@ -14,7 +14,7 @@ namespace Afired.GameManagement.GameModes {
 
         private Task InvokeGameModePrepare() {
             PlayerSpawnpoint[] playerSpawnpoints = FindObjectsOfType<PlayerSpawnpoint>();
-            Player[] players = Session.Current.Player;
+            Player[] players = Session.Current.Players;
             
             if(players.Length > playerSpawnpoints.Length)
                 throw new Exception("map has less player spawns than players that are playing!");
