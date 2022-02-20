@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterModel - DinoDark
       objectReference: {fileID: 0}
+    - target: {fileID: 3901928021853439443, guid: c8b8a577acc810041a7f2b7015a8a306, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 29199c9bb1f96bb4b809acc80e08fb95, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8b8a577acc810041a7f2b7015a8a306, type: 3}
 --- !u!1 &4386962729789158858 stripped
