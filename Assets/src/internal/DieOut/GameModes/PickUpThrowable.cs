@@ -5,14 +5,17 @@ using UnityEngine.InputSystem;
 using System.Linq;
 using Afired.GameManagement.Characters;
 using Afired.GameManagement.GameModes;
+using Afired.Helper;
 using DieOut.GameModes.Interactions;
 
 namespace DieOut.GameModes {
     
     public class PickUpThrowable : MonoBehaviour, IDeviceReceiver, IAnimatorReceiver {
-        
+
+        private Movable _movable;
         private Animator _animator;
         private InputTable _inputTable;
+        private bool _mouseInputEnabled;
 
         private PlayerControls _playerControls;
         public List<Throwable> _throwables;
@@ -28,12 +31,17 @@ namespace DieOut.GameModes {
 
             _playerControls = GetComponent<PlayerControls>();
             _itemPosition = GetComponentInChildren<ItemPosition>();
+            _movable = GetComponent<Movable>();
 
             _throwables = new List<Throwable>();
         }
 
         public void SetDevices(InputDevice[] devices) {
             _inputTable.devices = devices;
+            foreach(var device in devices) {
+                if(device is Mouse)
+                    _mouseInputEnabled = true;
+            }
         }
         
         public void SetAnimator(Animator animator) {
@@ -94,6 +102,14 @@ namespace DieOut.GameModes {
             }
             
             if (_targetThrowable != null) {
+                
+                // if controlled with mouse and keyboard, rotate character to face the mouse position before throwing
+                if(_mouseInputEnabled) {
+                    Vector3 positionToAimAt = Camera.main.GetDirection(Mouse.current.position.ReadValue(), _movable.transform.position, Vector3.up);
+                    Vector3 directionToAim = positionToAimAt - _movable.transform.position;
+                    _movable.transform.forward = directionToAim;
+                }
+                
                 _throwables.Remove(_targetThrowable);
                 _animator.SetTrigger(AnimatorStringHashes.TriggerThrow);
                 _targetThrowable._attachedToPlayer = false;
