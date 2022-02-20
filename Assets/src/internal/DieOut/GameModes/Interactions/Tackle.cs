@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Afired.GameManagement.Characters;
 using UnityEngine.InputSystem;
 using Afired.GameManagement.GameModes;
+using Afired.Helper;
 using DieOut.GameModes.Dornenkrone;
 using UnityEngine;
 
@@ -22,6 +23,7 @@ namespace DieOut.GameModes.Interactions {
         private CooldownIndicator _cooldownIndicator;
         private Throwable _throwable;
         private Magmaklumpen _magmaklumpen;
+        private bool _mouseInputEnabled;
 
         [SerializeField] private float _cooldown = 3f;
         private bool _onCooldown;
@@ -40,6 +42,10 @@ namespace DieOut.GameModes.Interactions {
         
         public void SetDevices(InputDevice[] devices) {
             _inputTable.devices = devices;
+            foreach(var device in devices) {
+                if(device is Mouse)
+                    _mouseInputEnabled = true;
+            }
         }
         
         public void SetAnimator(Animator animator) {
@@ -105,9 +111,16 @@ namespace DieOut.GameModes.Interactions {
             }
 
             if (_player != null) {
+                
+                // if controlled with mouse and keyboard, rotate character to face the mouse position before throwing
+                if(_mouseInputEnabled) {
+                    Vector3 positionToAimAt = Camera.main.GetDirection(Mouse.current.position.ReadValue(), _player.transform.position, Vector3.up);
+                    Vector3 directionToAim = positionToAimAt - _player.transform.position;
+                    _player.transform.forward = directionToAim;
+                }
+                
                 StartCoroutine(TackleDuration());
-                PlayerControls _playerControls = _player.GetComponent<PlayerControls>();
-                _player.AddVelocity(_playerControls._direction * Vector3.forward.normalized * _tackleDistance);
+                _player.AddVelocity(_player.transform.forward * _tackleDistance);
             }
 
             _onCooldown = true;
