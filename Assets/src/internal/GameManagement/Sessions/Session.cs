@@ -16,10 +16,6 @@ namespace Afired.GameManagement.Sessions {
         public static Session Current => _current ?? throw new Exception("There is no current session");
         public static bool HasCurrent => _current != null;
         
-        public static void SetNew(Session session) {
-            _current = session;
-        }
-        
         [ReadOnly] [OdinSerialize] public int PlayerCount => Players.Length;
         [OdinSerialize] public Player[] Players { get; }
         [OdinSerialize] public HashSet<GameMode> ActivatedGameModes { get; }
@@ -39,6 +35,10 @@ namespace Afired.GameManagement.Sessions {
             WinningScore = winningScore;
             
             CurrentRound = 0;
+        }
+        
+        public static void SetNew(Session session) {
+            _current = session;
         }
 
         public async Task Start() {

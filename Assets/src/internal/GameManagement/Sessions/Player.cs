@@ -1,6 +1,5 @@
 ﻿using System;
 using Afired.GameManagement.Characters;
-using DieOut.UI.CharacterSelect;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine.InputSystem;

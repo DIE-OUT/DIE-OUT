@@ -28,7 +28,7 @@ namespace DieOut.GameModes.Beerenbusch {
             _beeren = new List<Beere>();
         }
         
-        public void SetDevices(InputDevice[] devices) {
+        public void ReceiveDevices(InputDevice[] devices) {
             _inputTable.devices = devices;
         }
         

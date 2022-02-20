@@ -2,10 +2,12 @@
 using System.Threading.Tasks;
 using Afired.GameManagement.Sessions;
 using Sirenix.OdinInspector;
-using UnityEngine;
 
 namespace Afired.GameManagement.GameModes {
     
+    /// <summary>
+    /// abstract base class for a player spawner of a game mode
+    /// </summary>
     public abstract class PlayerSpawner : SerializedMonoBehaviour {
         
         private void Awake() {
@@ -14,12 +16,11 @@ namespace Afired.GameManagement.GameModes {
 
         private Task InvokeGameModePrepare() {
             PlayerSpawnpoint[] playerSpawnpoints = FindObjectsOfType<PlayerSpawnpoint>();
-            Player[] players = Session.Current.Players;
             
-            if(players.Length > playerSpawnpoints.Length)
+            if(Session.Current.PlayerCount > playerSpawnpoints.Length)
                 throw new Exception("map has less player spawns than players that are playing!");
             
-            OnPlayerInitialization(players, playerSpawnpoints);
+            OnPlayerInitialization(Session.Current.Players, playerSpawnpoints);
             return Task.CompletedTask;
         }
 

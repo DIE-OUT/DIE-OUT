@@ -25,7 +25,7 @@ namespace DieOut.GameModes {
             _beere.transform.position = transform.position;
         }
 
-        public void SetItemPositionTag(ItemPositionTag itemPositionTag) {
+        public void ReceiveItemPositionTag(ItemPositionTag itemPositionTag) {
             ParentConstraint parentConstraint = GetComponent<ParentConstraint>();
             parentConstraint.AddSource(new ConstraintSource() { sourceTransform = itemPositionTag.transform, weight = 1 });
         }

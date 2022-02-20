@@ -8,7 +8,7 @@ namespace DieOut.GameModes {
 
         private Animator _animator;
         
-        public void SetAnimator(Animator animator) {
+        public void ReceiveAnimator(Animator animator) {
             _animator = animator;
         }
         

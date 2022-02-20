@@ -19,8 +19,9 @@ namespace DieOut.UI.Scoreboard {
             Session.Current.GameModeInstance.OnGameModeEnd += OnGameModeEnd;
         }
 
-        private void OnGameModeStart() {
+        private Task OnGameModeStart() {
             EnableInput();
+            return Task.CompletedTask;
         }
 
         private async Task OnGameModeEnd() {

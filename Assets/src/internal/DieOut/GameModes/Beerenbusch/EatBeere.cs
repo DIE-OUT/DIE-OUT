@@ -32,11 +32,11 @@ namespace DieOut.GameModes.Beerenbusch {
             _currentEatCount = _eatCount;
         }
 
-        public void SetDevices(InputDevice[] devices) {
+        public void ReceiveDevices(InputDevice[] devices) {
             _inputTable.devices = devices;
         }
         
-        public void SetAnimator(Animator animator) {
+        public void ReceiveAnimator(Animator animator) {
             _animator = animator;
         }
         

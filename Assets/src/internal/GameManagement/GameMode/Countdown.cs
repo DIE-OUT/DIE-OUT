@@ -1,13 +1,12 @@
 ﻿using System.Threading.Tasks;
 using Afired.GameManagement.Sessions;
-using Sirenix.OdinInspector;
 using UnityAsync;
 using UnityEngine;
 
 namespace Afired.GameManagement.GameModes {
     
     [RequireComponent(typeof(Animation))]
-    public class Countdown : SerializedMonoBehaviour {
+    public class Countdown : MonoBehaviour {
         
         private Animation _animation;
 
@@ -16,8 +15,7 @@ namespace Afired.GameManagement.GameModes {
             Session.Current.GameModeInstance.OnGameModePrepare += Run;
         }
         
-        [Button]
-        public async Task Run() {
+        private async Task Run() {
             if(_animation.clip != null) {
                 _animation.Play();
                 await Await.Seconds(_animation.clip.length);

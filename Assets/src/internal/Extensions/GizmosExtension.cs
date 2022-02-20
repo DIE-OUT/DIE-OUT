@@ -1,10 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class CustomGizmos {
-
+    
     /// <summary>
-    /// Draws a circle in Editor only.
+    /// draws a circle in editor
     /// </summary>
     public static void DrawCircle(Vector3 center, Vector3 planeNormal, float radius) {
         planeNormal = planeNormal.normalized;
@@ -16,9 +15,9 @@ public static class CustomGizmos {
             angle += 360 / detail;
             Vector3 nextPosition = center + Quaternion.AngleAxis(angle, planeNormal) * startRotation;
             Gizmos.DrawLine(lastPosition, nextPosition);
- 
+            
             lastPosition = nextPosition;
         }
     }
-
+    
 }

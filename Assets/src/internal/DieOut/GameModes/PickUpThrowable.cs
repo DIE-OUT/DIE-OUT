@@ -36,7 +36,7 @@ namespace DieOut.GameModes {
             _throwables = new List<Throwable>();
         }
 
-        public void SetDevices(InputDevice[] devices) {
+        public void ReceiveDevices(InputDevice[] devices) {
             _inputTable.devices = devices;
             foreach(var device in devices) {
                 if(device is Mouse)
@@ -44,7 +44,7 @@ namespace DieOut.GameModes {
             }
         }
         
-        public void SetAnimator(Animator animator) {
+        public void ReceiveAnimator(Animator animator) {
             _animator = animator;
         }
         
@@ -105,7 +105,7 @@ namespace DieOut.GameModes {
                 
                 // if controlled with mouse and keyboard, rotate character to face the mouse position before throwing
                 if(_mouseInputEnabled) {
-                    Vector3 positionToAimAt = Camera.main.GetDirection(Mouse.current.position.ReadValue(), _movable.transform.position, Vector3.up);
+                    Vector3 positionToAimAt = Camera.main.GetContactPosOfMousePosToPlane(Mouse.current.position.ReadValue(), _movable.transform.position, Vector3.up);
                     Vector3 directionToAim = positionToAimAt - _movable.transform.position;
                     _movable.transform.forward = directionToAim;
                 }

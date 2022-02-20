@@ -39,11 +39,11 @@ namespace DieOut.GameModes.Interactions {
             _inputTable.CharacterControls.Jump.performed += OnJumpInput;
         }
         
-        public void SetDevices(InputDevice[] devices) {
+        public void ReceiveDevices(InputDevice[] devices) {
             _inputTable.devices = devices;
         }
         
-        public void SetAnimator(Animator animator) {
+        public void ReceiveAnimator(Animator animator) {
             _animator = animator;
         }
         

@@ -8,12 +8,10 @@ using UnityEngine;
 
 namespace Afired.GameManagement.GameModes {
     
-    public delegate void OnGameModeStart();
-    
     public class GameModeInstance {
         
         public TaskQueue OnGameModePrepare = new TaskQueue();
-        public event OnGameModeStart OnGameModeStart;
+        public TaskQueue OnGameModeStart = new TaskQueue();
         public TaskQueue OnGameModeEnd = new TaskQueue();
         public GameMode GameMode { get; }
         public Map Map { get; }
@@ -28,20 +26,19 @@ namespace Afired.GameManagement.GameModes {
         public async Task Load() {
             await LoadGameModeMap(GameMode, Map);
             await OnGameModePrepare.InvokeAsynchronously();
-            OnGameModeStart?.Invoke();
+            await OnGameModeStart.InvokeAsynchronously();
         }
         
-        private async Task LoadGameModeMap(GameMode gameMode, Map map) {
+        private static async Task LoadGameModeMap(GameMode gameMode, Map map) {
             List<SceneField> scenesToLoad = new List<SceneField>();
             scenesToLoad.Add(map.Scene);
             scenesToLoad.AddRange(gameMode.AdditionalScenes);
-            
             await SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray());
         }
         
         public async void EndGameMode() {
             if(_hasEnded) {
-                Debug.Log($"{GameMode.DisplayName} has already been ended but there has been a try to end it a second time");
+                Debug.Log($"{GameMode.DisplayName} has already been ended but it has been tried to end it a second time");
                 return;
             }
             _hasEnded = true;

@@ -26,7 +26,7 @@ namespace DieOut.GameModes.Interactions {
             _player = GetComponentInParent<Movable>();
         }
         
-        public void SetDevices(InputDevice[] devices) {
+        public void ReceiveDevices(InputDevice[] devices) {
             _inputTable.devices = devices;
         }
         

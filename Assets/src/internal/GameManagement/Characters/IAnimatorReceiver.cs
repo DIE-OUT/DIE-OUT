@@ -2,9 +2,12 @@
 
 namespace Afired.GameManagement.Characters {
     
+    /// <summary>
+    /// interface for custom injection of animator component
+    /// </summary>
     public interface IAnimatorReceiver {
         
-        public void SetAnimator(Animator animator);
+        public void ReceiveAnimator(Animator animator);
         
     }
     

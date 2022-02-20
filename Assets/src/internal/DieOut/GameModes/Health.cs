@@ -23,7 +23,7 @@ namespace DieOut.GameModes {
         public Slider _healthbar;
         
         
-        public void SetAnimator(Animator animator) {
+        public void ReceiveAnimator(Animator animator) {
             _animator = animator;
         }
 
@@ -72,7 +72,7 @@ namespace DieOut.GameModes {
             _health += healAmount;
         }
 
-        public void SetPlayer(Player player) {
+        public void ReceivePlayer(Player player) {
             _player = player;
         }
         

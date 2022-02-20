@@ -1,4 +1,5 @@
-﻿using Afired.GameManagement.GameModes;
+﻿using System.Threading.Tasks;
+using Afired.GameManagement.GameModes;
 using Afired.GameManagement;
 using Afired.GameManagement.Characters;
 using Afired.GameManagement.Sessions;
@@ -22,11 +23,11 @@ namespace DieOut.GameModes {
                 GameObject playerControllerGameObject = Instantiate(_playerControllerPrefab, playerSpawnpoints[i].transform.position, Quaternion.identity);
                 IDeviceReceiver[] deviceReceivers = playerControllerGameObject.GetComponentsInChildren<IDeviceReceiver>(true);
                 foreach(IDeviceReceiver deviceReceiver in deviceReceivers) {
-                    deviceReceiver.SetDevices(players[i].InputDevices);
+                    deviceReceiver.ReceiveDevices(players[i].InputDevices);
                 }
                 IPlayerReceiver[] playerReceivers = playerControllerGameObject.GetComponentsInChildren<IPlayerReceiver>(true);
                 foreach(IPlayerReceiver deviceReceiver in playerReceivers) {
-                    deviceReceiver.SetPlayer(players[i]);
+                    deviceReceiver.ReceivePlayer(players[i]);
                 }
                 
                 
@@ -36,11 +37,11 @@ namespace DieOut.GameModes {
                 
                 IAnimatorReceiver[] animatorReceivers = playerControllerGameObject.GetComponentsInChildren<IAnimatorReceiver>(true);
                 foreach(IAnimatorReceiver animatorReceiver in animatorReceivers) {
-                    animatorReceiver.SetAnimator(animator);
+                    animatorReceiver.ReceiveAnimator(animator);
                 }
                 IItemPositionTagReceiver[] itemPositionTagReceivers = playerControllerGameObject.GetComponentsInChildren<IItemPositionTagReceiver>(true);
                 foreach(IItemPositionTagReceiver itemPositionTagReceiver in itemPositionTagReceivers) {
-                    itemPositionTagReceiver.SetItemPositionTag(itemPositionTag);
+                    itemPositionTagReceiver.ReceiveItemPositionTag(itemPositionTag);
                 }
                 
                 
@@ -54,10 +55,11 @@ namespace DieOut.GameModes {
             Session.Current.GameModeInstance.OnGameModeStart += GiveControl;
         }
 
-        private void GiveControl() {
+        private Task GiveControl() {
             foreach(GameObject playerGameObject in _playerGameObjects) {
                 playerGameObject.GetComponent<PlayerControls>().HasControl = true;
             }
+            return Task.CompletedTask;
         }
     }
     

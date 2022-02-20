@@ -12,11 +12,8 @@ namespace DieOut.Editor.GameManager {
     
     internal class GameManagerEditorWindow : OdinMenuEditorWindow {
         
-        [OnValueChanged("OnTabChange")]
-        [HideLabel]
-        [EnumToggleButtons]
-        [ShowInInspector]
-        private ManagerTab _currentManagerTab = ManagerTab.GameModes;
+        [OnValueChanged("OnTabChange")] [HideLabel] [EnumToggleButtons]
+        [ShowInInspector] private ManagerTab _currentManagerTab = ManagerTab.GameModes;
         private int _enumIndex;
         
         private const string GAME_MODES_PATH = "Assets/ScriptableObjects/GameModes";
@@ -126,7 +123,7 @@ namespace DieOut.Editor.GameManager {
         }
         
     }
-
+    
     internal enum ManagerTab {
         GameModes,
         Characters,

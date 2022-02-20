@@ -7,60 +7,50 @@ namespace DieOut.Editor.GameManager {
     public class DrawScriptableObjectTree<T> where T : ScriptableObject {
         
         [InlineEditor(InlineEditorObjectFieldModes.CompletelyHidden)]
-        public T Selected;
-        [LabelWidth(100)]
-        [PropertyOrder(-2)]
-        [HorizontalGroup("CreateNew")]
-        public string NameForNew;
+        [SerializeField] private T _selected;
+        [LabelWidth(100)] [PropertyOrder(-2)] [HorizontalGroup("CreateNew")]
+        [SerializeField] private string _nameForNew;
         private string _path;
-
-
+        
+        
         public DrawScriptableObjectTree(string path) {
             _path = path;
         }
         
-        [HorizontalGroup("CreateNew")]
-        [GUIColor(0.7f, 0.7f, 1.0f)]
-        [Button]
-        public void CreateNew() {
-            if(string.IsNullOrEmpty(NameForNew) || string.IsNullOrWhiteSpace(NameForNew))
+        public void SetSelected(object item) {
+            if(item is T newSelected) {
+                _selected = newSelected;
+            }
+        }
+        
+        [HorizontalGroup("CreateNew")] [GUIColor(0.7f, 0.7f, 1.0f)]
+        [Button] public void CreateNew() {
+            if(string.IsNullOrEmpty(_nameForNew) || string.IsNullOrWhiteSpace(_nameForNew))
                 return;
 
             T newItem = ScriptableObject.CreateInstance<T>();
 
-            if(string.IsNullOrEmpty(NameForNew) || string.IsNullOrWhiteSpace(NameForNew))
+            if(string.IsNullOrEmpty(_nameForNew) || string.IsNullOrWhiteSpace(_nameForNew))
                 _path = "Assets/ScriptableObjects/";
             
-            AssetDatabase.CreateAsset(newItem, _path + "\\" + NameForNew + ".asset");
+            AssetDatabase.CreateAsset(newItem, _path + "\\" + _nameForNew + ".asset");
             AssetDatabase.SaveAssets();
 
-            NameForNew = "";
+            _nameForNew = "";
         }
         
-        [HorizontalGroup("CreateNew")]
-        [GUIColor(1.0f, 0.7f, 0.7f)]
-        [Button]
-        public void DeleteSelected() {
-            if(Selected == null)
+        [HorizontalGroup("CreateNew")] [GUIColor(1.0f, 0.7f, 0.7f)]
+        [Button] public void DeleteSelected() {
+            if(_selected == null)
                 return;
-            string path = AssetDatabase.GetAssetPath(Selected);
+            string path = AssetDatabase.GetAssetPath(_selected);
             AssetDatabase.DeleteAsset(path);
             AssetDatabase.SaveAssets();
-            Selected = null;
+            _selected = null;
         }
         
-        [PropertySpace(20)]
-        [ReadOnly]
-        [HideLabel]
-        [ShowInInspector]
-        [PropertyOrder(-1)]
-        private string _spacer => Selected?.name ?? "";
-
-        public void SetSelected(object item) {
-            if(item is T newSelected) {
-                Selected = newSelected;
-            }
-        }
+        [PropertySpace(20)] [HideLabel] [ShowInInspector] [PropertyOrder(-1)]
+        [ReadOnly] private string _spacer => _selected?.name ?? "";
         
     }
     
