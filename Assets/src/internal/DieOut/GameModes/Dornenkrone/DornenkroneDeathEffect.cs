@@ -44,8 +44,6 @@ namespace DieOut.GameModes {
                 yield break;
             }
             
-            Debug.Log("changing saturation on " + renderer.material.name);
-            
             yield return new WaitForSeconds(_saturationDelay);
             
             float saturation = 1;
@@ -72,13 +70,14 @@ namespace DieOut.GameModes {
             
             yield return new WaitForSeconds(_dissolveDelay);
             
-            float dissolveAmount = 0;
-            while(dissolveAmount < 1) {
+            float dissolveAmount = 1;
+            while(dissolveAmount > 0) {
                 renderer.material.SetFloat(_dissolveAmountID, dissolveAmount);
                 yield return null;
-                dissolveAmount += Time.deltaTime * _dissolveSpeed;
+                dissolveAmount -= Time.deltaTime * _dissolveSpeed;
             }
-            renderer.material.SetFloat(_dissolveAmountID, 1);
+            renderer.material.SetFloat(_dissolveAmountID, 0);
+            renderer.gameObject.SetActive(false);
         }
         
         private IEnumerator SpawnParticlesDelayed() {

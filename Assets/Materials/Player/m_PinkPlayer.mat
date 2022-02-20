@@ -93,7 +93,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - DissolveAmount: 0
+    - DissolveAmount: 1
     - DissolveScale: 30
     - DissolveWidth: 0.05
     - Saturation: 1
