@@ -28,7 +28,7 @@ namespace DieOut.UI.CharacterSelect {
                 Debug.LogWarning($"{ctx.control.device.displayName} cant join, cause the session is already full");
                 return;
             }
-
+            
             _characterSelectCards[_playerInputDevices.Count].AssignDevice(ctx.control.device);
             _playerInputDevices.Add(ctx.control.device);
             Debug.Log($"{ctx.control.device.displayName} joined the session");
@@ -54,7 +54,12 @@ namespace DieOut.UI.CharacterSelect {
                 Character character = _characterSelectCards[i].Character;
                 if(usedCharacters.Contains(character))
                     return null;
-                players[i] = new Player(new InputDevice[] { _playerInputDevices[i] }, character);
+                
+                if(_playerInputDevices[i] is Keyboard)
+                    players[i] = new Player(new InputDevice[] { _playerInputDevices[i], Mouse.current }, character);
+                else
+                    players[i] = new Player(new InputDevice[] { _playerInputDevices[i] }, character);
+                
                 usedCharacters.Add(character);
             }
             return players;
