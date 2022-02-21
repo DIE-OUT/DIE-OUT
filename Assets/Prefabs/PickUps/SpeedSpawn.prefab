@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabSpeedPickUp: {fileID: 6710516140309522688, guid: 6100767c89bb2f64eabbd59f5ccf31f8, type: 3}
-  _respawnTime: 5
+  _respawnTime: 10
 --- !u!1001 &7883107019465718876
 PrefabInstance:
   m_ObjectHideFlags: 0

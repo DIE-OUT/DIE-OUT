@@ -71,8 +71,10 @@ namespace DieOut.GameModes.Interactions {
 
         private IEnumerator TackleDuration() {
             _tackling = true;
+            _playerControls.HasControl = false;
             _animator.SetBool(AnimatorStringHashes.IsTackling, true);
             yield return new WaitForSeconds(0.25f);
+            _playerControls.HasControl = true;
             _tackling = false;
             _animator.SetBool(AnimatorStringHashes.IsTackling, false);
         }
