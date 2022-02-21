@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124e74490b664a40a53ea244fe4c802f, type: 3}
   m_Name: Beerenbusch
   m_EditorClassIdentifier: 
-  _splashScreen: {fileID: 21300000, guid: 11afa8fcf3a44f144a529983889a0fa5, type: 3}
+  _splashScreen: {fileID: 21300000, guid: 7ac77a787a0a33542ab2ca7169b0a79c, type: 3}
   _displayName: Beerenbusch
   _descriptionText: 
   _descriptionSprite: {fileID: 21300000, guid: 11afa8fcf3a44f144a529983889a0fa5, type: 3}
