@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DieOut.GameModes.Interactions;
@@ -12,8 +13,18 @@ namespace DieOut.GameModes.Dornenkrone {
         private SpeedPickUp _speedPickUp;
         [SerializeField] private float _speedDuration = 5;
         private int _amountOfCollectedSpeedPickUps = 0;
+        private PlayerControls _playerControls;
+
+        private void Awake() {
+            _playerControls = GetComponent<PlayerControls>();
+        }
 
         private void OnTriggerEnter(Collider other) {
+            
+            if (!_playerControls.HasControl) {
+                return;
+            }
+            
             _speedPickUp = other.GetComponent<SpeedPickUp>();
 
             if (_speedPickUp != null) {
