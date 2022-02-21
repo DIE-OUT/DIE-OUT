@@ -101,8 +101,7 @@ namespace DieOut.GameModes.Interactions {
                 // Wenn der getacklete Player eine Beere trägt, wird diese zerstört
                 _beere = GetComponentInChildren<Beere>();
                 if (_beere != null) {
-                    _beere._slowedSpeed = _movable.GetComponent<PlayerControls>()._movementSpeed;
-                    _movable.GetComponent<PlayerControls>()._movementSpeed = _beere._slowedSpeed * 2;
+                    _movable.GetComponent<PlayerControls>()._movementSpeed = _beere._normalMovementSpeed;
                     EatBeere eatBeere = GetComponent<EatBeere>();
                     eatBeere.enabled = false;
                     _beere._attachedToPlayer = false;
