@@ -47,9 +47,11 @@ namespace DieOut.GameModes {
             _player = GetComponentInParent<Movable>();
         }
 
-        public void TriggerThrow() {
-            GetComponent<Rigidbody>().GetComponentInParent<ItemPosition>().transform.Rotate(_throwAngle, 0, 0, Space.Self);
-            GetComponent<Rigidbody>().AddForce(GetComponentInParent<ItemPosition>().transform.forward * _throwForce);
+        public void TriggerThrow(Vector3 startPosition, Vector3 direction) {
+//            GetComponent<Rigidbody>().GetComponentInParent<ItemPosition>().transform.Rotate(_throwAngle, 0, 0, Space.Self);
+//            GetComponent<Rigidbody>().AddForce(GetComponentInParent<ItemPosition>().transform.forward * _throwForce);
+            GetComponent<Rigidbody>().MovePosition(startPosition);
+            GetComponent<Rigidbody>().AddForce(direction * _throwForce);
         }
     }
 }

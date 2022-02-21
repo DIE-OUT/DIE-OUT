@@ -113,7 +113,7 @@ namespace DieOut.GameModes {
                 //_throwables.Remove(_targetThrowable);
                 _animator.SetTrigger(AnimatorStringHashes.TriggerThrow);
                 _targetThrowable._attachedToPlayer = false;
-                _targetThrowable.TriggerThrow();
+                _targetThrowable.TriggerThrow(_movable.transform.position + _movable.transform.forward * 2, _movable.transform.forward);
                 _targetThrowable = null;
             }
         }
