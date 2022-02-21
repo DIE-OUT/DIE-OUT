@@ -303,6 +303,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1791574150395496948, guid: 62efe5ede722f79429b18157f178a11c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 601.46
+      objectReference: {fileID: 0}
     - target: {fileID: 1960428778737545683, guid: 62efe5ede722f79429b18157f178a11c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1328,5 +1332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6c694b951f40a1b0a50616dc288efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _afterGameEndedShowScoreboardForSeconds: 5
+  _timeBeforeScoreboard: 3
+  _showScoreboardForSeconds: 5
+  _timeAfterScoreboard: 0
   _scoreboardRoot: {fileID: 813240482}

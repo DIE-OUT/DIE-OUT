@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Afired.UI {
     
@@ -25,6 +26,7 @@ namespace Afired.UI {
                 Debug.Log("referenced rect transform cant be its own");
                 return;
             }
+
             _thisRectTransform.pivot = _otherRectTransform.pivot;
             _thisRectTransform.sizeDelta = _otherRectTransform.sizeDelta + _rectOffset.size;
             _thisRectTransform.anchoredPosition = _otherRectTransform.anchoredPosition;

@@ -2,13 +2,14 @@
 using Afired.GameManagement.Sessions;
 using UnityAsync;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace DieOut.UI.Scoreboard {
     
     public class ScoreboardManager : MonoBehaviour {
 
-        [SerializeField] private float _afterGameEndedShowScoreboardForSeconds = 5f;
+        [SerializeField] private float _timeBeforeScoreboard = 2f;
+        [SerializeField] private float _showScoreboardForSeconds = 5f;
+        [SerializeField] private float _timeAfterScoreboard = 0f;
         [SerializeField] private GameObject _scoreboardRoot;
         private InputTable _inputTable;
         
@@ -26,11 +27,11 @@ namespace DieOut.UI.Scoreboard {
 
         private async Task OnGameModeEnd() {
             DisableInput();
-            await Await.Seconds(1f);
+            await Await.Seconds(_timeBeforeScoreboard);
             Show();
-            await Await.Seconds(_afterGameEndedShowScoreboardForSeconds);
+            await Await.Seconds(_showScoreboardForSeconds);
             Hide();
-            await Await.Seconds(1f);
+            await Await.Seconds(_timeAfterScoreboard);
         }
 
         private void EnableInput() {
