@@ -1,7 +1,5 @@
-using System.Collections;
 using DieOut.GameModes.Interactions;
 using UnityEngine;
-using DieOut.GameModes.Dornenkrone;
 
 namespace DieOut.GameModes {
     
@@ -30,9 +28,9 @@ namespace DieOut.GameModes {
                 Health _health = _player.GetComponent<Health>();
 
                 if (_health.IsDead) {
-                    this._attachedToPlayer = false;
+                    _attachedToPlayer = false;
                     transform.SetParent(null);
-                    GetComponent<Rigidbody>().useGravity = true;
+                    _rigidbody.useGravity = true;
                     _rigidbody.constraints = RigidbodyConstraints.None;
                     _rigidbody.AddForce(transform.forward * 100);
                 }
@@ -49,10 +47,9 @@ namespace DieOut.GameModes {
         }
 
         public void TriggerThrow(Vector3 startPosition, Vector3 direction) {
-//            GetComponent<Rigidbody>().GetComponentInParent<ItemPosition>().transform.Rotate(_throwAngle, 0, 0, Space.Self);
-//            GetComponent<Rigidbody>().AddForce(GetComponentInParent<ItemPosition>().transform.forward * _throwForce);
             _rigidbody.MovePosition(startPosition);
             _rigidbody.AddForce(direction * _throwForce);
         }
     }
+    
 }
