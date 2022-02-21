@@ -21,8 +21,8 @@ namespace DieOut.GameModes.Gewitterwolke {
         private Vector3 _height = new Vector3(0, 1, 0);
         public LayerMask _layer;
         [SerializeField] private GameObject _prefab;
-        [SerializeField] private GameObject _prefabShadow;
-        private GameObject _prefabShadowToDestroy;
+        //[SerializeField] private GameObject _prefabShadow;
+        //private GameObject _prefabShadowToDestroy;
         private bool _isPrepared;
         [SerializeField] private float _timeBeforeLightningStrikes = 2.5f;
 
@@ -38,8 +38,8 @@ namespace DieOut.GameModes.Gewitterwolke {
             _timer = Random.Range(_delayRange.x, _delayRange.y);
             
             Raycast();
-            _prefabShadowToDestroy = Instantiate(_prefabShadow, _collision, Quaternion.identity);
-            Debug.Log(_prefabShadowToDestroy);
+            //_prefabShadowToDestroy = Instantiate(_prefabShadow, _collision, Quaternion.identity);
+            //Debug.Log(_prefabShadowToDestroy);
             _isPrepared = true;
             
             return Task.CompletedTask;
@@ -50,7 +50,7 @@ namespace DieOut.GameModes.Gewitterwolke {
                 return;
             
             Raycast();
-            _prefabShadowToDestroy.transform.position = _collision;
+            //_prefabShadowToDestroy.transform.position = _collision;
             
             _timer -= Time.deltaTime;
             
@@ -85,11 +85,12 @@ namespace DieOut.GameModes.Gewitterwolke {
         }
 
         IEnumerator LightningStrike() {
-            _prefabShadowToDestroy.SetActive(false);
+            //_prefabShadowToDestroy.SetActive(false);
             float currentSpeed = _gewitterwolke._navMeshAgent.speed;
             _gewitterwolke._navMeshAgent.speed = 0;
             Raycast();
             GameObject prefabToDestroy = Instantiate(_prefab, _collision, Quaternion.identity);
+            Debug.Log(_collision + " | " + prefabToDestroy.transform.position);
             yield return new WaitForSeconds(_timeBeforeLightningStrikes);
             Destroy(prefabToDestroy);
             Debug.Log("Lightning strikes!");
@@ -101,7 +102,7 @@ namespace DieOut.GameModes.Gewitterwolke {
             yield return new WaitForSeconds(1f);
             _gewitterwolke._navMeshAgent.speed = currentSpeed;
             
-            _prefabShadowToDestroy.SetActive(true);
+            //_prefabShadowToDestroy.SetActive(true);
         }
     }
 }
