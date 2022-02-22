@@ -84,7 +84,7 @@ namespace DieOut.GameModes.Interactions {
             Debug.Log("cooldown finished");
             _onCooldown = false;
             if (_cooldownIndicator != null) {
-                _cooldownIndicator.gameObject.SetActive(true);
+                _cooldownIndicator.Activate();
             }
         }
 
@@ -127,7 +127,7 @@ namespace DieOut.GameModes.Interactions {
 
             _onCooldown = true;
             if (_cooldownIndicator != null) {
-                _cooldownIndicator.gameObject.SetActive(false);
+                _cooldownIndicator.Deactivate();
             }
             StartCoroutine(TackleCooldown());
         }
