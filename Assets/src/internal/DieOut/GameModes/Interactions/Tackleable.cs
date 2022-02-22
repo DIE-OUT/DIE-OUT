@@ -51,7 +51,11 @@ namespace DieOut.GameModes.Interactions {
         
         private IEnumerator TackleStunDuration() {
             yield return new WaitForSeconds(_stunDuration);
-            _movable.GetComponent<PlayerControls>().HasControl = true;
+
+            Health health = GetComponent<Health>();
+            if (!health.IsDead) {
+                _movable.GetComponent<PlayerControls>().HasControl = true;
+            }
         }
 
         public void TriggerThrowableStun() {
