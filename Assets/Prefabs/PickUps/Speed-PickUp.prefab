@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6710516140309522694}
   - component: {fileID: 6710516140309522688}
   - component: {fileID: 4661626634569753707}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Speed-PickUp
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
