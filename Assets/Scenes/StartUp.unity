@@ -196,9 +196,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb4af5c8f1f4ef098bb477c752e9bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skipControllerRecommendationsInEditor: 1
   _mainMenuScene:
     m_SceneAsset: {fileID: 102900000, guid: 57779fc25205dc14c813daa6a2dd274e, type: 3}
     m_SceneName: MainMenu
+  _controllerRecommendationScene:
+    m_SceneAsset: {fileID: 102900000, guid: 6d5318233772bf940a5b8b7cc3ead62b, type: 3}
+    m_SceneName: ControllerRecommendation
 --- !u!1 &324744117
 GameObject:
   m_ObjectHideFlags: 0
