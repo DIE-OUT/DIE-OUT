@@ -88,6 +88,7 @@ namespace DieOut.GameModes.Gewitterwolke {
             //_prefabShadowToDestroy.SetActive(false);
             float currentSpeed = _gewitterwolke._navMeshAgent.speed;
             _gewitterwolke._navMeshAgent.speed = 0;
+            yield return new WaitForSeconds(0.25f);
             Raycast();
             GameObject prefabToDestroy = Instantiate(_prefab, _collision, Quaternion.identity);
             Debug.Log(_collision + " | " + prefabToDestroy.transform.position);

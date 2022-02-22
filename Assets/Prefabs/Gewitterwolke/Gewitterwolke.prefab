@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4371600886740014670}
   m_LocalRotation: {x: 0.7071065, y: -0, z: -0, w: 0.7071071}
   m_LocalPosition: {x: 0, y: -7.32, z: -0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 12.6165}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 12.61651}
   m_Children: []
   m_Father: {fileID: 7645347874025848363}
   m_RootOrder: 2
@@ -112,7 +112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7645347874025848353}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.269, y: 5.547433, z: 2.9514923}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7895656904335281310}
@@ -218,7 +218,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
 --- !u!65 &7645347874025848362
 BoxCollider:
@@ -332,7 +332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80bc782bc9dcba64b9828149f4aba1c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.353
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80bc782bc9dcba64b9828149f4aba1c8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -340,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80bc782bc9dcba64b9828149f4aba1c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80bc782bc9dcba64b9828149f4aba1c8, type: 3}
       propertyPath: m_LocalRotation.w
