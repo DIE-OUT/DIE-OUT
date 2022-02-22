@@ -13,30 +13,22 @@ MonoBehaviour:
   m_Name: Beerenbusch
   m_EditorClassIdentifier: 
   _splashScreen: {fileID: 21300000, guid: 7ac77a787a0a33542ab2ca7169b0a79c, type: 3}
-  _displayName: Beerenbusch
+  _displayName: Berry Rush
   _descriptionText: 
   _descriptionSprite: {fileID: 21300000, guid: 11afa8fcf3a44f144a529983889a0fa5, type: 3}
   _maps:
   - _scene:
-      m_SceneAsset: {fileID: 102900000, guid: 118d2231fd4753441b0e82efa6ff4740, type: 3}
-      m_SceneName: BB_M_1
-    _displayName: BB_M_1
-  - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 092fc15b4ed1b3a4d88b99bceb634e56, type: 3}
       m_SceneName: BB_M_2
-    _displayName: Desertmine
+    _displayName: Crystal Desertmine
   - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 35b2527147d5f6a42932818fdca3f01b, type: 3}
       m_SceneName: BB_M_3
-    _displayName: Spookmansion
-  - _scene:
-      m_SceneAsset: {fileID: 102900000, guid: 74940bf0e96ce894dae3649f1adf4782, type: 3}
-      m_SceneName: BB_Emi_1
-    _displayName: BB_Emi_1
+    _displayName: Spook Mansion
   - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 8a7b94c0539c9524cb675ea1fa38608b, type: 3}
       m_SceneName: Picnic
-    _displayName: Picnic
+    _displayName: Picnic Afternoon
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 690b8fe4b4be1374787146238f4480a0, type: 3}
     m_SceneName: GameMode_Management

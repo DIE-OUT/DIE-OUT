@@ -13,38 +13,26 @@ MonoBehaviour:
   m_Name: Dornenkrone
   m_EditorClassIdentifier: 
   _splashScreen: {fileID: 21300000, guid: a9cf5d1c598dffd4dbe9686cf4579216, type: 3}
-  _displayName: Dornenkrone
+  _displayName: Magma Cube
   _descriptionText: 
   _descriptionSprite: {fileID: 21300000, guid: 11afa8fcf3a44f144a529983889a0fa5, type: 3}
   _maps:
   - _scene:
-      m_SceneAsset: {fileID: 102900000, guid: 9812700f4382fbd4ab380de60438aebd, type: 3}
-      m_SceneName: Dornenkrone_Map01 L
-    _displayName: Dornenkrone_Map01 L
-  - _scene:
-      m_SceneAsset: {fileID: 102900000, guid: 29d660bec081ef84a8d2198d767ef980, type: 3}
-      m_SceneName: Dornenkrone_Map04 L
-    _displayName: Dornenkrone_Map04 L
-  - _scene:
-      m_SceneAsset: {fileID: 102900000, guid: 28e8606a464a81a4c80ab32439b5c940, type: 3}
-      m_SceneName: Dornenkrone_Map05 L
-    _displayName: Dornenkrone_Map05 L
-  - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 44ffa5bac379ad94096f816ccbaf3049, type: 3}
       m_SceneName: Dornenkrone_Emi_1
-    _displayName: Dornenkrone_Emi_1
+    _displayName: Enchanted woods
   - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 3fad75f4455423d4fa7346afaddb0a39, type: 3}
       m_SceneName: Dornenkrone_Emi_2
-    _displayName: Dornenkrone_Emi_2
+    _displayName: Windy Rooftops
   - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 205105c82bc697e46bbf7cc00daf1a27, type: 3}
       m_SceneName: 04_Cake
-    _displayName: CakeMap
+    _displayName: Caketop Plaza
   - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 3c7d76a4288a46f41bd80e11a7c6df64, type: 3}
       m_SceneName: Dornenkrone_Gina
-    _displayName: Jungle Ruins [Map05L]
+    _displayName: Ancient Ruins
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 30f8850d14e046f4fade8b1f57be951d, type: 3}
     m_SceneName: Dornenkrone_Management
