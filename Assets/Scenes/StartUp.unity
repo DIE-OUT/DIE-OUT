@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb4af5c8f1f4ef098bb477c752e9bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skipControllerRecommendationsInEditor: 1
+  _skipControllerRecommendationsInEditor: 0
   _mainMenuScene:
     m_SceneAsset: {fileID: 102900000, guid: 57779fc25205dc14c813daa6a2dd274e, type: 3}
     m_SceneName: MainMenu
