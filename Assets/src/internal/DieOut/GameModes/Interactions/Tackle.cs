@@ -95,7 +95,7 @@ namespace DieOut.GameModes.Interactions {
                 return;
             }
 
-            // dont do anything if tackling player is stunned
+            // dont do anything if tackling player is stunned/dead
             if (!_playerControls.HasControl) {
                 Debug.Log("can`t tackle while player controls are disabled");
                 return;

@@ -2,9 +2,12 @@ using UnityEngine;
 using System.Collections;
 using DieOut.GameModes.Dornenkrone;
 using DieOut.GameModes.Beerenbusch;
+using Afired.GameManagement.Characters;
 
 namespace DieOut.GameModes.Interactions {
-    public class Tackleable : MonoBehaviour {
+    public class Tackleable : MonoBehaviour, IAnimatorReceiver {
+        
+        private Animator _animator;
         
         private Movable _movable;
         private PlayerControls _playerControls;
@@ -32,6 +35,10 @@ namespace DieOut.GameModes.Interactions {
             _meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
             _origColor = _meshRenderer.material.color;
         }
+        
+        public void ReceiveAnimator(Animator animator) {
+            _animator = animator;
+        }
 
         public void TriggerCC_Immunity() {
             StartCoroutine(CC_Immunity());
@@ -50,7 +57,9 @@ namespace DieOut.GameModes.Interactions {
         }
         
         private IEnumerator TackleStunDuration() {
+            _animator.SetBool(AnimatorStringHashes.IsStunned, true);
             yield return new WaitForSeconds(_stunDuration);
+            _animator.SetBool(AnimatorStringHashes.IsStunned, false);
 
             Health health = GetComponent<Health>();
             if (!health.IsDead) {
@@ -113,6 +122,7 @@ namespace DieOut.GameModes.Interactions {
                 }
 
                 // Der getacklete Player bewegt sich in die entgegengesetzte Richtung des tacklenden Players
+                _animator.SetTrigger(AnimatorStringHashes.TriggerKnockback);
                 Vector3 distance = _movable.transform.position - tacklingPlayer.transform.position;
                 _movable.AddVelocity(new Vector3(distance.x, 0, distance.z).normalized * _tackleDistance);
                 

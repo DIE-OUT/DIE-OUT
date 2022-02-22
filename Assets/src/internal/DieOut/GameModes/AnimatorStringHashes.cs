@@ -13,6 +13,8 @@ namespace DieOut.GameModes {
         public static readonly int TriggerEatBerry = Animator.StringToHash("TriggerEatBerry");
         public static readonly int TriggerThrow = Animator.StringToHash("TriggerThrow");
         public static readonly int ItemState = Animator.StringToHash("ItemState");
+        public static readonly int IsStunned = Animator.StringToHash("IsStunned");
+        public static readonly int TriggerKnockback = Animator.StringToHash("TriggerKnockback");
     }
     
 }
