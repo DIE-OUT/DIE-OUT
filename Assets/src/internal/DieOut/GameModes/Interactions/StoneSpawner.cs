@@ -1,24 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace DieOut.GameModes.Interactions {
-    public class StoneSpawnpoint : MonoBehaviour {
+    public class StoneSpawner : MonoBehaviour {
 
-        [SerializeField] private Stone _prefabStone;
-        private Stone _currentStone;
+        [AssetsOnly] [SerializeField] private GameObject _prefabStone;
+        private GameObject _stoneGameObject;
 
         [SerializeField] private float _respawnTime = 5;
         private bool _inCoroutine = false;
 
         private void Awake() {
-            _currentStone = this.GetComponentInChildren<Stone>();
+            StartCoroutine(Respawn());
         }
 
         private void Update() {
 
-            if (_currentStone == null && !_inCoroutine) {
+            if (_stoneGameObject == null && !_inCoroutine) {
                 StartCoroutine(Respawn());
             }
         }
@@ -26,9 +27,13 @@ namespace DieOut.GameModes.Interactions {
         private IEnumerator Respawn() {
             _inCoroutine = true;
             yield return new WaitForSeconds(_respawnTime);
-            Stone newStone = Instantiate(_prefabStone, this.transform.position, Quaternion.identity);
-            _currentStone = newStone;
+            GameObject newStone = Instantiate(_prefabStone, this.transform.position, Quaternion.identity);
+            _stoneGameObject = newStone;
             _inCoroutine = false;
+        }
+
+        private void OnDrawGizmosSelected() {
+            Gizmos.DrawSphere(transform.position, 0.2f);
         }
     }
 }
