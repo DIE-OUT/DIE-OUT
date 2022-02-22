@@ -22,10 +22,6 @@ MonoBehaviour:
       m_SceneName: Dornenkrone_Emi_1
     _displayName: Enchanted woods
   - _scene:
-      m_SceneAsset: {fileID: 102900000, guid: 3fad75f4455423d4fa7346afaddb0a39, type: 3}
-      m_SceneName: Dornenkrone_Emi_2
-    _displayName: Windy Rooftops
-  - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 205105c82bc697e46bbf7cc00daf1a27, type: 3}
       m_SceneName: 04_Cake
     _displayName: Caketop Plaza
