@@ -2,6 +2,7 @@
 using Afired.GameManagement.Characters;
 using Afired.GameManagement.Sessions;
 using Afired.UI.Elements;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -17,11 +18,12 @@ namespace DieOut.UI.CharacterSelect {
         [SerializeField] private Camera _renderTextureCamera;
         [SerializeField] private GameObject _gameObjectToActivateWhenControlAssigned;
         [SerializeField] private GameObject _gameObjectToDeactivateWhenControlAssigned;
+        [SerializeField] [Required] private Character _startingCharacter;
         public bool IsAssigned => _inputDevice != null;
         private AssignUIControl _assignUIControl;
         private InputDevice _inputDevice;
-        public Character Character { get; private set; }
-        private ISwitchControl _characterSwitchControl;
+        public Character Character => (Character) _characterSwitchControl.GetValue();
+        private SwitchControl<Character> _characterSwitchControl;
         private RenderTexture _renderTexture;
         
         private void Awake() {
@@ -30,7 +32,6 @@ namespace DieOut.UI.CharacterSelect {
             _gameObjectToDeactivateWhenControlAssigned.SetActive(true);
             
             _characterSwitchControl = new SwitchControl<Character>(CharacterRegister.Characters, CharacterRegister.Characters.FirstOrDefault(), character => character.DisplayName);
-            _characterSwitchControl.OnValueChanged += (value, valueAsText) => Character = (Character) value;
             _characterSwitchControl.OnValueChanged += (value, valueAsText) => _characterModelPreview.Refresh((Character) value);
             _characterSwitcher.AssignControl(_characterSwitchControl);
 
@@ -46,8 +47,8 @@ namespace DieOut.UI.CharacterSelect {
             
             _gameObjectToActivateWhenControlAssigned.SetActive(true);
             _gameObjectToDeactivateWhenControlAssigned.SetActive(false);
-            Character = (Character) _characterSwitchControl.GetValue();
-            _characterModelPreview.Refresh((Character) _characterSwitchControl.GetValue());
+            _characterSwitchControl.Select(_startingCharacter);
+//            _characterModelPreview.Refresh((Character) _characterSwitchControl.GetValue());
         }
 
         private void OnDisable() {
