@@ -92,4 +92,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ControllerRecommendation.unity
     guid: 6d5318233772bf940a5b8b7cc3ead62b
+  - enabled: 1
+    path: Assets/Scenes/Dornenkrone/Dornenkrone_PirateDungeon.unity
+    guid: 2e105bc14e21c7b45b60594d0aa383f1
   m_configObjects: {}

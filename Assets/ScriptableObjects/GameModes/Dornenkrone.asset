@@ -33,6 +33,10 @@ MonoBehaviour:
       m_SceneAsset: {fileID: 102900000, guid: 3c7d76a4288a46f41bd80e11a7c6df64, type: 3}
       m_SceneName: Dornenkrone_Gina
     _displayName: Ancient Ruins
+  - _scene:
+      m_SceneAsset: {fileID: 102900000, guid: 2e105bc14e21c7b45b60594d0aa383f1, type: 3}
+      m_SceneName: Dornenkrone_PirateDungeon
+    _displayName: Pirate Dungeon
   _additionalScenes:
   - m_SceneAsset: {fileID: 102900000, guid: 30f8850d14e046f4fade8b1f57be951d, type: 3}
     m_SceneName: Dornenkrone_Management
