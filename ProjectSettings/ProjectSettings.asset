@@ -44,7 +44,7 @@ PlayerSettings:
     duration: 2
   - logo: {fileID: 21300000, guid: 2379b02be08f2054a8e4774aba83ced4, type: 3}
     duration: 2
-  - logo: {fileID: 21300000, guid: 679587c8b1204a84ca6b6f7b2a1e852c, type: 3}
+  - logo: {fileID: 21300000, guid: fbeea48a3ba5bb34e88169645b578026, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
@@ -142,6 +142,7 @@ PlayerSettings:
     Others: 1
   bundleVersion: 1.0
   preloadedAssets:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
