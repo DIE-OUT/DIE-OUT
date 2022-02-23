@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 092ff00ed3db5fd4c8b1882b004ba11d, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 166efe54a1318e746b7b7fefedeb5b2f, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -177,6 +177,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8438acd24cd706d4d870012e71d25bd9, type: 3}
       propertyPath: m_Name
       value: o_CottageMap
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8438acd24cd706d4d870012e71d25bd9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 8438acd24cd706d4d870012e71d25bd9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8438acd24cd706d4d870012e71d25bd9, type: 3}
@@ -473,6 +481,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: o_sheep
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ffa52ba7296e9e04ea43b61a9214e7e4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: ffa52ba7296e9e04ea43b61a9214e7e4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffa52ba7296e9e04ea43b61a9214e7e4, type: 3}
 --- !u!4 &385427980 stripped
@@ -686,6 +702,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ffa52ba7296e9e04ea43b61a9214e7e4, type: 3}
       propertyPath: m_Name
       value: o_sheep_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ffa52ba7296e9e04ea43b61a9214e7e4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: ffa52ba7296e9e04ea43b61a9214e7e4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffa52ba7296e9e04ea43b61a9214e7e4, type: 3}
@@ -1047,7 +1071,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1103,7 +1127,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1047699820
 Transform:
@@ -1204,7 +1228,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1462,6 +1486,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ffa52ba7296e9e04ea43b61a9214e7e4, type: 3}
       propertyPath: m_Name
       value: o_sheep_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ffa52ba7296e9e04ea43b61a9214e7e4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: ffa52ba7296e9e04ea43b61a9214e7e4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffa52ba7296e9e04ea43b61a9214e7e4, type: 3}
