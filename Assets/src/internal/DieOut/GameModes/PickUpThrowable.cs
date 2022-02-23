@@ -104,11 +104,11 @@ namespace DieOut.GameModes {
             if (_targetThrowable != null) {
                 
                 // if controlled with mouse and keyboard, rotate character to face the mouse position before throwing
-                if(_mouseInputEnabled) {
-                    Vector3 positionToAimAt = Camera.main.GetContactPosOfMousePosToPlane(Mouse.current.position.ReadValue(), _movable.transform.position, Vector3.up);
-                    Vector3 directionToAim = positionToAimAt - _movable.transform.position;
-                    _movable.transform.forward = directionToAim;
-                }
+//                if(_mouseInputEnabled) {
+//                    Vector3 positionToAimAt = Camera.main.GetContactPosOfMousePosToPlane(Mouse.current.position.ReadValue(), _movable.transform.position, Vector3.up);
+//                    Vector3 directionToAim = positionToAimAt - _movable.transform.position;
+//                    _movable.transform.forward = directionToAim;
+//                }
                 
                 //_throwables.Remove(_targetThrowable);
                 _animator.SetTrigger(AnimatorStringHashes.TriggerThrow);
