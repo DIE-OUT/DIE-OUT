@@ -15,7 +15,7 @@ MonoBehaviour:
   _splashScreen: {fileID: 21300000, guid: a9cf5d1c598dffd4dbe9686cf4579216, type: 3}
   _displayName: Magma Cube
   _descriptionText: 
-  _descriptionSprite: {fileID: 21300000, guid: 11afa8fcf3a44f144a529983889a0fa5, type: 3}
+  _descriptionSprite: {fileID: 21300000, guid: 6a0be22e8bfec1648befcebb6714f4a6, type: 3}
   _maps:
   - _scene:
       m_SceneAsset: {fileID: 102900000, guid: 44ffa5bac379ad94096f816ccbaf3049, type: 3}
