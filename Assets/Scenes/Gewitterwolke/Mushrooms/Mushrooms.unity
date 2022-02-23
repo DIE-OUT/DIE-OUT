@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 72d79213b3f18f642aee2c5a726e9d0c, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 166efe54a1318e746b7b7fefedeb5b2f, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -166,7 +166,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.6963687, b: 0.34591186, a: 1}
-  m_Intensity: 36.26
+  m_Intensity: 11
   m_Range: 8.367108
   m_SpotAngle: 134.28757
   m_InnerSpotAngle: 57.535744
@@ -645,7 +645,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -808,7 +808,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -907,7 +907,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8207547, g: 0.36330104, b: 0.22196503, a: 1}
-  m_Intensity: 36.26
+  m_Intensity: 11.6
   m_Range: 8.367108
   m_SpotAngle: 134.28757
   m_InnerSpotAngle: 19.178574
@@ -1000,7 +1000,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.70018405, g: 0.34509802, b: 1, a: 1}
-  m_Intensity: 36.26
+  m_Intensity: 8.7
   m_Range: 8.367108
   m_SpotAngle: 134.28757
   m_InnerSpotAngle: 134.25006
@@ -1560,6 +1560,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: o_MushroomMap
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6e6dd700fea679a47b731505aa6128f9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 6e6dd700fea679a47b731505aa6128f9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e6dd700fea679a47b731505aa6128f9, type: 3}
 --- !u!4 &1594858702 stripped
@@ -2067,7 +2075,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.42447713, g: 0.34745455, b: 0.9056604, a: 1}
-  m_Intensity: 36.26
+  m_Intensity: 15.94
   m_Range: 8.367108
   m_SpotAngle: 134.28757
   m_InnerSpotAngle: 57.535744

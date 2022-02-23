@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 235ed22c0c647624096eb0176256c42b, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 166efe54a1318e746b7b7fefedeb5b2f, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -259,7 +259,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.43137252, g: 0.94070387, b: 0.94509804, a: 1}
-  m_Intensity: 68.44
+  m_Intensity: 7.1
   m_Range: 16.64
   m_SpotAngle: 109.16852
   m_InnerSpotAngle: 94.91815
@@ -755,6 +755,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: map2_big
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 47e73adc5af7e254a987fc66fbe455bc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 47e73adc5af7e254a987fc66fbe455bc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47e73adc5af7e254a987fc66fbe455bc, type: 3}
 --- !u!4 &858761574 stripped
@@ -795,7 +803,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &898997079
 Transform:
@@ -855,7 +863,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9433962, g: 0.85719985, b: 0.43313155, a: 1}
-  m_Intensity: 75.43
+  m_Intensity: 6.77
   m_Range: 16.64
   m_SpotAngle: 41.083614
   m_InnerSpotAngle: 28.41663
@@ -894,7 +902,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1408,6 +1416,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7048931867683246780, guid: 38fe2b0534ee1194487c586ce9c99995, type: 3}
+      propertyPath: _prefabStone
+      value: 
+      objectReference: {fileID: 160915953670347785, guid: 7abca47f01ace4d48af4ec30f96527be, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38fe2b0534ee1194487c586ce9c99995, type: 3}
 --- !u!1 &1423435582
@@ -6413,6 +6425,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7048931867683246780, guid: 38fe2b0534ee1194487c586ce9c99995, type: 3}
+      propertyPath: _prefabStone
+      value: 
+      objectReference: {fileID: 8595190926230258592, guid: 82f7a8ef9ef38ed49aab78da17cf1e52, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38fe2b0534ee1194487c586ce9c99995, type: 3}
 --- !u!1 &1695015711
@@ -6535,13 +6551,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819009267}
-  m_LocalRotation: {x: 0.5738381, y: -0.4590171, z: -0.009954959, w: 0.67816967}
+  m_LocalRotation: {x: 0.57387376, y: -0.46176395, z: -0.0076273927, w: 0.6763023}
   m_LocalPosition: {x: 13.639063, y: 7.2494516, z: 5.6564503}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 652155564}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 17.736, y: -38.203, z: -9.878}
+  m_LocalEulerAnglesHint: {x: 50.28, y: -97.654, z: -57.726}
 --- !u!108 &1819009269
 Light:
   m_ObjectHideFlags: 0
@@ -6554,7 +6570,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.24919893, g: 0.8452446, b: 0.990566, a: 1}
-  m_Intensity: 36.04
+  m_Intensity: 17.9
   m_Range: 18.3
   m_SpotAngle: 59.719425
   m_InnerSpotAngle: 37.552254
@@ -6856,7 +6872,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1

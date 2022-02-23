@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 9169196d9be749242b956e9146ac94bb, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 166efe54a1318e746b7b7fefedeb5b2f, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -323,7 +323,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -377,7 +377,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.43137252, g: 0.94070387, b: 0.94509804, a: 1}
-  m_Intensity: 68.44
+  m_Intensity: 5.58
   m_Range: 16.64
   m_SpotAngle: 109.16852
   m_InnerSpotAngle: 94.91815
@@ -915,7 +915,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &898997079
 Transform:
@@ -975,8 +975,8 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.9433962, g: 0.85719985, b: 0.43313155, a: 1}
-  m_Intensity: 75.43
+  m_Color: {r: 0.43137252, g: 0.7577668, b: 0.94509804, a: 1}
+  m_Intensity: 10.6
   m_Range: 16.64
   m_SpotAngle: 41.083614
   m_InnerSpotAngle: 28.41663
@@ -1080,6 +1080,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 83114f36785f9e0499a6b0d298874429, type: 3}
       propertyPath: m_Name
       value: o_citydetails
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 83114f36785f9e0499a6b0d298874429, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 83114f36785f9e0499a6b0d298874429, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83114f36785f9e0499a6b0d298874429, type: 3}
@@ -1324,7 +1332,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.2509804, g: 0.99215686, b: 0.65509003, a: 1}
-  m_Intensity: 36.04
+  m_Intensity: 19.9
   m_Range: 18.3
   m_SpotAngle: 59.719425
   m_InnerSpotAngle: 37.552254
@@ -1525,6 +1533,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CityMapSuburb_nodet
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55c5e50d117fbf64fb62a89519f65ee4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 55c5e50d117fbf64fb62a89519f65ee4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55c5e50d117fbf64fb62a89519f65ee4, type: 3}
 --- !u!4 &1660483686 stripped
@@ -1716,7 +1732,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.24919893, g: 0.8452446, b: 0.990566, a: 1}
-  m_Intensity: 36.04
+  m_Intensity: 8
   m_Range: 18.3
   m_SpotAngle: 59.719425
   m_InnerSpotAngle: 37.552254
@@ -1905,7 +1921,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.16743791, g: 0.7830186, b: 0.7830189, a: 1}
-  m_Intensity: 6.47
+  m_Intensity: 2.8
   m_Range: 19.83
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

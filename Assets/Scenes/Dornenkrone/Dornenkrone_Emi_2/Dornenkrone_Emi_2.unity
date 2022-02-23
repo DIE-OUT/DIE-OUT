@@ -350,6 +350,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: map2_big
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 47e73adc5af7e254a987fc66fbe455bc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 47e73adc5af7e254a987fc66fbe455bc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47e73adc5af7e254a987fc66fbe455bc, type: 3}
 --- !u!4 &375292587 stripped
@@ -459,7 +467,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
