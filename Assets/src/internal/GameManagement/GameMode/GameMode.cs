@@ -18,7 +18,7 @@ namespace Afired.GameManagement.GameModes {
         [TableList(AlwaysExpanded = true, DrawScrollView = false)] [HideReferenceObjectPicker]
         [SerializeField] private Map[] _maps = { new Map() };
         [HideReferenceObjectPicker] [ListDrawerSettings(Expanded = true)]
-        [SerializeField] private SceneField[] _additionalScenes = { new SceneField() };
+        [SerializeField] private SceneRef[] _additionalScenes = { new SceneRef() };
         
         /// <returns>the display name of this game mode</returns>
         public string DisplayName => _displayName;
@@ -36,7 +36,7 @@ namespace Afired.GameManagement.GameModes {
         public Sprite SplashScreen => _splashScreen;
         
         /// <returns>all additional scenes that should be loaded along side a map of this game mode</returns>>
-        public SceneField[] AdditionalScenes => _additionalScenes;
+        public SceneRef[] AdditionalScenes => _additionalScenes;
         
     }
     

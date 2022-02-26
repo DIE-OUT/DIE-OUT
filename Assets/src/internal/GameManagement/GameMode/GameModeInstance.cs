@@ -30,7 +30,7 @@ namespace Afired.GameManagement.GameModes {
         }
         
         private static async Task LoadGameModeMap(GameMode gameMode, Map map) {
-            List<SceneField> scenesToLoad = new List<SceneField>();
+            List<SceneRef> scenesToLoad = new List<SceneRef>();
             scenesToLoad.Add(map.Scene);
             scenesToLoad.AddRange(gameMode.AdditionalScenes);
             await SceneManager.LoadScenesAsync(scenesToLoad.Select(scene => scene.SceneName).ToArray());
@@ -45,7 +45,7 @@ namespace Afired.GameManagement.GameModes {
             await OnGameModeEnd.InvokeAsynchronously();
             
             #pragma warning disable CS4014
-            Session.Current.GoNext();
+            Session.Current.Next();
             #pragma warning restore CS4014
         }
         

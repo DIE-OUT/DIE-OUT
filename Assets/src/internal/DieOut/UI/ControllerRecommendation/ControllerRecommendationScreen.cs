@@ -7,7 +7,7 @@ namespace DieOut.UI.ControllerRecommendation {
     public class ControllerRecommendationScreen : MonoBehaviour {
 
         [SerializeField] private float _timeToWaitBeforeLoadingMainMenu = 5f;
-        [SerializeField] private SceneField _mainMenuScene;
+        [SerializeField] private SceneRef _mainMenuScene;
         
         private void Start() {
             StartCoroutine(LoadMainMenuWithDelay(_timeToWaitBeforeLoadingMainMenu));

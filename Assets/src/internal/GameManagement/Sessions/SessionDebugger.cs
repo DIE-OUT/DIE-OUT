@@ -3,6 +3,7 @@ using Sirenix.Serialization;
 
 namespace Afired.GameManagement.Sessions {
     
+    //TODO: refactor to editor window
     [InfoBox("No session has been created yet", VisibleIf = "@_current == null && EditorApplication.isPlaying")]
     [InfoBox("This will show the current session once in play mode", VisibleIf = "@!EditorApplication.isPlaying")]
     public class SessionDebugger : SerializedMonoBehaviour {

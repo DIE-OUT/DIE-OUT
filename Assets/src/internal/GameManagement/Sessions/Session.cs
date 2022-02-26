@@ -16,14 +16,14 @@ namespace Afired.GameManagement.Sessions {
         public static Session Current => _current ?? throw new Exception("There is no current session");
         public static bool HasCurrent => _current != null;
         
-        [ReadOnly] [OdinSerialize] public int PlayerCount => Players.Length;
-        [OdinSerialize] public Player[] Players { get; }
-        [OdinSerialize] public HashSet<GameMode> ActivatedGameModes { get; }
-        [OdinSerialize] public int MaxRounds { get; }
-        [OdinSerialize] public int WinningScore { get; }
-        [ReadOnly] [OdinSerialize] public int CurrentRound { get; private set; }
+        public int PlayerCount => Players.Length;
+        public Player[] Players { get; }
+        public HashSet<GameMode> ActivatedGameModes { get; }
+        public int MaxRounds { get; }
+        public int WinningScore { get; }
+        public int CurrentRound { get; private set; }
         
-        public GameModeInstance GameModeInstance;
+        public GameModeInstance GameModeInstance { get; private set; }
         public bool IsRunning => HasStarted && !HasEnded;
         public bool HasStarted { get; private set; }
         public bool HasEnded { get; private set; }
@@ -46,7 +46,7 @@ namespace Afired.GameManagement.Sessions {
             await LoadRandomGameMode();
         }
         
-        public async Task GoNext() {
+        public async Task Next() {
             HasStarted = true;
             if(ValidateSessionWin()) {
                 EndSession();
@@ -72,7 +72,7 @@ namespace Afired.GameManagement.Sessions {
             await GameModeInstance.Load();
         }
         
-        public bool ValidateSessionWin() {
+        private bool ValidateSessionWin() {
             if(Players.Any(player => player.Score >= WinningScore))
                 return true;
             if(CurrentRound >= MaxRounds)

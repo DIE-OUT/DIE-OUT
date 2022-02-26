@@ -17,7 +17,7 @@ namespace Afired.SceneManagement {
         public static TaskQueue OnEndAsyncLevelLoading = new TaskQueue();
         public static float LoadingProgress { get; private set; }
         
-        [SerializeField] private SceneField _loadingScreenScene;
+        [SerializeField] private SceneRef _loadingScreenScene;
         
         private static SingletonInstance<SceneManager> _instance;
         
@@ -40,7 +40,7 @@ namespace Afired.SceneManagement {
                 scenesLoading.Add(UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(scenes[i], LoadSceneMode.Additive));
             }
             
-            while(scenesLoading.Any(scene => !scene.isDone)) {
+            while(scenesLoading.Any(asyncOperation => !asyncOperation.isDone)) {
                 LoadingProgress = scenesLoading.Sum(operation => operation.progress) / scenesLoading.Count;
                 await Await.NextUpdate();
             }

@@ -6,8 +6,8 @@ namespace DieOut {
     public class StartUp : MonoBehaviour {
 
         [SerializeField] private bool _skipControllerRecommendationsInEditor = true;
-        [SerializeField] private SceneField _mainMenuScene;
-        [SerializeField] private SceneField _controllerRecommendationScene;
+        [SerializeField] private SceneRef _mainMenuScene;
+        [SerializeField] private SceneRef _controllerRecommendationScene;
         public static bool HasBeenLoaded { get; private set; }
         
         private void Start() {

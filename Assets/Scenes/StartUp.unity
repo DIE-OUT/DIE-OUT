@@ -196,13 +196,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb4af5c8f1f4ef098bb477c752e9bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skipControllerRecommendationsInEditor: 0
+  _skipControllerRecommendationsInEditor: 1
   _mainMenuScene:
-    m_SceneAsset: {fileID: 102900000, guid: 57779fc25205dc14c813daa6a2dd274e, type: 3}
-    m_SceneName: MainMenu
+    _sceneAsset: {fileID: 102900000, guid: 57779fc25205dc14c813daa6a2dd274e, type: 3}
+    _sceneName: MainMenu
   _controllerRecommendationScene:
-    m_SceneAsset: {fileID: 102900000, guid: 6d5318233772bf940a5b8b7cc3ead62b, type: 3}
-    m_SceneName: ControllerRecommendation
+    _sceneAsset: {fileID: 102900000, guid: 6d5318233772bf940a5b8b7cc3ead62b, type: 3}
+    _sceneName: ControllerRecommendation
 --- !u!1 &324744117
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,11 +965,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainMenu:
-    m_SceneAsset: {fileID: 102900000, guid: 57779fc25205dc14c813daa6a2dd274e, type: 3}
-    m_SceneName: MainMenu
+    _sceneAsset: {fileID: 102900000, guid: 57779fc25205dc14c813daa6a2dd274e, type: 3}
+    _sceneName: MainMenu
   _awardCeremony:
-    m_SceneAsset: {fileID: 102900000, guid: ce69a046399cd7a41a9a09cb7396ba1d, type: 3}
-    m_SceneName: AwardCeremony
+    _sceneAsset: {fileID: 102900000, guid: ce69a046399cd7a41a9a09cb7396ba1d, type: 3}
+    _sceneName: AwardCeremony
 --- !u!1 &971687446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,8 +1014,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _loadingScreenScene:
-    m_SceneAsset: {fileID: 102900000, guid: 01f2584c0325a37438055444bb057d98, type: 3}
-    m_SceneName: LoadingScreen
+    _sceneAsset: {fileID: 102900000, guid: 01f2584c0325a37438055444bb057d98, type: 3}
+    _sceneName: LoadingScreen
 --- !u!1 &1136429836
 GameObject:
   m_ObjectHideFlags: 0

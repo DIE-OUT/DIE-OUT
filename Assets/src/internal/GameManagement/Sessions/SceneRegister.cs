@@ -5,11 +5,11 @@ namespace Afired.GameManagement.Sessions {
     
     public class SceneRegister : MonoBehaviour {
 
-        public static SceneField MainMenu => _instance.Get()._mainMenu;
-        public static SceneField AwardCeremony => _instance.Get()._awardCeremony;
+        public static SceneRef MainMenu => _instance.Get()._mainMenu;
+        public static SceneRef AwardCeremony => _instance.Get()._awardCeremony;
         
-        [SerializeField] private SceneField _mainMenu;
-        [SerializeField] private SceneField _awardCeremony;
+        [SerializeField] private SceneRef _mainMenu;
+        [SerializeField] private SceneRef _awardCeremony;
         
         private static SingletonInstance<SceneRegister> _instance;
         
