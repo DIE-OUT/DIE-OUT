@@ -1,6 +1,7 @@
 ﻿using System.Collections;
+using Afired.SceneManagement;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using SceneManager = UnityEngine.SceneManagement.SceneManager;
 
 namespace DieOut.UI.ControllerRecommendation {
     

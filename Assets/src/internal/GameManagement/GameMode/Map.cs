@@ -1,4 +1,5 @@
 ﻿using System;
+using Afired.SceneManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

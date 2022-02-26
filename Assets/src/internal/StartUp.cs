@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using Afired.SceneManagement;
+using UnityEngine;
+using SceneManager = UnityEngine.SceneManagement.SceneManager;
 
 namespace DieOut {
     
