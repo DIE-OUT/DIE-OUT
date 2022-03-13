@@ -1,77 +1,55 @@
-using System.Collections;
 using DieOut.GameModes.Interactions;
 using UnityEngine;
-using DieOut.GameModes.Dornenkrone;
 
 namespace DieOut.GameModes {
-    public class Throwable : MonoBehaviour {
-
-        private PlayerControls _playerControls;
-        private Movable _player;
-        private Movable _enemyPlayer;
-        private Magmaklumpen _magmaklumpen;
-        private Throwable _throwable;
-        private ItemPosition _itemPosition;
-        public Rigidbody _rigidbody;
+    
+    [RequireComponent(typeof(Rigidbody))]
+    public abstract class Throwable : MonoBehaviour {
         
+        protected Movable _player;
+        protected Movable _enemyPlayer;
+        protected ItemPosition _itemPosition;
+        protected Throwable _throwable;
+        protected Rigidbody _rigidbody;
+
         [SerializeField] float _throwForce = 800;
-        [SerializeField] private float _stunDuration = 2;
+        [SerializeField] private float _throwAngle = 20;
         public bool _attachedToPlayer = false;
 
-        void Start()
-        {
+        void Awake() {
             _rigidbody = GetComponent<Rigidbody>();
-        }
+        }                                         
         
         void Update() {
             if (_attachedToPlayer == true) {
-                GetComponent<Rigidbody>().useGravity = false;
+                _rigidbody.useGravity = false;
                 _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+                
+                Health _health = _player.GetComponent<Health>();
+
+                if (_health.IsDead) {
+                    _attachedToPlayer = false;
+                    transform.SetParent(null);
+                    _rigidbody.useGravity = true;
+                    _rigidbody.constraints = RigidbodyConstraints.None;
+                    _rigidbody.AddForce(transform.forward * 100);
+                }
             }
             else {
                 transform.SetParent(null);
-                GetComponent<Rigidbody>().useGravity = true;
+                _rigidbody.useGravity = true;
                 _rigidbody.constraints = RigidbodyConstraints.None;
             }
-        }
-
-        // Wenn man einen Enemy mit Throwable hitted, geht dessen Magmaklumpen auf den Werfer über bzw lässt dieser sein Throwable Item fallen
-        private void OnCollisionEnter(Collision collision) {
-            _enemyPlayer = collision.gameObject.GetComponent<Movable>();
-            
-            if (_enemyPlayer != null) {
-                _playerControls = _enemyPlayer.GetComponent<PlayerControls>();
-                StartCoroutine(Stun());
-                _magmaklumpen = _enemyPlayer.GetComponentInChildren<Magmaklumpen>();
-
-                if (_magmaklumpen != null && _attachedToPlayer == false) {
-                    _itemPosition = _player.GetComponentInChildren<ItemPosition>();
-                    _magmaklumpen.transform.parent = _itemPosition.transform;
-                    _magmaklumpen.transform.position = _itemPosition.transform.position;
-                }
-
-                _throwable = _enemyPlayer.GetComponentInChildren<Throwable>();
-
-                if (_throwable != null && _attachedToPlayer == false) {
-                    _throwable._attachedToPlayer = false;
-                }
-            }
-        }
-
-        private IEnumerator Stun() {
-            _playerControls.HasControl = false;
-            yield return new WaitForSeconds(_stunDuration);
-            _playerControls.HasControl = true;
         }
 
         public void TriggerPickUp() {
             _player = GetComponentInParent<Movable>();
         }
 
-        public void TriggerThrow() {
-            GetComponent<Rigidbody>().AddForce(GetComponentInParent<ItemPosition>().transform.forward * _throwForce);
+        public void TriggerThrow(Vector3 startPosition, Vector3 direction) {
+            _rigidbody.MovePosition(startPosition);
+            _rigidbody.AddForce(direction * _throwForce);
         }
-        
     }
     
 }

@@ -1,48 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnityEngine;
 
 namespace Afired.Helper {
     
+    /// <summary>
+    /// task based "event callback" that can be either async or sync awaited when invoked
+    /// </summary>
     public class TaskQueue {
         
-        private Queue<Func<Task>> _queuedFunctions;
+        private Queue<Func<Task>> _queuedTaskFunctions;
         
         
         public TaskQueue() {
-            _queuedFunctions = new Queue<Func<Task>>();
+            _queuedTaskFunctions = new Queue<Func<Task>>();
         }
         
+        /// <summary>
+        /// invokes all tasks queued synchronously
+        /// </summary>
         public async Task InvokeSynchronously() {
-            while(_queuedFunctions.Count > 0) {
-                await _queuedFunctions.Dequeue().Invoke();
+            while(_queuedTaskFunctions.Count > 0) {
+                await _queuedTaskFunctions.Dequeue().Invoke();
             }
         }
         
+        /// <summary>
+        /// invokes all tasks queued asynchronously
+        /// </summary>
         public async Task InvokeAsynchronously() {
-//            Task[] tasks = new Task[_queuedFunctions.Count];
-//            for(int i = 0; i < _queuedFunctions.Count; i++) {
-//                tasks[i] = _queuedFunctions.Dequeue().Invoke();
-//            }
             List<Task> tasks = new List<Task>();
-            while(_queuedFunctions.Count > 0) {
-                tasks.Add(_queuedFunctions.Dequeue().Invoke());
+            while(_queuedTaskFunctions.Count > 0) {
+                tasks.Add(_queuedTaskFunctions.Dequeue().Invoke());
             }
             await Task.WhenAll(tasks);
         }
-
-        public static TaskQueue operator +(TaskQueue taskQueue, Func<Task> function) {
-            taskQueue.Add(function);
+        
+        public static TaskQueue operator +(TaskQueue taskQueue, Func<Task> taskFunction) {
+            taskQueue.Add(taskFunction);
             return taskQueue;
         }
-
-        public void Add(Func<Task> function) {
-            _queuedFunctions.Enqueue(function);
+        
+        /// <summary>
+        /// adds a task to the task queue
+        /// </summary>
+        public void Add(Func<Task> taskFunction) {
+            _queuedTaskFunctions.Enqueue(taskFunction);
         }
-
+        
+        /// <summary>
+        /// clears all queued tasks
+        /// </summary>
         public void Clear() {
-            _queuedFunctions.Clear();
+            _queuedTaskFunctions.Clear();
         }
 
     }

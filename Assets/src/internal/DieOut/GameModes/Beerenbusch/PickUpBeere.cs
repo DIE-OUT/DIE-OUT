@@ -13,6 +13,7 @@ namespace DieOut.GameModes.Beerenbusch {
         private InputTable _inputTable;
 
         private Movable _player;
+        private PlayerControls _playerControls;
         public List<Beere> _beeren;
         private Beere _beere;
         private Beere _targetBeere;
@@ -22,11 +23,12 @@ namespace DieOut.GameModes.Beerenbusch {
             _inputTable.CharacterControls.PickUp.performed += OnPickUp;
 
             _player = GetComponent<Movable>();
+            _playerControls = GetComponent<PlayerControls>();
 
             _beeren = new List<Beere>();
         }
         
-        public void SetDevices(InputDevice[] devices) {
+        public void ReceiveDevices(InputDevice[] devices) {
             _inputTable.devices = devices;
         }
         
@@ -53,6 +55,7 @@ namespace DieOut.GameModes.Beerenbusch {
         }
 
         private void OnPickUp(InputAction.CallbackContext _) {
+            
             if (_beeren.Count == 0) {
                 return;
             }
@@ -62,6 +65,11 @@ namespace DieOut.GameModes.Beerenbusch {
                     _beeren.Remove(beere);
                     return;
                 }
+            }
+            
+            if (!_playerControls.HasControl) {
+                Debug.Log("can`t pick up while player controls are disabled");
+                return;
             }
             
             _targetBeere = _beeren

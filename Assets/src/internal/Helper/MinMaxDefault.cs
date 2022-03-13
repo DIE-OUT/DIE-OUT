@@ -4,8 +4,8 @@ using Sirenix.Serialization;
 
 namespace Afired.Helper {
     
-    [Serializable]
     [InlineProperty(LabelWidth = 50)]
+    [Serializable]
     public struct MinMaxDefault<T> {
         
         [OdinSerialize] [HorizontalGroup] public T Min { get; private set; }

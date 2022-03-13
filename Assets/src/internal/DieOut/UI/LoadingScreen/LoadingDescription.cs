@@ -8,13 +8,11 @@ namespace DieOut.UI.LoadingScreen {
     public class LoadingDescription : MonoBehaviour {
         
         private void Awake() {
+            if(!Session.HasCurrent || !Session.Current.IsRunning)
+                return;
+            
             TMP_Text text = GetComponent<TMP_Text>();
-            if(!Session.HasCurrent)
-                return;
-            string description = Session.Current?.GameModeInstance?.GameMode.Description;
-            if(description is null)
-                return;
-            text.text = description;
+            text.text = Session.Current?.GameModeInstance?.GameMode.DescriptionText;
         }
         
     }

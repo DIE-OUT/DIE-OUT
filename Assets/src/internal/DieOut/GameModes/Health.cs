@@ -1,5 +1,6 @@
 using System;
 using Afired.GameManagement;
+using Afired.GameManagement.Characters;
 using Afired.GameManagement.Sessions;
 using DieOut.GameModes.Interactions;
 using UnityEngine;
@@ -9,8 +10,9 @@ namespace DieOut.GameModes {
     
     public delegate void OnDeath(Player player);
     
-    public class Health : MonoBehaviour, IPlayerReceiver {
+    public class Health : MonoBehaviour, IPlayerReceiver, IAnimatorReceiver {
 
+        private Animator _animator;
         public event OnDeath OnDeath;
         [SerializeField] private float _maxHealth = 100;
         [SerializeField] private PlayerControls _playerControls;
@@ -19,6 +21,11 @@ namespace DieOut.GameModes {
         public bool IsDead { get; private set; }
 
         public Slider _healthbar;
+        
+        
+        public void ReceiveAnimator(Animator animator) {
+            _animator = animator;
+        }
 
         private void Awake() {
             _health = _maxHealth;
@@ -35,18 +42,37 @@ namespace DieOut.GameModes {
         private float CalculateHealth() {
             return _health / _maxHealth;
         }
-        
-        public void TriggerDamage(float damage) {
+
+        public void TriggerDamage(float damage, DamageType mannerOfDeath) {
             _health -= damage;
+            
             if(_health <= 0 && !IsDead) {
                 OnDeath?.Invoke(_player);
+
+                switch (mannerOfDeath) {
+                    case DamageType.Fire:
+                        _animator.SetTrigger(AnimatorStringHashes.TriggerFireDeath);
+                        break;
+                    case  DamageType.Lightning:
+                        _animator.SetTrigger(AnimatorStringHashes.TriggerLightningDeath);
+                        break;
+                    case  DamageType.Poison:
+                        _animator.SetTrigger(AnimatorStringHashes.TriggerPoisonDeath);
+                        break;
+                    default:
+                        break;
+                }
                 IsDead = true;
                 if(_playerControls != null)
                     _playerControls.HasControl = false;
             }
         }
 
-        public void SetPlayer(Player player) {
+        public void Heal(float healAmount) {
+            _health += healAmount;
+        }
+
+        public void ReceivePlayer(Player player) {
             _player = player;
         }
         

@@ -8,6 +8,7 @@ namespace Afired.QualityManagement {
         public static int CurrentGraphicsQualityLevelIndex => QualitySettings.GetQualityLevel();
         public static string GetGraphicsQualityLevelNameByIndex(int index) => QualitySettings.names[index];
         public static int GraphicsLevelCount => QualitySettings.names.Length;
+        
         private static SingletonInstance<GraphicsQualityManger> _instance;
         
         

@@ -26,7 +26,7 @@ namespace DieOut.GameModes.Interactions {
             _player = GetComponentInParent<Movable>();
         }
         
-        public void SetDevices(InputDevice[] devices) {
+        public void ReceiveDevices(InputDevice[] devices) {
             _inputTable.devices = devices;
         }
         
@@ -70,7 +70,7 @@ namespace DieOut.GameModes.Interactions {
             // sort list according to distance from Player, exclude the once that have tackle immunity and then take first element in list
             Tackleable target = _otherPlayers
                 .OrderBy(x => Vector2.Distance(this.transform.parent.position, x.transform.position)).
-                FirstOrDefault(tackleable => !tackleable.tackleImmunity);
+                FirstOrDefault(tackleable => !tackleable._ccImmunity);
             
             // dont do anything if there is no target to tackle
             if(target == null) {

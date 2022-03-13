@@ -1,4 +1,5 @@
 ﻿using System;
+using Afired.SceneManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -7,26 +8,14 @@ namespace Afired.GameManagement.GameModes {
     [Serializable]
     public class Map {
         
-        #region Odin
+        [HideLabel] [HideReferenceObjectPicker]
+        [SerializeField] private SceneRef _scene = new SceneRef();
         [HideLabel]
-        [HideReferenceObjectPicker]
-        #endregion
-        [SerializeField] private SceneField _scene = new SceneField();
-        
-        #region Odin
-        [HideLabel]
-        #endregion
         [SerializeField] private string _displayName;
         
-        /// <summary>
-        /// returns the scene for this map
-        /// </summary>
-        /// <returns>the Scene for this map</returns>>
-        public SceneField Scene => _scene;
-        /// <summary>
-        /// the display name for this map 
-        /// </summary>
-        /// <returns>the display name for this map</returns>>
+        /// <returns>the unity scene of this map</returns>>
+        public SceneRef Scene => _scene;
+        /// <returns>the display name of this map</returns>>
         public string DisplayName => _displayName;
         
     }

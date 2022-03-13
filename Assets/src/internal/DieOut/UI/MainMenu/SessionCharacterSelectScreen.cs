@@ -11,16 +11,13 @@ namespace DieOut.UI.MainMenu {
     public class SessionCharacterSelectScreen : MonoBehaviour {
 
         [SerializeField] private SessionSettingsScreen _sessionSettingsScreen;
-        [SerializeField] private PlayerManager _playerManager;
-        [SerializeField] private ScreenManager _screenManager;
-        [SerializeField] private Screen _screenToGoBackTo;
+        [SerializeField] private CharacterSelectCardManager _characterSelectCardManager;
         private InputTable _inputTable;
         
         
         private void Awake() {
             _inputTable = new InputTable();
             _inputTable.Navigation.SessionStart.performed += TryToStartSession;
-            _inputTable.Navigation.Back.performed += Back;
         }
 
         private void OnEnable() {
@@ -31,9 +28,13 @@ namespace DieOut.UI.MainMenu {
             _inputTable.Disable();
         }
 
+        private void OnDestroy() {
+            _inputTable.Dispose();
+        }
+
         private void TryToStartSession(InputAction.CallbackContext _) {
             SessionBuilder sessionBuilder = _sessionSettingsScreen.SessionBuilder;
-            sessionBuilder.Players = _playerManager.CreatePlayers();
+            sessionBuilder.Players = _characterSelectCardManager.CreatePlayers();
             
             Session newSession = sessionBuilder.Create();
             if(newSession == null)
@@ -41,14 +42,8 @@ namespace DieOut.UI.MainMenu {
             
             Session.SetNew(newSession);
             #pragma warning disable CS4014
-            Session.Current.LoadRandomGameMode();
+            Session.Current.Start();
             #pragma warning restore CS4014
-        }
-
-        private void Back(InputAction.CallbackContext _) {
-            //gameObject.SetActive(false);
-            _screenManager.Activate(_screenToGoBackTo);
-            //throw new NotImplementedException();
         }
         
     }

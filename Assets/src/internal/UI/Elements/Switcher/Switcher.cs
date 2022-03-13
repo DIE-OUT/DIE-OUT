@@ -1,28 +1,21 @@
 ﻿using System;
+using System.Collections;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Afired.UI.Elements {
     
-    public class Switcher : MonoBehaviour {
+    public class Switcher : Selectable {
         
         private ISwitchControl _control;
         private ISwitchControl Control {
             get => _control ?? throw new Exception("There is no switch control assigned");
             set => _control = value;
         }
-        [Title("References")]
         [SerializeField] private TMP_Text _label;
-        [SerializeField] private Button _prevButton;
-        [SerializeField] private Button _nextButton;
-        
-        
-        private void Awake() {
-            _prevButton.onClick.AddListener(SelectPrev);
-            _nextButton.onClick.AddListener(SelectNext);
-        }
         
         public bool HasControl() {
             return !(_control is null);
@@ -52,6 +45,46 @@ namespace Afired.UI.Elements {
         
         public void UpdateLabel() {
             _label.text = Control.GetValueAsText();
+        }
+        
+        private void Press() {
+            // don't run if element gets disabled during the press
+            if (!IsActive() || !IsInteractable())
+                return;
+
+            UISystemProfilerApi.AddMarker("Button.onClick", this);
+            
+            DoStateTransition(SelectionState.Pressed, false);
+            StartCoroutine(OnFinishSubmit());
+        }
+        
+        private IEnumerator OnFinishSubmit() {
+            var fadeTime = colors.fadeDuration;
+            var elapsedTime = 0f;
+
+            while (elapsedTime < fadeTime)
+            {
+                elapsedTime += Time.unscaledDeltaTime;
+                yield return null;
+            }
+
+            DoStateTransition(currentSelectionState, false);
+        }
+        
+        public override void OnMove(AxisEventData eventData) {
+            switch(eventData.moveDir) {
+                case MoveDirection.Left:
+                    SelectPrev();
+                    Press();
+                    return;
+                case MoveDirection.Right:
+                    SelectNext();
+                    Press();
+                    return;
+                default:
+                    base.OnMove(eventData);
+                    break;
+            }
         }
         
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Afired.GameManagement.Characters;
 using Afired.GameManagement.GameModes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,9 +8,9 @@ using UnityEngine.InputSystem;
 namespace DieOut.GameModes.Interactions {
     
     [RequireComponent(typeof(Movable))]
-    public class PlayerControls : MonoBehaviour, IDeviceReceiver {
+    public class PlayerControls : MonoBehaviour, IDeviceReceiver, IAnimatorReceiver {
 
-        [SerializeField] private Animator _animator;
+        private Animator _animator;
         
         public bool HasControl = true;
         [Header("Settings")]
@@ -38,8 +39,12 @@ namespace DieOut.GameModes.Interactions {
             _inputTable.CharacterControls.Jump.performed += OnJumpInput;
         }
         
-        public void SetDevices(InputDevice[] devices) {
+        public void ReceiveDevices(InputDevice[] devices) {
             _inputTable.devices = devices;
+        }
+        
+        public void ReceiveAnimator(Animator animator) {
+            _animator = animator;
         }
         
         private void OnEnable() {

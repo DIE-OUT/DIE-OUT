@@ -2,9 +2,12 @@
 
 namespace Afired.GameManagement.GameModes {
     
+    /// <summary>
+    /// interface for custom injection of input devices
+    /// </summary>
     public interface IDeviceReceiver {
         
-        public void SetDevices(InputDevice[] devices);
+        public void ReceiveDevices(InputDevice[] devices);
         
     }
     

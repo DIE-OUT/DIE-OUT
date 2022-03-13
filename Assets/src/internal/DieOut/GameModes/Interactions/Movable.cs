@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace DieOut.GameModes.Interactions {
     
@@ -8,6 +9,9 @@ namespace DieOut.GameModes.Interactions {
         [SerializeField] private float _inAirGravityForceUp = 50f;
         [SerializeField] private float _inAirGravityForceDown = 50f;
         [SerializeField] private float _groundGravityForce = 1f;
+        [SerializeField] private float _horizontalDrag = 15f;
+        [SerializeField] private float _groundedBufferTime = 0.1f;
+        private float _currentTime = 0;
         private bool _hasGravity = true;
         private CharacterController _characterController;
         private Vector3 _currentVelocity;
@@ -16,7 +20,15 @@ namespace DieOut.GameModes.Interactions {
         private void Awake() {
             _characterController = GetComponent<CharacterController>();
         }
-        
+
+        private void Update() {
+            _currentTime += Time.deltaTime;
+
+            if (_characterController.isGrounded) {
+                _currentTime = 0;
+            }
+        }
+
         private void LateUpdate() {
             Vector3 direction = CalcNextFrame();
             _characterController.Move(direction);
@@ -46,11 +58,11 @@ namespace DieOut.GameModes.Interactions {
                 _currentVelocity += new Vector3(0, -_inAirGravityForceDown * Time.deltaTime, 0);
         }
         
-        //TODO: better drag implementation
         private void ApplyHorizontalDrag() {
-            _currentVelocity = new Vector3(_currentVelocity.x / 1.1f, _currentVelocity.y, _currentVelocity.z / 1.1f);
+            Vector3 newVelocity = _currentVelocity * ( 1 - Time.deltaTime * _horizontalDrag);
+            _currentVelocity = new Vector3(newVelocity.x, _currentVelocity.y, newVelocity.z);
         }
-
+        
         public void Move(Vector3 direction) {
             _move += direction;
         }
@@ -62,8 +74,8 @@ namespace DieOut.GameModes.Interactions {
         public void SetVelocity(Vector3 velocity) {
             _currentVelocity = velocity;
         }
-
-        public bool IsGrounded => _characterController.isGrounded;
+        
+        public bool IsGrounded => _currentTime <= _groundedBufferTime;
     }
     
 }

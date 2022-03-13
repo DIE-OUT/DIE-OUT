@@ -26,13 +26,13 @@ MonoBehaviour:
       Data: Afired.Helper.MinMaxDefault`1[[System.Int32, mscorlib]], Afired.Helper
     - Name: Min
       Entry: 3
-      Data: 3
+      Data: 1
     - Name: Default
       Entry: 3
       Data: 5
     - Name: Max
       Entry: 3
-      Data: 50
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -41,13 +41,13 @@ MonoBehaviour:
       Data: Afired.Helper.MinMaxDefault`1[[System.Int32, mscorlib]], Afired.Helper
     - Name: Min
       Entry: 3
-      Data: 6
+      Data: 1
     - Name: Default
       Entry: 3
-      Data: 12
+      Data: 3
     - Name: Max
       Entry: 3
-      Data: 100
+      Data: 10
     - Name: 
       Entry: 8
       Data: 

@@ -7,33 +7,17 @@ using Unity.Mathematics;
 
 namespace DieOut.GameModes.Beerenbusch {
     public class GrowBack : MonoBehaviour {
-
-        private List<Beere> _beeren;
-
-        [SerializeField] private float _firstGrowTime = 10;
-        [SerializeField] private float _growBackTime = 10;
-        private bool _beerenbuschEmpty;
-        private bool _inCoroutine = false;
+        
+        private List<BeerenSpawnpoint> _beerenSpawnpoints;
+        [SerializeField] private Beere _prefabBeere;
+        
+        [SerializeField] public bool _firstBusch = false;
 
         private void Awake() {
-            _beeren = GetComponentsInChildren<Beere>().ToList();
-            foreach (Beere beere in _beeren) {
-                beere.gameObject.SetActive(false);
-            }
+            _beerenSpawnpoints = GetComponentsInChildren<BeerenSpawnpoint>().ToList(); 
         }
 
-        private void Start() {
-            StartCoroutine(FirstGrow());
-        }
-        
-        private void Update() {
-            if (BeerenbuschEmpty() && !_inCoroutine) {
-                _inCoroutine = true;
-                StartCoroutine(BeerenGrowBack());
-            }
-        }
-
-        private bool BeerenbuschEmpty() {
+        public bool BeerenbuschEmpty() {
             Beere _anyBeere = GetComponentInChildren<Beere>();
             
             if (_anyBeere == null) {
@@ -44,17 +28,12 @@ namespace DieOut.GameModes.Beerenbusch {
             }
         }
 
-        private IEnumerator FirstGrow() {
-            yield return new WaitForSeconds(_firstGrowTime);
-            foreach (Beere beere in _beeren) {
-                beere.gameObject.SetActive(true);
+        public void BeerenGrowBack() { 
+            foreach (BeerenSpawnpoint beerenSpawnpoint in _beerenSpawnpoints) {
+                Beere beere = Instantiate(_prefabBeere, beerenSpawnpoint.transform.position, Quaternion.identity);
+                beere.transform.parent = beerenSpawnpoint.transform;
             }
         }
 
-        private IEnumerator BeerenGrowBack() { 
-            
-            yield return new WaitForSeconds(_growBackTime);
-            _inCoroutine = false;
-        }
     }
 }
